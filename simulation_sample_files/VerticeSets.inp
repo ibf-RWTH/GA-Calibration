@@ -1,0 +1,16 @@
+*Nset, nset=V1, instance=PART-1-1
+ 1585,
+*Nset, nset=V2, instance=PART-1-1
+ 1596,
+*Nset, nset=V3, instance=PART-1-1
+ 1728,
+*Nset, nset=V4, instance=PART-1-1
+ 1717,
+*Nset, nset=H1, instance=PART-1-1
+ 1,
+*Nset, nset=H2, instance=PART-1-1
+ 12,
+*Nset, nset=H3, instance=PART-1-1
+ 144,
+*Nset, nset=H4, instance=PART-1-1
+ 133,
