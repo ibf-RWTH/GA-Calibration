@@ -96,10 +96,10 @@ class Simulation:
                 sim_results = self.calcStressStrain(current_simulation_dir, current_job_name)
                 #sim_results.to_csv('sim_results.csv')
                 compare_func = self.sim_flag2compare_function[self.sim_flag]
-                mad1, mad2 = compare_func(sim_results)
+                mad1, mad2, time_stamp = compare_func(sim_results)
                 mad = mad1 + mad2
                 # write results to files and delete simulation files
-                self.write_results_file(mad_time=mad1, mad_stress=mad2, mad=mad, params=params, compare_func=compare_func.__name__)
+                self.write_results_file(mad_time=mad1, mad_stress=mad2, mad=mad, params=params, compare_func=compare_func.__name__, time_stamp=time_stamp)
                 self.remove_sim_files(current_simulation_dir)
                 # delete log file only if simulations was successful
                 #if complete_status:
@@ -126,10 +126,11 @@ class Simulation:
         os.system(f'rm -rf {path_to_remove}')
         time.sleep(10) 
 
-    def write_results_file(self, mad_time, mad_stress, mad, params, compare_func) -> None:
+    def write_results_file(self, mad_time, mad_stress, mad, params, compare_func, time_stamp) -> None:
         f = open(self.log_dir + '/results.txt', 'a+')
         f.write(f'simulation type: {self.sim_flag}\n')
         f.write(f'Compute Error Using: {compare_func}\n')
+        f.write(f'time_Stamp: {time_stamp}')
         f.write(f'Error_Time: {mad_time}\n')
         f.write(f'Error_Stress: {mad_stress}\n')
         f.write(f'Error: {mad}\n')
@@ -334,9 +335,9 @@ class Simulation:
             mad_stress = np.mean(np.abs(comp_df['stress_t'] - comp_df['Stress'])**2)
 
         elif self.n_phases == 2:
-            mad_stress_total = np.mean(np.abs(comp_df['stress_t'] - comp_df['Stress'])/ 100)**2
-            mad_stress_phase1 = np.mean(np.abs(comp_df['Stress_Phase1_t'] - comp_df['Stress_Phase1_y'])/ 100)**2
-            mad_stress_phase2 = np.mean(np.abs(comp_df['Stress_Phase2_t'] - comp_df['Stress_Phase2_y'])/100)**2
+            mad_stress_total = np.mean(np.abs(comp_df['stress_t'] - comp_df['Stress']))
+            mad_stress_phase1 = np.mean(np.abs(comp_df['Stress_Phase1_t'] - comp_df['Stress_Phase1_y']))
+            mad_stress_phase2 = np.mean(np.abs(comp_df['Stress_Phase2_t'] - comp_df['Stress_Phase2_y']))
             mad_stress = (mad_stress_phase1 + mad_stress_phase2 + mad_stress_total) / 3
 
             self.plot_data(f'stress_vs_time_phase_1_{now}', 'time ( s )', 'Stress ( MPa )',
@@ -352,7 +353,7 @@ class Simulation:
                        comp_df['Strain'], comp_df['Stress'], 'Simulation Data')
 
 
-        return mad_time, mad_stress
+        return mad_time, mad_stress, now
 
     def compare_exp2sim_tensile_dual_phase(self, simulation_df):
         assert self.n_phases == 2
@@ -580,12 +581,12 @@ if __name__ == '__main__':
     MatProp2Bound = {
             'shrt_0': [0.001, 1000],
             'pw_fl': [1, 100],
-            'hdrt_0': [900,1000],
-            'crss_0': [1, 30],
-            'crss_s': [100, 1500],
+            'hdrt_0': [800, 1200],
+            'crss_0': [10, 190],
+            'crss_s': [100, 500],
             'pw_hd' : [1, 3],
-            'Adir': [1, 10000],
-            'Adyn': [1, 5000]
+            'Adir': [0, 700],
+            'Adyn': [0, 300]
     }
     # choose phases and the varrying parameters for each phase here
     material_id = [3, 4]
@@ -600,8 +601,8 @@ if __name__ == '__main__':
     os.system(f'echo sim_root: {sim_root}')
     os.system(f'echo sim_type: {sim_flag}')
 
-    algorithm_param = {'max_num_iteration': 30, \
-                       'population_size': 20, \
+    algorithm_param = {'max_num_iteration': 50, \
+                       'population_size': 50, \
                        'mutation_probability': 0.1, \
                        'elit_ratio': 0.1, \
                        'parents_portion': 0.3, \
