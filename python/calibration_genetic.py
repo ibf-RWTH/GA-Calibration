@@ -521,7 +521,7 @@ class Optimize:
     
     def create_job_dirs(self)  -> None:
         # create Folder for next simulation
-        source_dir = f'{self.sim_root}/simulation_sample_files'
+        source_dir = f'{self.sim_root}/sample_files_{self.sim_flag}_simulation'
         len_sample_dir = len(os.listdir(source_dir))
         for i in range (self.n_jobs):
             dst_dir = f'{self.sim_root}/simulation_{i}'
@@ -606,7 +606,7 @@ if __name__ == '__main__':
     }
     # choose phases and the varrying parameters for each phase here
     material_id = [2, 3]
-    MatID2MatProps[2] = ['pw_fl','hdrt_0','crss_0','crss_s','pw_hd' ]
+    MatID2MatProps[2] = ['pw_fl','hdrt_0','crss_0','crss_s']
     MatID2MatProps[3] = ['pw_fl','hdrt_0','crss_0','crss_s','pw_hd' ]
     varbound = get_material_varbound(material_id)
     #print(varbound.shape)
