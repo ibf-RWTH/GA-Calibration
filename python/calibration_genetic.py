@@ -112,7 +112,7 @@ class Simulation:
 
     def create_job_dir(self, dst_dir)  -> None:
         # create Folder for next simulation
-        source_dir = f'{self.sim_root}/simulation_sample_files'
+        source_dir = f'{self.sim_root}/sample_files_{self.sim_flag}_simulation'
         len_sample_dir = len(os.listdir(source_dir))
         if not os.path.exists(dst_dir):
                 shutil.copytree(source_dir, dst_dir)
@@ -417,8 +417,11 @@ class Simulation:
         if phase_index == 0:
             mat_props_values = values[:len(mat_props)]
         else:
-            mat_props_values = values[len(mat_props):]
-
+            mat_props_values = values[len(values) - len(mat_props):]
+        # os.system(f'echo phase_index: {id}')
+        # os.system(f'echo values len: {len(values)}')
+        # os.system(f'echo num props: {len(mat_props_values)}')
+        # os.system(f'echo mat_props len : {len(mat_props)}')
         with open(f'{sample_path}/matdata.inp', 'r') as file:
             lines = file.readlines()
 
@@ -538,13 +541,11 @@ def get_material_varbound(material_ids: list) -> np.ndarray:
     varbound = []
     for mat_id in material_ids:
         if mat_id in MatID2MatProps:
-            mat_props = MatID2MatProps[mat_id]
-            for mat_prop in mat_props:
-                varbound.append(MatProp2Bound[mat_prop])
-        
+            mat_props_bounds = MatID2MatPropsBound[mat_id]
+            for value in mat_props_bounds.values():
+                varbound.append(value)
     varbound = np.array(varbound)
     return varbound
-
 
 if __name__ == '__main__':
     # Get the arguments list
@@ -593,7 +594,7 @@ if __name__ == '__main__':
             3: ['pw_fl','shrt_0', 'crss_0','k','crss_s','pw_hd','Adir','Adyn','gam_c','pw_irr'],
             4: ['pw_fl','shrt_0', 'crss_0','k','crss_s','pw_hd','Adir','Adyn','gam_c','pw_irr']
         }
-    # set bounds here    
+    # these are default bound    
     MatProp2Bound = {
             'shrt_0': [0.001, 1000],
             'pw_fl': [1, 100],
@@ -608,8 +609,22 @@ if __name__ == '__main__':
     material_id = [2, 3]
     MatID2MatProps[2] = ['pw_fl','hdrt_0','crss_0','crss_s']
     MatID2MatProps[3] = ['pw_fl','hdrt_0','crss_0','crss_s','pw_hd' ]
+
+    MatID2MatPropsBound = {}
+    for mat_id in material_id:
+        MatID2MatPropsBound[mat_id] = {}
+
+    for mat_id in material_id:
+        if mat_id in MatID2MatProps:
+            mat_props = MatID2MatProps[mat_id]
+            for mat_prop in mat_props:
+                MatID2MatPropsBound[mat_id][mat_prop] = MatProp2Bound[mat_prop]
+
+    #set material properties bound for each phase MatID2MatPropsBound[phase_id][prop_name]
+    MatID2MatPropsBound[2]['hdrt_0'] = [800, 1199]
+    
     varbound = get_material_varbound(material_id)
-    #print(varbound.shape)
+    # #print(varbound.shape)
     
     os.system('echo python script initialized with follwing input:')
     os.system(f'echo restart: {restart_flag}')
