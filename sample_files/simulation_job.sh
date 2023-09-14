@@ -2,9 +2,9 @@
 ### Job name
 #SBATCH --job-name=CP_Calibration
 ### Account
-#SBATCH --account=rwth0925
+#SBATCH --account=rwth1393
 ### File/Path where STDOUT will be written to, %J is the job id
-#SBATCH --output /home/rwth0925/DFG/CalibrationGA2/logs/CP_Calibration-log.%J
+#SBATCH --output /home/rwth1393/GA-Calibration/logs/CP_Calibration-log.%J
 ### Request the time you need for execution. The full format is D-HH:MM:SS
 ### You must at least specify minutes or days and hours and may add or
 ### leave out any other parameters
@@ -25,7 +25,7 @@ export ABAQUS_MEM_ARG="16 Gb"
 ### number of threads on each MPI RANK needed since ABAQUS 2019 doesnt work with ealier versions
 export THREADS_PER_MPI=1
 # directory variables
-export ROOT="/home/rwth0925/DFG/CalibrationGA2"
+export ROOT="/home/rwth1393/GA-Calibration"
 export PYTHON_PATH="$ROOT/python/readOdb.py"
 export SUBROUTINE_PATH="$ROOT/subroutine/Umat_CP.for"
 ### name your job HERE, name it DIFFERENT from your input file!

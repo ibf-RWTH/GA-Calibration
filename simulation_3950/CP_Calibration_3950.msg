@@ -1,0 +1,6759 @@
+1
+
+   Abaqus 2022.HF6                                  Date 13-Sep-2023   Time 16:02:47
+   For use by RWTH AACHEN UNIVERSITY under license from Dassault Systemes or its subsidiary.
+
+                                                                                 
+                                                                                 
+ STEP    1     INCREMENT     1     STEP TIME    0.00    
+
+
+                        S T E P       1     S T A T I C   A N A L Y S I S
+
+
+                                                                                          
+
+     AUTOMATIC TIME CONTROL WITH -
+          A SUGGESTED INITIAL TIME INCREMENT OF                0.100    
+          AND A TOTAL TIME PERIOD OF                            55.0    
+          THE MINIMUM TIME INCREMENT ALLOWED IS                5.000-150
+          THE MAXIMUM TIME INCREMENT ALLOWED IS                 55.0    
+
+     LINEAR EQUATION SOLVER TYPE         ITERATIVE
+     RELATIVE TOLERANCE OF CONVERGENCE   1.000E-05
+     MAXIMUM NUMBER OF ITERATIONS        200
+
+ CONVERGENCE TOLERANCE PARAMETERS FOR FORCE    
+     CRITERION FOR RESIDUAL FORCE     FOR A NONLINEAR PROBLEM          5.000E-03
+     CRITERION FOR DISP.    CORRECTION IN A NONLINEAR PROBLEM          1.000E-02
+     INITIAL VALUE OF TIME AVERAGE FORCE                               1.000E-02
+     AVERAGE FORCE     IS TIME AVERAGE FORCE    
+     ALTERNATE CRIT. FOR RESIDUAL FORCE     FOR A NONLINEAR PROBLEM    2.000E-02
+     CRITERION FOR ZERO FORCE     RELATIVE TO TIME AVRG. FORCE         1.000E-05
+     CRITERION FOR RESIDUAL FORCE     WHEN THERE IS ZERO FLUX          1.000E-05
+     CRITERION FOR DISP.    CORRECTION WHEN THERE IS ZERO FLUX         1.000E-03
+     CRITERION FOR RESIDUAL FORCE     FOR A LINEAR INCREMENT           1.000E-08
+     FIELD CONVERSION RATIO                                             1.00    
+     CRITERION FOR ZERO FORCE     REL. TO TIME AVRG. MAX. FORCE        1.000E-05
+     CRITERION FOR ZERO DISP.    RELATIVE TO CHARACTERISTIC LENGTH     1.000E-08
+
+     VOLUMETRIC STRAIN COMPATIBILITY TOLERANCE FOR HYBRID SOLIDS       1.000E-05
+     AXIAL STRAIN COMPATIBILITY TOLERANCE FOR HYBRID BEAMS             1.000E-05
+     TRANS. SHEAR STRAIN COMPATIBILITY TOLERANCE FOR HYBRID BEAMS      1.000E-05
+     SOFT CONTACT CONSTRAINT COMPATIBILITY TOLERANCE FOR P>P0          5.000E-03
+     SOFT CONTACT CONSTRAINT COMPATIBILITY TOLERANCE FOR P=0.0         0.100    
+     CONTACT FORCE ERROR TOLERANCE FOR CONVERT SDI=YES                 1.00    
+     DISPLACEMENT COMPATIBILITY TOLERANCE FOR DCOUP ELEMENTS           1.000E-05
+     ROTATION COMPATIBILITY TOLERANCE FOR DCOUP ELEMENTS               1.000E-05
+
+ EQUILIBRIUM WILL BE CHECKED FOR SEVERE DISCONTINUITY ITERATIONS
+
+ TIME INCREMENTATION CONTROL PARAMETERS:
+ *** FIRST EQUILIBRIUM ITERATION FOR CONSECUTIVE DIVERGENCE CHECK             35
+ *** EQUILIBRIUM ITERATION AT WHICH LOG. CONVERGENCE RATE CHECK BEGINS        15
+     EQUILIBRIUM ITERATION AFTER WHICH ALTERNATE RESIDUAL IS USED              9
+ *** MAXIMUM EQUILIBRIUM ITERATIONS ALLOWED                                   15
+ *** EQUILIBRIUM ITERATION COUNT FOR CUT-BACK IN NEXT INCREMENT               28
+ *** MAXIMUM EQUILIB. ITERS IN TWO INCREMENTS FOR TIME INCREMENT INCREASE      5
+     MAXIMUM ITERATIONS FOR SEVERE DISCONTINUITIES                            50
+ *** MAXIMUM ATTEMPTS ALLOWED IN AN INCREMENT                                 45
+     MAXIMUM DISCON. ITERS IN TWO INCREMENTS FOR TIME INCREMENT INCREASE      50
+     MAXIMUM CONTACT AUGMENTATIONS FOR *SURFACE BEHAVIOR,AUGMENTED LAGRANGE   50
+     CUT-BACK FACTOR AFTER DIVERGENCE                                 0.2500    
+     CUT-BACK FACTOR FOR TOO SLOW CONVERGENCE                         0.5000    
+     CUT-BACK FACTOR AFTER TOO MANY EQUILIBRIUM ITERATIONS            0.7500    
+     CUT-BACK FACTOR AFTER TOO MANY SEVERE DISCONTINUITY ITERATIONS   0.2500    
+     CUT-BACK FACTOR AFTER PROBLEMS IN ELEMENT ASSEMBLY               0.2500    
+     INCREASE FACTOR AFTER TWO INCREMENTS THAT CONVERGE QUICKLY        1.500    
+     MAX. TIME INCREMENT INCREASE FACTOR ALLOWED                       1.500    
+     MAX. TIME INCREMENT INCREASE FACTOR ALLOWED (DYNAMICS)            1.250    
+     MAX. TIME INCREMENT INCREASE FACTOR ALLOWED (DIFFUSION)           2.000    
+     MINIMUM TIME INCREMENT RATIO FOR EXTRAPOLATION TO OCCUR          0.1000    
+     MAX. RATIO OF TIME INCREMENT TO STABILITY LIMIT                   1.000    
+     FRACTION OF STABILITY LIMIT FOR NEW TIME INCREMENT               0.9500    
+     TIME INCREMENT INCREASE FACTOR BEFORE A TIME POINT                1.000    
+
+ *** INDICATES USE OF NON-DEFAULT TIME INCREMENTATION CONTROL PARAMETER
+     SELECTED WITH *CONTROLS
+     GLOBAL STABILIZATION CONTROL IS NOT USED
+
+          PRINT OF INCREMENT NUMBER, TIME, ETC., EVERY    1  INCREMENTS
+
+ LINE SEARCH TOLERANCE PARAMETERS:
+ *** MAXIMUM NUMBER OF ZERO-FINDING ITERATIONS                                10
+     MAXIMUM CORRECTION SCALE FACTOR                                    1.00    
+     MINIMUM CORRECTION SCALE FACTOR                                   1.000E-04
+     RESIDUAL REDUCTION FACTOR TO END LINE SEARCHING                   0.250    
+     RATIO OF NEW TO OLD SCALE FACTORS TO END LINE SEARCHING           0.100    
+
+ *** INDICATES USE OF NON-DEFAULT LINE SEARCH TOLERANCE PARAMETER
+     SELECTED WITH *CONTROLS
+
+     THE MAXIMUM NUMBER OF INCREMENTS IN THIS STEP IS                 *******
+
+          LARGE DISPLACEMENT THEORY WILL BE USED
+
+     LINEAR EXTRAPOLATION WILL BE USED
+
+     CHARACTERISTIC ELEMENT LENGTH     2.727E-03
+
+     DETAILS REGARDING ACTUAL SOLUTION WAVEFRONT REQUESTED
+
+     DETAILED OUTPUT OF DIAGNOSTICS TO DATABASE REQUESTED
+
+     PRINT OF INCREMENT NUMBER, TIME, ETC., TO THE MESSAGE FILE EVERY     1  INCREMENTS
+  
+     MODEL DECOMPOSITION USED FOR PARALLEL ELEMENT OPERATIONS:
+  
+        DOMAIN          ELEMENTS          NODES          INTERFACE
+       --------        ----------        -------        -----------
+           1                  84            215                193
+           2                  84            227                210
+           3                  82            216                180
+           4                  84            250                209
+           5                  82            196                179
+           6                  84            190                172
+           7                  82            228                192
+           8                  83            225                196
+           9                  82            288                228
+          10                  82            318                266
+          11                  84            288                252
+          12                  84            224                207
+          13                  84            204                186
+          14                  82            245                214
+          15                  84            251                232
+          16                  84            241                220
+  
+
+     ELEMENT OPERATIONS WILL BE CARRIED OUT IN PARALLEL USING  16 DOMAINS WITH 1 THREAD PER DOMAIN
+
+     COLLECTING MODEL CONSTRAINT INFORMATION FOR OVERCONSTRAINT CHECKS
+
+     COLLECTING STEP CONSTRAINT INFORMATION FOR OVERCONSTRAINT CHECKS
+
+
+  INCREMENT     1 STARTS. ATTEMPT NUMBER  1, TIME INCREMENT  0.100    
+ 
+     INITIAL ELEMENT LOAD BALANCE
+            DOMAIN    1     THREAD    NUMBER OF ELEMENTS
+                              1            84
+            DOMAIN    2     THREAD    NUMBER OF ELEMENTS
+                              1            84
+            DOMAIN    3     THREAD    NUMBER OF ELEMENTS
+                              1            82
+            DOMAIN    4     THREAD    NUMBER OF ELEMENTS
+                              1            84
+            DOMAIN    5     THREAD    NUMBER OF ELEMENTS
+                              1            82
+            DOMAIN    6     THREAD    NUMBER OF ELEMENTS
+                              1            84
+            DOMAIN    7     THREAD    NUMBER OF ELEMENTS
+                              1            82
+            DOMAIN    8     THREAD    NUMBER OF ELEMENTS
+                              1            83
+            DOMAIN    9     THREAD    NUMBER OF ELEMENTS
+                              1            82
+            DOMAIN   10     THREAD    NUMBER OF ELEMENTS
+                              1            82
+            DOMAIN   11     THREAD    NUMBER OF ELEMENTS
+                              1            84
+            DOMAIN   12     THREAD    NUMBER OF ELEMENTS
+                              1            84
+            DOMAIN   13     THREAD    NUMBER OF ELEMENTS
+                              1            84
+            DOMAIN   14     THREAD    NUMBER OF ELEMENTS
+                              1            82
+            DOMAIN   15     THREAD    NUMBER OF ELEMENTS
+                              1            84
+            DOMAIN   16     THREAD    NUMBER OF ELEMENTS
+                              1            84
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 65
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    6 RELATIVE RESIDUAL NORM =  4.309e-06 RHS NORM =  2.547e-02
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
+
+
+ AVERAGE FORCE                      1.168E-05   TIME AVG. FORCE       1.168E-05
+ LARGEST SCALED RESIDUAL FORCE     -2.455E-03   AT NODE       1596   DOF  1
+   INSTANCE: PART-1-1                                                                        
+  CORRESPONDING RESIDUAL FORCE     -2.455E-03
+ LARGEST INCREMENT OF DISP.         3.208E-06   AT NODE        282   DOF  2
+   INSTANCE: PART-1-1                                                                        
+ LARGEST CORRECTION TO DISP.        3.208E-06   AT NODE        282   DOF  2
+   INSTANCE: PART-1-1                                                                        
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 74
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    7 RELATIVE RESIDUAL NORM =  3.770e-06 RHS NORM =  3.672e-03
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     2
+
+
+ AVERAGE FORCE                      6.395E-06   TIME AVG. FORCE       6.395E-06
+ LARGEST SCALED RESIDUAL FORCE      4.138E-05   AT NODE          1   DOF  3
+   INSTANCE: PART-1-1                                                                        
+  CORRESPONDING RESIDUAL FORCE      4.138E-05
+ LARGEST INCREMENT OF DISP.         3.326E-06   AT NODE       1291   DOF  2
+   INSTANCE: PART-1-1                                                                        
+ LARGEST CORRECTION TO DISP.        1.184E-06   AT NODE         65   DOF  3
+   INSTANCE: PART-1-1                                                                        
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 83
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    8 RELATIVE RESIDUAL NORM =  2.719e-06 RHS NORM =  1.058e-04
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     3
+
+
+ AVERAGE FORCE                      6.158E-06   TIME AVG. FORCE       6.158E-06
+ LARGEST SCALED RESIDUAL FORCE      7.707E-07   AT NODE          1   DOF  3
+   INSTANCE: PART-1-1                                                                        
+  CORRESPONDING RESIDUAL FORCE      7.707E-07
+ LARGEST INCREMENT OF DISP.         3.344E-06   AT NODE       1291   DOF  2
+   INSTANCE: PART-1-1                                                                        
+ LARGEST CORRECTION TO DISP.        1.094E-07   AT NODE        829   DOF  3
+   INSTANCE: PART-1-1                                                                        
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 83
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    8 RELATIVE RESIDUAL NORM =  5.913e-06 RHS NORM =  2.576e-06
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     4
+
+
+ AVERAGE FORCE                      6.153E-06   TIME AVG. FORCE       6.153E-06
+ LARGEST SCALED RESIDUAL FORCE      1.279E-09   AT NODE       1596   DOF  1
+   INSTANCE: PART-1-1                                                                        
+  CORRESPONDING RESIDUAL FORCE      1.279E-09
+ LARGEST INCREMENT OF DISP.         3.345E-06   AT NODE       1291   DOF  2
+   INSTANCE: PART-1-1                                                                        
+ LARGEST CORRECTION TO DISP.        4.772E-09   AT NODE        196   DOF  2
+   INSTANCE: PART-1-1                                                                        
+          THE FORCE     EQUILIBRIUM EQUATIONS HAVE CONVERGED
+
+ ITERATION SUMMARY FOR THE INCREMENT:   4 TOTAL ITERATIONS, OF WHICH
+   0 ARE SEVERE DISCONTINUITY ITERATIONS AND  4 ARE EQUILIBRIUM ITERATIONS.
+
+ TIME INCREMENT COMPLETED  0.100    ,  FRACTION OF STEP COMPLETED  1.818E-03
+ STEP TIME COMPLETED       0.100    ,  TOTAL TIME COMPLETED        0.100    
+
+
+  INCREMENT     2 STARTS. ATTEMPT NUMBER  1, TIME INCREMENT  0.100    
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 74
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    7 RELATIVE RESIDUAL NORM =  7.298e-06 RHS NORM =  2.009e-02
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
+
+
+ AVERAGE FORCE                      5.993E-06   TIME AVG. FORCE       6.073E-06
+ LARGEST SCALED RESIDUAL FORCE      1.939E-04   AT NODE          1   DOF  3
+   INSTANCE: PART-1-1                                                                        
+  CORRESPONDING RESIDUAL FORCE      1.939E-04
+ LARGEST INCREMENT OF DISP.        -5.565E-08   AT NODE        844   DOF  3
+   INSTANCE: PART-1-1                                                                        
+ LARGEST CORRECTION TO DISP.       -3.356E-06   AT NODE       1291   DOF  2
+   INSTANCE: PART-1-1                                                                        
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 74
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    7 RELATIVE RESIDUAL NORM =  1.507e-06 RHS NORM =  3.053e-04
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     2
+
+
+ AVERAGE FORCE                      5.767E-06   TIME AVG. FORCE       5.960E-06
+ LARGEST SCALED RESIDUAL FORCE      2.050E-05   AT NODE          1   DOF  3
+   INSTANCE: PART-1-1                                                                        
+  CORRESPONDING RESIDUAL FORCE      2.050E-05
+ LARGEST INCREMENT OF DISP.        -8.680E-08   AT NODE        924   DOF  1
+   INSTANCE: PART-1-1                                                                        
+ LARGEST CORRECTION TO DISP.        9.997E-08   AT NODE         65   DOF  3
+   INSTANCE: PART-1-1                                                                        
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 74
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    7 RELATIVE RESIDUAL NORM =  3.308e-06 RHS NORM =  4.510e-05
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     3
+
+
+ AVERAGE FORCE                      5.724E-06   TIME AVG. FORCE       5.939E-06
+ LARGEST SCALED RESIDUAL FORCE      1.378E-06   AT NODE          1   DOF  3
+   INSTANCE: PART-1-1                                                                        
+  CORRESPONDING RESIDUAL FORCE      1.378E-06
+ LARGEST INCREMENT OF DISP.         1.051E-07   AT NODE         66   DOF  3
+   INSTANCE: PART-1-1                                                                        
+ LARGEST CORRECTION TO DISP.        2.753E-08   AT NODE         65   DOF  3
+   INSTANCE: PART-1-1                                                                        
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 74
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    7 RELATIVE RESIDUAL NORM =  3.608e-06 RHS NORM =  2.986e-06
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     4
+
+
+ AVERAGE FORCE                      5.721E-06   TIME AVG. FORCE       5.937E-06
+ LARGEST SCALED RESIDUAL FORCE      6.859E-09   AT NODE          1   DOF  3
+   INSTANCE: PART-1-1                                                                        
+  CORRESPONDING RESIDUAL FORCE      6.859E-09
+ LARGEST INCREMENT OF DISP.         1.063E-07   AT NODE         66   DOF  3
+   INSTANCE: PART-1-1                                                                        
+ LARGEST CORRECTION TO DISP.        2.865E-09   AT NODE        196   DOF  2
+   INSTANCE: PART-1-1                                                                        
+ ESTIMATE OF DISP.    CORRECTION    1.426E-11
+ FORCE     EQUILIB. ACCEPTED BASED ON SMALL RESIDUAL AND ESTIMATED CORRECTION
+          TIME INCREMENT MAY NOW INCREASE TO    0.100    
+
+ ITERATION SUMMARY FOR THE INCREMENT:   4 TOTAL ITERATIONS, OF WHICH
+   0 ARE SEVERE DISCONTINUITY ITERATIONS AND  4 ARE EQUILIBRIUM ITERATIONS.
+
+ TIME INCREMENT COMPLETED  0.100    ,  FRACTION OF STEP COMPLETED  3.636E-03
+ STEP TIME COMPLETED       0.200    ,  TOTAL TIME COMPLETED        0.200    
+
+
+  INCREMENT     3 STARTS. ATTEMPT NUMBER  1, TIME INCREMENT  0.100    
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 74
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    7 RELATIVE RESIDUAL NORM =  1.906e-06 RHS NORM =  2.001e-04
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
+
+
+ AVERAGE FORCE                      5.566E-06   TIME AVG. FORCE       5.813E-06
+ LARGEST SCALED RESIDUAL FORCE      2.916E-06   AT NODE          1   DOF  3
+   INSTANCE: PART-1-1                                                                        
+  CORRESPONDING RESIDUAL FORCE      2.916E-06
+ LARGEST INCREMENT OF DISP.         4.263E-08   AT NODE         66   DOF  3
+   INSTANCE: PART-1-1                                                                        
+ LARGEST CORRECTION TO DISP.       -6.364E-08   AT NODE         66   DOF  3
+   INSTANCE: PART-1-1                                                                        
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 74
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    7 RELATIVE RESIDUAL NORM =  2.074e-06 RHS NORM =  6.846e-06
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     2
+
+
+ AVERAGE FORCE                      5.560E-06   TIME AVG. FORCE       5.811E-06
+ LARGEST SCALED RESIDUAL FORCE      2.182E-08   AT NODE          1   DOF  3
+   INSTANCE: PART-1-1                                                                        
+  CORRESPONDING RESIDUAL FORCE      2.182E-08
+ LARGEST INCREMENT OF DISP.         4.542E-08   AT NODE         66   DOF  3
+   INSTANCE: PART-1-1                                                                        
+ LARGEST CORRECTION TO DISP.        2.788E-09   AT NODE         66   DOF  3
+   INSTANCE: PART-1-1                                                                        
+ ESTIMATE OF DISP.    CORRECTION    2.087E-11
+ FORCE     EQUILIB. ACCEPTED BASED ON SMALL RESIDUAL AND ESTIMATED CORRECTION
+          TIME INCREMENT MAY NOW INCREASE TO    0.150    
+          TIME INCREMENT REDUCED TO   0.100     TO MEET NEXT OUTPUT TIME POINT
+
+ ITERATION SUMMARY FOR THE INCREMENT:   2 TOTAL ITERATIONS, OF WHICH
+   0 ARE SEVERE DISCONTINUITY ITERATIONS AND  2 ARE EQUILIBRIUM ITERATIONS.
+
+ TIME INCREMENT COMPLETED  0.100    ,  FRACTION OF STEP COMPLETED  5.455E-03
+ STEP TIME COMPLETED       0.300    ,  TOTAL TIME COMPLETED        0.300    
+
+
+  INCREMENT     4 STARTS. ATTEMPT NUMBER  1, TIME INCREMENT  0.100    
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 65
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    6 RELATIVE RESIDUAL NORM =  5.647e-06 RHS NORM =  2.159e-02
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
+
+
+ AVERAGE FORCE                      1.322E-05   TIME AVG. FORCE       7.663E-06
+ LARGEST SCALED RESIDUAL FORCE     -1.128E-03   AT NODE       1596   DOF  1
+   INSTANCE: PART-1-1                                                                        
+  CORRESPONDING RESIDUAL FORCE     -1.128E-03
+ LARGEST INCREMENT OF DISP.         3.234E-06   AT NODE       1291   DOF  2
+   INSTANCE: PART-1-1                                                                        
+ LARGEST CORRECTION TO DISP.        3.231E-06   AT NODE       1723   DOF  2
+   INSTANCE: PART-1-1                                                                        
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 74
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    7 RELATIVE RESIDUAL NORM =  5.111e-06 RHS NORM =  1.722e-03
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     2
+
+
+ AVERAGE FORCE                      1.124E-05   TIME AVG. FORCE       7.169E-06
+ LARGEST SCALED RESIDUAL FORCE      3.957E-06   AT NODE       1717   DOF  3
+   INSTANCE: PART-1-1                                                                        
+  CORRESPONDING RESIDUAL FORCE      3.957E-06
+ LARGEST INCREMENT OF DISP.         3.371E-06   AT NODE       1147   DOF  2
+   INSTANCE: PART-1-1                                                                        
+ LARGEST CORRECTION TO DISP.        6.355E-07   AT NODE         65   DOF  3
+   INSTANCE: PART-1-1                                                                        
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 83
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    8 RELATIVE RESIDUAL NORM =  6.839e-06 RHS NORM =  1.488e-05
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     3
+
+
+ AVERAGE FORCE                      1.121E-05   TIME AVG. FORCE       7.161E-06
+ LARGEST SCALED RESIDUAL FORCE      1.645E-08   AT NODE        477   DOF  1
+   INSTANCE: PART-1-1                                                                        
+  CORRESPONDING RESIDUAL FORCE      1.645E-08
+ LARGEST INCREMENT OF DISP.         3.375E-06   AT NODE       1147   DOF  2
+   INSTANCE: PART-1-1                                                                        
+ LARGEST CORRECTION TO DISP.        1.627E-08   AT NODE       1253   DOF  3
+   INSTANCE: PART-1-1                                                                        
+          THE FORCE     EQUILIBRIUM EQUATIONS HAVE CONVERGED
+          TIME INCREMENT MAY NOW INCREASE TO    0.225    
+          TIME INCREMENT REDUCED TO   0.100     TO MEET NEXT OUTPUT TIME POINT
+
+ ITERATION SUMMARY FOR THE INCREMENT:   3 TOTAL ITERATIONS, OF WHICH
+   0 ARE SEVERE DISCONTINUITY ITERATIONS AND  3 ARE EQUILIBRIUM ITERATIONS.
+
+ TIME INCREMENT COMPLETED  0.100    ,  FRACTION OF STEP COMPLETED  7.273E-03
+ STEP TIME COMPLETED       0.400    ,  TOTAL TIME COMPLETED        0.400    
+
+
+  INCREMENT     5 STARTS. ATTEMPT NUMBER  1, TIME INCREMENT  0.100    
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 74
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    7 RELATIVE RESIDUAL NORM =  8.928e-06 RHS NORM =  2.007e-02
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
+
+
+ AVERAGE FORCE                      1.099E-05   TIME AVG. FORCE       7.928E-06
+ LARGEST SCALED RESIDUAL FORCE      1.718E-04   AT NODE          1   DOF  3
+   INSTANCE: PART-1-1                                                                        
+  CORRESPONDING RESIDUAL FORCE      1.718E-04
+ LARGEST INCREMENT OF DISP.        -4.493E-08   AT NODE         70   DOF  1
+   INSTANCE: PART-1-1                                                                        
+ LARGEST CORRECTION TO DISP.       -3.380E-06   AT NODE       1147   DOF  2
+   INSTANCE: PART-1-1                                                                        
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 74
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    7 RELATIVE RESIDUAL NORM =  1.908e-06 RHS NORM =  2.725e-04
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     2
+
+
+ AVERAGE FORCE                      1.075E-05   TIME AVG. FORCE       7.880E-06
+ LARGEST SCALED RESIDUAL FORCE      1.526E-05   AT NODE          1   DOF  3
+   INSTANCE: PART-1-1                                                                        
+  CORRESPONDING RESIDUAL FORCE      1.526E-05
+ LARGEST INCREMENT OF DISP.         1.198E-07   AT NODE         66   DOF  3
+   INSTANCE: PART-1-1                                                                        
+ LARGEST CORRECTION TO DISP.        1.109E-07   AT NODE         65   DOF  3
+   INSTANCE: PART-1-1                                                                        
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 74
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    7 RELATIVE RESIDUAL NORM =  4.532e-06 RHS NORM =  3.053e-05
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     3
+
+
+ AVERAGE FORCE                      1.072E-05   TIME AVG. FORCE       7.873E-06
+ LARGEST SCALED RESIDUAL FORCE      5.982E-07   AT NODE          1   DOF  3
+   INSTANCE: PART-1-1                                                                        
+  CORRESPONDING RESIDUAL FORCE      5.982E-07
+ LARGEST INCREMENT OF DISP.         1.399E-07   AT NODE         66   DOF  3
+   INSTANCE: PART-1-1                                                                        
+ LARGEST CORRECTION TO DISP.        2.572E-08   AT NODE        196   DOF  2
+   INSTANCE: PART-1-1                                                                        
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 74
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    7 RELATIVE RESIDUAL NORM =  4.923e-06 RHS NORM =  1.295e-06
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     4
+
+
+ AVERAGE FORCE                      1.072E-05   TIME AVG. FORCE       7.873E-06
+ LARGEST SCALED RESIDUAL FORCE      1.211E-09   AT NODE          1   DOF  3
+   INSTANCE: PART-1-1                                                                        
+  CORRESPONDING RESIDUAL FORCE      1.211E-09
+ LARGEST INCREMENT OF DISP.         1.406E-07   AT NODE         66   DOF  3
+   INSTANCE: PART-1-1                                                                        
+ LARGEST CORRECTION TO DISP.        2.240E-09   AT NODE        196   DOF  2
+   INSTANCE: PART-1-1                                                                        
+ ESTIMATE OF DISP.    CORRECTION    4.535E-12
+ FORCE     EQUILIB. ACCEPTED BASED ON SMALL RESIDUAL AND ESTIMATED CORRECTION
+          TIME INCREMENT MAY NOW INCREASE TO    0.225    
+          TIME INCREMENT REDUCED TO   0.100     TO MEET NEXT OUTPUT TIME POINT
+
+ ITERATION SUMMARY FOR THE INCREMENT:   4 TOTAL ITERATIONS, OF WHICH
+   0 ARE SEVERE DISCONTINUITY ITERATIONS AND  4 ARE EQUILIBRIUM ITERATIONS.
+
+ TIME INCREMENT COMPLETED  0.100    ,  FRACTION OF STEP COMPLETED  9.091E-03
+ STEP TIME COMPLETED       0.500    ,  TOTAL TIME COMPLETED        0.500    
+
+
+  INCREMENT     6 STARTS. ATTEMPT NUMBER  1, TIME INCREMENT  0.100    
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 65
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    6 RELATIVE RESIDUAL NORM =  7.774e-06 RHS NORM =  2.099e-02
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
+
+
+ AVERAGE FORCE                      1.718E-05   TIME AVG. FORCE       9.425E-06
+ LARGEST SCALED RESIDUAL FORCE     -7.023E-04   AT NODE       1596   DOF  1
+   INSTANCE: PART-1-1                                                                        
+  CORRESPONDING RESIDUAL FORCE     -7.023E-04
+ LARGEST INCREMENT OF DISP.         3.327E-06   AT NODE       1147   DOF  2
+   INSTANCE: PART-1-1                                                                        
+ LARGEST CORRECTION TO DISP.        3.293E-06   AT NODE       1147   DOF  2
+   INSTANCE: PART-1-1                                                                        
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 74
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    7 RELATIVE RESIDUAL NORM =  6.426e-06 RHS NORM =  1.078e-03
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     2
+
+
+ AVERAGE FORCE                      1.612E-05   TIME AVG. FORCE       9.247E-06
+ LARGEST SCALED RESIDUAL FORCE      1.522E-06   AT NODE        490   DOF  2
+   INSTANCE: PART-1-1                                                                        
+  CORRESPONDING RESIDUAL FORCE      1.522E-06
+ LARGEST INCREMENT OF DISP.         3.407E-06   AT NODE       1147   DOF  2
+   INSTANCE: PART-1-1                                                                        
+ LARGEST CORRECTION TO DISP.        3.842E-07   AT NODE         65   DOF  3
+   INSTANCE: PART-1-1                                                                        
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 83
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    8 RELATIVE RESIDUAL NORM =  6.134e-06 RHS NORM =  7.061e-06
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     3
+
+
+ AVERAGE FORCE                      1.611E-05   TIME AVG. FORCE       9.246E-06
+ LARGEST SCALED RESIDUAL FORCE      2.792E-08   AT NODE        478   DOF  1
+   INSTANCE: PART-1-1                                                                        
+  CORRESPONDING RESIDUAL FORCE      2.792E-08
+ LARGEST INCREMENT OF DISP.         3.407E-06   AT NODE       1147   DOF  2
+   INSTANCE: PART-1-1                                                                        
+ LARGEST CORRECTION TO DISP.        1.384E-08   AT NODE        490   DOF  2
+   INSTANCE: PART-1-1                                                                        
+          THE FORCE     EQUILIBRIUM EQUATIONS HAVE CONVERGED
+          TIME INCREMENT MAY NOW INCREASE TO    0.225    
+          TIME INCREMENT REDUCED TO   0.100     TO MEET NEXT OUTPUT TIME POINT
+
+ ITERATION SUMMARY FOR THE INCREMENT:   3 TOTAL ITERATIONS, OF WHICH
+   0 ARE SEVERE DISCONTINUITY ITERATIONS AND  3 ARE EQUILIBRIUM ITERATIONS.
+
+ TIME INCREMENT COMPLETED  0.100    ,  FRACTION OF STEP COMPLETED  1.091E-02
+ STEP TIME COMPLETED       0.600    ,  TOTAL TIME COMPLETED        0.600    
+
+
+  INCREMENT     7 STARTS. ATTEMPT NUMBER  1, TIME INCREMENT  0.100    
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 83
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    8 RELATIVE RESIDUAL NORM =  4.504e-06 RHS NORM =  3.054e-04
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
+
+
+ AVERAGE FORCE                      2.092E-05   TIME AVG. FORCE       1.091E-05
+ LARGEST SCALED RESIDUAL FORCE     -3.744E-07   AT NODE       1717   DOF  1
+   INSTANCE: PART-1-1                                                                        
+  CORRESPONDING RESIDUAL FORCE     -3.744E-07
+ LARGEST INCREMENT OF DISP.         3.460E-06   AT NODE       1147   DOF  2
+   INSTANCE: PART-1-1                                                                        
+ LARGEST CORRECTION TO DISP.        1.836E-07   AT NODE         66   DOF  3
+   INSTANCE: PART-1-1                                                                        
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 92
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    9 RELATIVE RESIDUAL NORM =  4.417e-06 RHS NORM =  2.274e-06
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     2
+
+
+ AVERAGE FORCE                      2.092E-05   TIME AVG. FORCE       1.091E-05
+ LARGEST SCALED RESIDUAL FORCE     -4.014E-09   AT NODE          1   DOF  3
+   INSTANCE: PART-1-1                                                                        
+  CORRESPONDING RESIDUAL FORCE     -4.014E-09
+ LARGEST INCREMENT OF DISP.         3.461E-06   AT NODE       1147   DOF  2
+   INSTANCE: PART-1-1                                                                        
+ LARGEST CORRECTION TO DISP.       -4.960E-09   AT NODE        989   DOF  2
+   INSTANCE: PART-1-1                                                                        
+          THE FORCE     EQUILIBRIUM EQUATIONS HAVE CONVERGED
+          TIME INCREMENT MAY NOW INCREASE TO    0.225    
+          TIME INCREMENT REDUCED TO   0.100     TO MEET NEXT OUTPUT TIME POINT
+
+ ITERATION SUMMARY FOR THE INCREMENT:   2 TOTAL ITERATIONS, OF WHICH
+   0 ARE SEVERE DISCONTINUITY ITERATIONS AND  2 ARE EQUILIBRIUM ITERATIONS.
+
+ TIME INCREMENT COMPLETED  0.100    ,  FRACTION OF STEP COMPLETED  1.273E-02
+ STEP TIME COMPLETED       0.700    ,  TOTAL TIME COMPLETED        0.700    
+
+
+  INCREMENT     8 STARTS. ATTEMPT NUMBER  1, TIME INCREMENT  0.100    
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 83
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    8 RELATIVE RESIDUAL NORM =  2.890e-06 RHS NORM =  2.016e-02
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
+
+
+ AVERAGE FORCE                      2.057E-05   TIME AVG. FORCE       1.212E-05
+ LARGEST SCALED RESIDUAL FORCE      1.575E-04   AT NODE          1   DOF  3
+   INSTANCE: PART-1-1                                                                        
+  CORRESPONDING RESIDUAL FORCE      1.575E-04
+ LARGEST INCREMENT OF DISP.         7.152E-08   AT NODE         66   DOF  3
+   INSTANCE: PART-1-1                                                                        
+ LARGEST CORRECTION TO DISP.       -3.442E-06   AT NODE       1147   DOF  2
+   INSTANCE: PART-1-1                                                                        
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 74
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    7 RELATIVE RESIDUAL NORM =  2.705e-06 RHS NORM =  2.552e-04
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     2
+
+
+ AVERAGE FORCE                      2.030E-05   TIME AVG. FORCE       1.209E-05
+ LARGEST SCALED RESIDUAL FORCE      5.685E-06   AT NODE          1   DOF  3
+   INSTANCE: PART-1-1                                                                        
+  CORRESPONDING RESIDUAL FORCE      5.685E-06
+ LARGEST INCREMENT OF DISP.         1.932E-07   AT NODE         66   DOF  3
+   INSTANCE: PART-1-1                                                                        
+ LARGEST CORRECTION TO DISP.        1.217E-07   AT NODE         66   DOF  3
+   INSTANCE: PART-1-1                                                                        
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 74
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    7 RELATIVE RESIDUAL NORM =  6.544e-06 RHS NORM =  1.239e-05
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     3
+
+
+ AVERAGE FORCE                      2.028E-05   TIME AVG. FORCE       1.208E-05
+ LARGEST SCALED RESIDUAL FORCE      4.683E-08   AT NODE          1   DOF  3
+   INSTANCE: PART-1-1                                                                        
+  CORRESPONDING RESIDUAL FORCE      4.683E-08
+ LARGEST INCREMENT OF DISP.         2.037E-07   AT NODE         66   DOF  3
+   INSTANCE: PART-1-1                                                                        
+ LARGEST CORRECTION TO DISP.       -1.078E-08   AT NODE        989   DOF  2
+   INSTANCE: PART-1-1                                                                        
+ ESTIMATE OF DISP.    CORRECTION   -8.883E-11
+ FORCE     EQUILIB. ACCEPTED BASED ON SMALL RESIDUAL AND ESTIMATED CORRECTION
+          TIME INCREMENT MAY NOW INCREASE TO    0.225    
+          TIME INCREMENT REDUCED TO   0.100     TO MEET NEXT OUTPUT TIME POINT
+
+ ITERATION SUMMARY FOR THE INCREMENT:   3 TOTAL ITERATIONS, OF WHICH
+   0 ARE SEVERE DISCONTINUITY ITERATIONS AND  3 ARE EQUILIBRIUM ITERATIONS.
+
+ TIME INCREMENT COMPLETED  0.100    ,  FRACTION OF STEP COMPLETED  1.455E-02
+ STEP TIME COMPLETED       0.800    ,  TOTAL TIME COMPLETED        0.800    
+
+
+  INCREMENT     9 STARTS. ATTEMPT NUMBER  1, TIME INCREMENT  0.100    
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 65
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    6 RELATIVE RESIDUAL NORM =  8.902e-06 RHS NORM =  2.083e-02
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
+
+
+ AVERAGE FORCE                      2.636E-05   TIME AVG. FORCE       1.367E-05
+ LARGEST SCALED RESIDUAL FORCE      6.059E-04   AT NODE          1   DOF  3
+   INSTANCE: PART-1-1                                                                        
+  CORRESPONDING RESIDUAL FORCE      6.059E-04
+ LARGEST INCREMENT OF DISP.         3.371E-06   AT NODE       1147   DOF  2
+   INSTANCE: PART-1-1                                                                        
+ LARGEST CORRECTION TO DISP.        3.315E-06   AT NODE       1147   DOF  2
+   INSTANCE: PART-1-1                                                                        
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 74
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    7 RELATIVE RESIDUAL NORM =  7.155e-06 RHS NORM =  9.275e-04
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     2
+
+
+ AVERAGE FORCE                      2.550E-05   TIME AVG. FORCE       1.358E-05
+ LARGEST SCALED RESIDUAL FORCE     -2.573E-06   AT NODE       1596   DOF  1
+   INSTANCE: PART-1-1                                                                        
+  CORRESPONDING RESIDUAL FORCE     -2.573E-06
+ LARGEST INCREMENT OF DISP.         3.431E-06   AT NODE       1147   DOF  2
+   INSTANCE: PART-1-1                                                                        
+ LARGEST CORRECTION TO DISP.        3.084E-07   AT NODE         64   DOF  3
+   INSTANCE: PART-1-1                                                                        
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 83
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    8 RELATIVE RESIDUAL NORM =  8.638e-06 RHS NORM =  9.229e-06
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     3
+
+
+ AVERAGE FORCE                      2.550E-05   TIME AVG. FORCE       1.357E-05
+ LARGEST SCALED RESIDUAL FORCE      2.437E-08   AT NODE        760   DOF  2
+   INSTANCE: PART-1-1                                                                        
+  CORRESPONDING RESIDUAL FORCE      2.437E-08
+ LARGEST INCREMENT OF DISP.         3.431E-06   AT NODE       1147   DOF  2
+   INSTANCE: PART-1-1                                                                        
+ LARGEST CORRECTION TO DISP.       -1.036E-08   AT NODE        393   DOF  3
+   INSTANCE: PART-1-1                                                                        
+          THE FORCE     EQUILIBRIUM EQUATIONS HAVE CONVERGED
+          TIME INCREMENT MAY NOW INCREASE TO    0.225    
+          TIME INCREMENT REDUCED TO   0.100     TO MEET NEXT OUTPUT TIME POINT
+
+ ITERATION SUMMARY FOR THE INCREMENT:   3 TOTAL ITERATIONS, OF WHICH
+   0 ARE SEVERE DISCONTINUITY ITERATIONS AND  3 ARE EQUILIBRIUM ITERATIONS.
+
+ TIME INCREMENT COMPLETED  0.100    ,  FRACTION OF STEP COMPLETED  1.636E-02
+ STEP TIME COMPLETED       0.900    ,  TOTAL TIME COMPLETED        0.900    
+
+
+  INCREMENT    10 STARTS. ATTEMPT NUMBER  1, TIME INCREMENT  0.100    
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 83
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    8 RELATIVE RESIDUAL NORM =  4.307e-06 RHS NORM =  3.477e-04
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
+
+
+ AVERAGE FORCE                      3.009E-05   TIME AVG. FORCE       1.523E-05
+ LARGEST SCALED RESIDUAL FORCE      4.274E-07   AT NODE       1717   DOF  3
+   INSTANCE: PART-1-1                                                                        
+  CORRESPONDING RESIDUAL FORCE      4.274E-07
+ LARGEST INCREMENT OF DISP.         3.498E-06   AT NODE       1147   DOF  2
+   INSTANCE: PART-1-1                                                                        
+ LARGEST CORRECTION TO DISP.        2.142E-07   AT NODE         66   DOF  3
+   INSTANCE: PART-1-1                                                                        
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 92
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    9 RELATIVE RESIDUAL NORM =  4.658e-06 RHS NORM =  2.585e-06
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     2
+
+
+ AVERAGE FORCE                      3.008E-05   TIME AVG. FORCE       1.523E-05
+ LARGEST SCALED RESIDUAL FORCE     -6.223E-09   AT NODE          1   DOF  3
+   INSTANCE: PART-1-1                                                                        
+  CORRESPONDING RESIDUAL FORCE     -6.223E-09
+ LARGEST INCREMENT OF DISP.         3.499E-06   AT NODE       1147   DOF  2
+   INSTANCE: PART-1-1                                                                        
+ LARGEST CORRECTION TO DISP.       -6.687E-09   AT NODE        989   DOF  2
+   INSTANCE: PART-1-1                                                                        
+          THE FORCE     EQUILIBRIUM EQUATIONS HAVE CONVERGED
+          TIME INCREMENT MAY NOW INCREASE TO    0.225    
+          TIME INCREMENT REDUCED TO   0.100     TO MEET NEXT OUTPUT TIME POINT
+
+ ITERATION SUMMARY FOR THE INCREMENT:   2 TOTAL ITERATIONS, OF WHICH
+   0 ARE SEVERE DISCONTINUITY ITERATIONS AND  2 ARE EQUILIBRIUM ITERATIONS.
+
+ TIME INCREMENT COMPLETED  0.100    ,  FRACTION OF STEP COMPLETED  1.818E-02
+ STEP TIME COMPLETED        1.00    ,  TOTAL TIME COMPLETED         1.00    
+
+
+  INCREMENT    11 STARTS. ATTEMPT NUMBER  1, TIME INCREMENT  0.100    
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 92
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    9 RELATIVE RESIDUAL NORM =  2.658e-06 RHS NORM =  4.995e-05
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
+
+
+ AVERAGE FORCE                      3.451E-05   TIME AVG. FORCE       1.698E-05
+ LARGEST SCALED RESIDUAL FORCE      2.072E-07   AT NODE        183   DOF  3
+   INSTANCE: PART-1-1                                                                        
+  CORRESPONDING RESIDUAL FORCE      2.072E-07
+ LARGEST INCREMENT OF DISP.         3.525E-06   AT NODE       1147   DOF  2
+   INSTANCE: PART-1-1                                                                        
+ LARGEST CORRECTION TO DISP.       -9.751E-08   AT NODE        989   DOF  2
+   INSTANCE: PART-1-1                                                                        
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 92
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    9 RELATIVE RESIDUAL NORM =  3.421e-06 RHS NORM =  8.005e-07
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     2
+
+
+ AVERAGE FORCE                      3.451E-05   TIME AVG. FORCE       1.698E-05
+ LARGEST SCALED RESIDUAL FORCE     -1.633E-09   AT NODE          1   DOF  3
+   INSTANCE: PART-1-1                                                                        
+  CORRESPONDING RESIDUAL FORCE     -1.633E-09
+ LARGEST INCREMENT OF DISP.         3.526E-06   AT NODE       1147   DOF  2
+   INSTANCE: PART-1-1                                                                        
+ LARGEST CORRECTION TO DISP.        1.659E-09   AT NODE        195   DOF  2
+   INSTANCE: PART-1-1                                                                        
+          THE FORCE     EQUILIBRIUM EQUATIONS HAVE CONVERGED
+          TIME INCREMENT MAY NOW INCREASE TO    0.225    
+          TIME INCREMENT REDUCED TO   0.100     TO MEET NEXT OUTPUT TIME POINT
+
+ ITERATION SUMMARY FOR THE INCREMENT:   2 TOTAL ITERATIONS, OF WHICH
+   0 ARE SEVERE DISCONTINUITY ITERATIONS AND  2 ARE EQUILIBRIUM ITERATIONS.
+
+ TIME INCREMENT COMPLETED  0.100    ,  FRACTION OF STEP COMPLETED  2.000E-02
+ STEP TIME COMPLETED        1.10    ,  TOTAL TIME COMPLETED         1.10    
+
+
+  INCREMENT    12 STARTS. ATTEMPT NUMBER  1, TIME INCREMENT  0.100    
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 92
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    9 RELATIVE RESIDUAL NORM =  2.568e-06 RHS NORM =  7.409e-05
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
+
+
+ AVERAGE FORCE                      3.875E-05   TIME AVG. FORCE       1.879E-05
+ LARGEST SCALED RESIDUAL FORCE     -3.044E-07   AT NODE        842   DOF  2
+   INSTANCE: PART-1-1                                                                        
+  CORRESPONDING RESIDUAL FORCE     -3.044E-07
+ LARGEST INCREMENT OF DISP.         3.551E-06   AT NODE       1148   DOF  2
+   INSTANCE: PART-1-1                                                                        
+ LARGEST CORRECTION TO DISP.        1.302E-07   AT NODE       1259   DOF  2
+   INSTANCE: PART-1-1                                                                        
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 92
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    9 RELATIVE RESIDUAL NORM =  2.864e-06 RHS NORM =  1.121e-06
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     2
+
+
+ AVERAGE FORCE                      3.875E-05   TIME AVG. FORCE       1.879E-05
+ LARGEST SCALED RESIDUAL FORCE     -1.382E-09   AT NODE          1   DOF  3
+   INSTANCE: PART-1-1                                                                        
+  CORRESPONDING RESIDUAL FORCE     -1.382E-09
+ LARGEST INCREMENT OF DISP.         3.552E-06   AT NODE       1148   DOF  2
+   INSTANCE: PART-1-1                                                                        
+ LARGEST CORRECTION TO DISP.       -2.793E-09   AT NODE        842   DOF  2
+   INSTANCE: PART-1-1                                                                        
+          THE FORCE     EQUILIBRIUM EQUATIONS HAVE CONVERGED
+          TIME INCREMENT MAY NOW INCREASE TO    0.225    
+          TIME INCREMENT REDUCED TO   0.100     TO MEET NEXT OUTPUT TIME POINT
+
+ ITERATION SUMMARY FOR THE INCREMENT:   2 TOTAL ITERATIONS, OF WHICH
+   0 ARE SEVERE DISCONTINUITY ITERATIONS AND  2 ARE EQUILIBRIUM ITERATIONS.
+
+ TIME INCREMENT COMPLETED  0.100    ,  FRACTION OF STEP COMPLETED  2.182E-02
+ STEP TIME COMPLETED        1.20    ,  TOTAL TIME COMPLETED         1.20    
+
+
+  INCREMENT    13 STARTS. ATTEMPT NUMBER  1, TIME INCREMENT  0.100    
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 83
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    8 RELATIVE RESIDUAL NORM =  2.996e-06 RHS NORM =  2.011e-02
+ 
+
+ ***NOTE: USER SUBROUTINE REQUESTS A TIME INCREMENT CHANGE.
+
+
+  INCREMENT    13 STARTS. ATTEMPT NUMBER  2, TIME INCREMENT  5.000E-02
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 74
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    7 RELATIVE RESIDUAL NORM =  2.754e-06 RHS NORM =  1.016e-02
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
+
+
+ AVERAGE FORCE                      4.363E-05   TIME AVG. FORCE       2.070E-05
+ LARGEST SCALED RESIDUAL FORCE      3.548E-05   AT NODE          1   DOF  3
+   INSTANCE: PART-1-1                                                                        
+  CORRESPONDING RESIDUAL FORCE      3.548E-05
+ LARGEST INCREMENT OF DISP.         3.500E-06   AT NODE       1148   DOF  2
+   INSTANCE: PART-1-1                                                                        
+ LARGEST CORRECTION TO DISP.        1.724E-06   AT NODE       1148   DOF  2
+   INSTANCE: PART-1-1                                                                        
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 74
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    7 RELATIVE RESIDUAL NORM =  7.671e-06 RHS NORM =  5.798e-05
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     2
+
+
+ AVERAGE FORCE                      4.356E-05   TIME AVG. FORCE       2.070E-05
+ LARGEST SCALED RESIDUAL FORCE      6.212E-08   AT NODE       1336   DOF  2
+   INSTANCE: PART-1-1                                                                        
+  CORRESPONDING RESIDUAL FORCE      6.212E-08
+ LARGEST INCREMENT OF DISP.         3.513E-06   AT NODE       1148   DOF  2
+   INSTANCE: PART-1-1                                                                        
+ LARGEST CORRECTION TO DISP.        3.382E-08   AT NODE       1336   DOF  2
+   INSTANCE: PART-1-1                                                                        
+          THE FORCE     EQUILIBRIUM EQUATIONS HAVE CONVERGED
+          TIME INCREMENT MAY NOW INCREASE TO    7.500E-02
+          TIME INCREMENT REDUCED TO   5.000E-02 TO MEET NEXT OUTPUT TIME POINT
+
+ ITERATION SUMMARY FOR THE INCREMENT:   2 TOTAL ITERATIONS, OF WHICH
+   0 ARE SEVERE DISCONTINUITY ITERATIONS AND  2 ARE EQUILIBRIUM ITERATIONS.
+
+ TIME INCREMENT COMPLETED  5.000E-02,  FRACTION OF STEP COMPLETED  2.273E-02
+ STEP TIME COMPLETED        1.25    ,  TOTAL TIME COMPLETED         1.25    
+
+
+  INCREMENT    14 STARTS. ATTEMPT NUMBER  1, TIME INCREMENT  5.000E-02
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 83
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    8 RELATIVE RESIDUAL NORM =  2.196e-06 RHS NORM =  3.107e-04
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
+
+
+ AVERAGE FORCE                      4.763E-05   TIME AVG. FORCE       2.262E-05
+ LARGEST SCALED RESIDUAL FORCE     -8.606E-07   AT NODE       1717   DOF  1
+   INSTANCE: PART-1-1                                                                        
+  CORRESPONDING RESIDUAL FORCE     -8.606E-07
+ LARGEST INCREMENT OF DISP.         3.621E-06   AT NODE       1148   DOF  2
+   INSTANCE: PART-1-1                                                                        
+ LARGEST CORRECTION TO DISP.        2.470E-07   AT NODE         65   DOF  3
+   INSTANCE: PART-1-1                                                                        
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 83
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    8 RELATIVE RESIDUAL NORM =  6.725e-06 RHS NORM =  5.030e-06
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     2
+
+
+ AVERAGE FORCE                      4.762E-05   TIME AVG. FORCE       2.262E-05
+ LARGEST SCALED RESIDUAL FORCE     -1.027E-08   AT NODE          1   DOF  3
+   INSTANCE: PART-1-1                                                                        
+  CORRESPONDING RESIDUAL FORCE     -1.027E-08
+ LARGEST INCREMENT OF DISP.         3.623E-06   AT NODE       1148   DOF  2
+   INSTANCE: PART-1-1                                                                        
+ LARGEST CORRECTION TO DISP.       -7.983E-09   AT NODE        989   DOF  2
+   INSTANCE: PART-1-1                                                                        
+          THE FORCE     EQUILIBRIUM EQUATIONS HAVE CONVERGED
+          TIME INCREMENT MAY NOW INCREASE TO    0.100    
+
+ ITERATION SUMMARY FOR THE INCREMENT:   2 TOTAL ITERATIONS, OF WHICH
+   0 ARE SEVERE DISCONTINUITY ITERATIONS AND  2 ARE EQUILIBRIUM ITERATIONS.
+
+ TIME INCREMENT COMPLETED  5.000E-02,  FRACTION OF STEP COMPLETED  2.364E-02
+ STEP TIME COMPLETED        1.30    ,  TOTAL TIME COMPLETED         1.30    
+
+
+  INCREMENT    15 STARTS. ATTEMPT NUMBER  1, TIME INCREMENT  0.100    
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 83
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    8 RELATIVE RESIDUAL NORM =  6.441e-06 RHS NORM =  1.959e-02
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
+
+
+ AVERAGE FORCE                      5.038E-05   TIME AVG. FORCE       2.447E-05
+ LARGEST SCALED RESIDUAL FORCE      8.017E-05   AT NODE          1   DOF  3
+   INSTANCE: PART-1-1                                                                        
+  CORRESPONDING RESIDUAL FORCE      8.017E-05
+ LARGEST INCREMENT OF DISP.         3.848E-06   AT NODE       1148   DOF  2
+   INSTANCE: PART-1-1                                                                        
+ LARGEST CORRECTION TO DISP.       -3.414E-06   AT NODE       1000   DOF  2
+   INSTANCE: PART-1-1                                                                        
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 83
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    8 RELATIVE RESIDUAL NORM =  6.351e-06 RHS NORM =  1.292e-04
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     2
+
+
+ AVERAGE FORCE                      5.033E-05   TIME AVG. FORCE       2.447E-05
+ LARGEST SCALED RESIDUAL FORCE      2.507E-07   AT NODE          1   DOF  3
+   INSTANCE: PART-1-1                                                                        
+  CORRESPONDING RESIDUAL FORCE      2.507E-07
+ LARGEST INCREMENT OF DISP.         3.846E-06   AT NODE       1148   DOF  2
+   INSTANCE: PART-1-1                                                                        
+ LARGEST CORRECTION TO DISP.        4.956E-08   AT NODE        989   DOF  2
+   INSTANCE: PART-1-1                                                                        
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 83
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    8 RELATIVE RESIDUAL NORM =  8.279e-06 RHS NORM =  9.045e-07
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     3
+
+
+ AVERAGE FORCE                      5.033E-05   TIME AVG. FORCE       2.447E-05
+ LARGEST SCALED RESIDUAL FORCE      4.148E-10   AT NODE       1342   DOF  3
+   INSTANCE: PART-1-1                                                                        
+  CORRESPONDING RESIDUAL FORCE      4.148E-10
+ LARGEST INCREMENT OF DISP.         3.847E-06   AT NODE       1148   DOF  2
+   INSTANCE: PART-1-1                                                                        
+ LARGEST CORRECTION TO DISP.        1.310E-09   AT NODE       1330   DOF  2
+   INSTANCE: PART-1-1                                                                        
+          THE FORCE     EQUILIBRIUM EQUATIONS HAVE CONVERGED
+          TIME INCREMENT MAY NOW INCREASE TO    0.150    
+          TIME INCREMENT REDUCED TO   0.100     TO MEET NEXT OUTPUT TIME POINT
+
+ ITERATION SUMMARY FOR THE INCREMENT:   3 TOTAL ITERATIONS, OF WHICH
+   0 ARE SEVERE DISCONTINUITY ITERATIONS AND  3 ARE EQUILIBRIUM ITERATIONS.
+
+ TIME INCREMENT COMPLETED  0.100    ,  FRACTION OF STEP COMPLETED  2.545E-02
+ STEP TIME COMPLETED        1.40    ,  TOTAL TIME COMPLETED         1.40    
+
+
+  INCREMENT    16 STARTS. ATTEMPT NUMBER  1, TIME INCREMENT  0.100    
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 83
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    8 RELATIVE RESIDUAL NORM =  3.291e-06 RHS NORM =  1.968e-02
+ 
+
+ ***NOTE: USER SUBROUTINE REQUESTS A TIME INCREMENT CHANGE.
+
+
+  INCREMENT    16 STARTS. ATTEMPT NUMBER  2, TIME INCREMENT  5.000E-02
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 74
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    7 RELATIVE RESIDUAL NORM =  3.090e-06 RHS NORM =  9.976e-03
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
+
+
+ AVERAGE FORCE                      5.438E-05   TIME AVG. FORCE       2.634E-05
+ LARGEST SCALED RESIDUAL FORCE      4.539E-05   AT NODE          1   DOF  3
+   INSTANCE: PART-1-1                                                                        
+  CORRESPONDING RESIDUAL FORCE      4.539E-05
+ LARGEST INCREMENT OF DISP.         3.654E-06   AT NODE       1148   DOF  2
+   INSTANCE: PART-1-1                                                                        
+ LARGEST CORRECTION TO DISP.        1.731E-06   AT NODE       1147   DOF  2
+   INSTANCE: PART-1-1                                                                        
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 74
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    7 RELATIVE RESIDUAL NORM =  6.476e-06 RHS NORM =  7.175e-05
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     2
+
+
+ AVERAGE FORCE                      5.432E-05   TIME AVG. FORCE       2.633E-05
+ LARGEST SCALED RESIDUAL FORCE     -6.328E-08   AT NODE       1425   DOF  1
+   INSTANCE: PART-1-1                                                                        
+  CORRESPONDING RESIDUAL FORCE     -6.328E-08
+ LARGEST INCREMENT OF DISP.         3.663E-06   AT NODE       1148   DOF  2
+   INSTANCE: PART-1-1                                                                        
+ LARGEST CORRECTION TO DISP.        2.738E-08   AT NODE        105   DOF  3
+   INSTANCE: PART-1-1                                                                        
+          THE FORCE     EQUILIBRIUM EQUATIONS HAVE CONVERGED
+          TIME INCREMENT MAY NOW INCREASE TO    5.000E-02
+
+ ITERATION SUMMARY FOR THE INCREMENT:   2 TOTAL ITERATIONS, OF WHICH
+   0 ARE SEVERE DISCONTINUITY ITERATIONS AND  2 ARE EQUILIBRIUM ITERATIONS.
+
+ TIME INCREMENT COMPLETED  5.000E-02,  FRACTION OF STEP COMPLETED  2.636E-02
+ STEP TIME COMPLETED        1.45    ,  TOTAL TIME COMPLETED         1.45    
+
+
+  INCREMENT    17 STARTS. ATTEMPT NUMBER  1, TIME INCREMENT  5.000E-02
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 83
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    8 RELATIVE RESIDUAL NORM =  2.093e-06 RHS NORM =  3.275e-04
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
+
+
+ AVERAGE FORCE                      5.754E-05   TIME AVG. FORCE       2.817E-05
+ LARGEST SCALED RESIDUAL FORCE      8.492E-07   AT NODE       1717   DOF  3
+   INSTANCE: PART-1-1                                                                        
+  CORRESPONDING RESIDUAL FORCE      8.492E-07
+ LARGEST INCREMENT OF DISP.         3.761E-06   AT NODE       1148   DOF  2
+   INSTANCE: PART-1-1                                                                        
+ LARGEST CORRECTION TO DISP.        2.480E-07   AT NODE        363   DOF  3
+   INSTANCE: PART-1-1                                                                        
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 83
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    8 RELATIVE RESIDUAL NORM =  5.510e-06 RHS NORM =  3.919e-06
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     2
+
+
+ AVERAGE FORCE                      5.753E-05   TIME AVG. FORCE       2.817E-05
+ LARGEST SCALED RESIDUAL FORCE      8.620E-09   AT NODE       1596   DOF  1
+   INSTANCE: PART-1-1                                                                        
+  CORRESPONDING RESIDUAL FORCE      8.620E-09
+ LARGEST INCREMENT OF DISP.         3.763E-06   AT NODE       1148   DOF  2
+   INSTANCE: PART-1-1                                                                        
+ LARGEST CORRECTION TO DISP.        5.643E-09   AT NODE       1252   DOF  3
+   INSTANCE: PART-1-1                                                                        
+          THE FORCE     EQUILIBRIUM EQUATIONS HAVE CONVERGED
+          TIME INCREMENT MAY NOW INCREASE TO    7.500E-02
+
+ ITERATION SUMMARY FOR THE INCREMENT:   2 TOTAL ITERATIONS, OF WHICH
+   0 ARE SEVERE DISCONTINUITY ITERATIONS AND  2 ARE EQUILIBRIUM ITERATIONS.
+
+ TIME INCREMENT COMPLETED  5.000E-02,  FRACTION OF STEP COMPLETED  2.727E-02
+ STEP TIME COMPLETED        1.50    ,  TOTAL TIME COMPLETED         1.50    
+
+
+  INCREMENT    18 STARTS. ATTEMPT NUMBER  1, TIME INCREMENT  7.500E-02
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 83
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    8 RELATIVE RESIDUAL NORM =  3.117e-06 RHS NORM =  1.448e-02
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
+
+
+ AVERAGE FORCE                      5.887E-05   TIME AVG. FORCE       2.987E-05
+ LARGEST SCALED RESIDUAL FORCE     -6.608E-05   AT NODE       1596   DOF  1
+   INSTANCE: PART-1-1                                                                        
+  CORRESPONDING RESIDUAL FORCE     -6.608E-05
+ LARGEST INCREMENT OF DISP.         3.010E-06   AT NODE       1003   DOF  2
+   INSTANCE: PART-1-1                                                                        
+ LARGEST CORRECTION TO DISP.       -2.642E-06   AT NODE       1147   DOF  2
+   INSTANCE: PART-1-1                                                                        
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 74
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    7 RELATIVE RESIDUAL NORM =  9.034e-06 RHS NORM =  9.501e-05
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     2
+
+
+ AVERAGE FORCE                      5.881E-05   TIME AVG. FORCE       2.987E-05
+ LARGEST SCALED RESIDUAL FORCE     -1.251E-07   AT NODE       1596   DOF  1
+   INSTANCE: PART-1-1                                                                        
+  CORRESPONDING RESIDUAL FORCE     -1.251E-07
+ LARGEST INCREMENT OF DISP.         3.014E-06   AT NODE       1148   DOF  2
+   INSTANCE: PART-1-1                                                                        
+ LARGEST CORRECTION TO DISP.       -2.983E-08   AT NODE        599   DOF  1
+   INSTANCE: PART-1-1                                                                        
+          THE FORCE     EQUILIBRIUM EQUATIONS HAVE CONVERGED
+          TIME INCREMENT MAY NOW INCREASE TO    0.113    
+          TIME INCREMENT REDUCED TO   2.500E-02 TO MEET NEXT OUTPUT TIME POINT
+
+ ITERATION SUMMARY FOR THE INCREMENT:   2 TOTAL ITERATIONS, OF WHICH
+   0 ARE SEVERE DISCONTINUITY ITERATIONS AND  2 ARE EQUILIBRIUM ITERATIONS.
+
+ TIME INCREMENT COMPLETED  7.500E-02,  FRACTION OF STEP COMPLETED  2.864E-02
+ STEP TIME COMPLETED        1.58    ,  TOTAL TIME COMPLETED         1.58    
+
+
+  INCREMENT    19 STARTS. ATTEMPT NUMBER  1, TIME INCREMENT  2.500E-02
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 74
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    7 RELATIVE RESIDUAL NORM =  3.493e-06 RHS NORM =  1.014e-04
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
+
+
+ AVERAGE FORCE                      5.944E-05   TIME AVG. FORCE       3.143E-05
+ LARGEST SCALED RESIDUAL FORCE     -2.865E-07   AT NODE       1717   DOF  1
+   INSTANCE: PART-1-1                                                                        
+  CORRESPONDING RESIDUAL FORCE     -2.865E-07
+ LARGEST INCREMENT OF DISP.         9.792E-07   AT NODE       1148   DOF  2
+   INSTANCE: PART-1-1                                                                        
+ LARGEST CORRECTION TO DISP.       -6.776E-08   AT NODE        371   DOF  3
+   INSTANCE: PART-1-1                                                                        
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 74
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    7 RELATIVE RESIDUAL NORM =  4.366e-06 RHS NORM =  1.984e-06
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     2
+
+
+ AVERAGE FORCE                      5.943E-05   TIME AVG. FORCE       3.143E-05
+ LARGEST SCALED RESIDUAL FORCE      1.254E-09   AT NODE       1596   DOF  1
+   INSTANCE: PART-1-1                                                                        
+  CORRESPONDING RESIDUAL FORCE      1.254E-09
+ LARGEST INCREMENT OF DISP.         9.797E-07   AT NODE       1148   DOF  2
+   INSTANCE: PART-1-1                                                                        
+ LARGEST CORRECTION TO DISP.        1.720E-09   AT NODE        466   DOF  2
+   INSTANCE: PART-1-1                                                                        
+          THE FORCE     EQUILIBRIUM EQUATIONS HAVE CONVERGED
+          TIME INCREMENT MAY NOW INCREASE TO    0.169    
+          TIME INCREMENT REDUCED TO   0.100     TO MEET NEXT OUTPUT TIME POINT
+
+ ITERATION SUMMARY FOR THE INCREMENT:   2 TOTAL ITERATIONS, OF WHICH
+   0 ARE SEVERE DISCONTINUITY ITERATIONS AND  2 ARE EQUILIBRIUM ITERATIONS.
+
+ TIME INCREMENT COMPLETED  2.500E-02,  FRACTION OF STEP COMPLETED  2.909E-02
+ STEP TIME COMPLETED        1.60    ,  TOTAL TIME COMPLETED         1.60    
+
+
+  INCREMENT    20 STARTS. ATTEMPT NUMBER  1, TIME INCREMENT  0.100    
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 74
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    7 RELATIVE RESIDUAL NORM =  9.063e-06 RHS NORM =  1.940e-02
+ 
+
+ ***NOTE: USER SUBROUTINE REQUESTS A TIME INCREMENT CHANGE.
+
+
+  INCREMENT    20 STARTS. ATTEMPT NUMBER  2, TIME INCREMENT  5.000E-02
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 74
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    7 RELATIVE RESIDUAL NORM =  3.093e-06 RHS NORM =  9.836e-03
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
+
+
+ AVERAGE FORCE                      6.264E-05   TIME AVG. FORCE       3.299E-05
+ LARGEST SCALED RESIDUAL FORCE     -5.091E-05   AT NODE       1596   DOF  1
+   INSTANCE: PART-1-1                                                                        
+  CORRESPONDING RESIDUAL FORCE     -5.091E-05
+ LARGEST INCREMENT OF DISP.         3.788E-06   AT NODE       1148   DOF  2
+   INSTANCE: PART-1-1                                                                        
+ LARGEST CORRECTION TO DISP.        1.829E-06   AT NODE       1148   DOF  2
+   INSTANCE: PART-1-1                                                                        
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 74
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    7 RELATIVE RESIDUAL NORM =  6.718e-06 RHS NORM =  7.766e-05
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     2
+
+
+ AVERAGE FORCE                      6.254E-05   TIME AVG. FORCE       3.298E-05
+ LARGEST SCALED RESIDUAL FORCE      5.749E-08   AT NODE       1717   DOF  3
+   INSTANCE: PART-1-1                                                                        
+  CORRESPONDING RESIDUAL FORCE      5.749E-08
+ LARGEST INCREMENT OF DISP.         3.803E-06   AT NODE       1148   DOF  2
+   INSTANCE: PART-1-1                                                                        
+ LARGEST CORRECTION TO DISP.        3.608E-08   AT NODE         70   DOF  3
+   INSTANCE: PART-1-1                                                                        
+          THE FORCE     EQUILIBRIUM EQUATIONS HAVE CONVERGED
+          TIME INCREMENT MAY NOW INCREASE TO    5.000E-02
+
+ ITERATION SUMMARY FOR THE INCREMENT:   2 TOTAL ITERATIONS, OF WHICH
+   0 ARE SEVERE DISCONTINUITY ITERATIONS AND  2 ARE EQUILIBRIUM ITERATIONS.
+
+ TIME INCREMENT COMPLETED  5.000E-02,  FRACTION OF STEP COMPLETED  3.000E-02
+ STEP TIME COMPLETED        1.65    ,  TOTAL TIME COMPLETED         1.65    
+
+
+  INCREMENT    21 STARTS. ATTEMPT NUMBER  1, TIME INCREMENT  5.000E-02
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 74
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    7 RELATIVE RESIDUAL NORM =  8.607e-06 RHS NORM =  3.028e-04
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
+
+
+ AVERAGE FORCE                      6.497E-05   TIME AVG. FORCE       3.451E-05
+ LARGEST SCALED RESIDUAL FORCE      7.882E-07   AT NODE       1717   DOF  3
+   INSTANCE: PART-1-1                                                                        
+  CORRESPONDING RESIDUAL FORCE      7.882E-07
+ LARGEST INCREMENT OF DISP.         3.884E-06   AT NODE       1148   DOF  2
+   INSTANCE: PART-1-1                                                                        
+ LARGEST CORRECTION TO DISP.        2.030E-07   AT NODE         65   DOF  3
+   INSTANCE: PART-1-1                                                                        
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 83
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    8 RELATIVE RESIDUAL NORM =  3.805e-06 RHS NORM =  2.472e-06
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     2
+
+
+ AVERAGE FORCE                      6.496E-05   TIME AVG. FORCE       3.451E-05
+ LARGEST SCALED RESIDUAL FORCE     -5.796E-09   AT NODE          1   DOF  3
+   INSTANCE: PART-1-1                                                                        
+  CORRESPONDING RESIDUAL FORCE     -5.796E-09
+ LARGEST INCREMENT OF DISP.         3.885E-06   AT NODE       1148   DOF  2
+   INSTANCE: PART-1-1                                                                        
+ LARGEST CORRECTION TO DISP.        3.644E-09   AT NODE       1107   DOF  3
+   INSTANCE: PART-1-1                                                                        
+          THE FORCE     EQUILIBRIUM EQUATIONS HAVE CONVERGED
+          TIME INCREMENT MAY NOW INCREASE TO    7.500E-02
+
+ ITERATION SUMMARY FOR THE INCREMENT:   2 TOTAL ITERATIONS, OF WHICH
+   0 ARE SEVERE DISCONTINUITY ITERATIONS AND  2 ARE EQUILIBRIUM ITERATIONS.
+
+ TIME INCREMENT COMPLETED  5.000E-02,  FRACTION OF STEP COMPLETED  3.091E-02
+ STEP TIME COMPLETED        1.70    ,  TOTAL TIME COMPLETED         1.70    
+
+
+  INCREMENT    22 STARTS. ATTEMPT NUMBER  1, TIME INCREMENT  7.500E-02
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 74
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    7 RELATIVE RESIDUAL NORM =  9.778e-06 RHS NORM =  1.413e-02
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
+
+
+ AVERAGE FORCE                      6.566E-05   TIME AVG. FORCE       3.592E-05
+ LARGEST SCALED RESIDUAL FORCE     -6.763E-05   AT NODE       1596   DOF  1
+   INSTANCE: PART-1-1                                                                        
+  CORRESPONDING RESIDUAL FORCE     -6.763E-05
+ LARGEST INCREMENT OF DISP.         3.119E-06   AT NODE       1148   DOF  2
+   INSTANCE: PART-1-1                                                                        
+ LARGEST CORRECTION TO DISP.       -2.709E-06   AT NODE       1148   DOF  2
+   INSTANCE: PART-1-1                                                                        
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 74
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    7 RELATIVE RESIDUAL NORM =  6.744e-06 RHS NORM =  1.043e-04
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     2
+
+
+ AVERAGE FORCE                      6.559E-05   TIME AVG. FORCE       3.592E-05
+ LARGEST SCALED RESIDUAL FORCE      1.047E-07   AT NODE          1   DOF  3
+   INSTANCE: PART-1-1                                                                        
+  CORRESPONDING RESIDUAL FORCE      1.047E-07
+ LARGEST INCREMENT OF DISP.         3.121E-06   AT NODE       1148   DOF  2
+   INSTANCE: PART-1-1                                                                        
+ LARGEST CORRECTION TO DISP.        2.398E-08   AT NODE       1001   DOF  2
+   INSTANCE: PART-1-1                                                                        
+          THE FORCE     EQUILIBRIUM EQUATIONS HAVE CONVERGED
+          TIME INCREMENT MAY NOW INCREASE TO    0.113    
+          TIME INCREMENT REDUCED TO   2.500E-02 TO MEET NEXT OUTPUT TIME POINT
+
+ ITERATION SUMMARY FOR THE INCREMENT:   2 TOTAL ITERATIONS, OF WHICH
+   0 ARE SEVERE DISCONTINUITY ITERATIONS AND  2 ARE EQUILIBRIUM ITERATIONS.
+
+ TIME INCREMENT COMPLETED  7.500E-02,  FRACTION OF STEP COMPLETED  3.227E-02
+ STEP TIME COMPLETED        1.78    ,  TOTAL TIME COMPLETED         1.78    
+
+
+  INCREMENT    23 STARTS. ATTEMPT NUMBER  1, TIME INCREMENT  2.500E-02
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 74
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    7 RELATIVE RESIDUAL NORM =  3.713e-06 RHS NORM =  9.818e-05
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
+
+
+ AVERAGE FORCE                      6.601E-05   TIME AVG. FORCE       3.723E-05
+ LARGEST SCALED RESIDUAL FORCE      3.152E-07   AT NODE       1717   DOF  3
+   INSTANCE: PART-1-1                                                                        
+  CORRESPONDING RESIDUAL FORCE      3.152E-07
+ LARGEST INCREMENT OF DISP.         1.011E-06   AT NODE       1148   DOF  2
+   INSTANCE: PART-1-1                                                                        
+ LARGEST CORRECTION TO DISP.       -6.696E-08   AT NODE        371   DOF  3
+   INSTANCE: PART-1-1                                                                        
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 74
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    7 RELATIVE RESIDUAL NORM =  4.660e-06 RHS NORM =  1.733e-06
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     2
+
+
+ AVERAGE FORCE                      6.601E-05   TIME AVG. FORCE       3.723E-05
+ LARGEST SCALED RESIDUAL FORCE      1.147E-09   AT NODE       1596   DOF  1
+   INSTANCE: PART-1-1                                                                        
+  CORRESPONDING RESIDUAL FORCE      1.147E-09
+ LARGEST INCREMENT OF DISP.         1.011E-06   AT NODE       1148   DOF  2
+   INSTANCE: PART-1-1                                                                        
+ LARGEST CORRECTION TO DISP.        1.487E-09   AT NODE        899   DOF  3
+   INSTANCE: PART-1-1                                                                        
+          THE FORCE     EQUILIBRIUM EQUATIONS HAVE CONVERGED
+          TIME INCREMENT MAY NOW INCREASE TO    0.169    
+          TIME INCREMENT REDUCED TO   0.100     TO MEET NEXT OUTPUT TIME POINT
+
+ ITERATION SUMMARY FOR THE INCREMENT:   2 TOTAL ITERATIONS, OF WHICH
+   0 ARE SEVERE DISCONTINUITY ITERATIONS AND  2 ARE EQUILIBRIUM ITERATIONS.
+
+ TIME INCREMENT COMPLETED  2.500E-02,  FRACTION OF STEP COMPLETED  3.273E-02
+ STEP TIME COMPLETED        1.80    ,  TOTAL TIME COMPLETED         1.80    
+
+
+  INCREMENT    24 STARTS. ATTEMPT NUMBER  1, TIME INCREMENT  0.100    
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 74
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    7 RELATIVE RESIDUAL NORM =  8.363e-06 RHS NORM =  1.893e-02
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
+
+
+ AVERAGE FORCE                      7.023E-05   TIME AVG. FORCE       3.860E-05
+ LARGEST SCALED RESIDUAL FORCE      7.946E-05   AT NODE          1   DOF  3
+   INSTANCE: PART-1-1                                                                        
+  CORRESPONDING RESIDUAL FORCE      7.946E-05
+ LARGEST INCREMENT OF DISP.         7.801E-06   AT NODE       1148   DOF  2
+   INSTANCE: PART-1-1                                                                        
+ LARGEST CORRECTION TO DISP.        3.756E-06   AT NODE       1148   DOF  2
+   INSTANCE: PART-1-1                                                                        
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 83
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    8 RELATIVE RESIDUAL NORM =  7.096e-06 RHS NORM =  1.315e-04
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     2
+
+
+ AVERAGE FORCE                      7.004E-05   TIME AVG. FORCE       3.859E-05
+ LARGEST SCALED RESIDUAL FORCE      1.868E-07   AT NODE        445   DOF  3
+   INSTANCE: PART-1-1                                                                        
+  CORRESPONDING RESIDUAL FORCE      1.868E-07
+ LARGEST INCREMENT OF DISP.         7.824E-06   AT NODE       1148   DOF  2
+   INSTANCE: PART-1-1                                                                        
+ LARGEST CORRECTION TO DISP.        7.047E-08   AT NODE       1618   DOF  2
+   INSTANCE: PART-1-1                                                                        
+          THE FORCE     EQUILIBRIUM EQUATIONS HAVE CONVERGED
+          TIME INCREMENT MAY NOW INCREASE TO    0.169    
+          TIME INCREMENT REDUCED TO   0.100     TO MEET NEXT OUTPUT TIME POINT
+
+ ITERATION SUMMARY FOR THE INCREMENT:   2 TOTAL ITERATIONS, OF WHICH
+   0 ARE SEVERE DISCONTINUITY ITERATIONS AND  2 ARE EQUILIBRIUM ITERATIONS.
+
+ TIME INCREMENT COMPLETED  0.100    ,  FRACTION OF STEP COMPLETED  3.455E-02
+ STEP TIME COMPLETED        1.90    ,  TOTAL TIME COMPLETED         1.90    
+
+
+  INCREMENT    25 STARTS. ATTEMPT NUMBER  1, TIME INCREMENT  0.100    
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 83
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    8 RELATIVE RESIDUAL NORM =  6.730e-06 RHS NORM =  4.493e-04
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
+
+
+ AVERAGE FORCE                      7.309E-05   TIME AVG. FORCE       3.997E-05
+ LARGEST SCALED RESIDUAL FORCE      1.075E-06   AT NODE       1529   DOF  2
+   INSTANCE: PART-1-1                                                                        
+  CORRESPONDING RESIDUAL FORCE      1.075E-06
+ LARGEST INCREMENT OF DISP.         7.919E-06   AT NODE       1148   DOF  2
+   INSTANCE: PART-1-1                                                                        
+ LARGEST CORRECTION TO DISP.        2.752E-07   AT NODE         64   DOF  3
+   INSTANCE: PART-1-1                                                                        
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 92
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    9 RELATIVE RESIDUAL NORM =  4.623e-06 RHS NORM =  4.359e-06
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     2
+
+
+ AVERAGE FORCE                      7.309E-05   TIME AVG. FORCE       3.997E-05
+ LARGEST SCALED RESIDUAL FORCE     -1.198E-08   AT NODE          1   DOF  3
+   INSTANCE: PART-1-1                                                                        
+  CORRESPONDING RESIDUAL FORCE     -1.198E-08
+ LARGEST INCREMENT OF DISP.         7.920E-06   AT NODE       1148   DOF  2
+   INSTANCE: PART-1-1                                                                        
+ LARGEST CORRECTION TO DISP.        6.557E-09   AT NODE       1528   DOF  3
+   INSTANCE: PART-1-1                                                                        
+          THE FORCE     EQUILIBRIUM EQUATIONS HAVE CONVERGED
+          TIME INCREMENT MAY NOW INCREASE TO    0.169    
+          TIME INCREMENT REDUCED TO   0.100     TO MEET NEXT OUTPUT TIME POINT
+
+ ITERATION SUMMARY FOR THE INCREMENT:   2 TOTAL ITERATIONS, OF WHICH
+   0 ARE SEVERE DISCONTINUITY ITERATIONS AND  2 ARE EQUILIBRIUM ITERATIONS.
+
+ TIME INCREMENT COMPLETED  0.100    ,  FRACTION OF STEP COMPLETED  3.636E-02
+ STEP TIME COMPLETED        2.00    ,  TOTAL TIME COMPLETED         2.00    
+
+
+  INCREMENT    26 STARTS. ATTEMPT NUMBER  1, TIME INCREMENT  0.100    
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 83
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    8 RELATIVE RESIDUAL NORM =  5.204e-06 RHS NORM =  2.355e-04
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
+
+
+ AVERAGE FORCE                      7.563E-05   TIME AVG. FORCE       4.135E-05
+ LARGEST SCALED RESIDUAL FORCE     -5.773E-07   AT NODE       1596   DOF  1
+   INSTANCE: PART-1-1                                                                        
+  CORRESPONDING RESIDUAL FORCE     -5.773E-07
+ LARGEST INCREMENT OF DISP.         7.959E-06   AT NODE       1148   DOF  2
+   INSTANCE: PART-1-1                                                                        
+ LARGEST CORRECTION TO DISP.        1.344E-07   AT NODE       1252   DOF  3
+   INSTANCE: PART-1-1                                                                        
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 92
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    9 RELATIVE RESIDUAL NORM =  3.280e-06 RHS NORM =  2.161e-06
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     2
+
+
+ AVERAGE FORCE                      7.562E-05   TIME AVG. FORCE       4.134E-05
+ LARGEST SCALED RESIDUAL FORCE      3.205E-09   AT NODE       1596   DOF  1
+   INSTANCE: PART-1-1                                                                        
+  CORRESPONDING RESIDUAL FORCE      3.205E-09
+ LARGEST INCREMENT OF DISP.         7.959E-06   AT NODE       1148   DOF  2
+   INSTANCE: PART-1-1                                                                        
+ LARGEST CORRECTION TO DISP.       -3.784E-09   AT NODE       1639   DOF  3
+   INSTANCE: PART-1-1                                                                        
+          THE FORCE     EQUILIBRIUM EQUATIONS HAVE CONVERGED
+          TIME INCREMENT MAY NOW INCREASE TO    0.169    
+          TIME INCREMENT REDUCED TO   0.100     TO MEET NEXT OUTPUT TIME POINT
+
+ ITERATION SUMMARY FOR THE INCREMENT:   2 TOTAL ITERATIONS, OF WHICH
+   0 ARE SEVERE DISCONTINUITY ITERATIONS AND  2 ARE EQUILIBRIUM ITERATIONS.
+
+ TIME INCREMENT COMPLETED  0.100    ,  FRACTION OF STEP COMPLETED  3.818E-02
+ STEP TIME COMPLETED        2.10    ,  TOTAL TIME COMPLETED         2.10    
+
+
+  INCREMENT    27 STARTS. ATTEMPT NUMBER  1, TIME INCREMENT  0.100    
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 83
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    8 RELATIVE RESIDUAL NORM =  5.104e-06 RHS NORM =  1.863e-04
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
+
+
+ AVERAGE FORCE                      7.781E-05   TIME AVG. FORCE       4.270E-05
+ LARGEST SCALED RESIDUAL FORCE     -4.869E-07   AT NODE       1596   DOF  1
+   INSTANCE: PART-1-1                                                                        
+  CORRESPONDING RESIDUAL FORCE     -4.869E-07
+ LARGEST INCREMENT OF DISP.         7.982E-06   AT NODE       1148   DOF  2
+   INSTANCE: PART-1-1                                                                        
+ LARGEST CORRECTION TO DISP.        1.003E-07   AT NODE       1252   DOF  3
+   INSTANCE: PART-1-1                                                                        
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 92
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    9 RELATIVE RESIDUAL NORM =  2.672e-06 RHS NORM =  1.676e-06
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     2
+
+
+ AVERAGE FORCE                      7.781E-05   TIME AVG. FORCE       4.270E-05
+ LARGEST SCALED RESIDUAL FORCE      3.969E-09   AT NODE       1596   DOF  1
+   INSTANCE: PART-1-1                                                                        
+  CORRESPONDING RESIDUAL FORCE      3.969E-09
+ LARGEST INCREMENT OF DISP.         7.982E-06   AT NODE       1148   DOF  2
+   INSTANCE: PART-1-1                                                                        
+ LARGEST CORRECTION TO DISP.        1.933E-09   AT NODE       1174   DOF  2
+   INSTANCE: PART-1-1                                                                        
+          THE FORCE     EQUILIBRIUM EQUATIONS HAVE CONVERGED
+          TIME INCREMENT MAY NOW INCREASE TO    0.169    
+          TIME INCREMENT REDUCED TO   0.100     TO MEET NEXT OUTPUT TIME POINT
+
+ ITERATION SUMMARY FOR THE INCREMENT:   2 TOTAL ITERATIONS, OF WHICH
+   0 ARE SEVERE DISCONTINUITY ITERATIONS AND  2 ARE EQUILIBRIUM ITERATIONS.
+
+ TIME INCREMENT COMPLETED  0.100    ,  FRACTION OF STEP COMPLETED  4.000E-02
+ STEP TIME COMPLETED        2.20    ,  TOTAL TIME COMPLETED         2.20    
+
+
+  INCREMENT    28 STARTS. ATTEMPT NUMBER  1, TIME INCREMENT  0.100    
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 83
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    8 RELATIVE RESIDUAL NORM =  3.906e-06 RHS NORM =  1.753e-02
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
+
+
+ AVERAGE FORCE                      7.780E-05   TIME AVG. FORCE       4.395E-05
+ LARGEST SCALED RESIDUAL FORCE     -8.951E-05   AT NODE       1596   DOF  1
+   INSTANCE: PART-1-1                                                                        
+  CORRESPONDING RESIDUAL FORCE     -8.951E-05
+ LARGEST INCREMENT OF DISP.         4.235E-06   AT NODE       1148   DOF  2
+   INSTANCE: PART-1-1                                                                        
+ LARGEST CORRECTION TO DISP.       -3.762E-06   AT NODE       1147   DOF  2
+   INSTANCE: PART-1-1                                                                        
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 74
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    7 RELATIVE RESIDUAL NORM =  8.738e-06 RHS NORM =  1.338e-04
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     2
+
+
+ AVERAGE FORCE                      7.769E-05   TIME AVG. FORCE       4.395E-05
+ LARGEST SCALED RESIDUAL FORCE     -1.800E-07   AT NODE       1596   DOF  1
+   INSTANCE: PART-1-1                                                                        
+  CORRESPONDING RESIDUAL FORCE     -1.800E-07
+ LARGEST INCREMENT OF DISP.         4.240E-06   AT NODE       1148   DOF  2
+   INSTANCE: PART-1-1                                                                        
+ LARGEST CORRECTION TO DISP.        3.450E-08   AT NODE        869   DOF  2
+   INSTANCE: PART-1-1                                                                        
+          THE FORCE     EQUILIBRIUM EQUATIONS HAVE CONVERGED
+          TIME INCREMENT MAY NOW INCREASE TO    0.169    
+          TIME INCREMENT REDUCED TO   0.100     TO MEET NEXT OUTPUT TIME POINT
+
+ ITERATION SUMMARY FOR THE INCREMENT:   2 TOTAL ITERATIONS, OF WHICH
+   0 ARE SEVERE DISCONTINUITY ITERATIONS AND  2 ARE EQUILIBRIUM ITERATIONS.
+
+ TIME INCREMENT COMPLETED  0.100    ,  FRACTION OF STEP COMPLETED  4.182E-02
+ STEP TIME COMPLETED        2.30    ,  TOTAL TIME COMPLETED         2.30    
+
+
+  INCREMENT    29 STARTS. ATTEMPT NUMBER  1, TIME INCREMENT  0.100    
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 74
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    7 RELATIVE RESIDUAL NORM =  7.104e-06 RHS NORM =  3.563e-02
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
+
+
+ AVERAGE FORCE                      8.247E-05   TIME AVG. FORCE       4.527E-05
+ LARGEST SCALED RESIDUAL FORCE      3.155E-04   AT NODE          1   DOF  3
+   INSTANCE: PART-1-1                                                                        
+  CORRESPONDING RESIDUAL FORCE      3.155E-04
+ LARGEST INCREMENT OF DISP.         1.160E-05   AT NODE       1148   DOF  2
+   INSTANCE: PART-1-1                                                                        
+ LARGEST CORRECTION TO DISP.        7.385E-06   AT NODE       1147   DOF  2
+   INSTANCE: PART-1-1                                                                        
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 83
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    8 RELATIVE RESIDUAL NORM =  6.944e-06 RHS NORM =  4.849e-04
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     2
+
+
+ AVERAGE FORCE                      8.196E-05   TIME AVG. FORCE       4.526E-05
+ LARGEST SCALED RESIDUAL FORCE      1.059E-06   AT NODE          1   DOF  3
+   INSTANCE: PART-1-1                                                                        
+  CORRESPONDING RESIDUAL FORCE      1.059E-06
+ LARGEST INCREMENT OF DISP.         1.158E-05   AT NODE       1148   DOF  2
+   INSTANCE: PART-1-1                                                                        
+ LARGEST CORRECTION TO DISP.        1.544E-07   AT NODE        191   DOF  2
+   INSTANCE: PART-1-1                                                                        
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 92
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    9 RELATIVE RESIDUAL NORM =  3.060e-06 RHS NORM =  3.357e-06
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     3
+
+
+ AVERAGE FORCE                      8.196E-05   TIME AVG. FORCE       4.526E-05
+ LARGEST SCALED RESIDUAL FORCE     -1.360E-08   AT NODE       1386   DOF  1
+   INSTANCE: PART-1-1                                                                        
+  CORRESPONDING RESIDUAL FORCE     -1.360E-08
+ LARGEST INCREMENT OF DISP.         1.158E-05   AT NODE       1148   DOF  2
+   INSTANCE: PART-1-1                                                                        
+ LARGEST CORRECTION TO DISP.       -4.759E-09   AT NODE        620   DOF  3
+   INSTANCE: PART-1-1                                                                        
+          THE FORCE     EQUILIBRIUM EQUATIONS HAVE CONVERGED
+          TIME INCREMENT MAY NOW INCREASE TO    0.169    
+          TIME INCREMENT REDUCED TO   0.100     TO MEET NEXT OUTPUT TIME POINT
+
+ ITERATION SUMMARY FOR THE INCREMENT:   3 TOTAL ITERATIONS, OF WHICH
+   0 ARE SEVERE DISCONTINUITY ITERATIONS AND  3 ARE EQUILIBRIUM ITERATIONS.
+
+ TIME INCREMENT COMPLETED  0.100    ,  FRACTION OF STEP COMPLETED  4.364E-02
+ STEP TIME COMPLETED        2.40    ,  TOTAL TIME COMPLETED         2.40    
+
+
+  INCREMENT    30 STARTS. ATTEMPT NUMBER  1, TIME INCREMENT  0.100    
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 83
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    8 RELATIVE RESIDUAL NORM =  5.254e-06 RHS NORM =  1.637e-02
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
+
+
+ AVERAGE FORCE                      8.305E-05   TIME AVG. FORCE       4.652E-05
+ LARGEST SCALED RESIDUAL FORCE     -6.909E-05   AT NODE       1596   DOF  1
+   INSTANCE: PART-1-1                                                                        
+  CORRESPONDING RESIDUAL FORCE     -6.909E-05
+ LARGEST INCREMENT OF DISP.         8.080E-06   AT NODE       1148   DOF  2
+   INSTANCE: PART-1-1                                                                        
+ LARGEST CORRECTION TO DISP.       -3.536E-06   AT NODE       1291   DOF  2
+   INSTANCE: PART-1-1                                                                        
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 83
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    8 RELATIVE RESIDUAL NORM =  4.708e-06 RHS NORM =  1.051e-04
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     2
+
+
+ AVERAGE FORCE                      8.301E-05   TIME AVG. FORCE       4.651E-05
+ LARGEST SCALED RESIDUAL FORCE      1.913E-07   AT NODE          1   DOF  3
+   INSTANCE: PART-1-1                                                                        
+  CORRESPONDING RESIDUAL FORCE      1.913E-07
+ LARGEST INCREMENT OF DISP.         8.066E-06   AT NODE       1148   DOF  2
+   INSTANCE: PART-1-1                                                                        
+ LARGEST CORRECTION TO DISP.        3.164E-08   AT NODE        989   DOF  2
+   INSTANCE: PART-1-1                                                                        
+          THE FORCE     EQUILIBRIUM EQUATIONS HAVE CONVERGED
+          TIME INCREMENT MAY NOW INCREASE TO    0.169    
+          TIME INCREMENT REDUCED TO   0.100     TO MEET NEXT OUTPUT TIME POINT
+
+ ITERATION SUMMARY FOR THE INCREMENT:   2 TOTAL ITERATIONS, OF WHICH
+   0 ARE SEVERE DISCONTINUITY ITERATIONS AND  2 ARE EQUILIBRIUM ITERATIONS.
+
+ TIME INCREMENT COMPLETED  0.100    ,  FRACTION OF STEP COMPLETED  4.545E-02
+ STEP TIME COMPLETED        2.50    ,  TOTAL TIME COMPLETED         2.50    
+
+
+  INCREMENT    31 STARTS. ATTEMPT NUMBER  1, TIME INCREMENT  0.100    
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 83
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    8 RELATIVE RESIDUAL NORM =  6.334e-06 RHS NORM =  2.087e-04
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
+
+
+ AVERAGE FORCE                      8.428E-05   TIME AVG. FORCE       4.773E-05
+ LARGEST SCALED RESIDUAL FORCE      1.069E-06   AT NODE          1   DOF  3
+   INSTANCE: PART-1-1                                                                        
+  CORRESPONDING RESIDUAL FORCE      1.069E-06
+ LARGEST INCREMENT OF DISP.         7.989E-06   AT NODE       1148   DOF  2
+   INSTANCE: PART-1-1                                                                        
+ LARGEST CORRECTION TO DISP.       -1.413E-07   AT NODE         61   DOF  3
+   INSTANCE: PART-1-1                                                                        
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 83
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    8 RELATIVE RESIDUAL NORM =  7.371e-06 RHS NORM =  1.758e-06
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     2
+
+
+ AVERAGE FORCE                      8.428E-05   TIME AVG. FORCE       4.773E-05
+ LARGEST SCALED RESIDUAL FORCE      1.311E-09   AT NODE       1717   DOF  1
+   INSTANCE: PART-1-1                                                                        
+  CORRESPONDING RESIDUAL FORCE      1.311E-09
+ LARGEST INCREMENT OF DISP.         7.989E-06   AT NODE       1148   DOF  2
+   INSTANCE: PART-1-1                                                                        
+ LARGEST CORRECTION TO DISP.        8.435E-10   AT NODE        841   DOF  2
+   INSTANCE: PART-1-1                                                                        
+          THE FORCE     EQUILIBRIUM EQUATIONS HAVE CONVERGED
+          TIME INCREMENT MAY NOW INCREASE TO    0.169    
+          TIME INCREMENT REDUCED TO   0.100     TO MEET NEXT OUTPUT TIME POINT
+
+ ITERATION SUMMARY FOR THE INCREMENT:   2 TOTAL ITERATIONS, OF WHICH
+   0 ARE SEVERE DISCONTINUITY ITERATIONS AND  2 ARE EQUILIBRIUM ITERATIONS.
+
+ TIME INCREMENT COMPLETED  0.100    ,  FRACTION OF STEP COMPLETED  4.727E-02
+ STEP TIME COMPLETED        2.60    ,  TOTAL TIME COMPLETED         2.60    
+
+
+  INCREMENT    32 STARTS. ATTEMPT NUMBER  1, TIME INCREMENT  0.100    
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 83
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    8 RELATIVE RESIDUAL NORM =  8.086e-06 RHS NORM =  6.675e-05
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
+
+
+ AVERAGE FORCE                      8.548E-05   TIME AVG. FORCE       4.891E-05
+ LARGEST SCALED RESIDUAL FORCE      3.409E-07   AT NODE          1   DOF  3
+   INSTANCE: PART-1-1                                                                        
+  CORRESPONDING RESIDUAL FORCE      3.409E-07
+ LARGEST INCREMENT OF DISP.         7.957E-06   AT NODE       1147   DOF  2
+   INSTANCE: PART-1-1                                                                        
+ LARGEST CORRECTION TO DISP.       -4.709E-08   AT NODE        734   DOF  3
+   INSTANCE: PART-1-1                                                                        
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 83
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    8 RELATIVE RESIDUAL NORM =  7.334e-06 RHS NORM =  7.564e-07
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     2
+
+
+ AVERAGE FORCE                      8.548E-05   TIME AVG. FORCE       4.891E-05
+ LARGEST SCALED RESIDUAL FORCE      3.005E-10   AT NODE       1717   DOF  3
+   INSTANCE: PART-1-1                                                                        
+  CORRESPONDING RESIDUAL FORCE      3.005E-10
+ LARGEST INCREMENT OF DISP.         7.957E-06   AT NODE       1147   DOF  2
+   INSTANCE: PART-1-1                                                                        
+ LARGEST CORRECTION TO DISP.        5.108E-10   AT NODE       1051   DOF  3
+   INSTANCE: PART-1-1                                                                        
+          THE FORCE     EQUILIBRIUM EQUATIONS HAVE CONVERGED
+          TIME INCREMENT MAY NOW INCREASE TO    0.169    
+          TIME INCREMENT REDUCED TO   0.100     TO MEET NEXT OUTPUT TIME POINT
+
+ ITERATION SUMMARY FOR THE INCREMENT:   2 TOTAL ITERATIONS, OF WHICH
+   0 ARE SEVERE DISCONTINUITY ITERATIONS AND  2 ARE EQUILIBRIUM ITERATIONS.
+
+ TIME INCREMENT COMPLETED  0.100    ,  FRACTION OF STEP COMPLETED  4.909E-02
+ STEP TIME COMPLETED        2.70    ,  TOTAL TIME COMPLETED         2.70    
+
+
+  INCREMENT    33 STARTS. ATTEMPT NUMBER  1, TIME INCREMENT  0.100    
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 83
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    8 RELATIVE RESIDUAL NORM =  6.392e-06 RHS NORM =  7.172e-05
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
+
+
+ AVERAGE FORCE                      8.659E-05   TIME AVG. FORCE       5.005E-05
+ LARGEST SCALED RESIDUAL FORCE      2.460E-07   AT NODE          1   DOF  3
+   INSTANCE: PART-1-1                                                                        
+  CORRESPONDING RESIDUAL FORCE      2.460E-07
+ LARGEST INCREMENT OF DISP.         7.949E-06   AT NODE       1147   DOF  2
+   INSTANCE: PART-1-1                                                                        
+ LARGEST CORRECTION TO DISP.       -3.872E-08   AT NODE       1350   DOF  3
+   INSTANCE: PART-1-1                                                                        
+          THE FORCE     EQUILIBRIUM EQUATIONS HAVE CONVERGED
+          TIME INCREMENT MAY NOW INCREASE TO    0.169    
+          TIME INCREMENT REDUCED TO   0.100     TO MEET NEXT OUTPUT TIME POINT
+
+ ITERATION SUMMARY FOR THE INCREMENT:   1 TOTAL ITERATIONS, OF WHICH
+   0 ARE SEVERE DISCONTINUITY ITERATIONS AND  1 ARE EQUILIBRIUM ITERATIONS.
+
+ TIME INCREMENT COMPLETED  0.100    ,  FRACTION OF STEP COMPLETED  5.091E-02
+ STEP TIME COMPLETED        2.80    ,  TOTAL TIME COMPLETED         2.80    
+
+
+  INCREMENT    34 STARTS. ATTEMPT NUMBER  1, TIME INCREMENT  0.100    
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 83
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    8 RELATIVE RESIDUAL NORM =  2.843e-06 RHS NORM =  1.628e-02
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
+
+
+ AVERAGE FORCE                      8.902E-05   TIME AVG. FORCE       5.120E-05
+ LARGEST SCALED RESIDUAL FORCE      3.296E-05   AT NODE          1   DOF  3
+   INSTANCE: PART-1-1                                                                        
+  CORRESPONDING RESIDUAL FORCE      3.296E-05
+ LARGEST INCREMENT OF DISP.         1.165E-05   AT NODE       1147   DOF  2
+   INSTANCE: PART-1-1                                                                        
+ LARGEST CORRECTION TO DISP.        3.699E-06   AT NODE       1147   DOF  2
+   INSTANCE: PART-1-1                                                                        
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 83
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    8 RELATIVE RESIDUAL NORM =  8.652e-06 RHS NORM =  5.355e-05
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     2
+
+
+ AVERAGE FORCE                      8.895E-05   TIME AVG. FORCE       5.120E-05
+ LARGEST SCALED RESIDUAL FORCE      1.332E-07   AT NODE          1   DOF  3
+   INSTANCE: PART-1-1                                                                        
+  CORRESPONDING RESIDUAL FORCE      1.332E-07
+ LARGEST INCREMENT OF DISP.         1.165E-05   AT NODE       1147   DOF  2
+   INSTANCE: PART-1-1                                                                        
+ LARGEST CORRECTION TO DISP.        3.197E-08   AT NODE       1004   DOF  3
+   INSTANCE: PART-1-1                                                                        
+          THE FORCE     EQUILIBRIUM EQUATIONS HAVE CONVERGED
+          TIME INCREMENT MAY NOW INCREASE TO    0.169    
+          TIME INCREMENT REDUCED TO   0.100     TO MEET NEXT OUTPUT TIME POINT
+
+ ITERATION SUMMARY FOR THE INCREMENT:   2 TOTAL ITERATIONS, OF WHICH
+   0 ARE SEVERE DISCONTINUITY ITERATIONS AND  2 ARE EQUILIBRIUM ITERATIONS.
+
+ TIME INCREMENT COMPLETED  0.100    ,  FRACTION OF STEP COMPLETED  5.273E-02
+ STEP TIME COMPLETED        2.90    ,  TOTAL TIME COMPLETED         2.90    
+
+
+  INCREMENT    35 STARTS. ATTEMPT NUMBER  1, TIME INCREMENT  0.100    
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 83
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    8 RELATIVE RESIDUAL NORM =  7.525e-06 RHS NORM =  3.852e-04
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
+
+
+ AVERAGE FORCE                      9.054E-05   TIME AVG. FORCE       5.232E-05
+ LARGEST SCALED RESIDUAL FORCE     -2.228E-07   AT NODE       1717   DOF  3
+   INSTANCE: PART-1-1                                                                        
+  CORRESPONDING RESIDUAL FORCE     -2.228E-07
+ LARGEST INCREMENT OF DISP.         1.176E-05   AT NODE       1147   DOF  2
+   INSTANCE: PART-1-1                                                                        
+ LARGEST CORRECTION TO DISP.        2.440E-07   AT NODE         65   DOF  3
+   INSTANCE: PART-1-1                                                                        
+ ESTIMATE OF DISP.    CORRECTION   -2.042E-10
+ FORCE     EQUILIB. ACCEPTED BASED ON SMALL RESIDUAL AND ESTIMATED CORRECTION
+          TIME INCREMENT MAY NOW INCREASE TO    0.169    
+          TIME INCREMENT REDUCED TO   0.100     TO MEET NEXT OUTPUT TIME POINT
+
+ ITERATION SUMMARY FOR THE INCREMENT:   1 TOTAL ITERATIONS, OF WHICH
+   0 ARE SEVERE DISCONTINUITY ITERATIONS AND  1 ARE EQUILIBRIUM ITERATIONS.
+
+ TIME INCREMENT COMPLETED  0.100    ,  FRACTION OF STEP COMPLETED  5.455E-02
+ STEP TIME COMPLETED        3.00    ,  TOTAL TIME COMPLETED         3.00    
+
+
+  INCREMENT    36 STARTS. ATTEMPT NUMBER  1, TIME INCREMENT  0.100    
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 92
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    9 RELATIVE RESIDUAL NORM =  3.027e-06 RHS NORM =  1.067e-04
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
+
+
+ AVERAGE FORCE                      9.187E-05   TIME AVG. FORCE       5.342E-05
+ LARGEST SCALED RESIDUAL FORCE     -2.781E-07   AT NODE       1717   DOF  3
+   INSTANCE: PART-1-1                                                                        
+  CORRESPONDING RESIDUAL FORCE     -2.781E-07
+ LARGEST INCREMENT OF DISP.         1.179E-05   AT NODE       1147   DOF  2
+   INSTANCE: PART-1-1                                                                        
+ LARGEST CORRECTION TO DISP.        1.036E-07   AT NODE       1252   DOF  3
+   INSTANCE: PART-1-1                                                                        
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 92
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    9 RELATIVE RESIDUAL NORM =  3.972e-06 RHS NORM =  8.836e-07
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     2
+
+
+ AVERAGE FORCE                      9.187E-05   TIME AVG. FORCE       5.342E-05
+ LARGEST SCALED RESIDUAL FORCE     -5.191E-09   AT NODE          1   DOF  3
+   INSTANCE: PART-1-1                                                                        
+  CORRESPONDING RESIDUAL FORCE     -5.191E-09
+ LARGEST INCREMENT OF DISP.         1.179E-05   AT NODE       1147   DOF  2
+   INSTANCE: PART-1-1                                                                        
+ LARGEST CORRECTION TO DISP.        1.102E-09   AT NODE       1094   DOF  3
+   INSTANCE: PART-1-1                                                                        
+          THE FORCE     EQUILIBRIUM EQUATIONS HAVE CONVERGED
+          TIME INCREMENT MAY NOW INCREASE TO    0.169    
+          TIME INCREMENT REDUCED TO   0.100     TO MEET NEXT OUTPUT TIME POINT
+
+ ITERATION SUMMARY FOR THE INCREMENT:   2 TOTAL ITERATIONS, OF WHICH
+   0 ARE SEVERE DISCONTINUITY ITERATIONS AND  2 ARE EQUILIBRIUM ITERATIONS.
+
+ TIME INCREMENT COMPLETED  0.100    ,  FRACTION OF STEP COMPLETED  5.636E-02
+ STEP TIME COMPLETED        3.10    ,  TOTAL TIME COMPLETED         3.10    
+
+
+  INCREMENT    37 STARTS. ATTEMPT NUMBER  1, TIME INCREMENT  0.100    
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 83
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    8 RELATIVE RESIDUAL NORM =  4.484e-06 RHS NORM =  1.551e-02
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
+
+
+ AVERAGE FORCE                      9.191E-05   TIME AVG. FORCE       5.446E-05
+ LARGEST SCALED RESIDUAL FORCE     -6.861E-05   AT NODE       1596   DOF  1
+   INSTANCE: PART-1-1                                                                        
+  CORRESPONDING RESIDUAL FORCE     -6.861E-05
+ LARGEST INCREMENT OF DISP.         8.114E-06   AT NODE       1147   DOF  2
+   INSTANCE: PART-1-1                                                                        
+ LARGEST CORRECTION TO DISP.       -3.682E-06   AT NODE       1291   DOF  2
+   INSTANCE: PART-1-1                                                                        
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 83
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    8 RELATIVE RESIDUAL NORM =  3.017e-06 RHS NORM =  1.015e-04
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     2
+
+
+ AVERAGE FORCE                      9.185E-05   TIME AVG. FORCE       5.446E-05
+ LARGEST SCALED RESIDUAL FORCE      1.263E-07   AT NODE          1   DOF  3
+   INSTANCE: PART-1-1                                                                        
+  CORRESPONDING RESIDUAL FORCE      1.263E-07
+ LARGEST INCREMENT OF DISP.         8.109E-06   AT NODE       1147   DOF  2
+   INSTANCE: PART-1-1                                                                        
+ LARGEST CORRECTION TO DISP.        2.785E-08   AT NODE        989   DOF  2
+   INSTANCE: PART-1-1                                                                        
+          THE FORCE     EQUILIBRIUM EQUATIONS HAVE CONVERGED
+          TIME INCREMENT MAY NOW INCREASE TO    0.169    
+          TIME INCREMENT REDUCED TO   0.100     TO MEET NEXT OUTPUT TIME POINT
+
+ ITERATION SUMMARY FOR THE INCREMENT:   2 TOTAL ITERATIONS, OF WHICH
+   0 ARE SEVERE DISCONTINUITY ITERATIONS AND  2 ARE EQUILIBRIUM ITERATIONS.
+
+ TIME INCREMENT COMPLETED  0.100    ,  FRACTION OF STEP COMPLETED  5.818E-02
+ STEP TIME COMPLETED        3.20    ,  TOTAL TIME COMPLETED         3.20    
+
+
+  INCREMENT    38 STARTS. ATTEMPT NUMBER  1, TIME INCREMENT  0.100    
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 83
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    8 RELATIVE RESIDUAL NORM =  2.600e-06 RHS NORM =  1.586e-02
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
+
+
+ AVERAGE FORCE                      9.094E-05   TIME AVG. FORCE       5.542E-05
+ LARGEST SCALED RESIDUAL FORCE     -1.098E-04   AT NODE       1596   DOF  1
+   INSTANCE: PART-1-1                                                                        
+  CORRESPONDING RESIDUAL FORCE     -1.098E-04
+ LARGEST INCREMENT OF DISP.         4.322E-06   AT NODE       1148   DOF  2
+   INSTANCE: PART-1-1                                                                        
+ LARGEST CORRECTION TO DISP.       -3.805E-06   AT NODE       1147   DOF  2
+   INSTANCE: PART-1-1                                                                        
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 74
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    7 RELATIVE RESIDUAL NORM =  6.681e-06 RHS NORM =  1.654e-04
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     2
+
+
+ AVERAGE FORCE                      9.080E-05   TIME AVG. FORCE       5.542E-05
+ LARGEST SCALED RESIDUAL FORCE     -4.215E-07   AT NODE       1596   DOF  1
+   INSTANCE: PART-1-1                                                                        
+  CORRESPONDING RESIDUAL FORCE     -4.215E-07
+ LARGEST INCREMENT OF DISP.         4.323E-06   AT NODE       1148   DOF  2
+   INSTANCE: PART-1-1                                                                        
+ LARGEST CORRECTION TO DISP.        3.912E-08   AT NODE         51   DOF  3
+   INSTANCE: PART-1-1                                                                        
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 83
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    8 RELATIVE RESIDUAL NORM =  2.502e-06 RHS NORM =  1.279e-06
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     3
+
+
+ AVERAGE FORCE                      9.080E-05   TIME AVG. FORCE       5.542E-05
+ LARGEST SCALED RESIDUAL FORCE      1.520E-09   AT NODE       1290   DOF  2
+   INSTANCE: PART-1-1                                                                        
+  CORRESPONDING RESIDUAL FORCE      1.520E-09
+ LARGEST INCREMENT OF DISP.         4.323E-06   AT NODE       1148   DOF  2
+   INSTANCE: PART-1-1                                                                        
+ LARGEST CORRECTION TO DISP.       -1.501E-09   AT NODE       1134   DOF  2
+   INSTANCE: PART-1-1                                                                        
+          THE FORCE     EQUILIBRIUM EQUATIONS HAVE CONVERGED
+          TIME INCREMENT MAY NOW INCREASE TO    0.169    
+          TIME INCREMENT REDUCED TO   0.100     TO MEET NEXT OUTPUT TIME POINT
+
+ ITERATION SUMMARY FOR THE INCREMENT:   3 TOTAL ITERATIONS, OF WHICH
+   0 ARE SEVERE DISCONTINUITY ITERATIONS AND  3 ARE EQUILIBRIUM ITERATIONS.
+
+ TIME INCREMENT COMPLETED  0.100    ,  FRACTION OF STEP COMPLETED  6.000E-02
+ STEP TIME COMPLETED        3.30    ,  TOTAL TIME COMPLETED         3.30    
+
+
+  INCREMENT    39 STARTS. ATTEMPT NUMBER  1, TIME INCREMENT  0.100    
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 74
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    7 RELATIVE RESIDUAL NORM =  5.423e-06 RHS NORM =  1.636e-02
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
+
+
+ AVERAGE FORCE                      9.258E-05   TIME AVG. FORCE       5.637E-05
+ LARGEST SCALED RESIDUAL FORCE      1.397E-04   AT NODE          1   DOF  3
+   INSTANCE: PART-1-1                                                                        
+  CORRESPONDING RESIDUAL FORCE      1.397E-04
+ LARGEST INCREMENT OF DISP.         7.860E-06   AT NODE       1147   DOF  2
+   INSTANCE: PART-1-1                                                                        
+ LARGEST CORRECTION TO DISP.        3.550E-06   AT NODE       1147   DOF  2
+   INSTANCE: PART-1-1                                                                        
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 74
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    7 RELATIVE RESIDUAL NORM =  7.922e-06 RHS NORM =  2.212e-04
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     2
+
+
+ AVERAGE FORCE                      9.241E-05   TIME AVG. FORCE       5.636E-05
+ LARGEST SCALED RESIDUAL FORCE      1.139E-06   AT NODE          1   DOF  3
+   INSTANCE: PART-1-1                                                                        
+  CORRESPONDING RESIDUAL FORCE      1.139E-06
+ LARGEST INCREMENT OF DISP.         7.816E-06   AT NODE       1147   DOF  2
+   INSTANCE: PART-1-1                                                                        
+ LARGEST CORRECTION TO DISP.       -6.909E-08   AT NODE       1265   DOF  2
+   INSTANCE: PART-1-1                                                                        
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 83
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    8 RELATIVE RESIDUAL NORM =  5.161e-06 RHS NORM =  2.436e-06
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     3
+
+
+ AVERAGE FORCE                      9.241E-05   TIME AVG. FORCE       5.636E-05
+ LARGEST SCALED RESIDUAL FORCE      3.537E-09   AT NODE          1   DOF  3
+   INSTANCE: PART-1-1                                                                        
+  CORRESPONDING RESIDUAL FORCE      3.537E-09
+ LARGEST INCREMENT OF DISP.         7.816E-06   AT NODE       1147   DOF  2
+   INSTANCE: PART-1-1                                                                        
+ LARGEST CORRECTION TO DISP.        1.780E-09   AT NODE       1286   DOF  3
+   INSTANCE: PART-1-1                                                                        
+          THE FORCE     EQUILIBRIUM EQUATIONS HAVE CONVERGED
+          TIME INCREMENT MAY NOW INCREASE TO    0.169    
+          TIME INCREMENT REDUCED TO   0.100     TO MEET NEXT OUTPUT TIME POINT
+
+ ITERATION SUMMARY FOR THE INCREMENT:   3 TOTAL ITERATIONS, OF WHICH
+   0 ARE SEVERE DISCONTINUITY ITERATIONS AND  3 ARE EQUILIBRIUM ITERATIONS.
+
+ TIME INCREMENT COMPLETED  0.100    ,  FRACTION OF STEP COMPLETED  6.182E-02
+ STEP TIME COMPLETED        3.40    ,  TOTAL TIME COMPLETED         3.40    
+
+
+  INCREMENT    40 STARTS. ATTEMPT NUMBER  1, TIME INCREMENT  0.100    
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 74
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    7 RELATIVE RESIDUAL NORM =  8.606e-06 RHS NORM =  1.581e-02
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
+
+
+ AVERAGE FORCE                      9.449E-05   TIME AVG. FORCE       5.732E-05
+ LARGEST SCALED RESIDUAL FORCE      3.695E-05   AT NODE          1   DOF  3
+   INSTANCE: PART-1-1                                                                        
+  CORRESPONDING RESIDUAL FORCE      3.695E-05
+ LARGEST INCREMENT OF DISP.         1.150E-05   AT NODE       1147   DOF  2
+   INSTANCE: PART-1-1                                                                        
+ LARGEST CORRECTION TO DISP.        3.689E-06   AT NODE       1147   DOF  2
+   INSTANCE: PART-1-1                                                                        
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 83
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    8 RELATIVE RESIDUAL NORM =  4.310e-06 RHS NORM =  5.945e-05
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     2
+
+
+ AVERAGE FORCE                      9.441E-05   TIME AVG. FORCE       5.732E-05
+ LARGEST SCALED RESIDUAL FORCE      1.309E-07   AT NODE       1717   DOF  1
+   INSTANCE: PART-1-1                                                                        
+  CORRESPONDING RESIDUAL FORCE      1.309E-07
+ LARGEST INCREMENT OF DISP.         1.150E-05   AT NODE       1147   DOF  2
+   INSTANCE: PART-1-1                                                                        
+ LARGEST CORRECTION TO DISP.        3.952E-08   AT NODE       1004   DOF  3
+   INSTANCE: PART-1-1                                                                        
+          THE FORCE     EQUILIBRIUM EQUATIONS HAVE CONVERGED
+          TIME INCREMENT MAY NOW INCREASE TO    0.169    
+          TIME INCREMENT REDUCED TO   0.100     TO MEET NEXT OUTPUT TIME POINT
+
+ ITERATION SUMMARY FOR THE INCREMENT:   2 TOTAL ITERATIONS, OF WHICH
+   0 ARE SEVERE DISCONTINUITY ITERATIONS AND  2 ARE EQUILIBRIUM ITERATIONS.
+
+ TIME INCREMENT COMPLETED  0.100    ,  FRACTION OF STEP COMPLETED  6.364E-02
+ STEP TIME COMPLETED        3.50    ,  TOTAL TIME COMPLETED         3.50    
+
+
+  INCREMENT    41 STARTS. ATTEMPT NUMBER  1, TIME INCREMENT  0.100    
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 83
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    8 RELATIVE RESIDUAL NORM =  3.466e-06 RHS NORM =  3.021e-02
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
+
+
+ AVERAGE FORCE                      9.314E-05   TIME AVG. FORCE       5.819E-05
+ LARGEST SCALED RESIDUAL FORCE     -3.422E-04   AT NODE       1596   DOF  1
+   INSTANCE: PART-1-1                                                                        
+  CORRESPONDING RESIDUAL FORCE     -3.422E-04
+ LARGEST INCREMENT OF DISP.         4.392E-06   AT NODE       1148   DOF  2
+   INSTANCE: PART-1-1                                                                        
+ LARGEST CORRECTION TO DISP.       -7.153E-06   AT NODE       1291   DOF  2
+   INSTANCE: PART-1-1                                                                        
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 74
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    7 RELATIVE RESIDUAL NORM =  6.310e-06 RHS NORM =  5.160e-04
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     2
+
+
+ AVERAGE FORCE                      9.292E-05   TIME AVG. FORCE       5.818E-05
+ LARGEST SCALED RESIDUAL FORCE     -5.522E-06   AT NODE       1596   DOF  1
+   INSTANCE: PART-1-1                                                                        
+  CORRESPONDING RESIDUAL FORCE     -5.522E-06
+ LARGEST INCREMENT OF DISP.         4.327E-06   AT NODE       1147   DOF  2
+   INSTANCE: PART-1-1                                                                        
+ LARGEST CORRECTION TO DISP.        1.313E-07   AT NODE        989   DOF  2
+   INSTANCE: PART-1-1                                                                        
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 83
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    8 RELATIVE RESIDUAL NORM =  2.784e-06 RHS NORM =  1.379e-05
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     3
+
+
+ AVERAGE FORCE                      9.291E-05   TIME AVG. FORCE       5.818E-05
+ LARGEST SCALED RESIDUAL FORCE     -5.897E-08   AT NODE       1133   DOF  2
+   INSTANCE: PART-1-1                                                                        
+  CORRESPONDING RESIDUAL FORCE     -5.897E-08
+ LARGEST INCREMENT OF DISP.         4.323E-06   AT NODE       1147   DOF  2
+   INSTANCE: PART-1-1                                                                        
+ LARGEST CORRECTION TO DISP.        8.843E-09   AT NODE       1134   DOF  3
+   INSTANCE: PART-1-1                                                                        
+          THE FORCE     EQUILIBRIUM EQUATIONS HAVE CONVERGED
+          TIME INCREMENT MAY NOW INCREASE TO    0.169    
+          TIME INCREMENT REDUCED TO   0.100     TO MEET NEXT OUTPUT TIME POINT
+
+ ITERATION SUMMARY FOR THE INCREMENT:   3 TOTAL ITERATIONS, OF WHICH
+   0 ARE SEVERE DISCONTINUITY ITERATIONS AND  3 ARE EQUILIBRIUM ITERATIONS.
+
+ TIME INCREMENT COMPLETED  0.100    ,  FRACTION OF STEP COMPLETED  6.545E-02
+ STEP TIME COMPLETED        3.60    ,  TOTAL TIME COMPLETED         3.60    
+
+
+  INCREMENT    42 STARTS. ATTEMPT NUMBER  1, TIME INCREMENT  0.100    
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 74
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    7 RELATIVE RESIDUAL NORM =  5.085e-06 RHS NORM =  1.609e-02
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
+
+
+ AVERAGE FORCE                      9.453E-05   TIME AVG. FORCE       5.905E-05
+ LARGEST SCALED RESIDUAL FORCE      1.475E-04   AT NODE          1   DOF  3
+   INSTANCE: PART-1-1                                                                        
+  CORRESPONDING RESIDUAL FORCE      1.475E-04
+ LARGEST INCREMENT OF DISP.         7.837E-06   AT NODE       1147   DOF  2
+   INSTANCE: PART-1-1                                                                        
+ LARGEST CORRECTION TO DISP.        3.514E-06   AT NODE       1147   DOF  2
+   INSTANCE: PART-1-1                                                                        
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 74
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    7 RELATIVE RESIDUAL NORM =  7.982e-06 RHS NORM =  2.285e-04
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     2
+
+
+ AVERAGE FORCE                      9.436E-05   TIME AVG. FORCE       5.905E-05
+ LARGEST SCALED RESIDUAL FORCE      1.396E-06   AT NODE          1   DOF  3
+   INSTANCE: PART-1-1                                                                        
+  CORRESPONDING RESIDUAL FORCE      1.396E-06
+ LARGEST INCREMENT OF DISP.         7.790E-06   AT NODE       1147   DOF  2
+   INSTANCE: PART-1-1                                                                        
+ LARGEST CORRECTION TO DISP.       -7.513E-08   AT NODE       1265   DOF  2
+   INSTANCE: PART-1-1                                                                        
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 83
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    8 RELATIVE RESIDUAL NORM =  4.657e-06 RHS NORM =  2.820e-06
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     3
+
+
+ AVERAGE FORCE                      9.437E-05   TIME AVG. FORCE       5.905E-05
+ LARGEST SCALED RESIDUAL FORCE      4.763E-09   AT NODE          1   DOF  3
+   INSTANCE: PART-1-1                                                                        
+  CORRESPONDING RESIDUAL FORCE      4.763E-09
+ LARGEST INCREMENT OF DISP.         7.789E-06   AT NODE       1147   DOF  2
+   INSTANCE: PART-1-1                                                                        
+ LARGEST CORRECTION TO DISP.        2.651E-09   AT NODE        765   DOF  3
+   INSTANCE: PART-1-1                                                                        
+          THE FORCE     EQUILIBRIUM EQUATIONS HAVE CONVERGED
+          TIME INCREMENT MAY NOW INCREASE TO    0.169    
+          TIME INCREMENT REDUCED TO   0.100     TO MEET NEXT OUTPUT TIME POINT
+
+ ITERATION SUMMARY FOR THE INCREMENT:   3 TOTAL ITERATIONS, OF WHICH
+   0 ARE SEVERE DISCONTINUITY ITERATIONS AND  3 ARE EQUILIBRIUM ITERATIONS.
+
+ TIME INCREMENT COMPLETED  0.100    ,  FRACTION OF STEP COMPLETED  6.727E-02
+ STEP TIME COMPLETED        3.70    ,  TOTAL TIME COMPLETED         3.70    
+
+
+  INCREMENT    43 STARTS. ATTEMPT NUMBER  1, TIME INCREMENT  0.100    
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 74
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    7 RELATIVE RESIDUAL NORM =  6.179e-06 RHS NORM =  4.707e-04
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
+
+
+ AVERAGE FORCE                      9.508E-05   TIME AVG. FORCE       5.988E-05
+ LARGEST SCALED RESIDUAL FORCE      2.027E-07   AT NODE       1717   DOF  1
+   INSTANCE: PART-1-1                                                                        
+  CORRESPONDING RESIDUAL FORCE      2.027E-07
+ LARGEST INCREMENT OF DISP.         7.829E-06   AT NODE       1147   DOF  2
+   INSTANCE: PART-1-1                                                                        
+ LARGEST CORRECTION TO DISP.        1.669E-07   AT NODE         65   DOF  3
+   INSTANCE: PART-1-1                                                                        
+ ESTIMATE OF DISP.    CORRECTION    1.024E-10
+ FORCE     EQUILIB. ACCEPTED BASED ON SMALL RESIDUAL AND ESTIMATED CORRECTION
+          TIME INCREMENT MAY NOW INCREASE TO    0.169    
+          TIME INCREMENT REDUCED TO   0.100     TO MEET NEXT OUTPUT TIME POINT
+
+ ITERATION SUMMARY FOR THE INCREMENT:   1 TOTAL ITERATIONS, OF WHICH
+   0 ARE SEVERE DISCONTINUITY ITERATIONS AND  1 ARE EQUILIBRIUM ITERATIONS.
+
+ TIME INCREMENT COMPLETED  0.100    ,  FRACTION OF STEP COMPLETED  6.909E-02
+ STEP TIME COMPLETED        3.80    ,  TOTAL TIME COMPLETED         3.80    
+
+
+  INCREMENT    44 STARTS. ATTEMPT NUMBER  1, TIME INCREMENT  0.100    
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 74
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    7 RELATIVE RESIDUAL NORM =  7.895e-06 RHS NORM =  1.534e-02
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
+
+
+ AVERAGE FORCE                      9.430E-05   TIME AVG. FORCE       6.067E-05
+ LARGEST SCALED RESIDUAL FORCE      1.248E-04   AT NODE          1   DOF  3
+   INSTANCE: PART-1-1                                                                        
+  CORRESPONDING RESIDUAL FORCE      1.248E-04
+ LARGEST INCREMENT OF DISP.         4.219E-06   AT NODE       1148   DOF  2
+   INSTANCE: PART-1-1                                                                        
+ LARGEST CORRECTION TO DISP.       -3.612E-06   AT NODE       1147   DOF  2
+   INSTANCE: PART-1-1                                                                        
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 74
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    7 RELATIVE RESIDUAL NORM =  4.816e-06 RHS NORM =  1.863e-04
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     2
+
+
+ AVERAGE FORCE                      9.418E-05   TIME AVG. FORCE       6.066E-05
+ LARGEST SCALED RESIDUAL FORCE     -5.637E-07   AT NODE       1596   DOF  1
+   INSTANCE: PART-1-1                                                                        
+  CORRESPONDING RESIDUAL FORCE     -5.637E-07
+ LARGEST INCREMENT OF DISP.         4.206E-06   AT NODE       1147   DOF  2
+   INSTANCE: PART-1-1                                                                        
+ LARGEST CORRECTION TO DISP.       -4.355E-08   AT NODE       1108   DOF  2
+   INSTANCE: PART-1-1                                                                        
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 83
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    8 RELATIVE RESIDUAL NORM =  2.211e-06 RHS NORM =  1.405e-06
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     3
+
+
+ AVERAGE FORCE                      9.418E-05   TIME AVG. FORCE       6.066E-05
+ LARGEST SCALED RESIDUAL FORCE      1.235E-09   AT NODE          1   DOF  3
+   INSTANCE: PART-1-1                                                                        
+  CORRESPONDING RESIDUAL FORCE      1.235E-09
+ LARGEST INCREMENT OF DISP.         4.205E-06   AT NODE       1147   DOF  2
+   INSTANCE: PART-1-1                                                                        
+ LARGEST CORRECTION TO DISP.       -1.105E-09   AT NODE       1265   DOF  2
+   INSTANCE: PART-1-1                                                                        
+          THE FORCE     EQUILIBRIUM EQUATIONS HAVE CONVERGED
+          TIME INCREMENT MAY NOW INCREASE TO    0.169    
+          TIME INCREMENT REDUCED TO   0.100     TO MEET NEXT OUTPUT TIME POINT
+
+ ITERATION SUMMARY FOR THE INCREMENT:   3 TOTAL ITERATIONS, OF WHICH
+   0 ARE SEVERE DISCONTINUITY ITERATIONS AND  3 ARE EQUILIBRIUM ITERATIONS.
+
+ TIME INCREMENT COMPLETED  0.100    ,  FRACTION OF STEP COMPLETED  7.091E-02
+ STEP TIME COMPLETED        3.90    ,  TOTAL TIME COMPLETED         3.90    
+
+
+  INCREMENT    45 STARTS. ATTEMPT NUMBER  1, TIME INCREMENT  0.100    
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 74
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    7 RELATIVE RESIDUAL NORM =  4.365e-06 RHS NORM =  1.596e-02
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
+
+
+ AVERAGE FORCE                      9.587E-05   TIME AVG. FORCE       6.145E-05
+ LARGEST SCALED RESIDUAL FORCE      1.436E-04   AT NODE          1   DOF  3
+   INSTANCE: PART-1-1                                                                        
+  CORRESPONDING RESIDUAL FORCE      1.436E-04
+ LARGEST INCREMENT OF DISP.         7.753E-06   AT NODE       1147   DOF  2
+   INSTANCE: PART-1-1                                                                        
+ LARGEST CORRECTION TO DISP.        3.548E-06   AT NODE       1147   DOF  2
+   INSTANCE: PART-1-1                                                                        
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 74
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    7 RELATIVE RESIDUAL NORM =  6.632e-06 RHS NORM =  2.165e-04
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     2
+
+
+ AVERAGE FORCE                      9.570E-05   TIME AVG. FORCE       6.144E-05
+ LARGEST SCALED RESIDUAL FORCE      8.977E-07   AT NODE          1   DOF  3
+   INSTANCE: PART-1-1                                                                        
+  CORRESPONDING RESIDUAL FORCE      8.977E-07
+ LARGEST INCREMENT OF DISP.         7.715E-06   AT NODE       1147   DOF  2
+   INSTANCE: PART-1-1                                                                        
+ LARGEST CORRECTION TO DISP.       -6.611E-08   AT NODE       1265   DOF  2
+   INSTANCE: PART-1-1                                                                        
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 83
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    8 RELATIVE RESIDUAL NORM =  3.977e-06 RHS NORM =  1.858e-06
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     3
+
+
+ AVERAGE FORCE                      9.570E-05   TIME AVG. FORCE       6.144E-05
+ LARGEST SCALED RESIDUAL FORCE      2.110E-09   AT NODE          1   DOF  3
+   INSTANCE: PART-1-1                                                                        
+  CORRESPONDING RESIDUAL FORCE      2.110E-09
+ LARGEST INCREMENT OF DISP.         7.715E-06   AT NODE       1147   DOF  2
+   INSTANCE: PART-1-1                                                                        
+ LARGEST CORRECTION TO DISP.        1.708E-09   AT NODE       1241   DOF  3
+   INSTANCE: PART-1-1                                                                        
+          THE FORCE     EQUILIBRIUM EQUATIONS HAVE CONVERGED
+          TIME INCREMENT MAY NOW INCREASE TO    0.169    
+          TIME INCREMENT REDUCED TO   0.100     TO MEET NEXT OUTPUT TIME POINT
+
+ ITERATION SUMMARY FOR THE INCREMENT:   3 TOTAL ITERATIONS, OF WHICH
+   0 ARE SEVERE DISCONTINUITY ITERATIONS AND  3 ARE EQUILIBRIUM ITERATIONS.
+
+ TIME INCREMENT COMPLETED  0.100    ,  FRACTION OF STEP COMPLETED  7.273E-02
+ STEP TIME COMPLETED        4.00    ,  TOTAL TIME COMPLETED         4.00    
+
+
+  INCREMENT    46 STARTS. ATTEMPT NUMBER  1, TIME INCREMENT  0.100    
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 74
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    7 RELATIVE RESIDUAL NORM =  6.428e-06 RHS NORM =  5.232e-04
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
+
+
+ AVERAGE FORCE                      9.641E-05   TIME AVG. FORCE       6.220E-05
+ LARGEST SCALED RESIDUAL FORCE     -1.345E-07   AT NODE        759   DOF  2
+   INSTANCE: PART-1-1                                                                        
+  CORRESPONDING RESIDUAL FORCE     -1.345E-07
+ LARGEST INCREMENT OF DISP.         7.784E-06   AT NODE       1147   DOF  2
+   INSTANCE: PART-1-1                                                                        
+ LARGEST CORRECTION TO DISP.        2.113E-07   AT NODE         65   DOF  3
+   INSTANCE: PART-1-1                                                                        
+ ESTIMATE OF DISP.    CORRECTION   -7.841E-11
+ FORCE     EQUILIB. ACCEPTED BASED ON SMALL RESIDUAL AND ESTIMATED CORRECTION
+          TIME INCREMENT MAY NOW INCREASE TO    0.169    
+          TIME INCREMENT REDUCED TO   0.100     TO MEET NEXT OUTPUT TIME POINT
+
+ ITERATION SUMMARY FOR THE INCREMENT:   1 TOTAL ITERATIONS, OF WHICH
+   0 ARE SEVERE DISCONTINUITY ITERATIONS AND  1 ARE EQUILIBRIUM ITERATIONS.
+
+ TIME INCREMENT COMPLETED  0.100    ,  FRACTION OF STEP COMPLETED  7.455E-02
+ STEP TIME COMPLETED        4.10    ,  TOTAL TIME COMPLETED         4.10    
+
+
+  INCREMENT    47 STARTS. ATTEMPT NUMBER  1, TIME INCREMENT  0.100    
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 74
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    7 RELATIVE RESIDUAL NORM =  7.144e-06 RHS NORM =  1.527e-02
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
+
+
+ AVERAGE FORCE                      9.562E-05   TIME AVG. FORCE       6.291E-05
+ LARGEST SCALED RESIDUAL FORCE     -1.291E-04   AT NODE       1596   DOF  1
+   INSTANCE: PART-1-1                                                                        
+  CORRESPONDING RESIDUAL FORCE     -1.291E-04
+ LARGEST INCREMENT OF DISP.         4.194E-06   AT NODE       1147   DOF  2
+   INSTANCE: PART-1-1                                                                        
+ LARGEST CORRECTION TO DISP.       -3.596E-06   AT NODE       1291   DOF  2
+   INSTANCE: PART-1-1                                                                        
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 74
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    7 RELATIVE RESIDUAL NORM =  4.474e-06 RHS NORM =  1.926e-04
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     2
+
+
+ AVERAGE FORCE                      9.551E-05   TIME AVG. FORCE       6.291E-05
+ LARGEST SCALED RESIDUAL FORCE     -6.025E-07   AT NODE       1596   DOF  1
+   INSTANCE: PART-1-1                                                                        
+  CORRESPONDING RESIDUAL FORCE     -6.025E-07
+ LARGEST INCREMENT OF DISP.         4.179E-06   AT NODE       1147   DOF  2
+   INSTANCE: PART-1-1                                                                        
+ LARGEST CORRECTION TO DISP.        4.244E-08   AT NODE       1016   DOF  3
+   INSTANCE: PART-1-1                                                                        
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 83
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    8 RELATIVE RESIDUAL NORM =  2.059e-06 RHS NORM =  1.513e-06
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     3
+
+
+ AVERAGE FORCE                      9.551E-05   TIME AVG. FORCE       6.291E-05
+ LARGEST SCALED RESIDUAL FORCE      1.446E-09   AT NODE          1   DOF  3
+   INSTANCE: PART-1-1                                                                        
+  CORRESPONDING RESIDUAL FORCE      1.446E-09
+ LARGEST INCREMENT OF DISP.         4.178E-06   AT NODE       1147   DOF  2
+   INSTANCE: PART-1-1                                                                        
+ LARGEST CORRECTION TO DISP.       -1.219E-09   AT NODE       1265   DOF  2
+   INSTANCE: PART-1-1                                                                        
+          THE FORCE     EQUILIBRIUM EQUATIONS HAVE CONVERGED
+          TIME INCREMENT MAY NOW INCREASE TO    0.169    
+          TIME INCREMENT REDUCED TO   0.100     TO MEET NEXT OUTPUT TIME POINT
+
+ ITERATION SUMMARY FOR THE INCREMENT:   3 TOTAL ITERATIONS, OF WHICH
+   0 ARE SEVERE DISCONTINUITY ITERATIONS AND  3 ARE EQUILIBRIUM ITERATIONS.
+
+ TIME INCREMENT COMPLETED  0.100    ,  FRACTION OF STEP COMPLETED  7.636E-02
+ STEP TIME COMPLETED        4.20    ,  TOTAL TIME COMPLETED         4.20    
+
+
+  INCREMENT    48 STARTS. ATTEMPT NUMBER  1, TIME INCREMENT  0.100    
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 74
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    7 RELATIVE RESIDUAL NORM =  4.086e-06 RHS NORM =  3.195e-02
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
+
+
+ AVERAGE FORCE                      9.869E-05   TIME AVG. FORCE       6.366E-05
+ LARGEST SCALED RESIDUAL FORCE      4.500E-04   AT NODE          1   DOF  3
+   INSTANCE: PART-1-1                                                                        
+  CORRESPONDING RESIDUAL FORCE      4.500E-04
+ LARGEST INCREMENT OF DISP.         1.138E-05   AT NODE       1147   DOF  2
+   INSTANCE: PART-1-1                                                                        
+ LARGEST CORRECTION TO DISP.        7.205E-06   AT NODE       1147   DOF  2
+   INSTANCE: PART-1-1                                                                        
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 83
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    8 RELATIVE RESIDUAL NORM =  3.499e-06 RHS NORM =  6.594e-04
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     2
+
+
+ AVERAGE FORCE                      9.813E-05   TIME AVG. FORCE       6.364E-05
+ LARGEST SCALED RESIDUAL FORCE      3.502E-06   AT NODE          1   DOF  3
+   INSTANCE: PART-1-1                                                                        
+  CORRESPONDING RESIDUAL FORCE      3.502E-06
+ LARGEST INCREMENT OF DISP.         1.128E-05   AT NODE       1147   DOF  2
+   INSTANCE: PART-1-1                                                                        
+ LARGEST CORRECTION TO DISP.        2.034E-07   AT NODE       1004   DOF  3
+   INSTANCE: PART-1-1                                                                        
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 83
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    8 RELATIVE RESIDUAL NORM =  8.278e-06 RHS NORM =  6.573e-06
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     3
+
+
+ AVERAGE FORCE                      9.813E-05   TIME AVG. FORCE       6.364E-05
+ LARGEST SCALED RESIDUAL FORCE      1.716E-08   AT NODE          1   DOF  3
+   INSTANCE: PART-1-1                                                                        
+  CORRESPONDING RESIDUAL FORCE      1.716E-08
+ LARGEST INCREMENT OF DISP.         1.128E-05   AT NODE       1147   DOF  2
+   INSTANCE: PART-1-1                                                                        
+ LARGEST CORRECTION TO DISP.        1.037E-08   AT NODE        489   DOF  3
+   INSTANCE: PART-1-1                                                                        
+          THE FORCE     EQUILIBRIUM EQUATIONS HAVE CONVERGED
+          TIME INCREMENT MAY NOW INCREASE TO    0.169    
+          TIME INCREMENT REDUCED TO   0.100     TO MEET NEXT OUTPUT TIME POINT
+
+ ITERATION SUMMARY FOR THE INCREMENT:   3 TOTAL ITERATIONS, OF WHICH
+   0 ARE SEVERE DISCONTINUITY ITERATIONS AND  3 ARE EQUILIBRIUM ITERATIONS.
+
+ TIME INCREMENT COMPLETED  0.100    ,  FRACTION OF STEP COMPLETED  7.818E-02
+ STEP TIME COMPLETED        4.30    ,  TOTAL TIME COMPLETED         4.30    
+
+
+  INCREMENT    49 STARTS. ATTEMPT NUMBER  1, TIME INCREMENT  0.100    
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 83
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    8 RELATIVE RESIDUAL NORM =  2.518e-06 RHS NORM =  1.439e-02
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
+
+
+ AVERAGE FORCE                      9.816E-05   TIME AVG. FORCE       6.435E-05
+ LARGEST SCALED RESIDUAL FORCE      9.065E-05   AT NODE          1   DOF  3
+   INSTANCE: PART-1-1                                                                        
+  CORRESPONDING RESIDUAL FORCE      9.065E-05
+ LARGEST INCREMENT OF DISP.         7.905E-06   AT NODE       1147   DOF  2
+   INSTANCE: PART-1-1                                                                        
+ LARGEST CORRECTION TO DISP.       -3.420E-06   AT NODE       1291   DOF  2
+   INSTANCE: PART-1-1                                                                        
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 83
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    8 RELATIVE RESIDUAL NORM =  2.485e-06 RHS NORM =  1.345e-04
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     2
+
+
+ AVERAGE FORCE                      9.813E-05   TIME AVG. FORCE       6.435E-05
+ LARGEST SCALED RESIDUAL FORCE      5.817E-07   AT NODE          1   DOF  3
+   INSTANCE: PART-1-1                                                                        
+  CORRESPONDING RESIDUAL FORCE      5.817E-07
+ LARGEST INCREMENT OF DISP.         7.875E-06   AT NODE       1147   DOF  2
+   INSTANCE: PART-1-1                                                                        
+ LARGEST CORRECTION TO DISP.       -5.517E-08   AT NODE        752   DOF  2
+   INSTANCE: PART-1-1                                                                        
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 83
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    8 RELATIVE RESIDUAL NORM =  3.200e-06 RHS NORM =  1.047e-06
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     3
+
+
+ AVERAGE FORCE                      9.813E-05   TIME AVG. FORCE       6.435E-05
+ LARGEST SCALED RESIDUAL FORCE     -1.327E-09   AT NODE       1717   DOF  1
+   INSTANCE: PART-1-1                                                                        
+  CORRESPONDING RESIDUAL FORCE     -1.327E-09
+ LARGEST INCREMENT OF DISP.         7.875E-06   AT NODE       1147   DOF  2
+   INSTANCE: PART-1-1                                                                        
+ LARGEST CORRECTION TO DISP.        9.115E-10   AT NODE       1240   DOF  1
+   INSTANCE: PART-1-1                                                                        
+          THE FORCE     EQUILIBRIUM EQUATIONS HAVE CONVERGED
+          TIME INCREMENT MAY NOW INCREASE TO    0.169    
+          TIME INCREMENT REDUCED TO   0.100     TO MEET NEXT OUTPUT TIME POINT
+
+ ITERATION SUMMARY FOR THE INCREMENT:   3 TOTAL ITERATIONS, OF WHICH
+   0 ARE SEVERE DISCONTINUITY ITERATIONS AND  3 ARE EQUILIBRIUM ITERATIONS.
+
+ TIME INCREMENT COMPLETED  0.100    ,  FRACTION OF STEP COMPLETED  8.000E-02
+ STEP TIME COMPLETED        4.40    ,  TOTAL TIME COMPLETED         4.40    
+
+
+  INCREMENT    50 STARTS. ATTEMPT NUMBER  1, TIME INCREMENT  0.100    
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 74
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    7 RELATIVE RESIDUAL NORM =  6.932e-06 RHS NORM =  1.533e-02
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
+
+
+ AVERAGE FORCE                      9.722E-05   TIME AVG. FORCE       6.501E-05
+ LARGEST SCALED RESIDUAL FORCE     -1.291E-04   AT NODE       1596   DOF  1
+   INSTANCE: PART-1-1                                                                        
+  CORRESPONDING RESIDUAL FORCE     -1.291E-04
+ LARGEST INCREMENT OF DISP.         4.224E-06   AT NODE       1147   DOF  2
+   INSTANCE: PART-1-1                                                                        
+ LARGEST CORRECTION TO DISP.       -3.653E-06   AT NODE       1291   DOF  2
+   INSTANCE: PART-1-1                                                                        
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 74
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    7 RELATIVE RESIDUAL NORM =  4.409e-06 RHS NORM =  1.904e-04
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     2
+
+
+ AVERAGE FORCE                      9.710E-05   TIME AVG. FORCE       6.500E-05
+ LARGEST SCALED RESIDUAL FORCE     -5.665E-07   AT NODE       1596   DOF  1
+   INSTANCE: PART-1-1                                                                        
+  CORRESPONDING RESIDUAL FORCE     -5.665E-07
+ LARGEST INCREMENT OF DISP.         4.212E-06   AT NODE       1147   DOF  2
+   INSTANCE: PART-1-1                                                                        
+ LARGEST CORRECTION TO DISP.        4.325E-08   AT NODE        872   DOF  3
+   INSTANCE: PART-1-1                                                                        
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 83
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    8 RELATIVE RESIDUAL NORM =  1.911e-06 RHS NORM =  1.447e-06
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     3
+
+
+ AVERAGE FORCE                      9.710E-05   TIME AVG. FORCE       6.500E-05
+ LARGEST SCALED RESIDUAL FORCE      1.313E-09   AT NODE       1289   DOF  2
+   INSTANCE: PART-1-1                                                                        
+  CORRESPONDING RESIDUAL FORCE      1.313E-09
+ LARGEST INCREMENT OF DISP.         4.212E-06   AT NODE       1147   DOF  2
+   INSTANCE: PART-1-1                                                                        
+ LARGEST CORRECTION TO DISP.       -1.418E-09   AT NODE       1265   DOF  2
+   INSTANCE: PART-1-1                                                                        
+          THE FORCE     EQUILIBRIUM EQUATIONS HAVE CONVERGED
+          TIME INCREMENT MAY NOW INCREASE TO    0.169    
+          TIME INCREMENT REDUCED TO   0.100     TO MEET NEXT OUTPUT TIME POINT
+
+ ITERATION SUMMARY FOR THE INCREMENT:   3 TOTAL ITERATIONS, OF WHICH
+   0 ARE SEVERE DISCONTINUITY ITERATIONS AND  3 ARE EQUILIBRIUM ITERATIONS.
+
+ TIME INCREMENT COMPLETED  0.100    ,  FRACTION OF STEP COMPLETED  8.182E-02
+ STEP TIME COMPLETED        4.50    ,  TOTAL TIME COMPLETED         4.50    
+
+
+  INCREMENT    51 STARTS. ATTEMPT NUMBER  1, TIME INCREMENT  0.100    
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 74
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    7 RELATIVE RESIDUAL NORM =  3.970e-06 RHS NORM =  1.584e-02
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
+
+
+ AVERAGE FORCE                      9.869E-05   TIME AVG. FORCE       6.566E-05
+ LARGEST SCALED RESIDUAL FORCE      1.518E-04   AT NODE          1   DOF  3
+   INSTANCE: PART-1-1                                                                        
+  CORRESPONDING RESIDUAL FORCE      1.518E-04
+ LARGEST INCREMENT OF DISP.         7.758E-06   AT NODE       1147   DOF  2
+   INSTANCE: PART-1-1                                                                        
+ LARGEST CORRECTION TO DISP.        3.546E-06   AT NODE       1147   DOF  2
+   INSTANCE: PART-1-1                                                                        
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 74
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    7 RELATIVE RESIDUAL NORM =  5.879e-06 RHS NORM =  2.282e-04
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     2
+
+
+ AVERAGE FORCE                      9.851E-05   TIME AVG. FORCE       6.566E-05
+ LARGEST SCALED RESIDUAL FORCE      1.100E-06   AT NODE          1   DOF  3
+   INSTANCE: PART-1-1                                                                        
+  CORRESPONDING RESIDUAL FORCE      1.100E-06
+ LARGEST INCREMENT OF DISP.         7.716E-06   AT NODE       1147   DOF  2
+   INSTANCE: PART-1-1                                                                        
+ LARGEST CORRECTION TO DISP.       -6.997E-08   AT NODE       1265   DOF  2
+   INSTANCE: PART-1-1                                                                        
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 83
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    8 RELATIVE RESIDUAL NORM =  3.372e-06 RHS NORM =  2.172e-06
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     3
+
+
+ AVERAGE FORCE                      9.851E-05   TIME AVG. FORCE       6.566E-05
+ LARGEST SCALED RESIDUAL FORCE      3.589E-09   AT NODE          1   DOF  3
+   INSTANCE: PART-1-1                                                                        
+  CORRESPONDING RESIDUAL FORCE      3.589E-09
+ LARGEST INCREMENT OF DISP.         7.716E-06   AT NODE       1147   DOF  2
+   INSTANCE: PART-1-1                                                                        
+ LARGEST CORRECTION TO DISP.        1.484E-09   AT NODE       1241   DOF  3
+   INSTANCE: PART-1-1                                                                        
+          THE FORCE     EQUILIBRIUM EQUATIONS HAVE CONVERGED
+          TIME INCREMENT MAY NOW INCREASE TO    0.169    
+          TIME INCREMENT REDUCED TO   0.100     TO MEET NEXT OUTPUT TIME POINT
+
+ ITERATION SUMMARY FOR THE INCREMENT:   3 TOTAL ITERATIONS, OF WHICH
+   0 ARE SEVERE DISCONTINUITY ITERATIONS AND  3 ARE EQUILIBRIUM ITERATIONS.
+
+ TIME INCREMENT COMPLETED  0.100    ,  FRACTION OF STEP COMPLETED  8.364E-02
+ STEP TIME COMPLETED        4.60    ,  TOTAL TIME COMPLETED         4.60    
+
+
+  INCREMENT    52 STARTS. ATTEMPT NUMBER  1, TIME INCREMENT  0.100    
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 74
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    7 RELATIVE RESIDUAL NORM =  6.065e-06 RHS NORM =  1.484e-02
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
+
+
+ AVERAGE FORCE                      9.778E-05   TIME AVG. FORCE       6.628E-05
+ LARGEST SCALED RESIDUAL FORCE     -1.428E-04   AT NODE       1596   DOF  1
+   INSTANCE: PART-1-1                                                                        
+  CORRESPONDING RESIDUAL FORCE     -1.428E-04
+ LARGEST INCREMENT OF DISP.         4.182E-06   AT NODE       1147   DOF  2
+   INSTANCE: PART-1-1                                                                        
+ LARGEST CORRECTION TO DISP.       -3.539E-06   AT NODE       1291   DOF  2
+   INSTANCE: PART-1-1                                                                        
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 74
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    7 RELATIVE RESIDUAL NORM =  3.814e-06 RHS NORM =  2.125e-04
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     2
+
+
+ AVERAGE FORCE                      9.768E-05   TIME AVG. FORCE       6.628E-05
+ LARGEST SCALED RESIDUAL FORCE      8.962E-07   AT NODE          1   DOF  3
+   INSTANCE: PART-1-1                                                                        
+  CORRESPONDING RESIDUAL FORCE      8.962E-07
+ LARGEST INCREMENT OF DISP.         4.160E-06   AT NODE       1147   DOF  2
+   INSTANCE: PART-1-1                                                                        
+ LARGEST CORRECTION TO DISP.        4.584E-08   AT NODE       1016   DOF  3
+   INSTANCE: PART-1-1                                                                        
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 74
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    7 RELATIVE RESIDUAL NORM =  8.301e-06 RHS NORM =  1.950e-06
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     3
+
+
+ AVERAGE FORCE                      9.768E-05   TIME AVG. FORCE       6.628E-05
+ LARGEST SCALED RESIDUAL FORCE      2.191E-09   AT NODE          1   DOF  3
+   INSTANCE: PART-1-1                                                                        
+  CORRESPONDING RESIDUAL FORCE      2.191E-09
+ LARGEST INCREMENT OF DISP.         4.159E-06   AT NODE       1147   DOF  2
+   INSTANCE: PART-1-1                                                                        
+ LARGEST CORRECTION TO DISP.       -1.109E-09   AT NODE       1265   DOF  2
+   INSTANCE: PART-1-1                                                                        
+          THE FORCE     EQUILIBRIUM EQUATIONS HAVE CONVERGED
+          TIME INCREMENT MAY NOW INCREASE TO    0.169    
+          TIME INCREMENT REDUCED TO   0.100     TO MEET NEXT OUTPUT TIME POINT
+
+ ITERATION SUMMARY FOR THE INCREMENT:   3 TOTAL ITERATIONS, OF WHICH
+   0 ARE SEVERE DISCONTINUITY ITERATIONS AND  3 ARE EQUILIBRIUM ITERATIONS.
+
+ TIME INCREMENT COMPLETED  0.100    ,  FRACTION OF STEP COMPLETED  8.545E-02
+ STEP TIME COMPLETED        4.70    ,  TOTAL TIME COMPLETED         4.70    
+
+
+  INCREMENT    53 STARTS. ATTEMPT NUMBER  1, TIME INCREMENT  0.100    
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 74
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    7 RELATIVE RESIDUAL NORM =  4.990e-06 RHS NORM =  4.633e-04
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
+
+
+ AVERAGE FORCE                      9.762E-05   TIME AVG. FORCE       6.687E-05
+ LARGEST SCALED RESIDUAL FORCE      2.821E-06   AT NODE          1   DOF  3
+   INSTANCE: PART-1-1                                                                        
+  CORRESPONDING RESIDUAL FORCE      2.821E-06
+ LARGEST INCREMENT OF DISP.         4.069E-06   AT NODE       1147   DOF  2
+   INSTANCE: PART-1-1                                                                        
+ LARGEST CORRECTION TO DISP.       -2.448E-07   AT NODE         65   DOF  3
+   INSTANCE: PART-1-1                                                                        
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 74
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    7 RELATIVE RESIDUAL NORM =  6.778e-06 RHS NORM =  4.594e-06
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     2
+
+
+ AVERAGE FORCE                      9.762E-05   TIME AVG. FORCE       6.687E-05
+ LARGEST SCALED RESIDUAL FORCE     -3.283E-09   AT NODE          1   DOF  3
+   INSTANCE: PART-1-1                                                                        
+  CORRESPONDING RESIDUAL FORCE     -3.283E-09
+ LARGEST INCREMENT OF DISP.         4.070E-06   AT NODE       1147   DOF  2
+   INSTANCE: PART-1-1                                                                        
+ LARGEST CORRECTION TO DISP.        2.471E-09   AT NODE       1054   DOF  3
+   INSTANCE: PART-1-1                                                                        
+          THE FORCE     EQUILIBRIUM EQUATIONS HAVE CONVERGED
+          TIME INCREMENT MAY NOW INCREASE TO    0.169    
+          TIME INCREMENT REDUCED TO   0.100     TO MEET NEXT OUTPUT TIME POINT
+
+ ITERATION SUMMARY FOR THE INCREMENT:   2 TOTAL ITERATIONS, OF WHICH
+   0 ARE SEVERE DISCONTINUITY ITERATIONS AND  2 ARE EQUILIBRIUM ITERATIONS.
+
+ TIME INCREMENT COMPLETED  0.100    ,  FRACTION OF STEP COMPLETED  8.727E-02
+ STEP TIME COMPLETED        4.80    ,  TOTAL TIME COMPLETED         4.80    
+
+
+  INCREMENT    54 STARTS. ATTEMPT NUMBER  1, TIME INCREMENT  0.100    
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 83
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    8 RELATIVE RESIDUAL NORM =  2.385e-06 RHS NORM =  6.296e-05
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
+
+
+ AVERAGE FORCE                      9.773E-05   TIME AVG. FORCE       6.744E-05
+ LARGEST SCALED RESIDUAL FORCE      4.365E-07   AT NODE          1   DOF  3
+   INSTANCE: PART-1-1                                                                        
+  CORRESPONDING RESIDUAL FORCE      4.365E-07
+ LARGEST INCREMENT OF DISP.         4.032E-06   AT NODE       1147   DOF  2
+   INSTANCE: PART-1-1                                                                        
+ LARGEST CORRECTION TO DISP.       -7.272E-08   AT NODE       1252   DOF  3
+   INSTANCE: PART-1-1                                                                        
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 74
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    7 RELATIVE RESIDUAL NORM =  9.908e-06 RHS NORM =  8.231e-07
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     2
+
+
+ AVERAGE FORCE                      9.773E-05   TIME AVG. FORCE       6.744E-05
+ LARGEST SCALED RESIDUAL FORCE     -1.188E-09   AT NODE          1   DOF  3
+   INSTANCE: PART-1-1                                                                        
+  CORRESPONDING RESIDUAL FORCE     -1.188E-09
+ LARGEST INCREMENT OF DISP.         4.032E-06   AT NODE       1147   DOF  2
+   INSTANCE: PART-1-1                                                                        
+ LARGEST CORRECTION TO DISP.        7.087E-10   AT NODE       1054   DOF  3
+   INSTANCE: PART-1-1                                                                        
+          THE FORCE     EQUILIBRIUM EQUATIONS HAVE CONVERGED
+          TIME INCREMENT MAY NOW INCREASE TO    0.169    
+          TIME INCREMENT REDUCED TO   0.100     TO MEET NEXT OUTPUT TIME POINT
+
+ ITERATION SUMMARY FOR THE INCREMENT:   2 TOTAL ITERATIONS, OF WHICH
+   0 ARE SEVERE DISCONTINUITY ITERATIONS AND  2 ARE EQUILIBRIUM ITERATIONS.
+
+ TIME INCREMENT COMPLETED  0.100    ,  FRACTION OF STEP COMPLETED  8.909E-02
+ STEP TIME COMPLETED        4.90    ,  TOTAL TIME COMPLETED         4.90    
+
+
+  INCREMENT    55 STARTS. ATTEMPT NUMBER  1, TIME INCREMENT  0.100    
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 74
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    7 RELATIVE RESIDUAL NORM =  3.369e-06 RHS NORM =  1.582e-02
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
+
+
+ AVERAGE FORCE                      9.558E-05   TIME AVG. FORCE       6.795E-05
+ LARGEST SCALED RESIDUAL FORCE     -3.636E-04   AT NODE       1596   DOF  1
+   INSTANCE: PART-1-1                                                                        
+  CORRESPONDING RESIDUAL FORCE     -3.636E-04
+ LARGEST INCREMENT OF DISP.         1.136E-06   AT NODE       1252   DOF  3
+   INSTANCE: PART-1-1                                                                        
+ LARGEST CORRECTION TO DISP.       -3.637E-06   AT NODE       1147   DOF  2
+   INSTANCE: PART-1-1                                                                        
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 74
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    7 RELATIVE RESIDUAL NORM =  2.138e-06 RHS NORM =  5.468e-04
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     2
+
+
+ AVERAGE FORCE                      9.528E-05   TIME AVG. FORCE       6.794E-05
+ LARGEST SCALED RESIDUAL FORCE     -7.463E-06   AT NODE       1596   DOF  1
+   INSTANCE: PART-1-1                                                                        
+  CORRESPONDING RESIDUAL FORCE     -7.463E-06
+ LARGEST INCREMENT OF DISP.         1.201E-06   AT NODE       1252   DOF  3
+   INSTANCE: PART-1-1                                                                        
+ LARGEST CORRECTION TO DISP.        1.247E-07   AT NODE        426   DOF  3
+   INSTANCE: PART-1-1                                                                        
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 74
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    7 RELATIVE RESIDUAL NORM =  3.442e-06 RHS NORM =  1.314e-05
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     3
+
+
+ AVERAGE FORCE                      9.527E-05   TIME AVG. FORCE       6.794E-05
+ LARGEST SCALED RESIDUAL FORCE     -3.732E-08   AT NODE       1596   DOF  1
+   INSTANCE: PART-1-1                                                                        
+  CORRESPONDING RESIDUAL FORCE     -3.732E-08
+ LARGEST INCREMENT OF DISP.         1.203E-06   AT NODE       1252   DOF  3
+   INSTANCE: PART-1-1                                                                        
+ LARGEST CORRECTION TO DISP.        6.080E-09   AT NODE       1438   DOF  3
+   INSTANCE: PART-1-1                                                                        
+          THE FORCE     EQUILIBRIUM EQUATIONS HAVE CONVERGED
+          TIME INCREMENT MAY NOW INCREASE TO    0.169    
+
+ ITERATION SUMMARY FOR THE INCREMENT:   3 TOTAL ITERATIONS, OF WHICH
+   0 ARE SEVERE DISCONTINUITY ITERATIONS AND  3 ARE EQUILIBRIUM ITERATIONS.
+
+ TIME INCREMENT COMPLETED  0.100    ,  FRACTION OF STEP COMPLETED  9.091E-02
+ STEP TIME COMPLETED        5.00    ,  TOTAL TIME COMPLETED         5.00    
+
+
+  INCREMENT    56 STARTS. ATTEMPT NUMBER  1, TIME INCREMENT  0.169    
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 74
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    7 RELATIVE RESIDUAL NORM =  5.537e-06 RHS NORM =  1.281e-01
+ 
+
+ ***NOTE: USER SUBROUTINE REQUESTS A TIME INCREMENT CHANGE.
+
+
+  INCREMENT    56 STARTS. ATTEMPT NUMBER  2, TIME INCREMENT  8.438E-02
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 74
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    7 RELATIVE RESIDUAL NORM =  2.604e-06 RHS NORM =  6.502e-02
+ 
+
+ ***NOTE: USER SUBROUTINE REQUESTS A TIME INCREMENT CHANGE.
+
+
+  INCREMENT    56 STARTS. ATTEMPT NUMBER  3, TIME INCREMENT  4.219E-02
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 65
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    6 RELATIVE RESIDUAL NORM =  7.478e-06 RHS NORM =  3.350e-02
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
+
+
+ AVERAGE FORCE                      1.019E-04   TIME AVG. FORCE       6.855E-05
+ LARGEST SCALED RESIDUAL FORCE     -1.447E-03   AT NODE       1596   DOF  1
+   INSTANCE: PART-1-1                                                                        
+  CORRESPONDING RESIDUAL FORCE     -1.447E-03
+ LARGEST INCREMENT OF DISP.         5.803E-06   AT NODE       1148   DOF  2
+   INSTANCE: PART-1-1                                                                        
+ LARGEST CORRECTION TO DISP.        5.628E-06   AT NODE       1148   DOF  2
+   INSTANCE: PART-1-1                                                                        
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 74
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    7 RELATIVE RESIDUAL NORM =  2.198e-06 RHS NORM =  2.159e-03
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     2
+
+
+ AVERAGE FORCE                      9.984E-05   TIME AVG. FORCE       6.851E-05
+ LARGEST SCALED RESIDUAL FORCE      3.390E-05   AT NODE          1   DOF  3
+   INSTANCE: PART-1-1                                                                        
+  CORRESPONDING RESIDUAL FORCE      3.390E-05
+ LARGEST INCREMENT OF DISP.         6.008E-06   AT NODE       1147   DOF  2
+   INSTANCE: PART-1-1                                                                        
+ LARGEST CORRECTION TO DISP.        7.446E-07   AT NODE        702   DOF  3
+   INSTANCE: PART-1-1                                                                        
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 74
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    7 RELATIVE RESIDUAL NORM =  3.497e-06 RHS NORM =  6.520e-05
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     3
+
+
+ AVERAGE FORCE                      9.980E-05   TIME AVG. FORCE       6.851E-05
+ LARGEST SCALED RESIDUAL FORCE      2.039E-07   AT NODE          1   DOF  3
+   INSTANCE: PART-1-1                                                                        
+  CORRESPONDING RESIDUAL FORCE      2.039E-07
+ LARGEST INCREMENT OF DISP.         6.000E-06   AT NODE       1147   DOF  2
+   INSTANCE: PART-1-1                                                                        
+ LARGEST CORRECTION TO DISP.       -3.525E-08   AT NODE        619   DOF  2
+   INSTANCE: PART-1-1                                                                        
+          THE FORCE     EQUILIBRIUM EQUATIONS HAVE CONVERGED
+          TIME INCREMENT MAY NOW INCREASE TO    6.328E-02
+
+ ITERATION SUMMARY FOR THE INCREMENT:   3 TOTAL ITERATIONS, OF WHICH
+   0 ARE SEVERE DISCONTINUITY ITERATIONS AND  3 ARE EQUILIBRIUM ITERATIONS.
+
+ TIME INCREMENT COMPLETED  4.219E-02,  FRACTION OF STEP COMPLETED  9.168E-02
+ STEP TIME COMPLETED        5.04    ,  TOTAL TIME COMPLETED         5.04    
+
+
+  INCREMENT    57 STARTS. ATTEMPT NUMBER  1, TIME INCREMENT  6.328E-02
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 74
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    7 RELATIVE RESIDUAL NORM =  4.249e-06 RHS NORM =  3.450e-03
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
+
+
+ AVERAGE FORCE                      1.015E-04   TIME AVG. FORCE       6.909E-05
+ LARGEST SCALED RESIDUAL FORCE      1.913E-05   AT NODE          1   DOF  3
+   INSTANCE: PART-1-1                                                                        
+  CORRESPONDING RESIDUAL FORCE      1.913E-05
+ LARGEST INCREMENT OF DISP.         9.322E-06   AT NODE       1147   DOF  2
+   INSTANCE: PART-1-1                                                                        
+ LARGEST CORRECTION TO DISP.        1.237E-06   AT NODE         65   DOF  3
+   INSTANCE: PART-1-1                                                                        
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 74
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    7 RELATIVE RESIDUAL NORM =  8.261e-06 RHS NORM =  3.643e-05
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     2
+
+
+ AVERAGE FORCE                      1.015E-04   TIME AVG. FORCE       6.909E-05
+ LARGEST SCALED RESIDUAL FORCE     -4.285E-08   AT NODE       1596   DOF  1
+   INSTANCE: PART-1-1                                                                        
+  CORRESPONDING RESIDUAL FORCE     -4.285E-08
+ LARGEST INCREMENT OF DISP.         9.324E-06   AT NODE       1147   DOF  2
+   INSTANCE: PART-1-1                                                                        
+ LARGEST CORRECTION TO DISP.       -2.398E-08   AT NODE        261   DOF  1
+   INSTANCE: PART-1-1                                                                        
+          THE FORCE     EQUILIBRIUM EQUATIONS HAVE CONVERGED
+          TIME INCREMENT MAY NOW INCREASE TO    9.492E-02
+
+ ITERATION SUMMARY FOR THE INCREMENT:   2 TOTAL ITERATIONS, OF WHICH
+   0 ARE SEVERE DISCONTINUITY ITERATIONS AND  2 ARE EQUILIBRIUM ITERATIONS.
+
+ TIME INCREMENT COMPLETED  6.328E-02,  FRACTION OF STEP COMPLETED  9.283E-02
+ STEP TIME COMPLETED        5.11    ,  TOTAL TIME COMPLETED         5.11    
+
+
+  INCREMENT    58 STARTS. ATTEMPT NUMBER  1, TIME INCREMENT  9.492E-02
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 83
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    8 RELATIVE RESIDUAL NORM =  9.137e-06 RHS NORM =  5.364e-04
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
+
+
+ AVERAGE FORCE                      1.028E-04   TIME AVG. FORCE       6.967E-05
+ LARGEST SCALED RESIDUAL FORCE      1.919E-06   AT NODE          1   DOF  3
+   INSTANCE: PART-1-1                                                                        
+  CORRESPONDING RESIDUAL FORCE      1.919E-06
+ LARGEST INCREMENT OF DISP.         1.423E-05   AT NODE       1147   DOF  2
+   INSTANCE: PART-1-1                                                                        
+ LARGEST CORRECTION TO DISP.        4.477E-07   AT NODE         65   DOF  3
+   INSTANCE: PART-1-1                                                                        
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 92
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    9 RELATIVE RESIDUAL NORM =  3.510e-06 RHS NORM =  8.346e-06
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     2
+
+
+ AVERAGE FORCE                      1.028E-04   TIME AVG. FORCE       6.967E-05
+ LARGEST SCALED RESIDUAL FORCE     -1.504E-08   AT NODE       1717   DOF  1
+   INSTANCE: PART-1-1                                                                        
+  CORRESPONDING RESIDUAL FORCE     -1.504E-08
+ LARGEST INCREMENT OF DISP.         1.423E-05   AT NODE       1147   DOF  2
+   INSTANCE: PART-1-1                                                                        
+ LARGEST CORRECTION TO DISP.        7.828E-09   AT NODE       1396   DOF  3
+   INSTANCE: PART-1-1                                                                        
+          THE FORCE     EQUILIBRIUM EQUATIONS HAVE CONVERGED
+          TIME INCREMENT MAY NOW INCREASE TO    0.142    
+
+ ITERATION SUMMARY FOR THE INCREMENT:   2 TOTAL ITERATIONS, OF WHICH
+   0 ARE SEVERE DISCONTINUITY ITERATIONS AND  2 ARE EQUILIBRIUM ITERATIONS.
+
+ TIME INCREMENT COMPLETED  9.492E-02,  FRACTION OF STEP COMPLETED  9.455E-02
+ STEP TIME COMPLETED        5.20    ,  TOTAL TIME COMPLETED         5.20    
+
+
+  INCREMENT    59 STARTS. ATTEMPT NUMBER  1, TIME INCREMENT  0.142    
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 101
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =   10 RELATIVE RESIDUAL NORM =  4.560e-06 RHS NORM =  1.840e-04
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
+
+
+ AVERAGE FORCE                      1.042E-04   TIME AVG. FORCE       7.026E-05
+ LARGEST SCALED RESIDUAL FORCE     -2.057E-06   AT NODE          1   DOF  3
+   INSTANCE: PART-1-1                                                                        
+  CORRESPONDING RESIDUAL FORCE     -2.057E-06
+ LARGEST INCREMENT OF DISP.         2.158E-05   AT NODE       1147   DOF  2
+   INSTANCE: PART-1-1                                                                        
+ LARGEST CORRECTION TO DISP.        3.759E-07   AT NODE        203   DOF  1
+   INSTANCE: PART-1-1                                                                        
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 101
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =   10 RELATIVE RESIDUAL NORM =  3.569e-06 RHS NORM =  6.375e-06
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     2
+
+
+ AVERAGE FORCE                      1.042E-04   TIME AVG. FORCE       7.026E-05
+ LARGEST SCALED RESIDUAL FORCE      9.910E-09   AT NODE        215   DOF  2
+   INSTANCE: PART-1-1                                                                        
+  CORRESPONDING RESIDUAL FORCE      9.910E-09
+ LARGEST INCREMENT OF DISP.         2.158E-05   AT NODE       1147   DOF  2
+   INSTANCE: PART-1-1                                                                        
+ LARGEST CORRECTION TO DISP.        9.770E-09   AT NODE       1111   DOF  3
+   INSTANCE: PART-1-1                                                                        
+          THE FORCE     EQUILIBRIUM EQUATIONS HAVE CONVERGED
+          TIME INCREMENT MAY NOW INCREASE TO    0.214    
+
+ ITERATION SUMMARY FOR THE INCREMENT:   2 TOTAL ITERATIONS, OF WHICH
+   0 ARE SEVERE DISCONTINUITY ITERATIONS AND  2 ARE EQUILIBRIUM ITERATIONS.
+
+ TIME INCREMENT COMPLETED  0.142    ,  FRACTION OF STEP COMPLETED  9.714E-02
+ STEP TIME COMPLETED        5.34    ,  TOTAL TIME COMPLETED         5.34    
+
+
+  INCREMENT    60 STARTS. ATTEMPT NUMBER  1, TIME INCREMENT  0.214    
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 110
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =   11 RELATIVE RESIDUAL NORM =  4.974e-06 RHS NORM =  2.059e-04
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
+
+
+ AVERAGE FORCE                      1.060E-04   TIME AVG. FORCE       7.085E-05
+ LARGEST SCALED RESIDUAL FORCE     -4.433E-06   AT NODE          1   DOF  3
+   INSTANCE: PART-1-1                                                                        
+  CORRESPONDING RESIDUAL FORCE     -4.433E-06
+ LARGEST INCREMENT OF DISP.         3.256E-05   AT NODE       1147   DOF  2
+   INSTANCE: PART-1-1                                                                        
+ LARGEST CORRECTION TO DISP.        4.047E-07   AT NODE        203   DOF  1
+   INSTANCE: PART-1-1                                                                        
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 101
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =   10 RELATIVE RESIDUAL NORM =  8.743e-06 RHS NORM =  7.940e-06
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     2
+
+
+ AVERAGE FORCE                      1.060E-04   TIME AVG. FORCE       7.085E-05
+ LARGEST SCALED RESIDUAL FORCE      3.121E-08   AT NODE       1717   DOF  1
+   INSTANCE: PART-1-1                                                                        
+  CORRESPONDING RESIDUAL FORCE      3.121E-08
+ LARGEST INCREMENT OF DISP.         3.256E-05   AT NODE       1147   DOF  2
+   INSTANCE: PART-1-1                                                                        
+ LARGEST CORRECTION TO DISP.       -7.412E-09   AT NODE        635   DOF  3
+   INSTANCE: PART-1-1                                                                        
+          THE FORCE     EQUILIBRIUM EQUATIONS HAVE CONVERGED
+          TIME INCREMENT MAY NOW INCREASE TO    0.320    
+
+ ITERATION SUMMARY FOR THE INCREMENT:   2 TOTAL ITERATIONS, OF WHICH
+   0 ARE SEVERE DISCONTINUITY ITERATIONS AND  2 ARE EQUILIBRIUM ITERATIONS.
+
+ TIME INCREMENT COMPLETED  0.214    ,  FRACTION OF STEP COMPLETED  0.101    
+ STEP TIME COMPLETED        5.56    ,  TOTAL TIME COMPLETED         5.56    
+
+
+  INCREMENT    61 STARTS. ATTEMPT NUMBER  1, TIME INCREMENT  0.320    
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 101
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =   10 RELATIVE RESIDUAL NORM =  8.378e-06 RHS NORM =  4.985e-03
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
+
+
+ AVERAGE FORCE                      1.084E-04   TIME AVG. FORCE       7.147E-05
+ LARGEST SCALED RESIDUAL FORCE      2.896E-05   AT NODE       1596   DOF  1
+   INSTANCE: PART-1-1                                                                        
+  CORRESPONDING RESIDUAL FORCE      2.896E-05
+ LARGEST INCREMENT OF DISP.         5.031E-05   AT NODE       1147   DOF  2
+   INSTANCE: PART-1-1                                                                        
+ LARGEST CORRECTION TO DISP.        1.573E-06   AT NODE       1000   DOF  2
+   INSTANCE: PART-1-1                                                                        
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 110
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =   11 RELATIVE RESIDUAL NORM =  6.877e-06 RHS NORM =  4.240e-05
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     2
+
+
+ AVERAGE FORCE                      1.084E-04   TIME AVG. FORCE       7.147E-05
+ LARGEST SCALED RESIDUAL FORCE      1.629E-07   AT NODE       1717   DOF  3
+   INSTANCE: PART-1-1                                                                        
+  CORRESPONDING RESIDUAL FORCE      1.629E-07
+ LARGEST INCREMENT OF DISP.         5.030E-05   AT NODE       1147   DOF  2
+   INSTANCE: PART-1-1                                                                        
+ LARGEST CORRECTION TO DISP.       -2.180E-08   AT NODE        194   DOF  3
+   INSTANCE: PART-1-1                                                                        
+          THE FORCE     EQUILIBRIUM EQUATIONS HAVE CONVERGED
+          TIME INCREMENT MAY NOW INCREASE TO    0.481    
+
+ ITERATION SUMMARY FOR THE INCREMENT:   2 TOTAL ITERATIONS, OF WHICH
+   0 ARE SEVERE DISCONTINUITY ITERATIONS AND  2 ARE EQUILIBRIUM ITERATIONS.
+
+ TIME INCREMENT COMPLETED  0.320    ,  FRACTION OF STEP COMPLETED  0.107    
+ STEP TIME COMPLETED        5.88    ,  TOTAL TIME COMPLETED         5.88    
+
+
+  INCREMENT    62 STARTS. ATTEMPT NUMBER  1, TIME INCREMENT  0.481    
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 110
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =   11 RELATIVE RESIDUAL NORM =  7.785e-06 RHS NORM =  2.744e-02
+ 
+
+ ***NOTE: USER SUBROUTINE REQUESTS A TIME INCREMENT CHANGE.
+
+
+  INCREMENT    62 STARTS. ATTEMPT NUMBER  2, TIME INCREMENT  0.240    
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 92
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    9 RELATIVE RESIDUAL NORM =  7.775e-06 RHS NORM =  6.458e-03
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
+
+
+ AVERAGE FORCE                      1.100E-04   TIME AVG. FORCE       7.209E-05
+ LARGEST SCALED RESIDUAL FORCE     -2.416E-05   AT NODE       1596   DOF  1
+   INSTANCE: PART-1-1                                                                        
+  CORRESPONDING RESIDUAL FORCE     -2.416E-05
+ LARGEST INCREMENT OF DISP.         3.603E-05   AT NODE       1147   DOF  2
+   INSTANCE: PART-1-1                                                                        
+ LARGEST CORRECTION TO DISP.       -1.772E-06   AT NODE        856   DOF  2
+   INSTANCE: PART-1-1                                                                        
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 101
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =   10 RELATIVE RESIDUAL NORM =  4.931e-06 RHS NORM =  3.481e-05
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     2
+
+
+ AVERAGE FORCE                      1.100E-04   TIME AVG. FORCE       7.209E-05
+ LARGEST SCALED RESIDUAL FORCE      2.146E-07   AT NODE       1717   DOF  1
+   INSTANCE: PART-1-1                                                                        
+  CORRESPONDING RESIDUAL FORCE      2.146E-07
+ LARGEST INCREMENT OF DISP.         3.603E-05   AT NODE       1147   DOF  2
+   INSTANCE: PART-1-1                                                                        
+ LARGEST CORRECTION TO DISP.        1.647E-08   AT NODE        836   DOF  2
+   INSTANCE: PART-1-1                                                                        
+          THE FORCE     EQUILIBRIUM EQUATIONS HAVE CONVERGED
+          TIME INCREMENT MAY NOW INCREASE TO    0.360    
+
+ ITERATION SUMMARY FOR THE INCREMENT:   2 TOTAL ITERATIONS, OF WHICH
+   0 ARE SEVERE DISCONTINUITY ITERATIONS AND  2 ARE EQUILIBRIUM ITERATIONS.
+
+ TIME INCREMENT COMPLETED  0.240    ,  FRACTION OF STEP COMPLETED  0.111    
+ STEP TIME COMPLETED        6.12    ,  TOTAL TIME COMPLETED         6.12    
+
+
+  INCREMENT    63 STARTS. ATTEMPT NUMBER  1, TIME INCREMENT  0.360    
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 101
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =   10 RELATIVE RESIDUAL NORM =  7.694e-06 RHS NORM =  2.762e-02
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
+
+
+ AVERAGE FORCE                      1.114E-04   TIME AVG. FORCE       7.271E-05
+ LARGEST SCALED RESIDUAL FORCE     -1.421E-04   AT NODE       1596   DOF  1
+   INSTANCE: PART-1-1                                                                        
+  CORRESPONDING RESIDUAL FORCE     -1.421E-04
+ LARGEST INCREMENT OF DISP.         4.660E-05   AT NODE       1147   DOF  2
+   INSTANCE: PART-1-1                                                                        
+ LARGEST CORRECTION TO DISP.       -7.585E-06   AT NODE        854   DOF  2
+   INSTANCE: PART-1-1                                                                        
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 110
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =   11 RELATIVE RESIDUAL NORM =  4.380e-06 RHS NORM =  2.094e-04
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     2
+
+
+ AVERAGE FORCE                      1.113E-04   TIME AVG. FORCE       7.271E-05
+ LARGEST SCALED RESIDUAL FORCE      1.364E-06   AT NODE       1717   DOF  1
+   INSTANCE: PART-1-1                                                                        
+  CORRESPONDING RESIDUAL FORCE      1.364E-06
+ LARGEST INCREMENT OF DISP.         4.660E-05   AT NODE       1147   DOF  2
+   INSTANCE: PART-1-1                                                                        
+ LARGEST CORRECTION TO DISP.       -1.033E-07   AT NODE       1396   DOF  3
+   INSTANCE: PART-1-1                                                                        
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 119
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =   12 RELATIVE RESIDUAL NORM =  6.342e-06 RHS NORM =  3.301e-06
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     3
+
+
+ AVERAGE FORCE                      1.113E-04   TIME AVG. FORCE       7.271E-05
+ LARGEST SCALED RESIDUAL FORCE      1.842E-07   AT NODE       1105   DOF  1
+   INSTANCE: PART-1-1                                                                        
+  CORRESPONDING RESIDUAL FORCE      1.842E-07
+ LARGEST INCREMENT OF DISP.         4.660E-05   AT NODE       1147   DOF  2
+   INSTANCE: PART-1-1                                                                        
+ LARGEST CORRECTION TO DISP.       -1.446E-08   AT NODE       1115   DOF  1
+   INSTANCE: PART-1-1                                                                        
+          THE FORCE     EQUILIBRIUM EQUATIONS HAVE CONVERGED
+          TIME INCREMENT MAY NOW INCREASE TO    0.541    
+
+ ITERATION SUMMARY FOR THE INCREMENT:   3 TOTAL ITERATIONS, OF WHICH
+   0 ARE SEVERE DISCONTINUITY ITERATIONS AND  3 ARE EQUILIBRIUM ITERATIONS.
+
+ TIME INCREMENT COMPLETED  0.360    ,  FRACTION OF STEP COMPLETED  0.118    
+ STEP TIME COMPLETED        6.48    ,  TOTAL TIME COMPLETED         6.48    
+
+
+  INCREMENT    64 STARTS. ATTEMPT NUMBER  1, TIME INCREMENT  0.541    
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 110
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =   11 RELATIVE RESIDUAL NORM =  6.525e-06 RHS NORM =  7.573e-02
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
+
+
+ AVERAGE FORCE                      1.124E-04   TIME AVG. FORCE       7.333E-05
+ LARGEST SCALED RESIDUAL FORCE     -4.973E-04   AT NODE       1596   DOF  1
+   INSTANCE: PART-1-1                                                                        
+  CORRESPONDING RESIDUAL FORCE     -4.973E-04
+ LARGEST INCREMENT OF DISP.         4.876E-05   AT NODE       1147   DOF  2
+   INSTANCE: PART-1-1                                                                        
+ LARGEST CORRECTION TO DISP.       -2.156E-05   AT NODE        999   DOF  2
+   INSTANCE: PART-1-1                                                                        
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 110
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =   11 RELATIVE RESIDUAL NORM =  8.925e-06 RHS NORM =  7.210e-04
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     2
+
+
+ AVERAGE FORCE                      1.120E-04   TIME AVG. FORCE       7.333E-05
+ LARGEST SCALED RESIDUAL FORCE     -4.954E-06   AT NODE       1105   DOF  1
+   INSTANCE: PART-1-1                                                                        
+  CORRESPONDING RESIDUAL FORCE     -4.954E-06
+ LARGEST INCREMENT OF DISP.         4.875E-05   AT NODE       1147   DOF  2
+   INSTANCE: PART-1-1                                                                        
+ LARGEST CORRECTION TO DISP.       -3.638E-07   AT NODE       1541   DOF  3
+   INSTANCE: PART-1-1                                                                        
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 128
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =   13 RELATIVE RESIDUAL NORM =  4.677e-06 RHS NORM =  1.701e-05
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     3
+
+
+ AVERAGE FORCE                      1.120E-04   TIME AVG. FORCE       7.333E-05
+ LARGEST SCALED RESIDUAL FORCE      9.307E-07   AT NODE       1105   DOF  1
+   INSTANCE: PART-1-1                                                                        
+  CORRESPONDING RESIDUAL FORCE      9.307E-07
+ LARGEST INCREMENT OF DISP.         4.875E-05   AT NODE       1147   DOF  2
+   INSTANCE: PART-1-1                                                                        
+ LARGEST CORRECTION TO DISP.       -7.282E-08   AT NODE       1115   DOF  1
+   INSTANCE: PART-1-1                                                                        
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 119
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =   12 RELATIVE RESIDUAL NORM =  7.577e-06 RHS NORM =  3.156e-06
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     4
+
+
+ AVERAGE FORCE                      1.120E-04   TIME AVG. FORCE       7.333E-05
+ LARGEST SCALED RESIDUAL FORCE     -2.402E-07   AT NODE       1105   DOF  1
+   INSTANCE: PART-1-1                                                                        
+  CORRESPONDING RESIDUAL FORCE     -2.402E-07
+ LARGEST INCREMENT OF DISP.         4.875E-05   AT NODE       1147   DOF  2
+   INSTANCE: PART-1-1                                                                        
+ LARGEST CORRECTION TO DISP.        1.629E-08   AT NODE       1115   DOF  1
+   INSTANCE: PART-1-1                                                                        
+          THE FORCE     EQUILIBRIUM EQUATIONS HAVE CONVERGED
+          TIME INCREMENT MAY NOW INCREASE TO    0.811    
+
+ ITERATION SUMMARY FOR THE INCREMENT:   4 TOTAL ITERATIONS, OF WHICH
+   0 ARE SEVERE DISCONTINUITY ITERATIONS AND  4 ARE EQUILIBRIUM ITERATIONS.
+
+ TIME INCREMENT COMPLETED  0.541    ,  FRACTION OF STEP COMPLETED  0.128    
+ STEP TIME COMPLETED        7.02    ,  TOTAL TIME COMPLETED         7.02    
+
+
+  INCREMENT    65 STARTS. ATTEMPT NUMBER  1, TIME INCREMENT  0.811    
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 110
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =   11 RELATIVE RESIDUAL NORM =  9.562e-06 RHS NORM =  2.020e-01
+ 
+
+ ***NOTE: USER SUBROUTINE REQUESTS A TIME INCREMENT CHANGE.
+
+
+  INCREMENT    65 STARTS. ATTEMPT NUMBER  2, TIME INCREMENT  0.405    
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 101
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =   10 RELATIVE RESIDUAL NORM =  3.661e-06 RHS NORM =  7.029e-02
+ 
+
+ ***NOTE: USER SUBROUTINE REQUESTS A TIME INCREMENT CHANGE.
+
+
+  INCREMENT    65 STARTS. ATTEMPT NUMBER  3, TIME INCREMENT  0.203    
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 83
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    8 RELATIVE RESIDUAL NORM =  5.961e-06 RHS NORM =  2.771e-02
+ 
+
+ ***NOTE: USER SUBROUTINE REQUESTS A TIME INCREMENT CHANGE.
+
+
+  INCREMENT    65 STARTS. ATTEMPT NUMBER  4, TIME INCREMENT  0.101    
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 74
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    7 RELATIVE RESIDUAL NORM =  5.117e-06 RHS NORM =  1.216e-02
+ 
+
+ ***NOTE: USER SUBROUTINE REQUESTS A TIME INCREMENT CHANGE.
+
+
+  INCREMENT    65 STARTS. ATTEMPT NUMBER  5, TIME INCREMENT  5.068E-02
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 65
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    6 RELATIVE RESIDUAL NORM =  7.811e-06 RHS NORM =  1.397e-02
+ 
+
+ ***NOTE: USER SUBROUTINE REQUESTS A TIME INCREMENT CHANGE.
+
+
+  INCREMENT    65 STARTS. ATTEMPT NUMBER  6, TIME INCREMENT  2.534E-02
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 65
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    6 RELATIVE RESIDUAL NORM =  7.335e-06 RHS NORM =  7.686e-03
+ 
+
+ ***NOTE: USER SUBROUTINE REQUESTS A TIME INCREMENT CHANGE.
+
+
+  INCREMENT    65 STARTS. ATTEMPT NUMBER  7, TIME INCREMENT  1.267E-02
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 65
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    6 RELATIVE RESIDUAL NORM =  7.169e-06 RHS NORM =  4.442e-03
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
+
+
+ AVERAGE FORCE                      1.120E-04   TIME AVG. FORCE       7.392E-05
+ LARGEST SCALED RESIDUAL FORCE      2.019E-04   AT NODE        989   DOF  3
+   INSTANCE: PART-1-1                                                                        
+  CORRESPONDING RESIDUAL FORCE      2.019E-04
+ LARGEST INCREMENT OF DISP.         1.559E-06   AT NODE       1001   DOF  2
+   INSTANCE: PART-1-1                                                                        
+ LARGEST CORRECTION TO DISP.        1.559E-06   AT NODE       1001   DOF  2
+   INSTANCE: PART-1-1                                                                        
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 74
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    7 RELATIVE RESIDUAL NORM =  2.153e-06 RHS NORM =  4.082e-04
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     2
+
+
+ AVERAGE FORCE                      1.118E-04   TIME AVG. FORCE       7.392E-05
+ LARGEST SCALED RESIDUAL FORCE      3.317E-05   AT NODE        989   DOF  3
+   INSTANCE: PART-1-1                                                                        
+  CORRESPONDING RESIDUAL FORCE      3.317E-05
+ LARGEST INCREMENT OF DISP.         3.062E-06   AT NODE        989   DOF  3
+   INSTANCE: PART-1-1                                                                        
+ LARGEST CORRECTION TO DISP.        1.533E-06   AT NODE        989   DOF  3
+   INSTANCE: PART-1-1                                                                        
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 74
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    7 RELATIVE RESIDUAL NORM =  1.764e-06 RHS NORM =  5.788e-05
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     3
+
+
+ AVERAGE FORCE                      1.117E-04   TIME AVG. FORCE       7.392E-05
+ LARGEST SCALED RESIDUAL FORCE      1.207E-06   AT NODE        989   DOF  3
+   INSTANCE: PART-1-1                                                                        
+  CORRESPONDING RESIDUAL FORCE      1.207E-06
+ LARGEST INCREMENT OF DISP.         3.456E-06   AT NODE        989   DOF  3
+   INSTANCE: PART-1-1                                                                        
+ LARGEST CORRECTION TO DISP.        3.935E-07   AT NODE        989   DOF  3
+   INSTANCE: PART-1-1                                                                        
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 65
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    6 RELATIVE RESIDUAL NORM =  8.068e-06 RHS NORM =  2.739e-06
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     4
+
+
+ AVERAGE FORCE                      1.117E-04   TIME AVG. FORCE       7.392E-05
+ LARGEST SCALED RESIDUAL FORCE     -1.827E-08   AT NODE       1001   DOF  1
+   INSTANCE: PART-1-1                                                                        
+  CORRESPONDING RESIDUAL FORCE     -1.827E-08
+ LARGEST INCREMENT OF DISP.         3.471E-06   AT NODE        989   DOF  3
+   INSTANCE: PART-1-1                                                                        
+ LARGEST CORRECTION TO DISP.        1.543E-08   AT NODE        989   DOF  3
+   INSTANCE: PART-1-1                                                                        
+          THE FORCE     EQUILIBRIUM EQUATIONS HAVE CONVERGED
+          TIME INCREMENT MAY NOW INCREASE TO    1.901E-02
+
+ ITERATION SUMMARY FOR THE INCREMENT:   4 TOTAL ITERATIONS, OF WHICH
+   0 ARE SEVERE DISCONTINUITY ITERATIONS AND  4 ARE EQUILIBRIUM ITERATIONS.
+
+ TIME INCREMENT COMPLETED  1.267E-02,  FRACTION OF STEP COMPLETED  0.128    
+ STEP TIME COMPLETED        7.03    ,  TOTAL TIME COMPLETED         7.03    
+
+
+  INCREMENT    66 STARTS. ATTEMPT NUMBER  1, TIME INCREMENT  1.901E-02
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 74
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    7 RELATIVE RESIDUAL NORM =  1.807e-06 RHS NORM =  1.312e-03
+ 
+
+ ***NOTE: USER SUBROUTINE REQUESTS A TIME INCREMENT CHANGE.
+
+
+  INCREMENT    66 STARTS. ATTEMPT NUMBER  2, TIME INCREMENT  9.503E-03
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 65
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    6 RELATIVE RESIDUAL NORM =  8.415e-06 RHS NORM =  6.474e-04
+ 
+
+ ***NOTE: USER SUBROUTINE REQUESTS A TIME INCREMENT CHANGE.
+
+
+  INCREMENT    66 STARTS. ATTEMPT NUMBER  3, TIME INCREMENT  4.751E-03
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 65
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    6 RELATIVE RESIDUAL NORM =  8.121e-06 RHS NORM =  3.270e-04
+ 
+
+ ***NOTE: USER SUBROUTINE REQUESTS A TIME INCREMENT CHANGE.
+
+
+  INCREMENT    66 STARTS. ATTEMPT NUMBER  4, TIME INCREMENT  2.376E-03
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 65
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    6 RELATIVE RESIDUAL NORM =  7.704e-06 RHS NORM =  1.716e-04
+ 
+
+ ***NOTE: USER SUBROUTINE REQUESTS A TIME INCREMENT CHANGE.
+
+
+  INCREMENT    66 STARTS. ATTEMPT NUMBER  5, TIME INCREMENT  1.188E-03
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 65
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    6 RELATIVE RESIDUAL NORM =  6.518e-06 RHS NORM =  5.310e-04
+ 
+
+ ***NOTE: USER SUBROUTINE REQUESTS A TIME INCREMENT CHANGE.
+
+
+  INCREMENT    66 STARTS. ATTEMPT NUMBER  6, TIME INCREMENT  5.939E-04
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 65
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    6 RELATIVE RESIDUAL NORM =  6.574e-06 RHS NORM =  2.857e-04
+ 
+
+ ***NOTE: USER SUBROUTINE REQUESTS A TIME INCREMENT CHANGE.
+
+
+  INCREMENT    66 STARTS. ATTEMPT NUMBER  7, TIME INCREMENT  2.970E-04
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 65
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    6 RELATIVE RESIDUAL NORM =  6.595e-06 RHS NORM =  1.505e-04
+ 
+
+ ***NOTE: USER SUBROUTINE REQUESTS A TIME INCREMENT CHANGE.
+
+
+  INCREMENT    66 STARTS. ATTEMPT NUMBER  8, TIME INCREMENT  1.485E-04
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 65
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    6 RELATIVE RESIDUAL NORM =  6.595e-06 RHS NORM =  7.782e-05
+ 
+
+ ***NOTE: USER SUBROUTINE REQUESTS A TIME INCREMENT CHANGE.
+
+
+  INCREMENT    66 STARTS. ATTEMPT NUMBER  9, TIME INCREMENT  7.424E-05
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 65
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    6 RELATIVE RESIDUAL NORM =  6.589e-06 RHS NORM =  3.976e-05
+ 
+
+ ***NOTE: USER SUBROUTINE REQUESTS A TIME INCREMENT CHANGE.
+
+
+  INCREMENT    66 STARTS. ATTEMPT NUMBER 10, TIME INCREMENT  3.712E-05
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 65
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    6 RELATIVE RESIDUAL NORM =  6.582e-06 RHS NORM =  2.021e-05
+ 
+
+ ***NOTE: USER SUBROUTINE REQUESTS A TIME INCREMENT CHANGE.
+
+
+  INCREMENT    66 STARTS. ATTEMPT NUMBER 11, TIME INCREMENT  1.856E-05
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 65
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    6 RELATIVE RESIDUAL NORM =  6.578e-06 RHS NORM =  1.031e-05
+ 
+
+ ***NOTE: USER SUBROUTINE REQUESTS A TIME INCREMENT CHANGE.
+
+
+  INCREMENT    66 STARTS. ATTEMPT NUMBER 12, TIME INCREMENT  9.280E-06
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 65
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    6 RELATIVE RESIDUAL NORM =  6.583e-06 RHS NORM =  5.393e-06
+ 
+
+ ***NOTE: USER SUBROUTINE REQUESTS A TIME INCREMENT CHANGE.
+
+
+  INCREMENT    66 STARTS. ATTEMPT NUMBER 13, TIME INCREMENT  4.640E-06
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 65
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    6 RELATIVE RESIDUAL NORM =  6.616e-06 RHS NORM =  3.033e-06
+ 
+
+ ***NOTE: USER SUBROUTINE REQUESTS A TIME INCREMENT CHANGE.
+
+
+  INCREMENT    66 STARTS. ATTEMPT NUMBER 14, TIME INCREMENT  2.320E-06
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 65
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    6 RELATIVE RESIDUAL NORM =  6.630e-06 RHS NORM =  2.000e-06
+ 
+
+ ***NOTE: USER SUBROUTINE REQUESTS A TIME INCREMENT CHANGE.
+
+
+  INCREMENT    66 STARTS. ATTEMPT NUMBER 15, TIME INCREMENT  1.160E-06
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 65
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    6 RELATIVE RESIDUAL NORM =  6.489e-06 RHS NORM =  1.609e-06
+ 
+
+ ***NOTE: USER SUBROUTINE REQUESTS A TIME INCREMENT CHANGE.
+
+
+  INCREMENT    66 STARTS. ATTEMPT NUMBER 16, TIME INCREMENT  5.800E-07
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 65
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    6 RELATIVE RESIDUAL NORM =  6.256e-06 RHS NORM =  1.477e-06
+ 
+
+ ***NOTE: USER SUBROUTINE REQUESTS A TIME INCREMENT CHANGE.
+
+
+  INCREMENT    66 STARTS. ATTEMPT NUMBER 17, TIME INCREMENT  2.900E-07
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 65
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    6 RELATIVE RESIDUAL NORM =  6.069e-06 RHS NORM =  1.433e-06
+ 
+
+ ***NOTE: USER SUBROUTINE REQUESTS A TIME INCREMENT CHANGE.
+
+
+  INCREMENT    66 STARTS. ATTEMPT NUMBER 18, TIME INCREMENT  1.450E-07
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 65
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    6 RELATIVE RESIDUAL NORM =  5.957e-06 RHS NORM =  1.417e-06
+ 
+
+ ***NOTE: USER SUBROUTINE REQUESTS A TIME INCREMENT CHANGE.
+
+
+  INCREMENT    66 STARTS. ATTEMPT NUMBER 19, TIME INCREMENT  7.250E-08
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 65
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    6 RELATIVE RESIDUAL NORM =  5.896e-06 RHS NORM =  1.411e-06
+ 
+
+ ***NOTE: USER SUBROUTINE REQUESTS A TIME INCREMENT CHANGE.
+
+
+  INCREMENT    66 STARTS. ATTEMPT NUMBER 20, TIME INCREMENT  3.625E-08
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 65
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    6 RELATIVE RESIDUAL NORM =  5.865e-06 RHS NORM =  1.408e-06
+ 
+
+ ***NOTE: USER SUBROUTINE REQUESTS A TIME INCREMENT CHANGE.
+
+
+  INCREMENT    66 STARTS. ATTEMPT NUMBER 21, TIME INCREMENT  1.813E-08
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 65
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    6 RELATIVE RESIDUAL NORM =  5.850e-06 RHS NORM =  1.407e-06
+ 
+
+ ***NOTE: USER SUBROUTINE REQUESTS A TIME INCREMENT CHANGE.
+
+
+  INCREMENT    66 STARTS. ATTEMPT NUMBER 22, TIME INCREMENT  9.063E-09
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 65
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    6 RELATIVE RESIDUAL NORM =  5.842e-06 RHS NORM =  1.406e-06
+ 
+
+ ***NOTE: USER SUBROUTINE REQUESTS A TIME INCREMENT CHANGE.
+
+
+  INCREMENT    66 STARTS. ATTEMPT NUMBER 23, TIME INCREMENT  4.531E-09
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 65
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    6 RELATIVE RESIDUAL NORM =  5.838e-06 RHS NORM =  1.406e-06
+ 
+
+ ***NOTE: USER SUBROUTINE REQUESTS A TIME INCREMENT CHANGE.
+
+
+  INCREMENT    66 STARTS. ATTEMPT NUMBER 24, TIME INCREMENT  2.266E-09
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 65
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    6 RELATIVE RESIDUAL NORM =  9.851e-06 RHS NORM =  9.622e-01
+   ELEMENT PART-1-1.840 IS DISTORTING EXCESSIVELY.
+   ELEMENT PART-1-1.841 IS DISTORTING EXCESSIVELY.
+
+ ***WARNING: EXCESSIVE DISTORTION AT A TOTAL OF 2 INTEGRATION POINTS IN SOLID 
+             (CONTINUUM) ELEMENTS
+ 
+
+ ***NOTE: ELEMENTS ARE DISTORTING EXCESSIVELY. CONVERGENCE IS JUDGED UNLIKELY.
+
+
+  INCREMENT    66 STARTS. ATTEMPT NUMBER 25, TIME INCREMENT  5.664E-10
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 65
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    6 RELATIVE RESIDUAL NORM =  4.420e-06 RHS NORM =  4.762e-01
+ 
+
+ ***NOTE: USER SUBROUTINE REQUESTS A TIME INCREMENT CHANGE.
+
+
+  INCREMENT    66 STARTS. ATTEMPT NUMBER 26, TIME INCREMENT  2.832E-10
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 65
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    6 RELATIVE RESIDUAL NORM =  4.826e-06 RHS NORM =  2.141e-01
+ 
+
+ ***NOTE: USER SUBROUTINE REQUESTS A TIME INCREMENT CHANGE.
+
+
+  INCREMENT    66 STARTS. ATTEMPT NUMBER 27, TIME INCREMENT  1.416E-10
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 65
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    6 RELATIVE RESIDUAL NORM =  5.444e-06 RHS NORM =  9.267e-02
+ 
+
+ ***NOTE: USER SUBROUTINE REQUESTS A TIME INCREMENT CHANGE.
+
+
+  INCREMENT    66 STARTS. ATTEMPT NUMBER 28, TIME INCREMENT  7.080E-11
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 65
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    6 RELATIVE RESIDUAL NORM =  5.792e-06 RHS NORM =  4.738e-02
+ 
+
+ ***NOTE: USER SUBROUTINE REQUESTS A TIME INCREMENT CHANGE.
+
+
+  INCREMENT    66 STARTS. ATTEMPT NUMBER 29, TIME INCREMENT  3.540E-11
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 65
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    6 RELATIVE RESIDUAL NORM =  5.429e-06 RHS NORM =  3.209e-02
+ 
+
+ ***NOTE: USER SUBROUTINE REQUESTS A TIME INCREMENT CHANGE.
+
+
+  INCREMENT    66 STARTS. ATTEMPT NUMBER 30, TIME INCREMENT  1.770E-11
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 65
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    6 RELATIVE RESIDUAL NORM =  4.811e-06 RHS NORM =  2.662e-02
+ 
+
+ ***NOTE: USER SUBROUTINE REQUESTS A TIME INCREMENT CHANGE.
+
+
+  INCREMENT    66 STARTS. ATTEMPT NUMBER 31, TIME INCREMENT  8.850E-12
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 65
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    6 RELATIVE RESIDUAL NORM =  4.388e-06 RHS NORM =  2.448e-02
+ 
+
+ ***NOTE: USER SUBROUTINE REQUESTS A TIME INCREMENT CHANGE.
+
+
+  INCREMENT    66 STARTS. ATTEMPT NUMBER 32, TIME INCREMENT  4.425E-12
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 65
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    6 RELATIVE RESIDUAL NORM =  4.178e-06 RHS NORM =  2.360e-02
+ 
+
+ ***NOTE: USER SUBROUTINE REQUESTS A TIME INCREMENT CHANGE.
+
+
+  INCREMENT    66 STARTS. ATTEMPT NUMBER 33, TIME INCREMENT  2.213E-12
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 65
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    6 RELATIVE RESIDUAL NORM =  4.084e-06 RHS NORM =  2.322e-02
+ 
+
+ ***NOTE: USER SUBROUTINE REQUESTS A TIME INCREMENT CHANGE.
+
+
+  INCREMENT    66 STARTS. ATTEMPT NUMBER 34, TIME INCREMENT  1.106E-12
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 65
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    6 RELATIVE RESIDUAL NORM =  4.041e-06 RHS NORM =  2.305e-02
+ 
+
+ ***NOTE: USER SUBROUTINE REQUESTS A TIME INCREMENT CHANGE.
+
+
+  INCREMENT    66 STARTS. ATTEMPT NUMBER 35, TIME INCREMENT  5.531E-13
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 65
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    6 RELATIVE RESIDUAL NORM =  4.021e-06 RHS NORM =  2.297e-02
+ 
+
+ ***NOTE: USER SUBROUTINE REQUESTS A TIME INCREMENT CHANGE.
+
+
+  INCREMENT    66 STARTS. ATTEMPT NUMBER 36, TIME INCREMENT  2.766E-13
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 65
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    6 RELATIVE RESIDUAL NORM =  4.012e-06 RHS NORM =  2.294e-02
+ 
+
+ ***NOTE: USER SUBROUTINE REQUESTS A TIME INCREMENT CHANGE.
+
+
+  INCREMENT    66 STARTS. ATTEMPT NUMBER 37, TIME INCREMENT  1.383E-13
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 65
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    6 RELATIVE RESIDUAL NORM =  4.007e-06 RHS NORM =  2.292e-02
+ 
+
+ ***NOTE: USER SUBROUTINE REQUESTS A TIME INCREMENT CHANGE.
+
+
+  INCREMENT    66 STARTS. ATTEMPT NUMBER 38, TIME INCREMENT  6.914E-14
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 65
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    6 RELATIVE RESIDUAL NORM =  4.005e-06 RHS NORM =  2.291e-02
+ 
+
+ ***NOTE: USER SUBROUTINE REQUESTS A TIME INCREMENT CHANGE.
+
+
+  INCREMENT    66 STARTS. ATTEMPT NUMBER 39, TIME INCREMENT  3.457E-14
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 65
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    6 RELATIVE RESIDUAL NORM =  4.004e-06 RHS NORM =  2.290e-02
+ 
+
+ ***NOTE: USER SUBROUTINE REQUESTS A TIME INCREMENT CHANGE.
+
+
+  INCREMENT    66 STARTS. ATTEMPT NUMBER 40, TIME INCREMENT  1.729E-14
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 65
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    6 RELATIVE RESIDUAL NORM =  4.003e-06 RHS NORM =  2.290e-02
+ 
+
+ ***NOTE: USER SUBROUTINE REQUESTS A TIME INCREMENT CHANGE.
+
+
+  INCREMENT    66 STARTS. ATTEMPT NUMBER 41, TIME INCREMENT  8.643E-15
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 65
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    6 RELATIVE RESIDUAL NORM =  4.003e-06 RHS NORM =  2.290e-02
+ 
+
+ ***NOTE: USER SUBROUTINE REQUESTS A TIME INCREMENT CHANGE.
+
+
+  INCREMENT    66 STARTS. ATTEMPT NUMBER 42, TIME INCREMENT  4.321E-15
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 65
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    6 RELATIVE RESIDUAL NORM =  4.003e-06 RHS NORM =  2.290e-02
+ 
+
+ ***NOTE: USER SUBROUTINE REQUESTS A TIME INCREMENT CHANGE.
+
+
+  INCREMENT    66 STARTS. ATTEMPT NUMBER 43, TIME INCREMENT  2.161E-15
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 65
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    6 RELATIVE RESIDUAL NORM =  4.003e-06 RHS NORM =  2.290e-02
+ 
+
+ ***NOTE: USER SUBROUTINE REQUESTS A TIME INCREMENT CHANGE.
+
+
+  INCREMENT    66 STARTS. ATTEMPT NUMBER 44, TIME INCREMENT  1.080E-15
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 65
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    6 RELATIVE RESIDUAL NORM =  4.003e-06 RHS NORM =  2.290e-02
+ 
+
+ ***NOTE: USER SUBROUTINE REQUESTS A TIME INCREMENT CHANGE.
+
+
+  INCREMENT    66 STARTS. ATTEMPT NUMBER 45, TIME INCREMENT  5.402E-16
+ 
+	SYMMETRIC ITERATIVE SOLVER RUNNING ON
+ 	1 HOST:        16 MPI RANKS x 1 THREAD
+ 	NUMBER OF EQUATIONS:     4002
+ 	NUMBER OF RHS:           1
+ 	KRYLOV METHOD:           CG
+ 	PRECONDITIONER:          PAMG
+ 	CONVERGENCE TOL:         1.000e-05
+ 	MAXIMUM ITERATIONS:      200
+ 	SETUP TIME:              0.1 SEC
+ 	APPLY TIME:              0.0 SEC
+ 
+    NUMBER OF MATRIX-VECTOR MULTIPLICATIONS: 65
+ 
+ ITERATIVE SOLVER CONVERGED.
+ NUM. ITERATIONS =    6 RELATIVE RESIDUAL NORM =  4.003e-06 RHS NORM =  2.290e-02
+ 
+
+ ***NOTE: USER SUBROUTINE REQUESTS A TIME INCREMENT CHANGE.
+ 
+
+ ***ERROR: TOO MANY ATTEMPTS MADE FOR THIS INCREMENT
+ 
+
+ ***ERROR: TOO MANY ATTEMPTS MADE FOR THIS INCREMENT
+ 
+
+ ***ERROR: TOO MANY ATTEMPTS MADE FOR THIS INCREMENT
+ 
+
+ ***ERROR: TOO MANY ATTEMPTS MADE FOR THIS INCREMENT
+ 
+
+ ***ERROR: TOO MANY ATTEMPTS MADE FOR THIS INCREMENT
+ 
+
+ ***ERROR: TOO MANY ATTEMPTS MADE FOR THIS INCREMENT
+ 
+
+ ***ERROR: TOO MANY ATTEMPTS MADE FOR THIS INCREMENT
+ 
+
+ ***ERROR: TOO MANY ATTEMPTS MADE FOR THIS INCREMENT
+ 
+
+ ***ERROR: TOO MANY ATTEMPTS MADE FOR THIS INCREMENT
+ 
+
+ ***ERROR: TOO MANY ATTEMPTS MADE FOR THIS INCREMENT
+ 
+
+ ***ERROR: TOO MANY ATTEMPTS MADE FOR THIS INCREMENT
+ 
+
+ ***ERROR: TOO MANY ATTEMPTS MADE FOR THIS INCREMENT
+ 
+
+ ***ERROR: TOO MANY ATTEMPTS MADE FOR THIS INCREMENT
+ 
+
+ ***ERROR: TOO MANY ATTEMPTS MADE FOR THIS INCREMENT
+ 
+
+ ***ERROR: TOO MANY ATTEMPTS MADE FOR THIS INCREMENT
+ 
+
+ ***ERROR: TOO MANY ATTEMPTS MADE FOR THIS INCREMENT
+
+ ***ERROR: THE ANALYSIS HAS BEEN TERMINATED DUE TO PREVIOUS ERRORS. ALL OUTPUT 
+           REQUESTS HAVE BEEN WRITTEN FOR THE LAST CONVERGED INCREMENT.
+
+
+
+     ANALYSIS SUMMARY:
+     TOTAL OF         66  INCREMENTS
+                      57  CUTBACKS IN AUTOMATIC INCREMENTATION
+                     214  ITERATIONS INCLUDING CONTACT ITERATIONS IF PRESENT
+                     214  PASSES THROUGH THE EQUATION SOLVER OF WHICH 
+                     214  INVOLVE MATRIX DECOMPOSITION, INCLUDING
+                       0  DECOMPOSITION(S) OF THE MASS MATRIX
+                       1  REORDERING OF EQUATIONS TO MINIMIZE WAVEFRONT
+                       0  ADDITIONAL RESIDUAL EVALUATIONS FOR LINE SEARCHES
+                       0  ADDITIONAL OPERATOR EVALUATIONS FOR LINE SEARCHES
+                       1  WARNING MESSAGES DURING USER INPUT PROCESSING
+                       1  WARNING MESSAGES DURING ANALYSIS
+                       0  ANALYSIS WARNINGS ARE NUMERICAL PROBLEM MESSAGES
+                       0  ANALYSIS WARNINGS ARE NEGATIVE EIGENVALUE MESSAGES
+                      17  ERROR MESSAGES
+
+
+
+     JOB TIME SUMMARY
+       USER TIME (SEC)      =      84.    
+       SYSTEM TIME (SEC)    =      6.5    
+       TOTAL CPU TIME (SEC) =      90.    
+       WALLCLOCK TIME (SEC) =           95
+       MEMORY PEAK (GB)     =            0

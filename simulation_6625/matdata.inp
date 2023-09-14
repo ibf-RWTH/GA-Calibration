@@ -1,0 +1,114 @@
+!Crystal Plasticity Input File
+!DO NOT CHANGE THE ORDER OF THE MATERIAL PARAMETERS!
+!Indicate new material definitions via <: Material: x :>
+
+<: Material: 1 :>
+
+!! FCC Dislocation density
+C11   : 247.d3
+C12   : 147.d3
+C44   : 125.d3
+nslip : 12
+pw_fl : 20.0
+brgvec: 2.86d-7              
+v0    : 5.0
+rho_0  : 1.0d8
+km1   : 349650.0
+km2   : 10.0 
+c3    : 0.5
+
+<: Material: 2 :> 
+! FCC Phenomenological
+C11 : 231.4d3 
+C12 : 134.7d3 
+C44 : 116.4d3 
+nslip : 12 
+pw_fl : 11.967
+shrt_0 : 0.001
+hdrt_0 : 1172.3674
+crss_0 : 50.2453
+crss_s : 311.573
+pw_hd : 2.5066
+Adir : 1.0
+Adyn : 1.0
+gam_c : 0.03
+pw_irr : 6.0
+
+<: Material: 3 :>
+! BCC Phenomenological with non-Schmidt effect
+C11   : 112.2d3
+C12   : 42.0d3
+C44   : 131.0d3
+nslip : 12
+pw_fl : 72.247
+shrt_0 : 20
+hdrt_0 : 1116.2619
+crss_0 : 168.2752
+k      : 0
+crss_s : 388.9239
+pw_hd : 2.0397
+Adir : 6168.366
+Adyn : 1372.697
+gam_c : 0.03
+pw_irr : 1.0
+! non-Schmidt variables
+a1 : 0.0
+a2 : 0.0
+a3 : 0.0
+a4 : 0.0
+a5 : 0.0
+a6 : 0.0
+
+
+<: Material: 4 :>
+! 2nd BCC Phase Phenomenological with non-Schmidt effect
+C11   : 112.2d3
+C12   : 42.0d3
+C44   : 131.0d3
+nslip : 12
+pw_fl : 100
+shrt_0 : 20
+hdrt_0 : 993.5049
+crss_0 : 81.5494
+k : 0.0
+crss_s : 316.7262
+pw_hd : 2.1756
+Adir : 4550.0494
+Adyn : 1088.8832
+gam_c : 0.03
+pw_irr : 1.
+! non-Schmidt variables
+a1 : 0.0
+a2 : 0.0
+a3 : 0.0
+a4 : 0.0
+a5 : 0.0
+a6 : 0.0
+
+<: Material: 5 :>
+! BCC Phase Phenomenological with non-Schmidt effect, Temperature and PS_rate
+C11   : 231
+C12   : 134.7
+C44   : 116.4
+nslip : 12
+pw_fl : 600
+shrt_0 : 0.001
+hdrt_0 : 1000
+crss_0 : 250
+k : 23.4
+crss_s : 750
+pw_hd : 2.4
+Adir  : 0
+Adyn  : 0
+gam_c : 0.03
+pw_irr : 6.
+! non-Schmidt variables
+C1 : 1.0
+C2 : 11.5
+NEWC3 : 0
+C_T1 : 1.0
+C_T2 : 0.0
+C_T3 : 0.0
+T : 1.0
+PS_rate : 1.0
+m : 2

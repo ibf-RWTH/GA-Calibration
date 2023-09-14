@@ -362,7 +362,7 @@ class Simulation:
             mad_stress_strain = 99999
             return mad_time, mad_stress_strain
 
-        experimental_df = pd.read_csv(f'{self.sample_files}/trial_ex_data.csv', sep=',') #needs change later
+        experimental_df = pd.read_csv(f'{self.sample_files}/ex_data_tensile.csv', sep=',') #needs change later
         max_exp_strain = experimental_df['strain_t'].max()
         max_sim_strain = simulation_df['Strain'].max()
 
@@ -376,7 +376,23 @@ class Simulation:
         mad_strain_total = abs(1 - max_sim_strain / max_exp_strain) * 100
         mad_stress = (mad_stress_total + mad_stress_alpha + mad_stress_beta)/3
 
-        return mad_stress, mad_strain_total
+        now = int(time.time())
+        fig_name = f'stress_strain_{now}'
+        x_label = "Strain"
+        y_label = "Stress(MPa)"
+        plt.plot(experimental_df['strain_t'].values, experimental_df['stress_t'].values, label='Experiment_Total')
+        plt.plot(experimental_df['strain_t'].values, experimental_df['stress_alpha'].values, label='Experiment_Alpha')
+        plt.plot(experimental_df['strain_t'].values, experimental_df['stress_beta'].values, label='Experiment_Beta')
+        plt.plot(simulation_df['Strain'].values, simulation_df['Stress'].values, label='Simulation_Total')
+        plt.plot(simulation_df['Strain_Phase1'].values, simulation_df['Stress_Phase1'].values, label='Simulation_Alpha')
+        plt.plot(simulation_df['Strain_Phase2'].values, simulation_df['Stress_Phase2'].values, label='Simulation_Beta')
+        plt.xlabel(xlabel=x_label)
+        plt.ylabel(ylabel=y_label)
+        plt.legend()
+        plt.savefig(f'{self.images}/{fig_name}.png')
+        plt.close()
+
+        return mad_stress, mad_strain_total, now
 
     def plot_data(self, fig_name, x_label, y_label, x1, y1, data_label_1, x2=None, y2=None, data_label_2=None):
         plt.plot(x1, y1, label=data_label_1)
@@ -589,9 +605,9 @@ if __name__ == '__main__':
             'Adyn': [0, 300]
     }
     # choose phases and the varrying parameters for each phase here
-    material_id = [3, 4]
-    MatID2MatProps[3] = ['hdrt_0','crss_0','crss_s','pw_hd','Adir','Adyn'] 
-    MatID2MatProps[4] = ['hdrt_0','crss_0','crss_s','pw_hd','Adir','Adyn']
+    material_id = [2, 3]
+    MatID2MatProps[2] = ['pw_fl','hdrt_0','crss_0','crss_s','pw_hd' ]
+    MatID2MatProps[3] = ['pw_fl','hdrt_0','crss_0','crss_s','pw_hd' ]
     varbound = get_material_varbound(material_id)
     #print(varbound.shape)
     
