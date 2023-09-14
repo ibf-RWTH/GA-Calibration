@@ -47,4 +47,18 @@ for mat_id in material_id:
 
 MatID2MatPropsBound[2]['hdrt_0'] = [800, 1199]
 varbound = get_material_varbound(material_id)
-print(varbound)
+
+params = np.arange(len(varbound))
+f = open('results.txt', 'a+')
+prop_index = 0
+phase_index = 0
+for mat_props in MatID2MatPropsBound.values():
+    f.write(f'phase{material_id[phase_index]}: ')
+    for mat_props_name in mat_props:
+        f.write(f'{mat_props_name}: {params[prop_index]}, ')
+        prop_index += 1
+
+    f.write('\n')
+    phase_index += 1
+f.write('############################################################\n')
+f.close()
