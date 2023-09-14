@@ -160,5 +160,5 @@ cython_debug/
 #.idea/
 # user defined
 simulation*/
-*.png
+evaluation_images/*
 logs/*
