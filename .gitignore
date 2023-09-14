@@ -162,3 +162,4 @@ cython_debug/
 simulation*/
 evaluation_images/*
 logs/*
+python/test.py
