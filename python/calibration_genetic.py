@@ -134,10 +134,16 @@ class Simulation:
         f.write(f'Error_Time: {mad_time}\n')
         f.write(f'Error_Stress: {mad_stress}\n')
         f.write(f'Error: {mad}\n')
-        f.write(f'phase1: hdrt_0: {params[0]}, crss_0: {params[1]}, ')
-        f.write(f'crss_s: {params[2]}, pw_hd: {params[3]}, Adir: {params[4]}, Adyn: {params[5]}\n')
-        f.write(f'phase2: hdrt_0: {params[6]}, crss_0: {params[7]}')
-        f.write(f'crss_s: {params[8]}, pw_hd: {params[9]}, Adir: {params[10]}, Adyn: {params[11]}\n')
+        prop_index = 0
+        phase_index = 0
+        for mat_props in MatID2MatPropsBound.values():
+            f.write(f'phase{self.material_id[phase_index]}: ')
+            for mat_props_name in mat_props:
+                f.write(f'{mat_props_name}: {params[prop_index]}, ')
+                prop_index += 1
+
+            f.write('\n')
+            phase_index += 1
         f.write('############################################################\n')
         f.close()
 
