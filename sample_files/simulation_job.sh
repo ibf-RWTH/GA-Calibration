@@ -16,7 +16,7 @@
 ### Request one host
 #SBATCH --nodes=1
 ### Request number of CPUs/MPI Ranks
-#SBATCH --ntasks=4
+#SBATCH --ntasks=16
 ### Initialization of the software
 module load ABAQUS/2022
 ### Set the amount of memory to be passed to Abaqus as a command line argument
