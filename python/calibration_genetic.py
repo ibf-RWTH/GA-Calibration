@@ -96,6 +96,7 @@ class Simulation:
                 sim_results = self.calcStressStrain(current_simulation_dir, current_job_name)
                 #sim_results.to_csv('sim_results.csv')
                 compare_func = self.sim_flag2compare_function[self.sim_flag]
+                os.system(f'echo func name: {compare_func.__name__}\n')
                 mad1, mad2, time_stamp = compare_func(sim_results)
                 mad = mad1 + mad2
                 # write results to files and delete simulation files
@@ -180,7 +181,11 @@ class Simulation:
 
         batch_state = df.loc[df['JobName']=='batch','State'].values[-1]
         extern_state = df.loc[df['JobName']=='extern','State'].values[-1]
-        job_state = df.loc[df['JobName']== f'{job_name}','State'].values[-1]
+        try:
+            job_state = df.loc[df['JobName']== f'{job_name}','State'].values[-1]
+        except:
+            job_state == "PENDING"
+            
         # check for successful completion of simulation
         if job_state == 'COMPLETED':
             # break while loop if completed
