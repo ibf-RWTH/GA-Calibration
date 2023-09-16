@@ -328,11 +328,12 @@ class Simulation:
     def compare_exp2sim_cyclic(self, simulation_df):
         assert self.n_phases == 1 or self.n_phases == 2, 'more than two phases are not yet supported'
         # in order for this to work correctly make sure the time intervals in experiment and simulation are equal!!!
+        now = int(time.time())
         if simulation_df.shape[0] < 5:
             mad_time = 99999.
             mad_stress_strain = 99999
-            return mad_time, mad_stress_strain
-        now = int(time.time())
+            return mad_time, mad_stress_strain, now
+        
         
         experimental_df = pd.read_csv(f'{self.sample_files}/{self.ex_data}', sep='\t')
         
@@ -368,10 +369,11 @@ class Simulation:
 
     def compare_exp2sim_tensile_dual_phase(self, simulation_df):
         assert self.n_phases == 2
+        now = int(time.time())
         if simulation_df.shape[0] < 5:
             mad_time = 99999.
             mad_stress_strain = 99999
-            return mad_time, mad_stress_strain
+            return mad_time, mad_stress_strain, now
 
         experimental_df = pd.read_csv(f'{self.sample_files}/ex_data_tensile.csv', sep=',') #needs change later
         max_exp_strain = experimental_df['strain_t'].max()
@@ -387,7 +389,6 @@ class Simulation:
         mad_strain_total = abs(1 - max_sim_strain / max_exp_strain) * 100
         mad_stress = (mad_stress_total + mad_stress_alpha + mad_stress_beta)/3
 
-        now = int(time.time())
         fig_name = f'stress_strain_{now}'
         x_label = "Strain"
         y_label = "Stress(MPa)"
