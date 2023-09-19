@@ -35,7 +35,7 @@ export SIM_JOB_BASE_NAME=CP_Calibration
 ### Please remember, to adjust the memory, it must be less than requested above
 export PYTHONCODE=$PWD/python/calibration_genetic.py
 export TEST_FLAG=False
-export RESTART_FLAG=False
+export RESTART_FLAG=True
 export SIM_TYP=tensile
 export EX_DATA=ex_data_tensile.csv
 

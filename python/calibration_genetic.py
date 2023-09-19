@@ -608,11 +608,11 @@ if __name__ == '__main__':
     # these are default bound    
     MatProp2Bound = {
             'shrt_0': [0.001, 1000],
-            'pw_fl': [1, 100],
-            'hdrt_0': [800, 1200],
-            'crss_0': [10, 190],
-            'crss_s': [100, 500],
-            'pw_hd' : [1, 3],
+            'pw_fl': [1, 10000],
+            'hdrt_0': [80, 120000],
+            'crss_0': [1, 19000],
+            'crss_s': [10, 50000],
+            'pw_hd' : [1, 10],
             'Adir': [0, 700],
             'Adyn': [0, 300]
     }
@@ -643,7 +643,7 @@ if __name__ == '__main__':
     os.system(f'echo sim_root: {sim_root}')
     os.system(f'echo sim_type: {sim_flag}')
 
-    algorithm_param = {'max_num_iteration': 50, \
+    algorithm_param = {'max_num_iteration': 100, \
                        'population_size': 50, \
                        'mutation_probability': 0.1, \
                        'elit_ratio': 0.1, \
