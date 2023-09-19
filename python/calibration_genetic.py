@@ -96,7 +96,6 @@ class Simulation:
                 sim_results = self.calcStressStrain(current_simulation_dir, current_job_name)
                 #sim_results.to_csv('sim_results.csv')
                 compare_func = self.sim_flag2compare_function[self.sim_flag]
-                os.system(f'echo func name: {compare_func.__name__}\n')
                 mad1, mad2, time_stamp = compare_func(sim_results)
                 mad = mad1 + mad2
                 # write results to files and delete simulation files
@@ -131,7 +130,7 @@ class Simulation:
         f = open(self.log_dir + '/results.txt', 'a+')
         f.write(f'simulation type: {self.sim_flag}\n')
         f.write(f'Compute Error Using: {compare_func}\n')
-        f.write(f'time_Stamp: {time_stamp}')
+        f.write(f'time_Stamp: {time_stamp}\n')
         f.write(f'Error_Time: {mad_time}\n')
         f.write(f'Error_Stress: {mad_stress}\n')
         f.write(f'Error: {mad}\n')
