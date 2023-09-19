@@ -608,11 +608,11 @@ if __name__ == '__main__':
     # these are default bound    
     MatProp2Bound = {
             'shrt_0': [0.001, 1000],
-            'pw_fl': [1, 10000],
-            'hdrt_0': [80, 120000],
+            'pw_fl': [1, 100],
+            'hdrt_0': [80, 12000],
             'crss_0': [1, 19000],
             'crss_s': [10, 50000],
-            'pw_hd' : [1, 10],
+            'pw_hd' : [1, 3],
             'Adir': [0, 700],
             'Adyn': [0, 300]
     }
@@ -632,7 +632,7 @@ if __name__ == '__main__':
                 MatID2MatPropsBound[mat_id][mat_prop] = MatProp2Bound[mat_prop]
 
     #set material properties bound for each phase MatID2MatPropsBound[phase_id][prop_name]
-    MatID2MatPropsBound[2]['hdrt_0'] = [800, 1199]
+    # MatID2MatPropsBound[2]['hdrt_0'] = [800, 1199]
     
     varbound = get_material_varbound(material_id)
     # #print(varbound.shape)
