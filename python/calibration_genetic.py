@@ -385,7 +385,7 @@ class Simulation:
         mad_stress_total = np.mean(np.abs(exp_total_stress_interp - simulation_df['Stress'])**2 / exp_total_stress_interp) * 100
         mad_stress_alpha = np.mean(np.abs(exp_alpha_stress_interp - simulation_df['Stress'])**2 / exp_alpha_stress_interp) * 100
         mad_stress_beta = np.mean(np.abs(exp_beta_stress_interp - simulation_df['Stress'])**2 / exp_beta_stress_interp) * 100
-        mad_strain_total = abs(1 - max_sim_strain / max_exp_strain) * 100
+        mad_strain_total = (abs(1 - max_sim_strain / max_exp_strain) * 100) **2
         mad_stress = (mad_stress_total + mad_stress_alpha + mad_stress_beta)/3
 
         fig_name = f'stress_strain_{now}'
@@ -403,7 +403,7 @@ class Simulation:
         plt.savefig(f'{self.images}/{fig_name}.png')
         plt.close()
 
-        return mad_stress, mad_strain_total, now
+        return mad_strain_total, mad_stress, now
 
     def plot_data(self, fig_name, x_label, y_label, x1, y1, data_label_1, x2=None, y2=None, data_label_2=None):
         plt.plot(x1, y1, label=data_label_1)
@@ -610,8 +610,8 @@ if __name__ == '__main__':
             'shrt_0': [0.001, 1000],
             'pw_fl': [1, 100],
             'hdrt_0': [80, 12000],
-            'crss_0': [1, 19000],
-            'crss_s': [10, 50000],
+            'crss_0': [1, 1900],
+            'crss_s': [10, 5000],
             'pw_hd' : [1, 3],
             'Adir': [0, 700],
             'Adyn': [0, 300]
