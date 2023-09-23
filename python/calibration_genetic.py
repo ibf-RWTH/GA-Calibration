@@ -665,6 +665,6 @@ if __name__ == '__main__':
                 progress_bar_stream = None, 
                 start_generation=f'{sim_root}/logs/lastgeneration.npz',
                 set_function=ga.set_function_multiprocess(func, n_jobs=n_jobs))
-    f = open(sim_root + '../logs/results.txt', 'w+')
+    f = open(sim_root + '/logs/results.txt', 'w+')
     f.write(model.output_dict)
     f.close()
