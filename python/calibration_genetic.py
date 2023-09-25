@@ -182,7 +182,7 @@ class Simulation:
         try:
             job_state = df.loc[df['JobName']== f'{job_name}','State'].values[-1]
         except:
-            job_state == "PENDING"
+            job_state = "PENDING"
             
         # check for successful completion of simulation
         if job_state == 'COMPLETED':
