@@ -19,7 +19,7 @@
 #SBATCH --nodes=1
  
 ### Request number of CPUs/MPI Ranks
-#SBATCH --ntasks=1
+#SBATCH --ntasks=12
 
 # Insert this AFTER the #SLURM argument section of your job script
 ## chose anaconda or miniconda as CONDA_ROOT depending on what is installed for you
@@ -35,7 +35,7 @@ export SIM_JOB_BASE_NAME=CP_Calibration
 ### Please remember, to adjust the memory, it must be less than requested above
 export PYTHONCODE=$PWD/python/calibration_genetic.py
 export TEST_FLAG=False
-export RESTART_FLAG=True
+export RESTART_FLAG=False
 export SIM_TYP=tensile
 export EX_DATA=ex_data_tensile.csv
 

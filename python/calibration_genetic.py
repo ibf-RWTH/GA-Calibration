@@ -84,10 +84,9 @@ class MatParams:
         return varbound
     
 class Simulation:
-    def __init__(self, sim_root, ex_data, material_id, job_name, sim_flag, n_jobs, mat_params: MatParams):
+    def __init__(self, sim_root, ex_data, job_name, sim_flag, n_jobs, mat_params: MatParams):
         self.sim_root = sim_root
         self.ex_data = ex_data
-        self.material_id = material_id
         self.subroutine_dir = f'{self.sim_root}/subroutine'
         self.subroutine_dir = f'{self.sim_root}/subroutine'
         self.simulation_dir = f'{self.sim_root}/simulation'
@@ -97,13 +96,14 @@ class Simulation:
         self.base_job_name = job_name
         self.job_name = job_name
         self.n_jobs = n_jobs
-        self.n_phases = len(material_id)
         self.sim_flag = sim_flag
         self.sim_flag2compare_function = {
             'cyclic' : self.compare_exp2sim_cyclic,
             'tensile' : self.compare_exp2sim_tensile_dual_phase,
         }
         self.num_props = [0] #state variable to record num of material props for each phase, so that manipulate_data func knows the range of props to read
+        self.mat_params = mat_params
+        self.n_phases = len(self.mat_params.material_ids)
 
     def create_batch_job_script(self, job_index):
         
@@ -130,13 +130,15 @@ class Simulation:
                 #create directory
                 self.create_job_dir(current_simulation_dir)
                 
-                for j, mat_id in enumerate(self.material_id):
+                for j, mat_id in enumerate(self.mat_params.material_ids):
                     if j == 0:
                         path = self.sample_files
                     else:
                         path = current_simulation_dir
                     # create matdata.inp file according to params
                     self.manipulate_matdata2(path, current_simulation_dir, mat_id, phase_index=j, values=params)
+
+                sys.exit()
                 # create batch script
                 self.create_batch_job_script(job_index=job_index)
                 # submit simulation
@@ -202,7 +204,7 @@ class Simulation:
         prop_index = 0
         phase_index = 0
         for mat_props in mat_params.MatID2MatPropsBound.values():
-            f.write(f'phase{self.material_id[phase_index]}: ')
+            f.write(f'phase{self.mat_params.material_ids[phase_index]}: ')
             for mat_props_name in mat_props:
                 f.write(f'{mat_props_name}: {params[prop_index]}, ')
                 prop_index += 1
@@ -487,87 +489,97 @@ class Simulation:
         os.system(f'sbatch {batch_file}')
 
 
-    def manipulate_matdata2(self, sample_path, current_sim_dir, id, phase_index, values):
+    def manipulate_matdata2(self, sample_path:str, current_sim_dir:str, id:int, phase_index:int, values):
         # Manipulate matdata.inp file according to optimizer
-        mat_props = mat_params.MatID2MatProps[id]
+        num_prev_props = np.sum(self.num_props)
+        mat_props = list(self.mat_params.MatID2MatPropsBound[id].keys())
+        num_curr_props = len(mat_props)
         if phase_index == 0:
             mat_props_values = values[:len(mat_props)]
         else:
-            mat_props_values = values[len(values) - len(mat_props):]
-        # os.system(f'echo phase_index: {id}')
-        # os.system(f'echo values len: {len(values)}')
-        # os.system(f'echo num props: {len(mat_props_values)}')
-        # os.system(f'echo mat_props len : {len(mat_props)}')
+            mat_props_values = []
+            if len(self.mat_params.MatID2MatPropsBound[0]) > 0:
+                mat_props = list(self.mat_params.MatID2MatPropsBound[0].keys()) + mat_props #global values
+                mat_props_values.extend(values[:self.num_props[1]]) # global values
+            mat_props_values.extend(values[num_prev_props:num_prev_props+num_curr_props])
+        
+
         with open(f'{sample_path}/matdata.inp', 'r') as file:
-            lines = file.readlines()
+                lines = file.readlines()
+        if id > 0:
+            # os.system(f'echo phase_index: {id}')
+            # os.system(f'echo values len: {len(values)}')
+            # os.system(f'echo num props: {len(mat_props_values)}')
+            # os.system(f'echo mat_props len : {len(mat_props)}')
 
-        temp_lines = [line.replace(" ", "") for line in lines]
-        first_line = temp_lines.index(f'<:Material:{int(id)}:>\n')
-        try:
-            last_line = temp_lines.index(f'<:Material:{int(id) + 1}:>\n')
-        except:
-            last_line = len(lines)
+            temp_lines = [line.replace(" ", "") for line in lines]
+            first_line = temp_lines.index(f'<:Material:{int(id)}:>\n')
+            try:
+                last_line = temp_lines.index(f'<:Material:{int(id) + 1}:>\n')
+            except:
+                last_line = len(lines)
 
-        prop_index = 0
-        for i in range(first_line, last_line):
-            if 'pw_fl' in lines[i] and 'pw_fl' in mat_props:
-                pw_fl = mat_props_values[prop_index]
-                lines[i] = f'pw_fl : {np.round(pw_fl, 4)}\n'
-                prop_index +=1
+            prop_index = 0
+            for i in range(first_line, last_line):
+                if 'pw_fl' in lines[i] and 'pw_fl' in mat_props:
+                    pw_fl = mat_props_values[prop_index]
+                    lines[i] = f'pw_fl : {np.round(pw_fl, 4)}\n'
+                    prop_index +=1
 
-            elif 'shrt_0' in lines[i] and 'shrt_0' in mat_props:
-                shrt_0 = mat_props_values[prop_index]
-                lines[i] = f'shrt_0 : {np.round(shrt_0, 4)}\n'
-                prop_index += 1
+                elif 'shrt_0' in lines[i] and 'shrt_0' in mat_props:
+                    shrt_0 = mat_props_values[prop_index]
+                    lines[i] = f'shrt_0 : {np.round(shrt_0, 4)}\n'
+                    prop_index += 1
 
-            elif 'hdrt_0' in lines[i] and 'hdrt_0' in mat_props:
-                hdrt_0 = mat_props_values[prop_index]
-                lines[i] = f'hdrt_0 : {np.round(hdrt_0, 4)}\n'
-                prop_index += 1
+                elif 'hdrt_0' in lines[i] and 'hdrt_0' in mat_props:
+                    hdrt_0 = mat_props_values[prop_index]
+                    lines[i] = f'hdrt_0 : {np.round(hdrt_0, 4)}\n'
+                    prop_index += 1
 
-            elif 'crss_0' in lines[i] and 'crss_0' in mat_props:
-                crss_0 = mat_props_values[prop_index]
-                lines[i] = f'crss_0 : {np.round(crss_0, 4)}\n'
-                prop_index += 1
+                elif 'crss_0' in lines[i] and 'crss_0' in mat_props:
+                    crss_0 = mat_props_values[prop_index]
+                    lines[i] = f'crss_0 : {np.round(crss_0, 4)}\n'
+                    prop_index += 1
 
-            elif 'k' in lines[i] and 'k' in mat_props:
-                k = mat_props_values[prop_index]
-                lines[i] = f'k : {np.round(k, 4)}\n'
-                prop_index += 1
+                elif 'k' in lines[i] and 'k' in mat_props:
+                    k = mat_props_values[prop_index]
+                    lines[i] = f'k : {np.round(k, 4)}\n'
+                    prop_index += 1
 
-            elif 'crss_s' in lines[i] and 'crss_s' in mat_props:
-                crss_s = mat_props_values[prop_index]
-                lines[i] = f'crss_s : {np.round(crss_s, 4)}\n'
-                prop_index += 1
+                elif 'crss_s' in lines[i] and 'crss_s' in mat_props:
+                    crss_s = mat_props_values[prop_index]
+                    lines[i] = f'crss_s : {np.round(crss_s, 4)}\n'
+                    prop_index += 1
 
-            elif 'pw_hd' in lines[i] and 'pw_hd' in mat_props:
-                pw_hd = mat_props_values[prop_index]
-                lines[i] = f'pw_hd : {np.round(pw_hd, 4)}\n'
-                prop_index += 1
+                elif 'pw_hd' in lines[i] and 'pw_hd' in mat_props:
+                    pw_hd = mat_props_values[prop_index]
+                    lines[i] = f'pw_hd : {np.round(pw_hd, 4)}\n'
+                    prop_index += 1
 
-            elif 'Adir' in lines[i] and 'Adir' in mat_props:
-                Adir = mat_props_values[prop_index]
-                lines[i] = f'Adir : {np.round(Adir, 4)}\n'
-                prop_index += 1
+                elif 'Adir' in lines[i] and 'Adir' in mat_props:
+                    Adir = mat_props_values[prop_index]
+                    lines[i] = f'Adir : {np.round(Adir, 4)}\n'
+                    prop_index += 1
 
-            elif 'Adyn' in lines[i] and 'Adyn' in mat_props:
-                Adyn = mat_props_values[prop_index]
-                lines[i] = f'Adyn : {np.round(Adyn, 4)}\n'
-                prop_index += 1
+                elif 'Adyn' in lines[i] and 'Adyn' in mat_props:
+                    Adyn = mat_props_values[prop_index]
+                    lines[i] = f'Adyn : {np.round(Adyn, 4)}\n'
+                    prop_index += 1
 
         f = open(f'{current_sim_dir}/matdata.inp', 'w+')
         for line in lines:
             f.write(line)
         f.close()
+        self.num_props.append(num_curr_props)
 
 class Optimize:
 
-    def __init__(self, flag, ex_data, root, name, mat_id, varbound, algorithm_param, sim_flag, n_jobs):
+    def __init__(self, flag, ex_data, root, name, mat_params, varbound, algorithm_param, sim_flag, n_jobs):
         self.test_flag = flag
         self.ex_data = ex_data
         self.sim_root = root
         self.job_name = name
-        self.material_id = mat_id
+        self.mat_params = mat_params
         self.varbound = varbound
         self.algorithm_param = algorithm_param
         self.sim_flag = sim_flag
@@ -576,9 +588,9 @@ class Optimize:
 
 
     def init_optimizer(self):
-        sim_object = Simulation(sim_root=self.sim_root, ex_data=self.ex_data, material_id=self.material_id,
+        sim_object = Simulation(sim_root=self.sim_root, ex_data=self.ex_data, mat_params=self.mat_params,
                                 job_name=self.job_name, sim_flag=self.sim_flag, n_jobs=self.n_jobs)
-        if len(self.material_id) > 1:
+        if len(self.mat_params.material_ids) > 1:
             blackbox_func = sim_object.blackbox_multiphase2
 
         model = ga(function=blackbox_func,
@@ -695,37 +707,36 @@ if __name__ == '__main__':
     
     #process mat params input file
     mat_params = MatParams(root=sim_root)
-    mat_params.read_varbounds()
-    mat_params.get_varbounds()
+    varbound = mat_params.get_varbounds()
 
-    # os.system('echo python script initialized with follwing input:')
-    # os.system(f'echo restart: {restart_flag}')
-    # os.system(f'echo job_name: {job_name}')
-    # os.system(f'echo sim_root: {sim_root}')
-    # os.system(f'echo sim_type: {sim_flag}')
+    os.system('echo python script initialized with follwing input:')
+    os.system(f'echo restart: {restart_flag}')
+    os.system(f'echo job_name: {job_name}')
+    os.system(f'echo sim_root: {sim_root}')
+    os.system(f'echo sim_type: {sim_flag}')
 
-    # algorithm_param = {'max_num_iteration': 100, \
-    #                    'population_size': 50, \
-    #                    'mutation_probability': 0.1, \
-    #                    'elit_ratio': 0.1, \
-    #                    'parents_portion': 0.3, \
-    #                    'max_iteration_without_improv': None}
+    algorithm_param = {'max_num_iteration': 100, \
+                       'population_size': 50, \
+                       'mutation_probability': 0.1, \
+                       'elit_ratio': 0.1, \
+                       'parents_portion': 0.3, \
+                       'max_iteration_without_improv': None}
 
-    # opt = Optimize(flag=test_flag, ex_data=ex_data, root=sim_root, name=job_name, mat_id=material_id,
-    #                varbound=varbound, algorithm_param=algorithm_param, sim_flag=sim_flag, n_jobs = n_jobs)
+    opt = Optimize(flag=test_flag, ex_data=ex_data, root=sim_root, name=job_name, mat_params=mat_params,
+                   varbound=varbound, algorithm_param=algorithm_param, sim_flag=sim_flag, n_jobs = n_jobs)
 
-    # model, func = opt.init_optimizer()
-    # os.system('echo optimizer initialized starting simulations now')
-    # if restart_flag == False:
-    #     model.run(no_plot=True,
-    #               progress_bar_stream = None, 
-    #               save_last_generation_as = f'{sim_root}/logs/lastgeneration.npz',
-    #               set_function=ga.set_function_multiprocess(func, n_jobs=n_jobs))
-    # else:
-    #     model.run(no_plot=True,
-    #             progress_bar_stream = None, 
-    #             start_generation=f'{sim_root}/logs/lastgeneration.npz',
-    #             set_function=ga.set_function_multiprocess(func, n_jobs=n_jobs))
-    # f = open(sim_root + '/logs/results.txt', 'w+')
-    # f.write(model.output_dict)
-    # f.close()
+    model, func = opt.init_optimizer()
+    os.system('echo optimizer initialized starting simulations now')
+    if restart_flag == False:
+        model.run(no_plot=True,
+                  progress_bar_stream = None, 
+                  save_last_generation_as = f'{sim_root}/logs/lastgeneration.npz',
+                  set_function=ga.set_function_multiprocess(func, n_jobs=n_jobs))
+    else:
+        model.run(no_plot=True,
+                progress_bar_stream = None, 
+                start_generation=f'{sim_root}/logs/lastgeneration.npz',
+                set_function=ga.set_function_multiprocess(func, n_jobs=n_jobs))
+    f = open(sim_root + '/logs/results.txt', 'w+')
+    f.write(model.output_dict)
+    f.close()
