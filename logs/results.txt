@@ -1,0 +1,160 @@
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695674281
+Error_Time: 6457.546755520635
+Error_Stress: 135050.5190353519
+Error: 141508.06579087253
+phase0: pw_fl: 10.165974682202995, 
+phase2: hdrt_0: 2527.659686665378, crss_0: 645.9670352232483, crss_s: 4253.385765882542, pw_hd: 2.237221622760218, 
+phase3: hdrt_0: 10705.098937894918, crss_0: 381.99523311271435, crss_s: 1368.759858083773, pw_hd: 2.901265312585335, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695674401
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase0: pw_fl: 18.24302435383427, 
+phase2: hdrt_0: 6389.494466968896, crss_0: 369.8610403210864, crss_s: 619.0351204693893, pw_hd: 2.4153897370383026, 
+phase3: hdrt_0: 10299.77634011537, crss_0: 703.1548947757902, crss_s: 421.89926398532384, pw_hd: 1.789098875384586, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695674616
+Error_Time: 5995.9429021763235
+Error_Stress: 440124.2918804065
+Error: 446120.23478258285
+phase0: pw_fl: 48.73856320312792, 
+phase2: hdrt_0: 2381.647302444864, crss_0: 1034.3810188376528, crss_s: 4494.574543686329, pw_hd: 1.3402257082268378, 
+phase3: hdrt_0: 9366.836034172044, crss_0: 461.3561088925872, crss_s: 4499.294262005648, pw_hd: 2.1812748475779955, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695674766
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase0: pw_fl: 68.4021286092521, 
+phase2: hdrt_0: 9185.86575336531, crss_0: 1159.7111821977207, crss_s: 3403.8415218939735, pw_hd: 1.1895251154231734, 
+phase3: hdrt_0: 9240.748128328467, crss_0: 1593.328833131398, crss_s: 1504.7112610593167, pw_hd: 2.4219882776494375, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695674890
+Error_Time: 7075.4519599688665
+Error_Stress: 446220.3231363769
+Error: 453295.7750963458
+phase0: pw_fl: 16.282914047368195, 
+phase2: hdrt_0: 11661.626275039616, crss_0: 1666.0674104969976, crss_s: 299.1025195004018, pw_hd: 2.2182697288692177, 
+phase3: hdrt_0: 1874.063670630145, crss_0: 1021.6255537600673, crss_s: 2498.6159687439454, pw_hd: 1.552572125073372, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695675041
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase0: pw_fl: 65.69296431859347, 
+phase2: hdrt_0: 2901.0190993869705, crss_0: 1325.8097731597854, crss_s: 3092.43795955041, pw_hd: 2.58210566830802, 
+phase3: hdrt_0: 4576.513474502992, crss_0: 1673.7893494092277, crss_s: 1579.2586060524081, pw_hd: 2.0936426787520723, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695675103
+Error_Time: 3455.2356551562107
+Error_Stress: 551246.9097197502
+Error: 554702.1453749064
+phase0: pw_fl: 87.72298393009784, 
+phase2: hdrt_0: 2371.5599866735515, crss_0: 1157.3821657315045, crss_s: 3760.4561911048336, pw_hd: 2.8750773664779326, 
+phase3: hdrt_0: 2665.4970447894325, crss_0: 953.4070340578328, crss_s: 2294.9521925776476, pw_hd: 1.5284263366824173, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695675166
+Error_Time: 3146.9262708893925
+Error_Stress: 94750.84846501907
+Error: 97897.77473590846
+phase0: pw_fl: 73.33492827879968, 
+phase2: hdrt_0: 2289.02337176907, crss_0: 705.5071063756354, crss_s: 1863.8642070776368, pw_hd: 2.037699840663418, 
+phase3: hdrt_0: 4604.381077602323, crss_0: 364.0949914730026, crss_s: 836.2908604276097, pw_hd: 2.4198390489550485, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695675345
+Error_Time: 5017.604875831197
+Error_Stress: 241206.59663592398
+Error: 246224.20151175518
+phase0: pw_fl: 87.41555989705428, 
+phase2: hdrt_0: 9175.759354031366, crss_0: 1030.3943408269213, crss_s: 1633.5800616853674, pw_hd: 1.6620002591123721, 
+phase3: hdrt_0: 8185.792030632386, crss_0: 76.17040034557216, crss_s: 3205.5327368065437, pw_hd: 2.6782954225380418, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695675350
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase0: pw_fl: 37.96204336088779, 
+phase2: hdrt_0: 5373.934003299151, crss_0: 1284.8967318694583, crss_s: 4447.704620067982, pw_hd: 2.020680295273231, 
+phase3: hdrt_0: 7038.474866567366, crss_0: 423.9321378936901, crss_s: 87.45162114747906, pw_hd: 2.892622135760647, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695675502
+Error_Time: 5399.581461426018
+Error_Stress: 1172577.8433295789
+Error: 1177977.424791005
+phase0: pw_fl: 79.64909580313862, 
+phase2: hdrt_0: 3186.049213724822, crss_0: 164.25339740042153, crss_s: 4923.766078804435, pw_hd: 2.03437168657396, 
+phase3: hdrt_0: 5876.4841773469625, crss_0: 1594.850972878143, crss_s: 2486.1515849416937, pw_hd: 1.4483057994345778, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695675593
+Error_Time: 4187.377672006592
+Error_Stress: 1171594.4984206245
+Error: 1175781.8760926311
+phase0: pw_fl: 5.847893299906432, 
+phase2: hdrt_0: 10527.677300561654, crss_0: 380.35827899147193, crss_s: 2201.007077309316, pw_hd: 1.2273969521668664, 
+phase3: hdrt_0: 5608.686681715377, crss_0: 1784.1482351460681, crss_s: 4702.764690647638, pw_hd: 1.9046378666182908, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695675646
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase0: pw_fl: 12.970723813586838, 
+phase2: hdrt_0: 8716.717789481932, crss_0: 1274.2161705515869, crss_s: 4789.766600094454, pw_hd: 2.7515449134142465, 
+phase3: hdrt_0: 2854.9151563310757, crss_0: 1537.6185772036613, crss_s: 1101.239514008361, pw_hd: 1.0863526723160204, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695675678
+Error_Time: 6824.081586502173
+Error_Stress: 649942.1810852162
+Error: 656766.2626717184
+phase0: pw_fl: 94.65206071320985, 
+phase2: hdrt_0: 8429.536547289832, crss_0: 1619.5515211675438, crss_s: 2634.0573392557058, pw_hd: 2.7799907363212544, 
+phase3: hdrt_0: 5561.009588286315, crss_0: 1151.8476195084206, crss_s: 3845.79894574874, pw_hd: 2.947408543896536, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695675799
+Error_Time: 7143.9452648238885
+Error_Stress: 325642.8126105396
+Error: 332786.7578753635
+phase0: pw_fl: 61.05324808787318, 
+phase2: hdrt_0: 2015.0510223330316, crss_0: 1536.7085397667643, crss_s: 687.7308445828786, pw_hd: 1.681535917435341, 
+phase3: hdrt_0: 11483.357673406375, crss_0: 436.46628688540034, crss_s: 4158.989182443714, pw_hd: 2.4120479808457986, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695675839
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase0: pw_fl: 66.830727641995, 
+phase2: hdrt_0: 7611.468099037478, crss_0: 298.0136076319338, crss_s: 657.0313302848906, pw_hd: 1.1731605240810317, 
+phase3: hdrt_0: 4533.687711446663, crss_0: 1821.4485724269562, crss_s: 247.92848620049656, pw_hd: 2.630416120538591, 
+############################################################

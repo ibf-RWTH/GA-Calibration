@@ -448,9 +448,9 @@ class Simulation:
         exp_alpha_stress_interp = np.interp(simulation_df['Strain'], experimental_df['strain_t'], experimental_df['stress_alpha'])
         exp_beta_stress_interp = np.interp(simulation_df['Strain'], experimental_df['strain_t'], experimental_df['stress_beta'])
     
-        mad_stress_total = np.mean(np.abs(exp_total_stress_interp - simulation_df['Stress'])**2 / exp_total_stress_interp) * 100
-        mad_stress_alpha = np.mean(np.abs(exp_alpha_stress_interp - simulation_df['Stress_Phase1'])**2 / exp_alpha_stress_interp) * 100
-        mad_stress_beta = np.mean(np.abs(exp_beta_stress_interp - simulation_df['Stress_Phase2'])**2 / exp_beta_stress_interp) * 100
+        mad_stress_total = np.mean(np.abs(exp_total_stress_interp - simulation_df['Stress']) / exp_total_stress_interp) * 100
+        mad_stress_alpha = np.mean(np.abs(exp_alpha_stress_interp - simulation_df['Stress_Phase1']) / exp_alpha_stress_interp) * 100
+        mad_stress_beta = np.mean(np.abs(exp_beta_stress_interp - simulation_df['Stress_Phase2']) / exp_beta_stress_interp) * 100
         mad_strain_total = (abs(1 - max_sim_strain / max_exp_strain) * 100) **2
         mad_stress = (mad_stress_total + 0.8*mad_stress_alpha + 0.2 * mad_stress_beta)/3
 
