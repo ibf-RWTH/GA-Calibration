@@ -103,7 +103,7 @@ class Simulation:
         }
         self.num_props = [0] #state variable to record num of material props for each phase, so that manipulate_data func knows the range of props to read
         self.mat_params = mat_params
-        self.n_phases = len(self.mat_params.material_ids)
+        self.n_phases = len(self.mat_params.material_ids) - 1 # 0 for global parameters
 
     def create_batch_job_script(self, job_index):
         
@@ -138,7 +138,6 @@ class Simulation:
                     # create matdata.inp file according to params
                     self.manipulate_matdata2(path, current_simulation_dir, mat_id, phase_index=j, values=params)
 
-                sys.exit()
                 # create batch script
                 self.create_batch_job_script(job_index=job_index)
                 # submit simulation
