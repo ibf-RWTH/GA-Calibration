@@ -348,7 +348,7 @@ class Simulation:
             mad_stress_total = np.mean(np.abs(comp_df['stress_t'] - comp_df['Stress']))
             mad_stress_phase1 = np.mean(np.abs(comp_df['Stress_Phase1_t'] - comp_df['Stress_Phase1_y']))
             mad_stress_phase2 = np.mean(np.abs(comp_df['Stress_Phase2_t'] - comp_df['Stress_Phase2_y']))
-            mad_stress = (mad_stress_phase1 + mad_stress_phase2 + mad_stress_total) / 3
+            mad_stress = (0.8 * mad_stress_phase1 + 0.2 * mad_stress_phase2 + mad_stress_total) / 3
 
             self.plot_data(f'stress_vs_time_phase_1_{now}', 'time ( s )', 'Stress ( MPa )',
                            comp_df['sim_time'], comp_df['Stress_Phase1_t'], 'Experimental Data phase 1',
