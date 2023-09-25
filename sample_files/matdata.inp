@@ -29,8 +29,8 @@ hdrt_0 : 1.0
 crss_0 : 10.0
 crss_s : 1.0
 pw_hd : 1.0
-Adir : 1.0
-Adyn : 1.0
+Adir : 0
+Adyn : 0
 gam_c : 0.03
 pw_irr : 6.0
 
@@ -41,14 +41,14 @@ C12   : 42.0d3
 C44   : 131.0d3
 nslip : 12
 pw_fl : 100
-shrt_0 : 20
+shrt_0 : 0.001
 hdrt_0    : 1000.0
 crss_0 : 112.5947
 k      : 0
 crss_s : 430.1428
 pw_hd : 2.2404
-Adir : 6168.366
-Adyn : 1372.697
+Adir : 0
+Adyn : 0
 gam_c : 0.03
 pw_irr : 1.0
 ! non-Schmidt variables

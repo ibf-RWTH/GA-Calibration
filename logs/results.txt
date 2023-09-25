@@ -1,0 +1,2376 @@
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695635986
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 46.70071953872049, hdrt_0 : 4378.373912109442, crss_0 : 1802.8821319984495, crss_s : 2021.7138408135852, pw_hd  : 2.5863905708825317, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 9688.4434509445, crss_0 : 1793.9499334644056, crss_s : 3880.079556298331, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695635986
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 17.586638947134198, hdrt_0 : 3299.1561516498846, crss_0 : 482.1253392111872, crss_s : 3955.8140383499376, pw_hd  : 1.0865279762327076, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1268.0019779717727, crss_s : 325.0137160227047, pw_hd  : 1.1587723516121025, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695635986
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 17.586638947134198, hdrt_0 : 11870.353828401321, crss_0 : 1700.18723019926, crss_s : 4376.3886826664275, pw_hd  : 2.5863905708825317, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 325.0137160227047, pw_hd  : 2.052717788870398, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695635986
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 48.884832317288584, hdrt_0 : 4378.373912109442, crss_0 : 1700.18723019926, crss_s : 3955.8140383499376, pw_hd  : 1.3068163903801233, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 2235.6997915576167, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695636046
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 20.529301363890493, hdrt_0 : 6562.821793755883, crss_0 : 1700.18723019926, crss_s : 3955.8140383499376, pw_hd  : 1.3068163903801233, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 3880.079556298331, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695636046
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 20.529301363890493, hdrt_0 : 11870.353828401321, crss_0 : 1700.18723019926, crss_s : 3955.8140383499376, pw_hd  : 2.5863905708825317, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 1677.2413870524733, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695636046
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 17.586638947134198, hdrt_0 : 6562.821793755883, crss_0 : 1700.18723019926, crss_s : 3955.8140383499376, pw_hd  : 1.3068163903801233, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 3880.079556298331, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695636076
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 46.70071953872049, hdrt_0 : 4378.373912109442, crss_0 : 1700.18723019926, crss_s : 3955.8140383499376, pw_hd  : 1.3068163903801233, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 3713.1651432893937, pw_hd  : 1.724394941144322, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695636136
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 20.388829316028755, hdrt_0 : 9885.642802373792, crss_0 : 1700.18723019926, crss_s : 3955.8140383499376, pw_hd  : 2.5863905708825317, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 325.0137160227047, pw_hd  : 1.3140995062560914, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695636136
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 20.529301363890493, hdrt_0 : 6562.821793755883, crss_0 : 1329.2698661633856, crss_s : 3651.305146180522, pw_hd  : 1.3068163903801233, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 2235.6997915576167, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695636166
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 17.586638947134198, hdrt_0 : 11870.353828401321, crss_0 : 1700.18723019926, crss_s : 3955.8140383499376, pw_hd  : 2.5863905708825317, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1268.0019779717727, crss_s : 3880.079556298331, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695636197
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 36.48465984532015, hdrt_0 : 4378.373912109442, crss_0 : 1140.07694899723, crss_s : 3955.8140383499376, pw_hd  : 2.5863905708825317, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 3880.079556298331, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695636197
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 19.30293933316646, hdrt_0 : 11870.353828401321, crss_0 : 1700.18723019926, crss_s : 4376.3886826664275, pw_hd  : 2.5863905708825317, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 325.0137160227047, pw_hd  : 1.1746374409648759, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695636227
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 36.48465984532015, hdrt_0 : 4378.373912109442, crss_0 : 1700.18723019926, crss_s : 3955.8140383499376, pw_hd  : 1.3068163903801233, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 3880.079556298331, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695636227
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 17.586638947134198, hdrt_0 : 11870.353828401321, crss_0 : 1700.18723019926, crss_s : 3955.8140383499376, pw_hd  : 1.3068163903801233, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 3909.003247282663, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695636257
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 17.586638947134198, hdrt_0 : 11870.353828401321, crss_0 : 1140.07694899723, crss_s : 3955.8140383499376, pw_hd  : 2.5863905708825317, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 2554.955824805744, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695636259
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 20.529301363890493, hdrt_0 : 6562.821793755883, crss_0 : 1700.18723019926, crss_s : 3955.8140383499376, pw_hd  : 2.5863905708825317, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 4680.383778159059, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695636289
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 17.586638947134198, hdrt_0 : 11870.353828401321, crss_0 : 1112.6567183695045, crss_s : 4376.3886826664275, pw_hd  : 1.3068163903801233, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 325.0137160227047, pw_hd  : 1.1587723516121025, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695636318
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 48.884832317288584, hdrt_0 : 211.81759638316763, crss_0 : 1700.18723019926, crss_s : 3955.8140383499376, pw_hd  : 2.5863905708825317, 
+phase3: pw_fl  : 15.62206392799001, hdrt_0 : 4177.365503221028, crss_0 : 1793.9499334644056, crss_s : 3880.079556298331, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695636348
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 36.48465984532015, hdrt_0 : 11870.353828401321, crss_0 : 1700.18723019926, crss_s : 3955.8140383499376, pw_hd  : 2.5863905708825317, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 2845.3081308204, crss_0 : 1793.9499334644056, crss_s : 3880.079556298331, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695636349
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 20.529301363890493, hdrt_0 : 6562.821793755883, crss_0 : 1700.18723019926, crss_s : 3955.8140383499376, pw_hd  : 1.3068163903801233, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 3880.079556298331, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695636378
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 36.48465984532015, hdrt_0 : 11870.353828401321, crss_0 : 1700.18723019926, crss_s : 4376.3886826664275, pw_hd  : 1.3068163903801233, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 3880.079556298331, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695636378
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 17.586638947134198, hdrt_0 : 11870.353828401321, crss_0 : 1539.1339478284376, crss_s : 3955.8140383499376, pw_hd  : 2.5863905708825317, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 325.0137160227047, pw_hd  : 1.1587723516121025, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695636409
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 85.96190175656457, hdrt_0 : 6562.821793755883, crss_0 : 1377.8163173448017, crss_s : 3955.8140383499376, pw_hd  : 2.5863905708825317, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 325.0137160227047, pw_hd  : 1.1587723516121025, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695636440
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 17.586638947134198, hdrt_0 : 11870.353828401321, crss_0 : 546.6052585051334, crss_s : 4376.3886826664275, pw_hd  : 1.5422053301813619, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4062.430568677125, crss_0 : 1793.9499334644056, crss_s : 4147.084378806958, pw_hd  : 1.1587723516121025, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695636441
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 71.50049030096126, hdrt_0 : 4378.373912109442, crss_0 : 1700.18723019926, crss_s : 3955.8140383499376, pw_hd  : 1.3068163903801233, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 3880.079556298331, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695636469
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 36.48465984532015, hdrt_0 : 4378.373912109442, crss_0 : 1700.18723019926, crss_s : 3955.8140383499376, pw_hd  : 1.3068163903801233, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 9688.4434509445, crss_0 : 1793.9499334644056, crss_s : 3880.079556298331, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695636471
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 93.84174065633252, hdrt_0 : 6562.821793755883, crss_0 : 1700.18723019926, crss_s : 3955.8140383499376, pw_hd  : 1.5422053301813619, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 1118.9423662542442, crss_0 : 1793.9499334644056, crss_s : 325.0137160227047, pw_hd  : 1.1587723516121025, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695636529
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 85.96190175656457, hdrt_0 : 6562.821793755883, crss_0 : 546.6052585051334, crss_s : 3955.8140383499376, pw_hd  : 1.3068163903801233, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 1118.9423662542442, crss_0 : 1145.4916433447595, crss_s : 4147.084378806958, pw_hd  : 2.8411461863967418, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695636530
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 46.70071953872049, hdrt_0 : 6562.821793755883, crss_0 : 1700.18723019926, crss_s : 3955.8140383499376, pw_hd  : 1.3068163903801233, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 2235.6997915576167, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695636530
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 20.529301363890493, hdrt_0 : 4378.373912109442, crss_0 : 186.39456808317073, crss_s : 3955.8140383499376, pw_hd  : 1.3068163903801233, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 3880.079556298331, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695636562
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 20.529301363890493, hdrt_0 : 6562.821793755883, crss_0 : 722.8584403054457, crss_s : 3955.8140383499376, pw_hd  : 2.5863905708825317, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 9688.4434509445, crss_0 : 1793.9499334644056, crss_s : 3880.079556298331, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695636591
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 20.388829316028755, hdrt_0 : 3299.1561516498846, crss_0 : 1700.18723019926, crss_s : 3955.8140383499376, pw_hd  : 2.5863905708825317, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1268.0019779717727, crss_s : 325.0137160227047, pw_hd  : 1.1483898673213746, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695636592
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 20.529301363890493, hdrt_0 : 6562.821793755883, crss_0 : 1700.18723019926, crss_s : 3955.8140383499376, pw_hd  : 1.3235384331272206, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 3880.079556298331, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695636774
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 20.529301363890493, hdrt_0 : 6562.821793755883, crss_0 : 1700.18723019926, crss_s : 3955.8140383499376, pw_hd  : 1.3582179523258704, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 3880.079556298331, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695636774
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 36.48465984532015, hdrt_0 : 11870.353828401321, crss_0 : 1700.18723019926, crss_s : 3955.8140383499376, pw_hd  : 1.3068163903801233, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 3880.079556298331, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695636774
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 20.529301363890493, hdrt_0 : 6562.821793755883, crss_0 : 1700.18723019926, crss_s : 3955.8140383499376, pw_hd  : 1.3068163903801233, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 3880.079556298331, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695636774
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 36.48465984532015, hdrt_0 : 6562.821793755883, crss_0 : 546.6052585051334, crss_s : 3955.8140383499376, pw_hd  : 1.3068163903801233, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 3510.7319695486212, crss_0 : 1793.9499334644056, crss_s : 4147.084378806958, pw_hd  : 1.1587723516121025, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695636804
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 36.48465984532015, hdrt_0 : 11870.353828401321, crss_0 : 1700.18723019926, crss_s : 4144.7052948526, pw_hd  : 1.3068163903801233, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 900.6381728300861, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695636834
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 85.96190175656457, hdrt_0 : 6562.821793755883, crss_0 : 70.24853862106121, crss_s : 3955.8140383499376, pw_hd  : 1.5422053301813619, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 1118.9423662542442, crss_0 : 1793.9499334644056, crss_s : 4147.084378806958, pw_hd  : 1.1587723516121025, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695636834
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 20.529301363890493, hdrt_0 : 6562.821793755883, crss_0 : 1700.18723019926, crss_s : 3099.3253836383665, pw_hd  : 1.3068163903801233, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 3880.079556298331, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695636834
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 17.586638947134198, hdrt_0 : 11870.353828401321, crss_0 : 1140.07694899723, crss_s : 3955.8140383499376, pw_hd  : 2.5863905708825317, 
+phase3: pw_fl  : 37.314287140834494, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 3880.079556298331, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695636865
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 20.529301363890493, hdrt_0 : 5966.876328425546, crss_0 : 1088.833094071463, crss_s : 3955.8140383499376, pw_hd  : 2.5863905708825317, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 3880.079556298331, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695636895
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 85.96190175656457, hdrt_0 : 11870.353828401321, crss_0 : 600.2075485330009, crss_s : 3955.8140383499376, pw_hd  : 1.5422053301813619, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 1118.9423662542442, crss_0 : 653.9199068790593, crss_s : 3880.079556298331, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695636895
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 85.96190175656457, hdrt_0 : 6562.821793755883, crss_0 : 546.6052585051334, crss_s : 3955.8140383499376, pw_hd  : 1.5422053301813619, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 1118.9423662542442, crss_0 : 1793.9499334644056, crss_s : 4147.084378806958, pw_hd  : 2.2322140418512992, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695636956
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 20.529301363890493, hdrt_0 : 6562.821793755883, crss_0 : 1700.18723019926, crss_s : 2371.660008914801, pw_hd  : 1.3068163903801233, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 2235.6997915576167, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695636956
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 46.70071953872049, hdrt_0 : 4378.373912109442, crss_0 : 1700.18723019926, crss_s : 3553.1397858598534, pw_hd  : 1.3068163903801233, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 3880.079556298331, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695636956
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 46.70071953872049, hdrt_0 : 6562.821793755883, crss_0 : 1700.18723019926, crss_s : 3955.8140383499376, pw_hd  : 1.3068163903801233, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 3880.079556298331, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695636985
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 17.586638947134198, hdrt_0 : 4378.373912109442, crss_0 : 1700.18723019926, crss_s : 3955.8140383499376, pw_hd  : 2.5863905708825317, 
+phase3: pw_fl  : 29.217887492869213, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 3880.079556298331, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695636986
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 20.529301363890493, hdrt_0 : 4378.373912109442, crss_0 : 1700.18723019926, crss_s : 3955.8140383499376, pw_hd  : 1.3068163903801233, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 2235.6997915576167, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695637046
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 20.529301363890493, hdrt_0 : 4378.373912109442, crss_0 : 1700.18723019926, crss_s : 1267.6849787804824, pw_hd  : 1.3068163903801233, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 4840.171311551796, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695637046
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 17.586638947134198, hdrt_0 : 6562.821793755883, crss_0 : 1700.18723019926, crss_s : 3955.8140383499376, pw_hd  : 1.3068163903801233, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 4584.681939391363, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695637077
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 85.96190175656457, hdrt_0 : 6562.821793755883, crss_0 : 546.6052585051334, crss_s : 3955.8140383499376, pw_hd  : 1.3068163903801233, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 2322.8677937452285, pw_hd  : 1.1587723516121025, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695637106
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 46.70071953872049, hdrt_0 : 6562.821793755883, crss_0 : 1700.18723019926, crss_s : 3955.8140383499376, pw_hd  : 1.3068163903801233, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 3880.079556298331, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695637107
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 85.96190175656457, hdrt_0 : 6562.821793755883, crss_0 : 546.6052585051334, crss_s : 3955.8140383499376, pw_hd  : 1.3068163903801233, 
+phase3: pw_fl  : 83.40269013430829, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 3880.079556298331, pw_hd  : 1.1587723516121025, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695637107
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 46.70071953872049, hdrt_0 : 4378.373912109442, crss_0 : 117.51021139709195, crss_s : 3955.8140383499376, pw_hd  : 1.5422053301813619, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 1118.9423662542442, crss_0 : 1793.9499334644056, crss_s : 2235.6997915576167, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695637138
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 22.473273762618703, hdrt_0 : 11870.353828401321, crss_0 : 1598.0028446520932, crss_s : 3955.8140383499376, pw_hd  : 1.5422053301813619, 
+phase3: pw_fl  : 66.81300734699035, hdrt_0 : 1118.9423662542442, crss_0 : 1793.9499334644056, crss_s : 4147.084378806958, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695637168
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 17.586638947134198, hdrt_0 : 11870.353828401321, crss_0 : 1700.18723019926, crss_s : 3955.8140383499376, pw_hd  : 1.3068163903801233, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 4321.249895165144, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695637197
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 24.99611941907372, hdrt_0 : 6595.444154487122, crss_0 : 1700.18723019926, crss_s : 3955.8140383499376, pw_hd  : 1.3068163903801233, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 3880.079556298331, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695637198
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 46.70071953872049, hdrt_0 : 4378.373912109442, crss_0 : 1700.18723019926, crss_s : 3955.8140383499376, pw_hd  : 1.8732311974055784, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 885.556149426042, crss_s : 2235.6997915576167, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695637199
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 36.48465984532015, hdrt_0 : 6562.821793755883, crss_0 : 1700.18723019926, crss_s : 3955.8140383499376, pw_hd  : 1.3068163903801233, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 3880.079556298331, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695637258
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 85.96190175656457, hdrt_0 : 11870.353828401321, crss_0 : 1700.18723019926, crss_s : 3955.8140383499376, pw_hd  : 1.5422053301813619, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 1118.9423662542442, crss_0 : 1793.9499334644056, crss_s : 4036.1251196879793, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695637259
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 20.529301363890493, hdrt_0 : 6562.821793755883, crss_0 : 1700.18723019926, crss_s : 3955.8140383499376, pw_hd  : 2.5863905708825317, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 3880.079556298331, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695637288
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 17.586638947134198, hdrt_0 : 11870.353828401321, crss_0 : 1700.18723019926, crss_s : 3955.8140383499376, pw_hd  : 1.3068163903801233, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 186.3310205603516, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695637289
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 17.586638947134198, hdrt_0 : 8773.202585207428, crss_0 : 1209.7898749294595, crss_s : 3955.8140383499376, pw_hd  : 1.3068163903801233, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 3928.787514477047, pw_hd  : 1.1587723516121025, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695637318
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 20.529301363890493, hdrt_0 : 2423.868403648471, crss_0 : 1700.18723019926, crss_s : 3955.8140383499376, pw_hd  : 2.5863905708825317, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 3880.079556298331, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695637349
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 20.529301363890493, hdrt_0 : 6562.821793755883, crss_0 : 1088.833094071463, crss_s : 90.60445788937776, pw_hd  : 1.3068163903801233, 
+phase3: pw_fl  : 20.16678013335687, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 3880.079556298331, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695638223
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 20.529301363890493, hdrt_0 : 11870.353828401321, crss_0 : 1700.18723019926, crss_s : 3955.8140383499376, pw_hd  : 1.3068163903801233, 
+phase3: pw_fl  : 85.9484204773919, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 3880.079556298331, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695638407
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 36.48465984532015, hdrt_0 : 11870.353828401321, crss_0 : 1682.6690726157085, crss_s : 3955.8140383499376, pw_hd  : 1.3068163903801233, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 3880.079556298331, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695638408
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 2.8129611721648877, hdrt_0 : 11870.353828401321, crss_0 : 1700.18723019926, crss_s : 3955.8140383499376, pw_hd  : 1.3068163903801233, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 3880.079556298331, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695638408
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 20.529301363890493, hdrt_0 : 11870.353828401321, crss_0 : 1088.833094071463, crss_s : 3955.8140383499376, pw_hd  : 2.5863905708825317, 
+phase3: pw_fl  : 42.222071287886344, hdrt_0 : 11542.028895282421, crss_0 : 1793.9499334644056, crss_s : 3880.079556298331, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695638408
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 17.586638947134198, hdrt_0 : 2423.868403648471, crss_0 : 1700.18723019926, crss_s : 3955.8140383499376, pw_hd  : 2.5863905708825317, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 500.0964018129282, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695638438
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 20.529301363890493, hdrt_0 : 6562.821793755883, crss_0 : 1700.18723019926, crss_s : 3955.8140383499376, pw_hd  : 1.5422053301813619, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 6445.978424946306, crss_0 : 1793.9499334644056, crss_s : 4147.084378806958, pw_hd  : 1.1587723516121025, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695638438
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 20.529301363890493, hdrt_0 : 4378.373912109442, crss_0 : 1353.7706432114376, crss_s : 3955.8140383499376, pw_hd  : 1.3068163903801233, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 2235.6997915576167, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695638469
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 36.48465984532015, hdrt_0 : 11870.353828401321, crss_0 : 1700.18723019926, crss_s : 3955.8140383499376, pw_hd  : 1.3068163903801233, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 3880.079556298331, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695638469
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 46.70071953872049, hdrt_0 : 6562.821793755883, crss_0 : 1700.18723019926, crss_s : 3955.8140383499376, pw_hd  : 1.3068163903801233, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 3880.079556298331, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695638529
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 17.586638947134198, hdrt_0 : 11870.353828401321, crss_0 : 1700.18723019926, crss_s : 3955.8140383499376, pw_hd  : 2.5863905708825317, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 3632.736793591467, pw_hd  : 2.3143266298223715, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695638529
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 17.586638947134198, hdrt_0 : 6562.821793755883, crss_0 : 1700.18723019926, crss_s : 3955.8140383499376, pw_hd  : 2.5863905708825317, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 1118.9423662542442, crss_0 : 1793.9499334644056, crss_s : 3880.079556298331, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695638589
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 85.96190175656457, hdrt_0 : 11870.353828401321, crss_0 : 546.6052585051334, crss_s : 3955.8140383499376, pw_hd  : 1.624793761661651, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 4147.084378806958, pw_hd  : 1.1587723516121025, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695638589
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 85.96190175656457, hdrt_0 : 3184.231464591137, crss_0 : 546.6052585051334, crss_s : 3955.8140383499376, pw_hd  : 1.5235834298316164, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 3880.079556298331, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695638590
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 20.529301363890493, hdrt_0 : 11870.353828401321, crss_0 : 1700.18723019926, crss_s : 3955.8140383499376, pw_hd  : 1.3068163903801233, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 11449.563520782336, crss_0 : 1793.9499334644056, crss_s : 3880.079556298331, pw_hd  : 1.1875216681876384, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695638590
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 54.28557913537139, hdrt_0 : 6562.821793755883, crss_0 : 546.6052585051334, crss_s : 3955.8140383499376, pw_hd  : 1.5422053301813619, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 2235.6997915576167, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695638620
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 46.70071953872049, hdrt_0 : 4378.373912109442, crss_0 : 1700.18723019926, crss_s : 3955.8140383499376, pw_hd  : 1.0619462267398858, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 1118.9423662542442, crss_0 : 1793.9499334644056, crss_s : 4147.084378806958, pw_hd  : 1.1587723516121025, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695638651
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 85.96190175656457, hdrt_0 : 4378.373912109442, crss_0 : 1700.18723019926, crss_s : 3955.8140383499376, pw_hd  : 1.5422053301813619, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 4147.084378806958, pw_hd  : 1.1587723516121025, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695638651
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 36.48465984532015, hdrt_0 : 11870.353828401321, crss_0 : 1700.18723019926, crss_s : 3955.8140383499376, pw_hd  : 2.5863905708825317, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 3880.079556298331, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695638651
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 17.586638947134198, hdrt_0 : 11870.353828401321, crss_0 : 1700.18723019926, crss_s : 3955.8140383499376, pw_hd  : 1.3068163903801233, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 3880.079556298331, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695638709
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 70.91071240310885, hdrt_0 : 6562.821793755883, crss_0 : 1700.18723019926, crss_s : 3955.8140383499376, pw_hd  : 1.3068163903801233, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 3880.079556298331, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695638711
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 85.96190175656457, hdrt_0 : 6562.821793755883, crss_0 : 1253.2892974605336, crss_s : 3955.8140383499376, pw_hd  : 1.075895324258661, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 991.8771576654418, crss_s : 4147.084378806958, pw_hd  : 1.1587723516121025, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695638711
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 46.70071953872049, hdrt_0 : 4378.373912109442, crss_0 : 546.6052585051334, crss_s : 3955.8140383499376, pw_hd  : 1.5422053301813619, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 1118.9423662542442, crss_0 : 1793.9499334644056, crss_s : 2235.6997915576167, pw_hd  : 1.0863342579842026, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695638772
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 85.96190175656457, hdrt_0 : 6562.821793755883, crss_0 : 1088.833094071463, crss_s : 3955.8140383499376, pw_hd  : 1.9078355133706029, 
+phase3: pw_fl  : 89.40049242608414, hdrt_0 : 1118.9423662542442, crss_0 : 1793.9499334644056, crss_s : 3880.079556298331, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695638772
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 46.70071953872049, hdrt_0 : 11870.353828401321, crss_0 : 1700.18723019926, crss_s : 3955.8140383499376, pw_hd  : 1.3068163903801233, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 9975.493246323085, crss_0 : 877.5524693755723, crss_s : 2235.6997915576167, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695638802
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 83.88748660121817, hdrt_0 : 6562.821793755883, crss_0 : 644.13275009386, crss_s : 3955.8140383499376, pw_hd  : 1.3068163903801233, 
+phase3: pw_fl  : 14.844318292358937, hdrt_0 : 1942.8607193287291, crss_0 : 1793.9499334644056, crss_s : 2235.6997915576167, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695638802
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 36.48465984532015, hdrt_0 : 11870.353828401321, crss_0 : 1700.18723019926, crss_s : 3955.8140383499376, pw_hd  : 1.3068163903801233, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 3880.079556298331, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695638832
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 20.529301363890493, hdrt_0 : 2423.868403648471, crss_0 : 546.6052585051334, crss_s : 3955.8140383499376, pw_hd  : 2.5863905708825317, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 4147.084378806958, pw_hd  : 1.1587723516121025, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695638833
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 46.70071953872049, hdrt_0 : 4378.373912109442, crss_0 : 1488.6646675203058, crss_s : 2117.2437366435674, pw_hd  : 1.3068163903801233, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 2235.6997915576167, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695638864
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 85.96190175656457, hdrt_0 : 6562.821793755883, crss_0 : 546.6052585051334, crss_s : 3955.8140383499376, pw_hd  : 1.7095829320161853, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 3969.002030552914, crss_0 : 1793.9499334644056, crss_s : 4147.084378806958, pw_hd  : 1.1587723516121025, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695638864
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 68.2641827017471, hdrt_0 : 6562.821793755883, crss_0 : 546.6052585051334, crss_s : 3955.8140383499376, pw_hd  : 1.5422053301813619, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 3641.207674247408, crss_0 : 1793.9499334644056, crss_s : 4147.084378806958, pw_hd  : 1.1587723516121025, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695638891
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 85.96190175656457, hdrt_0 : 140.16009927537772, crss_0 : 546.6052585051334, crss_s : 3955.8140383499376, pw_hd  : 1.5422053301813619, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 1118.9423662542442, crss_0 : 1793.9499334644056, crss_s : 4147.084378806958, pw_hd  : 1.1587723516121025, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695638893
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 20.529301363890493, hdrt_0 : 6562.821793755883, crss_0 : 1700.18723019926, crss_s : 3955.8140383499376, pw_hd  : 1.3068163903801233, 
+phase3: pw_fl  : 65.47812802533498, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 3880.079556298331, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695638923
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 52.72035226824536, hdrt_0 : 6562.821793755883, crss_0 : 546.6052585051334, crss_s : 3955.8140383499376, pw_hd  : 1.5422053301813619, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 1208.7162619253763, crss_0 : 1793.9499334644056, crss_s : 1957.3841311897893, pw_hd  : 1.1587723516121025, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695638954
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 20.529301363890493, hdrt_0 : 6562.821793755883, crss_0 : 1700.18723019926, crss_s : 3955.8140383499376, pw_hd  : 1.3068163903801233, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 700.1514679457238, crss_s : 3880.079556298331, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695638984
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 17.586638947134198, hdrt_0 : 4378.373912109442, crss_0 : 1700.18723019926, crss_s : 3955.8140383499376, pw_hd  : 1.3068163903801233, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 3880.079556298331, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695639166
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 85.96190175656457, hdrt_0 : 6562.821793755883, crss_0 : 546.6052585051334, crss_s : 3955.8140383499376, pw_hd  : 1.3068163903801233, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 3880.079556298331, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695639166
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 36.48465984532015, hdrt_0 : 11870.353828401321, crss_0 : 1700.18723019926, crss_s : 3955.8140383499376, pw_hd  : 1.3068163903801233, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 3880.079556298331, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695639166
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 61.07638190721855, hdrt_0 : 11870.353828401321, crss_0 : 1700.18723019926, crss_s : 3955.8140383499376, pw_hd  : 1.3068163903801233, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 3880.079556298331, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695639166
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 36.48465984532015, hdrt_0 : 6562.821793755883, crss_0 : 1700.18723019926, crss_s : 1237.5624140606246, pw_hd  : 1.3068163903801233, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 3880.079556298331, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695639166
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 17.586638947134198, hdrt_0 : 11870.353828401321, crss_0 : 1700.18723019926, crss_s : 3955.8140383499376, pw_hd  : 1.3068163903801233, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 3880.079556298331, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695639196
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 20.529301363890493, hdrt_0 : 6562.821793755883, crss_0 : 1700.18723019926, crss_s : 3955.8140383499376, pw_hd  : 1.5422053301813619, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 1118.9423662542442, crss_0 : 1793.9499334644056, crss_s : 4147.084378806958, pw_hd  : 1.1587723516121025, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695639196
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 20.529301363890493, hdrt_0 : 11870.353828401321, crss_0 : 1700.18723019926, crss_s : 3955.8140383499376, pw_hd  : 1.3068163903801233, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4653.00946126318, crss_0 : 1793.9499334644056, crss_s : 3880.079556298331, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695639196
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 20.529301363890493, hdrt_0 : 2423.868403648471, crss_0 : 1088.833094071463, crss_s : 3955.8140383499376, pw_hd  : 2.5863905708825317, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 3880.079556298331, pw_hd  : 2.4959925875601927, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695639256
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 24.527524461607584, hdrt_0 : 6562.821793755883, crss_0 : 1700.18723019926, crss_s : 3955.8140383499376, pw_hd  : 1.3068163903801233, 
+phase3: pw_fl  : 54.00989167020351, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 3880.079556298331, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695639256
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 36.48465984532015, hdrt_0 : 6562.821793755883, crss_0 : 1700.18723019926, crss_s : 3955.8140383499376, pw_hd  : 1.3068163903801233, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 3880.079556298331, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695639256
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 20.529301363890493, hdrt_0 : 10365.637150531746, crss_0 : 1700.18723019926, crss_s : 3955.8140383499376, pw_hd  : 1.0861713467148062, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 3880.079556298331, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695639348
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 85.96190175656457, hdrt_0 : 6562.821793755883, crss_0 : 1700.18723019926, crss_s : 3955.8140383499376, pw_hd  : 1.3068163903801233, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 1118.9423662542442, crss_0 : 1793.9499334644056, crss_s : 3880.079556298331, pw_hd  : 1.1587723516121025, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695639348
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 48.282143753498275, hdrt_0 : 11870.353828401321, crss_0 : 1700.18723019926, crss_s : 3955.8140383499376, pw_hd  : 1.3068163903801233, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 982.6669322708123, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695639348
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 36.48465984532015, hdrt_0 : 11870.353828401321, crss_0 : 1700.18723019926, crss_s : 3955.8140383499376, pw_hd  : 1.3068163903801233, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 3880.079556298331, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695639348
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 36.48465984532015, hdrt_0 : 11870.353828401321, crss_0 : 1700.18723019926, crss_s : 3955.8140383499376, pw_hd  : 1.3068163903801233, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 3880.079556298331, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695639377
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 20.529301363890493, hdrt_0 : 11870.353828401321, crss_0 : 1700.18723019926, crss_s : 3955.8140383499376, pw_hd  : 1.3068163903801233, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 11389.596692105017, crss_0 : 1793.9499334644056, crss_s : 3880.079556298331, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695639378
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 36.48465984532015, hdrt_0 : 11870.353828401321, crss_0 : 1700.18723019926, crss_s : 3955.8140383499376, pw_hd  : 2.5863905708825317, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 669.5972162847529, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695639378
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 36.48465984532015, hdrt_0 : 11061.869873139458, crss_0 : 546.6052585051334, crss_s : 3955.8140383499376, pw_hd  : 1.5422053301813619, 
+phase3: pw_fl  : 46.78881511051641, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 4147.084378806958, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695639378
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 20.529301363890493, hdrt_0 : 2423.868403648471, crss_0 : 1088.833094071463, crss_s : 3955.8140383499376, pw_hd  : 1.3068163903801233, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 8428.367677958793, crss_0 : 1793.9499334644056, crss_s : 3880.079556298331, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695639438
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 85.96190175656457, hdrt_0 : 8043.980536931581, crss_0 : 1700.18723019926, crss_s : 3955.8140383499376, pw_hd  : 1.5422053301813619, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 1118.9423662542442, crss_0 : 1793.9499334644056, crss_s : 3880.079556298331, pw_hd  : 1.1587723516121025, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695639468
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 96.82784736363475, hdrt_0 : 4378.373912109442, crss_0 : 1140.07694899723, crss_s : 3955.8140383499376, pw_hd  : 1.3068163903801233, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 3880.079556298331, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695639499
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 36.48465984532015, hdrt_0 : 6562.821793755883, crss_0 : 1700.18723019926, crss_s : 3955.8140383499376, pw_hd  : 1.3068163903801233, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 704.3172003148599, crss_s : 3880.079556298331, pw_hd  : 1.2339857670852468, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695639530
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 36.48465984532015, hdrt_0 : 6562.821793755883, crss_0 : 546.6052585051334, crss_s : 3955.8140383499376, pw_hd  : 1.3068163903801233, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 4147.084378806958, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695639530
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 19.04161839560243, hdrt_0 : 2423.868403648471, crss_0 : 1088.833094071463, crss_s : 3955.8140383499376, pw_hd  : 1.3068163903801233, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 3880.079556298331, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695639559
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 17.586638947134198, hdrt_0 : 11870.353828401321, crss_0 : 1700.18723019926, crss_s : 3955.8140383499376, pw_hd  : 1.8144667472074734, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 5483.000609158766, crss_0 : 1793.9499334644056, crss_s : 3880.079556298331, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695639560
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 85.43846569672557, hdrt_0 : 6963.71473748946, crss_0 : 1140.07694899723, crss_s : 3955.8140383499376, pw_hd  : 1.3068163903801233, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 3880.079556298331, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695639590
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 36.48465984532015, hdrt_0 : 11870.353828401321, crss_0 : 1700.18723019926, crss_s : 3955.8140383499376, pw_hd  : 1.3068163903801233, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 3880.079556298331, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695639619
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 36.48465984532015, hdrt_0 : 11870.353828401321, crss_0 : 1700.18723019926, crss_s : 1166.7287297600908, pw_hd  : 2.5863905708825317, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 3880.079556298331, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695639620
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 36.48465984532015, hdrt_0 : 11870.353828401321, crss_0 : 1700.18723019926, crss_s : 3955.8140383499376, pw_hd  : 1.3068163903801233, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 3880.079556298331, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695639650
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 17.586638947134198, hdrt_0 : 4378.373912109442, crss_0 : 351.1097114033897, crss_s : 3955.8140383499376, pw_hd  : 2.5863905708825317, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 1611.568117622457, crss_0 : 1793.9499334644056, crss_s : 3880.079556298331, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695639651
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 36.48465984532015, hdrt_0 : 4378.373912109442, crss_0 : 1140.07694899723, crss_s : 3955.8140383499376, pw_hd  : 1.3068163903801233, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 3880.079556298331, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695639711
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 17.586638947134198, hdrt_0 : 11870.353828401321, crss_0 : 1700.18723019926, crss_s : 3955.8140383499376, pw_hd  : 2.5803747853659336, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 3880.079556298331, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695639711
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 20.529301363890493, hdrt_0 : 6562.821793755883, crss_0 : 1700.18723019926, crss_s : 2142.8328735834175, pw_hd  : 2.5863905708825317, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 567.3676756445556, pw_hd  : 2.194561885282338, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695639771
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 27.21102128462848, hdrt_0 : 6562.821793755883, crss_0 : 1700.18723019926, crss_s : 3955.8140383499376, pw_hd  : 1.3068163903801233, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 3880.079556298331, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695639954
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 36.48465984532015, hdrt_0 : 11870.353828401321, crss_0 : 1700.18723019926, crss_s : 3955.8140383499376, pw_hd  : 1.3068163903801233, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 3880.079556298331, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695639954
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 20.529301363890493, hdrt_0 : 6562.821793755883, crss_0 : 1700.18723019926, crss_s : 3955.8140383499376, pw_hd  : 1.3068163903801233, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 3880.079556298331, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695639954
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 36.48465984532015, hdrt_0 : 11870.353828401321, crss_0 : 1700.18723019926, crss_s : 3955.8140383499376, pw_hd  : 1.3068163903801233, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 230.97205054347316, crss_s : 3880.079556298331, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695639954
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 36.48465984532015, hdrt_0 : 6562.821793755883, crss_0 : 1854.3335594745977, crss_s : 3955.8140383499376, pw_hd  : 1.3068163903801233, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 1118.9423662542442, crss_0 : 1793.9499334644056, crss_s : 3880.079556298331, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695639954
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 85.82370237521093, hdrt_0 : 11870.353828401321, crss_0 : 1700.18723019926, crss_s : 3955.8140383499376, pw_hd  : 1.4456258109488, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 4147.084378806958, pw_hd  : 1.1587723516121025, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695639954
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 36.48465984532015, hdrt_0 : 4942.880711953475, crss_0 : 1700.18723019926, crss_s : 3955.8140383499376, pw_hd  : 1.3068163903801233, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 3031.7337225071606, crss_0 : 1793.9499334644056, crss_s : 3880.079556298331, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695639954
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 17.586638947134198, hdrt_0 : 4378.373912109442, crss_0 : 1808.1317201660786, crss_s : 3955.8140383499376, pw_hd  : 1.3068163903801233, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 1652.1951923642973, crss_0 : 1793.9499334644056, crss_s : 3880.079556298331, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695639984
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 20.529301363890493, hdrt_0 : 6562.821793755883, crss_0 : 1140.07694899723, crss_s : 3955.8140383499376, pw_hd  : 2.5863905708825317, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 3880.079556298331, pw_hd  : 2.7761844047818163, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695640044
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 36.48465984532015, hdrt_0 : 11870.353828401321, crss_0 : 1214.1642498994959, crss_s : 3955.8140383499376, pw_hd  : 1.3068163903801233, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 3880.079556298331, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695640044
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 36.48465984532015, hdrt_0 : 7649.9491310384055, crss_0 : 1140.07694899723, crss_s : 3955.8140383499376, pw_hd  : 1.3068163903801233, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 3880.079556298331, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695640044
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 17.586638947134198, hdrt_0 : 4378.373912109442, crss_0 : 1700.18723019926, crss_s : 3955.8140383499376, pw_hd  : 2.5863905708825317, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 544.8096466275904, crss_0 : 1793.9499334644056, crss_s : 3880.079556298331, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695640136
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 20.529301363890493, hdrt_0 : 6562.821793755883, crss_0 : 1700.18723019926, crss_s : 3955.8140383499376, pw_hd  : 1.3068163903801233, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 3880.079556298331, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695640136
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 36.48465984532015, hdrt_0 : 11870.353828401321, crss_0 : 1700.18723019926, crss_s : 3955.8140383499376, pw_hd  : 1.3068163903801233, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 3880.079556298331, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695640136
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 36.48465984532015, hdrt_0 : 11870.353828401321, crss_0 : 1700.18723019926, crss_s : 3955.8140383499376, pw_hd  : 1.3068163903801233, 
+phase3: pw_fl  : 35.589600124219736, hdrt_0 : 3601.0308038341254, crss_0 : 1793.9499334644056, crss_s : 3880.079556298331, pw_hd  : 1.5654191449853472, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695640136
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 18.028377758512388, hdrt_0 : 6262.169073154889, crss_0 : 1140.07694899723, crss_s : 3955.8140383499376, pw_hd  : 2.5863905708825317, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4008.216140544583, crss_0 : 1793.9499334644056, crss_s : 3880.079556298331, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695640136
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 36.48465984532015, hdrt_0 : 11870.353828401321, crss_0 : 546.6052585051334, crss_s : 3955.8140383499376, pw_hd  : 1.5422053301813619, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 1118.9423662542442, crss_0 : 1793.9499334644056, crss_s : 3880.079556298331, pw_hd  : 1.1587723516121025, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695640166
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 85.96190175656457, hdrt_0 : 6562.821793755883, crss_0 : 1700.18723019926, crss_s : 3955.8140383499376, pw_hd  : 1.3773334749080213, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 4147.084378806958, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695640166
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 17.586638947134198, hdrt_0 : 6562.821793755883, crss_0 : 1700.18723019926, crss_s : 3955.8140383499376, pw_hd  : 1.3068163903801233, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 414.2128100298248, crss_s : 3880.079556298331, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695640196
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 20.529301363890493, hdrt_0 : 6562.821793755883, crss_0 : 1700.18723019926, crss_s : 3955.8140383499376, pw_hd  : 1.0353691737427866, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 10556.511005933606, crss_0 : 1793.9499334644056, crss_s : 3880.079556298331, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695640226
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 36.48465984532015, hdrt_0 : 11870.353828401321, crss_0 : 1700.18723019926, crss_s : 3955.8140383499376, pw_hd  : 2.5863905708825317, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 3880.079556298331, pw_hd  : 2.129892180261085, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695640257
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 17.586638947134198, hdrt_0 : 11870.353828401321, crss_0 : 969.2553734245645, crss_s : 3955.8140383499376, pw_hd  : 2.3498221363049154, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 3880.079556298331, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695640287
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 36.48465984532015, hdrt_0 : 11870.353828401321, crss_0 : 1700.18723019926, crss_s : 3955.8140383499376, pw_hd  : 1.3068163903801233, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 3880.079556298331, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695640317
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 20.529301363890493, hdrt_0 : 6562.821793755883, crss_0 : 952.978631320512, crss_s : 3955.8140383499376, pw_hd  : 1.3068163903801233, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 3880.079556298331, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695640319
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 17.586638947134198, hdrt_0 : 11870.353828401321, crss_0 : 1700.18723019926, crss_s : 3955.8140383499376, pw_hd  : 2.5863905708825317, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 3880.079556298331, pw_hd  : 1.975144406784358, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695640319
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 20.529301363890493, hdrt_0 : 6562.821793755883, crss_0 : 546.6052585051334, crss_s : 3955.8140383499376, pw_hd  : 1.3068163903801233, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 3880.079556298331, pw_hd  : 1.1587723516121025, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695640348
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 36.48465984532015, hdrt_0 : 11870.353828401321, crss_0 : 1700.18723019926, crss_s : 3955.8140383499376, pw_hd  : 1.3068163903801233, 
+phase3: pw_fl  : 31.155168149941503, hdrt_0 : 4989.43880405201, crss_0 : 573.4052979512638, crss_s : 3880.079556298331, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695640349
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 20.529301363890493, hdrt_0 : 11870.353828401321, crss_0 : 1700.18723019926, crss_s : 3955.8140383499376, pw_hd  : 1.3068163903801233, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 3880.079556298331, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695640379
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 85.96190175656457, hdrt_0 : 6562.821793755883, crss_0 : 1700.18723019926, crss_s : 3955.8140383499376, pw_hd  : 1.5422053301813619, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 1118.9423662542442, crss_0 : 1793.9499334644056, crss_s : 4147.084378806958, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695640408
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 20.529301363890493, hdrt_0 : 6562.821793755883, crss_0 : 1700.18723019926, crss_s : 3955.8140383499376, pw_hd  : 1.3068163903801233, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 1118.9423662542442, crss_0 : 1793.9499334644056, crss_s : 3880.079556298331, pw_hd  : 1.1587723516121025, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695640408
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 85.96190175656457, hdrt_0 : 6562.821793755883, crss_0 : 546.6052585051334, crss_s : 3955.8140383499376, pw_hd  : 1.5422053301813619, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 4147.084378806958, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695640408
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 36.48465984532015, hdrt_0 : 11870.353828401321, crss_0 : 1700.18723019926, crss_s : 3955.8140383499376, pw_hd  : 1.3068163903801233, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 3880.079556298331, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695640439
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 36.48465984532015, hdrt_0 : 11870.353828401321, crss_0 : 1700.18723019926, crss_s : 3955.8140383499376, pw_hd  : 1.3068163903801233, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 1118.9423662542442, crss_0 : 1793.9499334644056, crss_s : 4147.084378806958, pw_hd  : 1.1587723516121025, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695640469
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 85.96190175656457, hdrt_0 : 11052.534707119656, crss_0 : 546.6052585051334, crss_s : 3955.8140383499376, pw_hd  : 1.5422053301813619, 
+phase3: pw_fl  : 9.606131663558015, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 3880.079556298331, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695640470
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 17.586638947134198, hdrt_0 : 6562.821793755883, crss_0 : 1417.0267921425802, crss_s : 3955.8140383499376, pw_hd  : 2.5863905708825317, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 6733.002451210612, crss_0 : 1793.9499334644056, crss_s : 3664.420878319232, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695640652
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 17.586638947134198, hdrt_0 : 4378.373912109442, crss_0 : 1140.07694899723, crss_s : 3955.8140383499376, pw_hd  : 1.3068163903801233, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 3880.079556298331, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695640652
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 36.48465984532015, hdrt_0 : 6982.767008967003, crss_0 : 1811.408591947671, crss_s : 3955.8140383499376, pw_hd  : 1.3068163903801233, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 7.602524266614987, crss_s : 3880.079556298331, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695640652
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 36.48465984532015, hdrt_0 : 11870.353828401321, crss_0 : 1700.18723019926, crss_s : 3955.8140383499376, pw_hd  : 1.3068163903801233, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 3880.079556298331, pw_hd  : 2.7022445530664028, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695640652
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 36.48465984532015, hdrt_0 : 11870.353828401321, crss_0 : 1700.18723019926, crss_s : 3955.8140383499376, pw_hd  : 1.3068163903801233, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 3880.079556298331, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695640652
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 20.529301363890493, hdrt_0 : 6562.821793755883, crss_0 : 1700.18723019926, crss_s : 3955.8140383499376, pw_hd  : 1.3068163903801233, 
+phase3: pw_fl  : 74.24421670543917, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 3880.079556298331, pw_hd  : 1.9483398827900884, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695640652
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 20.529301363890493, hdrt_0 : 6562.821793755883, crss_0 : 1700.18723019926, crss_s : 3955.8140383499376, pw_hd  : 2.4853070937390247, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 3880.079556298331, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695640652
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 85.96190175656457, hdrt_0 : 11870.353828401321, crss_0 : 1700.18723019926, crss_s : 3955.8140383499376, pw_hd  : 1.5422053301813619, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 3880.079556298331, pw_hd  : 2.0250951117252005, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695640652
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 68.66543625831903, hdrt_0 : 6562.821793755883, crss_0 : 546.6052585051334, crss_s : 3955.8140383499376, pw_hd  : 2.5863905708825317, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 1118.9423662542442, crss_0 : 1793.9499334644056, crss_s : 4147.084378806958, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695640712
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 36.48465984532015, hdrt_0 : 11870.353828401321, crss_0 : 1700.18723019926, crss_s : 3955.8140383499376, pw_hd  : 1.3068163903801233, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 3880.079556298331, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695640712
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 36.48465984532015, hdrt_0 : 8953.55825209967, crss_0 : 1700.18723019926, crss_s : 3955.8140383499376, pw_hd  : 1.3068163903801233, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 3880.079556298331, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695640712
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 36.48465984532015, hdrt_0 : 11870.353828401321, crss_0 : 1700.18723019926, crss_s : 3955.8140383499376, pw_hd  : 1.3068163903801233, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 3880.079556298331, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695640712
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 20.529301363890493, hdrt_0 : 6562.821793755883, crss_0 : 1700.18723019926, crss_s : 3955.8140383499376, pw_hd  : 1.3068163903801233, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 3880.079556298331, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695640835
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 36.48465984532015, hdrt_0 : 11870.353828401321, crss_0 : 1700.18723019926, crss_s : 3955.8140383499376, pw_hd  : 1.3068163903801233, 
+phase3: pw_fl  : 58.41970081879642, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 3880.079556298331, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695640835
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 20.529301363890493, hdrt_0 : 3426.6487788419195, crss_0 : 1700.18723019926, crss_s : 3955.8140383499376, pw_hd  : 1.3068163903801233, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 3880.079556298331, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695640835
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 20.529301363890493, hdrt_0 : 6562.821793755883, crss_0 : 1700.18723019926, crss_s : 3955.8140383499376, pw_hd  : 1.3068163903801233, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 3880.079556298331, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695640894
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 85.96190175656457, hdrt_0 : 4378.373912109442, crss_0 : 1140.07694899723, crss_s : 3955.8140383499376, pw_hd  : 1.5422053301813619, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 3880.079556298331, pw_hd  : 1.1587723516121025, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695640896
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 36.48465984532015, hdrt_0 : 11870.353828401321, crss_0 : 1700.18723019926, crss_s : 3955.8140383499376, pw_hd  : 1.3068163903801233, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 3880.079556298331, pw_hd  : 2.9640713891383346, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695640896
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 36.48465984532015, hdrt_0 : 6562.821793755883, crss_0 : 546.6052585051334, crss_s : 3955.8140383499376, pw_hd  : 1.5422053301813619, 
+phase3: pw_fl  : 89.46385554705034, hdrt_0 : 1118.9423662542442, crss_0 : 631.5017398331921, crss_s : 4147.084378806958, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695640956
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 85.96190175656457, hdrt_0 : 7885.219117352905, crss_0 : 1700.18723019926, crss_s : 3955.8140383499376, pw_hd  : 1.3068163903801233, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 3880.079556298331, pw_hd  : 1.1587723516121025, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695640956
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 36.48465984532015, hdrt_0 : 11870.353828401321, crss_0 : 1700.18723019926, crss_s : 3955.8140383499376, pw_hd  : 1.3068163903801233, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 3880.079556298331, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695641016
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 17.586638947134198, hdrt_0 : 6562.821793755883, crss_0 : 546.6052585051334, crss_s : 1054.488564203374, pw_hd  : 2.5863905708825317, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 1118.9423662542442, crss_0 : 1793.9499334644056, crss_s : 4147.084378806958, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695641017
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 36.48465984532015, hdrt_0 : 11870.353828401321, crss_0 : 1700.18723019926, crss_s : 3955.8140383499376, pw_hd  : 1.3068163903801233, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 11376.583684881896, crss_0 : 1793.9499334644056, crss_s : 1836.3158972921422, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695641017
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 85.96190175656457, hdrt_0 : 11870.353828401321, crss_0 : 1700.18723019926, crss_s : 3955.8140383499376, pw_hd  : 1.5422053301813619, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 4147.084378806958, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695641046
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 17.586638947134198, hdrt_0 : 10374.573700886103, crss_0 : 1140.07694899723, crss_s : 3955.8140383499376, pw_hd  : 1.3068163903801233, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 3880.079556298331, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695641076
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 36.48465984532015, hdrt_0 : 4378.373912109442, crss_0 : 1700.18723019926, crss_s : 3955.8140383499376, pw_hd  : 2.5863905708825317, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 3880.079556298331, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695641108
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 36.48465984532015, hdrt_0 : 6562.821793755883, crss_0 : 546.6052585051334, crss_s : 3955.8140383499376, pw_hd  : 1.3068163903801233, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 1118.9423662542442, crss_0 : 1793.9499334644056, crss_s : 3880.079556298331, pw_hd  : 1.5853046446086425, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695641108
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 85.96190175656457, hdrt_0 : 6562.821793755883, crss_0 : 546.6052585051334, crss_s : 3955.8140383499376, pw_hd  : 1.3068163903801233, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 1118.9423662542442, crss_0 : 1793.9499334644056, crss_s : 4147.084378806958, pw_hd  : 1.7206550452778462, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695641108
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 36.48465984532015, hdrt_0 : 6562.821793755883, crss_0 : 1700.18723019926, crss_s : 3955.8140383499376, pw_hd  : 1.3068163903801233, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 3880.079556298331, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695641167
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 20.529301363890493, hdrt_0 : 6562.821793755883, crss_0 : 1700.18723019926, crss_s : 4199.344316529022, pw_hd  : 1.5422053301813619, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 3880.079556298331, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695641229
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 94.91189278923436, hdrt_0 : 11870.353828401321, crss_0 : 1700.18723019926, crss_s : 3955.8140383499376, pw_hd  : 1.3068163903801233, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 3880.079556298331, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695641291
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 20.529301363890493, hdrt_0 : 11870.353828401321, crss_0 : 1700.18723019926, crss_s : 4262.8501993428545, pw_hd  : 2.5863905708825317, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 3880.079556298331, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695641412
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 36.48465984532015, hdrt_0 : 2423.868403648471, crss_0 : 1088.833094071463, crss_s : 3955.8140383499376, pw_hd  : 1.3068163903801233, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 1864.2381904142787, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695641533
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 17.586638947134198, hdrt_0 : 11870.353828401321, crss_0 : 1140.07694899723, crss_s : 3955.8140383499376, pw_hd  : 2.5863905708825317, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 3880.079556298331, pw_hd  : 1.915004066966432, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695641654
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 17.586638947134198, hdrt_0 : 4378.373912109442, crss_0 : 1700.18723019926, crss_s : 3955.8140383499376, pw_hd  : 2.5863905708825317, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4671.551635958716, crss_0 : 224.54574777613885, crss_s : 3880.079556298331, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695641836
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 62.34080367768249, hdrt_0 : 6562.821793755883, crss_0 : 546.6052585051334, crss_s : 3955.8140383499376, pw_hd  : 1.4150664626579088, 
+phase3: pw_fl  : 26.315904546033444, hdrt_0 : 3061.1578697343202, crss_0 : 1793.9499334644056, crss_s : 4147.084378806958, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695643441
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 85.96190175656457, hdrt_0 : 11870.353828401321, crss_0 : 1700.18723019926, crss_s : 3955.8140383499376, pw_hd  : 1.3068163903801233, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 7859.379888942527, crss_0 : 620.5736416572928, crss_s : 3880.079556298331, pw_hd  : 1.1587723516121025, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695643562
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 36.48465984532015, hdrt_0 : 11870.353828401321, crss_0 : 1700.18723019926, crss_s : 3955.8140383499376, pw_hd  : 1.3068163903801233, 
+phase3: pw_fl  : 21.88791257505475, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 3880.079556298331, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695644176
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 36.48465984532015, hdrt_0 : 11870.353828401321, crss_0 : 1700.18723019926, crss_s : 3955.8140383499376, pw_hd  : 2.5863905708825317, 
+phase3: pw_fl  : 35.52982369008085, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 1187.6444867794103, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695644176
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 36.48465984532015, hdrt_0 : 11870.353828401321, crss_0 : 1700.18723019926, crss_s : 3955.8140383499376, pw_hd  : 1.3068163903801233, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1598.360058617111, crss_s : 3880.079556298331, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695644297
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 20.529301363890493, hdrt_0 : 6562.821793755883, crss_0 : 1700.18723019926, crss_s : 3955.8140383499376, pw_hd  : 1.3068163903801233, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 3880.079556298331, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695644327
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 36.48465984532015, hdrt_0 : 11870.353828401321, crss_0 : 1700.18723019926, crss_s : 3955.8140383499376, pw_hd  : 1.3068163903801233, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 427.5396847510648, crss_s : 3880.079556298331, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695644418
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 36.48465984532015, hdrt_0 : 6562.821793755883, crss_0 : 1700.18723019926, crss_s : 3955.8140383499376, pw_hd  : 1.3068163903801233, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 1118.9423662542442, crss_0 : 1793.9499334644056, crss_s : 4147.084378806958, pw_hd  : 1.0498593238822427, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695644539
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 85.96190175656457, hdrt_0 : 11870.353828401321, crss_0 : 546.6052585051334, crss_s : 3955.8140383499376, pw_hd  : 2.6205541640266654, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 3880.079556298331, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695644721
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 36.48465984532015, hdrt_0 : 11870.353828401321, crss_0 : 1700.18723019926, crss_s : 3955.8140383499376, pw_hd  : 1.3068163903801233, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4971.313846614064, crss_0 : 1793.9499334644056, crss_s : 3880.079556298331, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695644721
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 17.586638947134198, hdrt_0 : 11870.353828401321, crss_0 : 1700.18723019926, crss_s : 3955.8140383499376, pw_hd  : 1.3068163903801233, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4955.5397122170325, crss_0 : 1793.9499334644056, crss_s : 4017.6569751493325, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695644834
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 36.48465984532015, hdrt_0 : 10048.883446220976, crss_0 : 1088.833094071463, crss_s : 3955.8140383499376, pw_hd  : 2.5863905708825317, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 3880.079556298331, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695644842
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 36.48465984532015, hdrt_0 : 11870.353828401321, crss_0 : 1700.18723019926, crss_s : 3955.8140383499376, pw_hd  : 1.3068163903801233, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 3880.079556298331, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695644894
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 20.529301363890493, hdrt_0 : 11870.353828401321, crss_0 : 1700.18723019926, crss_s : 3955.8140383499376, pw_hd  : 1.3068163903801233, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 3880.079556298331, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695645409
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 59.0739944926105, hdrt_0 : 6562.821793755883, crss_0 : 1700.18723019926, crss_s : 3955.8140383499376, pw_hd  : 1.3068163903801233, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 3880.079556298331, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695645478
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 20.529301363890493, hdrt_0 : 11870.353828401321, crss_0 : 1700.18723019926, crss_s : 3955.8140383499376, pw_hd  : 1.3068163903801233, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 9370.740232238979, crss_0 : 1793.9499334644056, crss_s : 3880.079556298331, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695646416
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 36.48465984532015, hdrt_0 : 11870.353828401321, crss_0 : 1700.18723019926, crss_s : 3955.8140383499376, pw_hd  : 1.3068163903801233, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 3880.079556298331, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695646446
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 36.48465984532015, hdrt_0 : 11870.353828401321, crss_0 : 1700.18723019926, crss_s : 3955.8140383499376, pw_hd  : 1.3068163903801233, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 3880.079556298331, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695646900
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 85.96190175656457, hdrt_0 : 6562.821793755883, crss_0 : 546.6052585051334, crss_s : 3955.8140383499376, pw_hd  : 1.5422053301813619, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 4147.084378806958, pw_hd  : 1.1587723516121025, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695647024
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 36.48465984532015, hdrt_0 : 11870.353828401321, crss_0 : 559.5909990733805, crss_s : 1097.7993651207155, pw_hd  : 1.3068163903801233, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 1118.9423662542442, crss_0 : 1793.9499334644056, crss_s : 3880.079556298331, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695647506
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 36.48465984532015, hdrt_0 : 11870.353828401321, crss_0 : 1700.18723019926, crss_s : 3955.8140383499376, pw_hd  : 1.3068163903801233, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 3880.079556298331, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695647596
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 17.586638947134198, hdrt_0 : 6562.821793755883, crss_0 : 1700.18723019926, crss_s : 3955.8140383499376, pw_hd  : 2.5863905708825317, 
+phase3: pw_fl  : 7.381280462072884, hdrt_0 : 4989.43880405201, crss_0 : 981.9392589741815, crss_s : 3880.079556298331, pw_hd  : 1.6651982264744853, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695647718
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 36.48465984532015, hdrt_0 : 11870.353828401321, crss_0 : 1700.18723019926, crss_s : 184.8423252622587, pw_hd  : 1.3068163903801233, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 3100.965534499407, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695647741
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 20.529301363890493, hdrt_0 : 11870.353828401321, crss_0 : 1700.18723019926, crss_s : 550.4950103571091, pw_hd  : 1.3068163903801233, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1496.0750419706642, crss_s : 3880.079556298331, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695647778
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 36.48465984532015, hdrt_0 : 11870.353828401321, crss_0 : 1700.18723019926, crss_s : 3955.8140383499376, pw_hd  : 1.3068163903801233, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 3880.079556298331, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695647832
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 36.48465984532015, hdrt_0 : 11720.053802829774, crss_0 : 92.41310813742358, crss_s : 3955.8140383499376, pw_hd  : 1.3068163903801233, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 3880.079556298331, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695647839
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 36.48465984532015, hdrt_0 : 10237.698828283219, crss_0 : 1700.18723019926, crss_s : 3955.8140383499376, pw_hd  : 2.1394241178025877, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 3880.079556298331, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695647862
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 20.529301363890493, hdrt_0 : 6562.821793755883, crss_0 : 1700.18723019926, crss_s : 3382.498019315738, pw_hd  : 1.3068163903801233, 
+phase3: pw_fl  : 40.30554708265855, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 3880.079556298331, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695647900
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 20.529301363890493, hdrt_0 : 6562.821793755883, crss_0 : 1088.833094071463, crss_s : 3955.8140383499376, pw_hd  : 2.5863905708825317, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 3880.079556298331, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695647900
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 20.529301363890493, hdrt_0 : 11870.353828401321, crss_0 : 1700.18723019926, crss_s : 3955.8140383499376, pw_hd  : 1.3068163903801233, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 3044.2879917395544, crss_0 : 1793.9499334644056, crss_s : 3880.079556298331, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695647961
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 36.48465984532015, hdrt_0 : 6562.821793755883, crss_0 : 1859.781949999452, crss_s : 3955.8140383499376, pw_hd  : 1.3068163903801233, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 584.2346782904931, crss_s : 3880.079556298331, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695647964
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 36.48465984532015, hdrt_0 : 6562.821793755883, crss_0 : 1700.18723019926, crss_s : 3955.8140383499376, pw_hd  : 1.3068163903801233, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 3880.079556298331, pw_hd  : 2.8136800695040027, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695648112
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 20.529301363890493, hdrt_0 : 11870.353828401321, crss_0 : 1700.18723019926, crss_s : 3955.8140383499376, pw_hd  : 1.3068163903801233, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 2484.4544650155053, pw_hd  : 1.629760417955899, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695648112
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 20.529301363890493, hdrt_0 : 2423.868403648471, crss_0 : 1700.18723019926, crss_s : 3955.8140383499376, pw_hd  : 1.3068163903801233, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 3880.079556298331, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695648296
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 36.48465984532015, hdrt_0 : 6600.542259522894, crss_0 : 1700.18723019926, crss_s : 3955.8140383499376, pw_hd  : 1.3068163903801233, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 3880.079556298331, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695648569
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 36.48465984532015, hdrt_0 : 11870.353828401321, crss_0 : 1700.18723019926, crss_s : 3955.8140383499376, pw_hd  : 1.3068163903801233, 
+phase3: pw_fl  : 28.73365951413649, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 3880.079556298331, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695648569
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 17.586638947134198, hdrt_0 : 11870.353828401321, crss_0 : 1700.18723019926, crss_s : 3955.8140383499376, pw_hd  : 1.3068163903801233, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 3838.9134317873477, crss_0 : 1793.9499334644056, crss_s : 3880.079556298331, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695648630
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 20.529301363890493, hdrt_0 : 6562.821793755883, crss_0 : 1700.18723019926, crss_s : 3955.8140383499376, pw_hd  : 1.3068163903801233, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 3880.079556298331, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695648690
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 36.48465984532015, hdrt_0 : 11870.353828401321, crss_0 : 1700.18723019926, crss_s : 3114.173764927381, pw_hd  : 1.3068163903801233, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 3880.079556298331, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695648690
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 36.48465984532015, hdrt_0 : 11870.353828401321, crss_0 : 1700.18723019926, crss_s : 3955.8140383499376, pw_hd  : 1.3068163903801233, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 3880.079556298331, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695648690
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 71.063942776632, hdrt_0 : 6562.821793755883, crss_0 : 1700.18723019926, crss_s : 4667.824514723531, pw_hd  : 1.3068163903801233, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 3880.079556298331, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695648751
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 36.48465984532015, hdrt_0 : 11870.353828401321, crss_0 : 1572.2286507801466, crss_s : 2584.9861990220907, pw_hd  : 1.3068163903801233, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 3857.013266060651, crss_0 : 1793.9499334644056, crss_s : 3880.079556298331, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695648811
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 36.48465984532015, hdrt_0 : 4555.010387492219, crss_0 : 1700.18723019926, crss_s : 3955.8140383499376, pw_hd  : 1.3068163903801233, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 3880.079556298331, pw_hd  : 1.3446018645241626, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695648811
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 36.48465984532015, hdrt_0 : 11870.353828401321, crss_0 : 1700.18723019926, crss_s : 3955.8140383499376, pw_hd  : 1.3068163903801233, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 3880.079556298331, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695648842
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 20.529301363890493, hdrt_0 : 6562.821793755883, crss_0 : 1700.18723019926, crss_s : 411.56577928080105, pw_hd  : 1.3068163903801233, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 3880.079556298331, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695648872
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 17.586638947134198, hdrt_0 : 11870.353828401321, crss_0 : 1700.18723019926, crss_s : 3955.8140383499376, pw_hd  : 2.5863905708825317, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 3880.079556298331, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695649054
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 36.48465984532015, hdrt_0 : 11870.353828401321, crss_0 : 1700.18723019926, crss_s : 3955.8140383499376, pw_hd  : 1.3068163903801233, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 3068.4724364615936, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695649146
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 36.48465984532015, hdrt_0 : 11870.353828401321, crss_0 : 1700.18723019926, crss_s : 3955.8140383499376, pw_hd  : 1.3068163903801233, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 3880.079556298331, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695649207
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 36.48465984532015, hdrt_0 : 11870.353828401321, crss_0 : 1700.18723019926, crss_s : 3955.8140383499376, pw_hd  : 1.3068163903801233, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 3880.079556298331, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695649267
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 17.586638947134198, hdrt_0 : 11870.353828401321, crss_0 : 1650.2350619679962, crss_s : 3955.8140383499376, pw_hd  : 1.3068163903801233, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 3880.079556298331, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695649389
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 36.48465984532015, hdrt_0 : 11870.353828401321, crss_0 : 1700.18723019926, crss_s : 3955.8140383499376, pw_hd  : 1.3068163903801233, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 3880.079556298331, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695649479
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 36.48465984532015, hdrt_0 : 11870.353828401321, crss_0 : 1700.18723019926, crss_s : 3955.8140383499376, pw_hd  : 1.3068163903801233, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 3880.079556298331, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695649600
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 36.48465984532015, hdrt_0 : 11870.353828401321, crss_0 : 1700.18723019926, crss_s : 3955.8140383499376, pw_hd  : 1.3068163903801233, 
+phase3: pw_fl  : 60.69464320818998, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 3880.079556298331, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695649661
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 17.586638947134198, hdrt_0 : 4378.373912109442, crss_0 : 1140.07694899723, crss_s : 3955.8140383499376, pw_hd  : 2.5863905708825317, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 3880.079556298331, pw_hd  : 1.4457630469605565, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695649661
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 20.529301363890493, hdrt_0 : 6192.370021925864, crss_0 : 1700.18723019926, crss_s : 3955.8140383499376, pw_hd  : 1.3068163903801233, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 3880.079556298331, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695649722
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 36.48465984532015, hdrt_0 : 11870.353828401321, crss_0 : 1700.18723019926, crss_s : 3955.8140383499376, pw_hd  : 1.3068163903801233, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 3880.079556298331, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695649843
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 17.586638947134198, hdrt_0 : 5330.805538453909, crss_0 : 1700.18723019926, crss_s : 1075.7002259496644, pw_hd  : 1.3068163903801233, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 3880.079556298331, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695649843
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 17.586638947134198, hdrt_0 : 11870.353828401321, crss_0 : 1140.07694899723, crss_s : 3955.8140383499376, pw_hd  : 1.3068163903801233, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 3880.079556298331, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695649844
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 36.48465984532015, hdrt_0 : 11870.353828401321, crss_0 : 1700.18723019926, crss_s : 3955.8140383499376, pw_hd  : 1.3068163903801233, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 3880.079556298331, pw_hd  : 1.0410206466745062, 
+############################################################
+simulation type: tensile
+Compute Error Using: compare_exp2sim_tensile_dual_phase
+time_Stamp: 1695649845
+Error_Time: 99999.0
+Error_Stress: 99999
+Error: 199998.0
+phase2: pw_fl  : 17.586638947134198, hdrt_0 : 11870.353828401321, crss_0 : 1700.18723019926, crss_s : 3955.8140383499376, pw_hd  : 1.3068163903801233, 
+phase3: pw_fl  : 2.6132305178016115, hdrt_0 : 4989.43880405201, crss_0 : 1793.9499334644056, crss_s : 3880.079556298331, pw_hd  : 1.0410206466745062, 
+############################################################
