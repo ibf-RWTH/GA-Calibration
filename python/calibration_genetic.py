@@ -507,11 +507,6 @@ class Simulation:
         with open(f'{sample_path}/matdata.inp', 'r') as file:
                 lines = file.readlines()
         if id > 0:
-            # os.system(f'echo phase_index: {id}')
-            # os.system(f'echo values len: {len(values)}')
-            # os.system(f'echo num props: {len(mat_props_values)}')
-            # os.system(f'echo mat_props len : {len(mat_props)}')
-
             temp_lines = [line.replace(" ", "") for line in lines]
             first_line = temp_lines.index(f'<:Material:{int(id)}:>\n')
             try:
@@ -620,50 +615,6 @@ class Optimize:
             if not os.path.exists(dst_dir):
                 shutil.copytree(source_dir, dst_dir)
             time.sleep(5)
-
-# def read_varbound(sample_files):
-   
-#     f = open(f"{sample_files}/matvarbound.txt",'r')
-#     lines = f.readlines()
-#     f.close()
-#     lin_index = 0
-#     indices = []
-#     for line in lines:
-#         if line.find("<:") != -1:
-#             indices.append(lin_index)
-#             material_id.append(int(line[13: line.index(":>") - 1]))
-#         lin_index += 1
-
-#     for mat_id in material_id:
-#         MatID2MatPropsBound[mat_id] = {}
-
-#     first_lines = lines[indices[0] + 1:indices[1]]
-#     second_lines = lines[indices[1] + 1:]
-
-#     for line in first_lines:
-#         if ":" in line:
-#             (key, val) = line.strip().split(":")
-#             val = ast.literal_eval(val.strip())
-#             MatID2MatPropsBound[material_id[0]][key] = val
-
-#     for line in second_lines:
-#         if ":" in line:
-#             (key, val) = line.strip().split(":")
-#             val = ast.literal_eval(val.strip())
-#             MatID2MatPropsBound[material_id[1]][key] = val
-
-# def get_material_varbound(sample_files: str) -> np.ndarray:
-#     """
-#     return varbound for calibration based on material ids
-#     """
-#     varbound = []
-#     read_varbound(sample_files=sample_files)
-#     for mat_id in MatID2MatPropsBound:
-#         mat_props_bounds = MatID2MatPropsBound[mat_id]
-#         for value in mat_props_bounds.values():
-#             varbound.append(value)
-#     varbound = np.array(varbound)
-#     return varbound
     
 if __name__ == '__main__':
     # Get the arguments list
