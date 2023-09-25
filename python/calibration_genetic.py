@@ -17,8 +17,74 @@ import warnings
 
 warnings.simplefilter(action='ignore', category=FutureWarning)
 
+class MatParams:
+    MatID2MatProps = [
+
+            ['pw_fl','brgvec','v0','rho_0','km1','km2','c3','hdrt_0','crss_0','crss_s','pw_hd','Adir','Adyn','gam_c','pw_irr','k'],
+            ['pw_fl','brgvec','v0','rho_0','km1','km2','c3'], 
+            ['pw_fl','hdrt_0','crss_0','crss_s','pw_hd','Adir','Adyn','gam_c','pw_irr'],
+            ['pw_fl','hdrt_0','shrt_0', 'crss_0','k','crss_s','pw_hd','Adir','Adyn','gam_c','pw_irr'],
+            ['pw_fl','shrt_0', 'crss_0','k','crss_s','pw_hd','Adir','Adyn','gam_c','pw_irr']
+
+    ]
+
+    def __init__(self, root:str) -> None:
+        self.root = root
+        self.MatID2MatPropsBound = {}
+        self.material_ids = []
+
+    def read_varbounds(self):
+        # Open and read the file
+        with open(f"{self.root}/sample_files/matvarbound.txt",'r') as f:
+
+            phase_number = -1
+            for line in f:
+                 # Remove leading and trailing whitespace
+                line = line.strip()
+                
+                # Check if the line starts with "<:" and ends with ":>"
+                if line.startswith("<:") and line.endswith(":>"):
+                # Extract the section name (e.g., "Global" or "Material: 2")
+                    split_line = line.split(":", 2)
+                    section_name = split_line[1].strip() + split_line[2].strip()[0]
+                    
+                    #get material phase numbers
+                    phase_number = int(section_name[-1])
+                    self.material_ids.append(phase_number)
+                    self.MatID2MatPropsBound[phase_number] = {}
+                
+                else:
+                    # Split the line into property and value
+                    if ":" in line:
+                        # check if phase number correct
+                        if phase_number == -1:
+                            os.system("echo Input File error: get wrong phase index, please check your matvarbound.txt input file")
+                            sys.exit(-1)
+                        
+                        parts = line.split(":")
+                        mat_prop_name = parts[0].strip()
+                        mat_prop_value = ast.literal_eval(parts[1].strip())
+                        # set mat params dict value and check matvarbound.txt
+                        if mat_prop_name in self.MatID2MatProps[phase_number]:
+                            self.MatID2MatPropsBound[phase_number][mat_prop_name] = mat_prop_value
+                        else:
+                            os.system(f"echo Input File error: invalid material parameters {mat_prop_name} for material {phase_number}, please check your matvarbound.txt input file")
+                            sys.exit(1)
+
+    def get_varbounds(self)-> np.ndarray:
+
+        varbound = []
+        self.read_varbounds()
+        for mat_id in self.MatID2MatPropsBound:
+            mat_props_bounds = self.MatID2MatPropsBound[mat_id]
+            for value in mat_props_bounds.values():
+                varbound.append(value)
+        varbound = np.array(varbound)
+
+        return varbound
+    
 class Simulation:
-    def __init__(self, sim_root, ex_data, material_id, job_name, sim_flag, n_jobs):
+    def __init__(self, sim_root, ex_data, material_id, job_name, sim_flag, n_jobs, mat_params: MatParams):
         self.sim_root = sim_root
         self.ex_data = ex_data
         self.material_id = material_id
@@ -37,7 +103,7 @@ class Simulation:
             'cyclic' : self.compare_exp2sim_cyclic,
             'tensile' : self.compare_exp2sim_tensile_dual_phase,
         }
-
+        self.num_props = [0] #state variable to record num of material props for each phase, so that manipulate_data func knows the range of props to read
 
     def create_batch_job_script(self, job_index):
         
@@ -135,7 +201,7 @@ class Simulation:
         f.write(f'Error: {mad}\n')
         prop_index = 0
         phase_index = 0
-        for mat_props in MatID2MatPropsBound.values():
+        for mat_props in mat_params.MatID2MatPropsBound.values():
             f.write(f'phase{self.material_id[phase_index]}: ')
             for mat_props_name in mat_props:
                 f.write(f'{mat_props_name}: {params[prop_index]}, ')
@@ -423,7 +489,7 @@ class Simulation:
 
     def manipulate_matdata2(self, sample_path, current_sim_dir, id, phase_index, values):
         # Manipulate matdata.inp file according to optimizer
-        mat_props = MatID2MatProps[id]
+        mat_props = mat_params.MatID2MatProps[id]
         if phase_index == 0:
             mat_props_values = values[:len(mat_props)]
         else:
@@ -543,50 +609,50 @@ class Optimize:
                 shutil.copytree(source_dir, dst_dir)
             time.sleep(5)
 
-def read_varbound(sample_files):
+# def read_varbound(sample_files):
    
-    f = open(f"{sample_files}/matvarbound.txt",'r')
-    lines = f.readlines()
-    f.close()
-    lin_index = 0
-    indices = []
-    for line in lines:
-        if line.find("<:") != -1:
-            indices.append(lin_index)
-            material_id.append(int(line[13: line.index(":>") - 1]))
-        lin_index += 1
+#     f = open(f"{sample_files}/matvarbound.txt",'r')
+#     lines = f.readlines()
+#     f.close()
+#     lin_index = 0
+#     indices = []
+#     for line in lines:
+#         if line.find("<:") != -1:
+#             indices.append(lin_index)
+#             material_id.append(int(line[13: line.index(":>") - 1]))
+#         lin_index += 1
 
-    for mat_id in material_id:
-        MatID2MatPropsBound[mat_id] = {}
+#     for mat_id in material_id:
+#         MatID2MatPropsBound[mat_id] = {}
 
-    first_lines = lines[indices[0] + 1:indices[1]]
-    second_lines = lines[indices[1] + 1:]
+#     first_lines = lines[indices[0] + 1:indices[1]]
+#     second_lines = lines[indices[1] + 1:]
 
-    for line in first_lines:
-        if ":" in line:
-            (key, val) = line.strip().split(":")
-            val = ast.literal_eval(val.strip())
-            MatID2MatPropsBound[material_id[0]][key] = val
+#     for line in first_lines:
+#         if ":" in line:
+#             (key, val) = line.strip().split(":")
+#             val = ast.literal_eval(val.strip())
+#             MatID2MatPropsBound[material_id[0]][key] = val
 
-    for line in second_lines:
-        if ":" in line:
-            (key, val) = line.strip().split(":")
-            val = ast.literal_eval(val.strip())
-            MatID2MatPropsBound[material_id[1]][key] = val
+#     for line in second_lines:
+#         if ":" in line:
+#             (key, val) = line.strip().split(":")
+#             val = ast.literal_eval(val.strip())
+#             MatID2MatPropsBound[material_id[1]][key] = val
 
-def get_material_varbound(sample_files: str) -> np.ndarray:
-    """
-    return varbound for calibration based on material ids
-    """
-    varbound = []
-    read_varbound(sample_files=sample_files)
-    for mat_id in MatID2MatPropsBound:
-        mat_props_bounds = MatID2MatPropsBound[mat_id]
-        for value in mat_props_bounds.values():
-            varbound.append(value)
-    varbound = np.array(varbound)
-    return varbound
-
+# def get_material_varbound(sample_files: str) -> np.ndarray:
+#     """
+#     return varbound for calibration based on material ids
+#     """
+#     varbound = []
+#     read_varbound(sample_files=sample_files)
+#     for mat_id in MatID2MatPropsBound:
+#         mat_props_bounds = MatID2MatPropsBound[mat_id]
+#         for value in mat_props_bounds.values():
+#             varbound.append(value)
+#     varbound = np.array(varbound)
+#     return varbound
+    
 if __name__ == '__main__':
     # Get the arguments list
     ###############################
@@ -627,47 +693,39 @@ if __name__ == '__main__':
     else:
         sys.exit()
     
-    # sample for all possible parameters
-    MatID2MatProps = {
-            1: ['pw_fl','brgvec','v0','rho_0','km1','km2','c3'], 
-            2: ['pw_fl','hdrt_0','crss_0','crss_s','pw_hd','Adir','Adyn','gam_c','pw_irr'],
-            3: ['pw_fl','shrt_0', 'crss_0','k','crss_s','pw_hd','Adir','Adyn','gam_c','pw_irr'],
-            4: ['pw_fl','shrt_0', 'crss_0','k','crss_s','pw_hd','Adir','Adyn','gam_c','pw_irr']
-        }
+    #process mat params input file
+    mat_params = MatParams(root=sim_root)
+    mat_params.read_varbounds()
+    mat_params.get_varbounds()
 
-    MatID2MatPropsBound = {}
-    material_id = []
-    varbound = get_material_varbound(sample_files=f"{sim_root}/sample_files")
-    
-    
-    os.system('echo python script initialized with follwing input:')
-    os.system(f'echo restart: {restart_flag}')
-    os.system(f'echo job_name: {job_name}')
-    os.system(f'echo sim_root: {sim_root}')
-    os.system(f'echo sim_type: {sim_flag}')
+    # os.system('echo python script initialized with follwing input:')
+    # os.system(f'echo restart: {restart_flag}')
+    # os.system(f'echo job_name: {job_name}')
+    # os.system(f'echo sim_root: {sim_root}')
+    # os.system(f'echo sim_type: {sim_flag}')
 
-    algorithm_param = {'max_num_iteration': 100, \
-                       'population_size': 50, \
-                       'mutation_probability': 0.1, \
-                       'elit_ratio': 0.1, \
-                       'parents_portion': 0.3, \
-                       'max_iteration_without_improv': None}
+    # algorithm_param = {'max_num_iteration': 100, \
+    #                    'population_size': 50, \
+    #                    'mutation_probability': 0.1, \
+    #                    'elit_ratio': 0.1, \
+    #                    'parents_portion': 0.3, \
+    #                    'max_iteration_without_improv': None}
 
-    opt = Optimize(flag=test_flag, ex_data=ex_data, root=sim_root, name=job_name, mat_id=material_id,
-                   varbound=varbound, algorithm_param=algorithm_param, sim_flag=sim_flag, n_jobs = n_jobs)
+    # opt = Optimize(flag=test_flag, ex_data=ex_data, root=sim_root, name=job_name, mat_id=material_id,
+    #                varbound=varbound, algorithm_param=algorithm_param, sim_flag=sim_flag, n_jobs = n_jobs)
 
-    model, func = opt.init_optimizer()
-    os.system('echo optimizer initialized starting simulations now')
-    if restart_flag == False:
-        model.run(no_plot=True,
-                  progress_bar_stream = None, 
-                  save_last_generation_as = f'{sim_root}/logs/lastgeneration.npz',
-                  set_function=ga.set_function_multiprocess(func, n_jobs=n_jobs))
-    else:
-        model.run(no_plot=True,
-                progress_bar_stream = None, 
-                start_generation=f'{sim_root}/logs/lastgeneration.npz',
-                set_function=ga.set_function_multiprocess(func, n_jobs=n_jobs))
-    f = open(sim_root + '/logs/results.txt', 'w+')
-    f.write(model.output_dict)
-    f.close()
+    # model, func = opt.init_optimizer()
+    # os.system('echo optimizer initialized starting simulations now')
+    # if restart_flag == False:
+    #     model.run(no_plot=True,
+    #               progress_bar_stream = None, 
+    #               save_last_generation_as = f'{sim_root}/logs/lastgeneration.npz',
+    #               set_function=ga.set_function_multiprocess(func, n_jobs=n_jobs))
+    # else:
+    #     model.run(no_plot=True,
+    #             progress_bar_stream = None, 
+    #             start_generation=f'{sim_root}/logs/lastgeneration.npz',
+    #             set_function=ga.set_function_multiprocess(func, n_jobs=n_jobs))
+    # f = open(sim_root + '/logs/results.txt', 'w+')
+    # f.write(model.output_dict)
+    # f.close()
