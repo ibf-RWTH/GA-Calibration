@@ -30,7 +30,7 @@ export PATH="$CONDA_ROOT/bin:$PATH"
 
 # Now you can activate your configured conda environments
 conda activate calibration
-export SIM_JOB_BASE_NAME=CP_Calibration
+export SIM_JOB_BASE_NAME=CP_Single
 ### Execute your application
 ### Please remember, to adjust the memory, it must be less than requested above
 export PYTHONCODE=$PWD/python/calibration_genetic.py

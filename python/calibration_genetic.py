@@ -109,10 +109,10 @@ class Simulation:
         with open(f'{self.sample_files}/simulation_job.sh','r') as f:
             lines = f.readlines()
 
-        new_lines = [line.replace(f'{job_name}', f'{job_name}_{job_index}') for line in lines]
+        new_lines = [line.replace('export JOBNAME=CP_Calibration', f'export JOBNAME={self.job_name}_{job_index}') for line in lines]
         new_lines = [line.replace('simulation', f'simulation_{job_index}') for line in new_lines]
         new_lines = [line.replace('export ROOT="/home/rwth1393/GA_Calibration_Test"', f'export ROOT="{self.sim_root}"') for line in new_lines]
-        new_lines = [line.replace('#SBATCH --output /home/rwth1393/single/logs/CP_Calibration-log.%J', f'#SBATCH --output {self.sim_root}/logs/CP_Calibration-log.%J') for line in new_lines]
+        new_lines = [line.replace('#SBATCH --output /home/rwth1393/single/logs/CP_Calibration-log.%J', f'#SBATCH --output {self.sim_root}/logs/{self.job_name}-log.%J') for line in new_lines] #need change later
         current_simulation_dir = f'{self.simulation_dir}_{job_index}'
         with open(f'{current_simulation_dir}/simulation_job_{job_index}.sh','w+') as f:
             f.writelines(new_lines)
