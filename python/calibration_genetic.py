@@ -469,7 +469,7 @@ class Simulation:
         if self.n_phases == 1:
 
             exp_stress_interp = np.interp(simulation_df['Strain'], experimental_df['strain_t'], experimental_df['stress_t'])
-            mad_stress = np.mean(np.abs(exp_stress_interp - simulation_df['Stress']) / exp_total_stress_interp) * 100
+            mad_stress = np.mean(np.abs(exp_stress_interp - simulation_df['Stress']) / exp_stress_interp) * 100
             mad_strain_total = (abs(1 - max_sim_strain / max_exp_strain) * 100) **2
 
             sim_y_cols = ['Stress']
