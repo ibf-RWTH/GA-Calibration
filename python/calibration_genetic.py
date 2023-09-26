@@ -441,10 +441,11 @@ class Simulation:
             mad_stress_strain = 99999
             return mad_time, mad_stress_strain, now
 
+        experimental_df = pd.read_csv(f'{self.sample_files}/{self.ex_data}', sep=',')
+        max_exp_strain = experimental_df['strain_t'].max()
+        max_sim_strain = simulation_df['Strain'].max()
+
         if self.n_phases == 2:
-            experimental_df = pd.read_csv(f'{self.sample_files}/ex_data_tensile.csv', sep=',') #needs change later  
-            max_exp_strain = experimental_df['strain_t'].max()
-            max_sim_strain = simulation_df['Strain'].max()
 
             exp_total_stress_interp = np.interp(simulation_df['Strain'], experimental_df['strain_t'], experimental_df['stress_t'])
             exp_alpha_stress_interp = np.interp(simulation_df['Strain'], experimental_df['strain_t'], experimental_df['stress_alpha'])
@@ -465,9 +466,6 @@ class Simulation:
             ex_labels = ['Experiment_Total', 'Experiment_Alpha','Experiment_Beta']
 
         if self.n_phases == 1:
-            experimental_df = pd.read_csv(f'{self.sample_files}/ex_data_single.csv', sep=',') #needs change later  
-            max_exp_strain = experimental_df['strain_t'].max()
-            max_sim_strain = simulation_df['Strain'].max()
 
             exp_stress_interp = np.interp(simulation_df['Strain'], experimental_df['strain_t'], experimental_df['stress_t'])
             mad_stress = np.mean(np.abs(exp_stress_interp - simulation_df['Stress']) / exp_total_stress_interp) * 100

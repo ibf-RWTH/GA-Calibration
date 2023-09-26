@@ -37,6 +37,6 @@ export PYTHONCODE=$PWD/python/calibration_genetic.py
 export TEST_FLAG=False
 export RESTART_FLAG=False
 export SIM_TYP=tensile
-export EX_DATA=ex_data_tensile.csv
+export EX_DATA=ex_data_single.csv
 
 python $PYTHONCODE -t $TEST_FLAG -r $RESTART_FLAG -s $SIM_TYP -n $SLURM_NTASKS -j $SIM_JOB_BASE_NAME -d $PWD --ex_data=$EX_DATA
