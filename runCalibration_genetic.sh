@@ -19,7 +19,7 @@
 #SBATCH --nodes=1
  
 ### Request number of CPUs/MPI Ranks
-#SBATCH --ntasks=1
+#SBATCH --ntasks=4
 
 # Insert this AFTER the #SLURM argument section of your job script
 ## chose anaconda or miniconda as CONDA_ROOT depending on what is installed for you
