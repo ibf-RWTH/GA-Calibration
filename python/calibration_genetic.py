@@ -98,7 +98,7 @@ class Simulation:
         self.sim_flag = sim_flag
         self.sim_flag2compare_function = {
             'cyclic' : self.compare_exp2sim_cyclic,
-            'tensile' : self.compare_exp2sim_tensile_dual_phase,
+            'tensile' : self.compare_exp2sim_tensile,
         }
         self.num_props = [0] #state variable to record num of material props for each phase, so that manipulate_data func knows the range of props to read
         self.mat_params = mat_params
@@ -433,8 +433,8 @@ class Simulation:
 
         return mad_time, mad_stress, now
 
-    def compare_exp2sim_tensile_dual_phase(self, simulation_df):
-        assert self.n_phases == 2
+    def compare_exp2sim_tensile(self, simulation_df):
+        assert self.n_phases == 2 or self.n_phases == 1
         now = int(time.time())
         if simulation_df.shape[0] < 5:
             mad_time = 99999.
@@ -471,6 +471,7 @@ class Simulation:
         plt.close()
 
         return mad_strain_total, mad_stress, now
+
 
     def plot_data(self, fig_name, x_label, y_label, x1, y1, data_label_1, x2=None, y2=None, data_label_2=None):
         plt.plot(x1, y1, label=data_label_1)
