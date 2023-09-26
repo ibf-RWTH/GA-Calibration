@@ -441,34 +441,53 @@ class Simulation:
             mad_stress_strain = 99999
             return mad_time, mad_stress_strain, now
 
-        experimental_df = pd.read_csv(f'{self.sample_files}/ex_data_tensile.csv', sep=',') #needs change later
-        max_exp_strain = experimental_df['strain_t'].max()
-        max_sim_strain = simulation_df['Strain'].max()
+        if self.n_phases == 2:
+            experimental_df = pd.read_csv(f'{self.sample_files}/ex_data_tensile.csv', sep=',') #needs change later  
+            max_exp_strain = experimental_df['strain_t'].max()
+            max_sim_strain = simulation_df['Strain'].max()
 
-        exp_total_stress_interp = np.interp(simulation_df['Strain'], experimental_df['strain_t'], experimental_df['stress_t'])
-        exp_alpha_stress_interp = np.interp(simulation_df['Strain'], experimental_df['strain_t'], experimental_df['stress_alpha'])
-        exp_beta_stress_interp = np.interp(simulation_df['Strain'], experimental_df['strain_t'], experimental_df['stress_beta'])
-    
-        mad_stress_total = np.mean(np.abs(exp_total_stress_interp - simulation_df['Stress'])**2 / exp_total_stress_interp) * 100
-        mad_stress_alpha = np.mean(np.abs(exp_alpha_stress_interp - simulation_df['Stress_Phase1'])**2 / exp_alpha_stress_interp) * 100
-        mad_stress_beta = np.mean(np.abs(exp_beta_stress_interp - simulation_df['Stress_Phase2'])**2 / exp_beta_stress_interp) * 100
-        mad_strain_total = (abs(1 - max_sim_strain / max_exp_strain) * 100) **2
-        mad_stress = (mad_stress_total + 0.8*mad_stress_alpha + 0.2 * mad_stress_beta)/3
+            exp_total_stress_interp = np.interp(simulation_df['Strain'], experimental_df['strain_t'], experimental_df['stress_t'])
+            exp_alpha_stress_interp = np.interp(simulation_df['Strain'], experimental_df['strain_t'], experimental_df['stress_alpha'])
+            exp_beta_stress_interp = np.interp(simulation_df['Strain'], experimental_df['strain_t'], experimental_df['stress_beta'])
+        
+            mad_stress_total = np.mean(np.abs(exp_total_stress_interp - simulation_df['Stress']) / exp_total_stress_interp) * 100
+            mad_stress_alpha = np.mean(np.abs(exp_alpha_stress_interp - simulation_df['Stress_Phase1']) / exp_alpha_stress_interp) * 100
+            mad_stress_beta = np.mean(np.abs(exp_beta_stress_interp - simulation_df['Stress_Phase2']) / exp_beta_stress_interp) * 100
+            mad_strain_total = (abs(1 - max_sim_strain / max_exp_strain) * 100) **2
+            mad_stress = (mad_stress_total + 0.8*mad_stress_alpha + 0.2 * mad_stress_beta)/3
+
+            sim_y_cols = ['Stress', 'Stress_Phase1', 'Stress_Phase2']
+            sim_x_cols = ['Strain'] * len(sim_y_cols)
+            sim_labels = ['Simulation_Total', 'Simulation_Alpha', 'Simulation_Beta']
+
+            ex_y_cols = ['stress_t', 'stress_alpha', 'stress_beta']
+            ex_x_cols = ['strain_t'] * len(ex_y_cols)
+            ex_labels = ['Experiment_Total', 'Experiment_Alpha','Experiment_Beta']
+
+        if self.n_phases == 1:
+            experimental_df = pd.read_csv(f'{self.sample_files}/ex_data_single.csv', sep=',') #needs change later  
+            max_exp_strain = experimental_df['strain_t'].max()
+            max_sim_strain = simulation_df['Strain'].max()
+
+            exp_stress_interp = np.interp(simulation_df['Strain'], experimental_df['strain_t'], experimental_df['stress_t'])
+            mad_stress = np.mean(np.abs(exp_stress_interp - simulation_df['Stress']) / exp_total_stress_interp) * 100
+            mad_strain_total = (abs(1 - max_sim_strain / max_exp_strain) * 100) **2
+
+            sim_y_cols = ['Stress']
+            sim_x_cols = ['Strain'] * len(sim_y_cols)
+            sim_labels = ['Simulation']
+
+            ex_y_cols = ['stress_t']
+            ex_x_cols = ['strain_t'] * len(ex_y_cols)
+            ex_labels = ['Experiment']
 
         fig_name = f'stress_strain_{now}'
         x_label = "Strain"
         y_label = "Stress(MPa)"
-        plt.plot(experimental_df['strain_t'].values, experimental_df['stress_t'].values, label='Experiment_Total')
-        plt.plot(experimental_df['strain_t'].values, experimental_df['stress_alpha'].values, label='Experiment_Alpha')
-        plt.plot(experimental_df['strain_t'].values, experimental_df['stress_beta'].values, label='Experiment_Beta')
-        plt.plot(simulation_df['Strain'].values, simulation_df['Stress'].values, label='Simulation_Total')
-        plt.plot(simulation_df['Strain_Phase1'].values, simulation_df['Stress_Phase1'].values, label='Simulation_Alpha')
-        plt.plot(simulation_df['Strain_Phase2'].values, simulation_df['Stress_Phase2'].values, label='Simulation_Beta')
-        plt.xlabel(xlabel=x_label)
-        plt.ylabel(ylabel=y_label)
-        plt.legend()
-        plt.savefig(f'{self.images}/{fig_name}.png')
-        plt.close()
+        self.plot_data2(fig_name=fig_name, x_label=x_label,y_label=y_label,
+                        sim_data=simulation_df, ex_data=experimental_df,
+                        sim_x_cols=sim_x_cols, sim_y_cols=sim_y_cols, sim_labels=sim_labels,
+                        ex_x_cols=ex_x_cols, ex_y_cols=ex_y_cols, ex_labels=ex_labels)
 
         return mad_strain_total, mad_stress, now
 
@@ -485,8 +504,27 @@ class Simulation:
         plt.savefig(f'{self.images}/{fig_name}.png')
         plt.close()
 
-    def plot_data2(self, fig_name:str, x_label:str, y_label:str, sim_x_cols:list, sim_y_cols:list, ex_x_cols:list, ex_y_cols:list, data_labels:list):
+    def plot_data2(self, fig_name:str, x_label:str, y_label:str, sim_data:pd.DataFrame, ex_data:pd.DataFrame,
+                   sim_x_cols:list, sim_y_cols:list, sim_labels:list,
+                   ex_x_cols:list, ex_y_cols:list, ex_labels:list):
         assert len(sim_x_cols) == len(sim_y_cols) and len(ex_x_cols) == len(ex_y_cols)
+
+        sim_label_index = 0
+        for x, y in zip(sim_x_cols, sim_y_cols):
+            plt.plot(sim_data[x].values, sim_data[y].values, label = sim_labels[sim_label_index])
+            sim_label_index += 1
+
+        ex_label_index = 0
+        for x, y in zip(ex_x_cols, ex_y_cols):
+            plt.plot(ex_data[x].values, ex_data[y].values, label = ex_labels[ex_label_index])
+            ex_label_index += 1
+
+        plt.xlabel(x_label)
+        plt.ylabel(y_label)
+        plt.legend()
+        plt.savefig(f'{self.images}/{fig_name}.png')
+        plt.close()
+
         
 
     @staticmethod
