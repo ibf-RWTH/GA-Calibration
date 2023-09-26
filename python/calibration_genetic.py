@@ -117,7 +117,7 @@ class Simulation:
         with open(f'{current_simulation_dir}/simulation_job_{job_index}.sh','w+') as f:
             f.writelines(new_lines)
  
-    def blackbox_multiphase2(self, params):
+    def blackbox_multiphase(self, params):
         submitted = False
         while not submitted:
             # define path variables
@@ -136,7 +136,7 @@ class Simulation:
                     else:
                         path = current_simulation_dir
                     # create matdata.inp file according to params
-                    self.manipulate_matdata2(path, current_simulation_dir, mat_id, phase_index=j, values=params)
+                    self.manipulate_matdata(path, current_simulation_dir, mat_id, phase_index=j, values=params)
 
                 # create batch script
                 self.create_batch_job_script(job_index=job_index)
@@ -488,7 +488,7 @@ class Simulation:
         os.system(f'sbatch {batch_file}')
 
 
-    def manipulate_matdata2(self, sample_path:str, current_sim_dir:str, id:int, phase_index:int, values):
+    def manipulate_matdata(self, sample_path:str, current_sim_dir:str, id:int, phase_index:int, values):
         # Manipulate matdata.inp file according to optimizer
         num_prev_props = np.sum(self.num_props)
         mat_props = list(self.mat_params.MatID2MatPropsBound[id].keys())
@@ -585,7 +585,7 @@ class Optimize:
         sim_object = Simulation(sim_root=self.sim_root, ex_data=self.ex_data, mat_params=self.mat_params,
                                 job_name=self.job_name, sim_flag=self.sim_flag, n_jobs=self.n_jobs)
         if len(self.mat_params.material_ids) > 1:
-            blackbox_func = sim_object.blackbox_multiphase2
+            blackbox_func = sim_object.blackbox_multiphase
 
         model = ga(function=blackbox_func,
                    dimension=len(self.varbound),
