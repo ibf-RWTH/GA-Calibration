@@ -485,6 +485,10 @@ class Simulation:
         plt.savefig(f'{self.images}/{fig_name}.png')
         plt.close()
 
+    def plot_data2(self, fig_name:str, x_label:str, y_label:str, sim_x_cols:list, sim_y_cols:list, ex_x_cols:list, ex_y_cols:list, data_labels:list):
+        assert len(sim_x_cols) == len(sim_y_cols) and len(ex_x_cols) == len(ex_y_cols)
+        
+
     @staticmethod
     def submit_batch_job(batch_file):
         os.system(f'sbatch {batch_file}')
