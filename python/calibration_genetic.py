@@ -159,6 +159,8 @@ class Simulation:
                     continue    
                 # evaluate Simulation
                 sim_results = self.calcStressStrain(current_simulation_dir, current_job_name)
+                sim_results.to_csv(f"{self.sim_root}/results_{current_job_name}.csv")
+                sys.exit()
                 #sim_results.to_csv('sim_results.csv')
                 compare_func = self.sim_flag2compare_function[self.sim_flag]
                 mad1, mad2, time_stamp = compare_func(sim_results)
@@ -593,26 +595,6 @@ class Optimize:
                    algorithm_parameters=self.algorithm_param,
                    function_timeout=None)
         return model, blackbox_func
-    
-    def delete_old_job_dirs(self) -> None:
-        for i in range(self.n_jobs):
-            if os.path.exists(f'{self.sim_root}/simulation_{i}'):
-                print (f'deleting old job dir: {self.sim_root}/simulation_{i}')
-                shutil.rmtree(f'{self.sim_root}/simulation_{i}')
-                while os.path.exists(f'{self.sim_root}/simulation_{i}'):
-                    time.sleep(0.1)
-            time.sleep(2)
-    
-    def create_job_dirs(self)  -> None:
-        # create Folder for next simulation
-        source_dir = f'{self.sim_root}/sample_files_{self.sim_flag}_simulation'
-        len_sample_dir = len(os.listdir(source_dir))
-        for i in range (self.n_jobs):
-            dst_dir = f'{self.sim_root}/simulation_{i}'
-            # gotta catch parallelism errors by checking again if other core has created dir before
-            if not os.path.exists(dst_dir):
-                shutil.copytree(source_dir, dst_dir)
-            time.sleep(5)
     
 if __name__ == '__main__':
     # Get the arguments list

@@ -1,6 +1,6 @@
 #!/usr/local_rwth/bin/zsh
 ### Job name
-#SBATCH --job-name=CP_Calibration
+#SBATCH --job-name=CP_Single
 ### Account
 #SBATCH --account=rwth1393
 ### File/Path where STDOUT will be written to, %J is the job id
