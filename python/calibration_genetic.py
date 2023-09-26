@@ -88,7 +88,6 @@ class Simulation:
         self.sim_root = sim_root
         self.ex_data = ex_data
         self.subroutine_dir = f'{self.sim_root}/subroutine'
-        self.subroutine_dir = f'{self.sim_root}/subroutine'
         self.simulation_dir = f'{self.sim_root}/simulation'
         self.sample_files = f'{self.sim_root}/sample_files'
         self.images = f'{self.sim_root}/evaluation_images'
