@@ -111,7 +111,7 @@ class Simulation:
 
         new_lines = [line.replace(f'{job_name}', f'{job_name}_{job_index}') for line in lines]
         new_lines = [line.replace('simulation', f'simulation_{job_index}') for line in new_lines]
-        
+        new_lines = [line.replace('export ROOT="/home/rwth1393/GA_Calibration_Test"', f'export ROOT="{self.sim_root}"') for line in new_lines]
         current_simulation_dir = f'{self.simulation_dir}_{job_index}'
         with open(f'{current_simulation_dir}/simulation_job_{job_index}.sh','w+') as f:
             f.writelines(new_lines)
