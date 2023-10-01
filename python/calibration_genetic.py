@@ -156,6 +156,7 @@ class Simulation:
                     #if complete_status:
                     self.remove_sim_files(f'{self.log_dir}/{current_job_name}-log*')
                     submitted = False
+                    self.num_props = [0]
                     continue    
                 # evaluate Simulation
                 sim_results = self.calcStressStrain(current_simulation_dir, current_job_name)
