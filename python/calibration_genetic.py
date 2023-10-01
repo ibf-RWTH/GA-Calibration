@@ -160,8 +160,6 @@ class Simulation:
                     continue    
                 # evaluate Simulation
                 sim_results = self.calcStressStrain(current_simulation_dir, current_job_name)
-                sim_results.to_csv(f"{self.sim_root}/results_{current_job_name}.csv")
-                #sim_results.to_csv('sim_results.csv')
                 compare_func = self.sim_flag2compare_function[self.sim_flag]
                 mad1, mad2, time_stamp = compare_func(sim_results)
                 mad = mad1 + mad2

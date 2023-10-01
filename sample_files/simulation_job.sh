@@ -4,7 +4,7 @@
 ### Account
 #SBATCH --account=rwth1393
 ### File/Path where STDOUT will be written to, %J is the job id
-#SBATCH --output /home/rwth1393/single/logs/%JOBNAME%-log.%J
+#SBATCH --output /home/rwth1393/GA_Calibration_Test/logs/%JOBNAME%-log.%J
 ### Request the time you need for execution. The full format is D-HH:MM:SS
 ### You must at least specify minutes or days and hours and may add or
 ### leave out any other parameters
