@@ -1,7 +1,7 @@
 #!/usr/local_rwth/bin/zsh
 
 ### Job name
-#SBATCH --job-name=CP_Cal_Single
+#SBATCH --job-name=CP_Cal_tensile
  
 ### File/Path where STDOUT will be written to, %J is the job id
 #SBATCH --output /home/rwth1393/GA_Calibration_Test/logs/MainProcess-log.%J
@@ -30,7 +30,7 @@ export PATH="$CONDA_ROOT/bin:$PATH"
 
 # Now you can activate your configured conda environments
 conda activate calibration
-export SIM_JOB_BASE_NAME=CP_Single
+export SIM_JOB_BASE_NAME=CP_Tensile
 ### Execute your application
 ### Please remember, to adjust the memory, it must be less than requested above
 export PYTHONCODE=$PWD/python/calibration_genetic.py

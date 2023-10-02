@@ -1,6 +1,6 @@
 import pandas as pd
 import matplotlib.pyplot as plt
-
+import os
 def plot_data2(fig_name:str, x_label:str, y_label:str, sim_data:pd.DataFrame, ex_data:pd.DataFrame,
                sim_x_cols:list, sim_y_cols:list, sim_labels:list,
                ex_x_cols:list, ex_y_cols:list, ex_labels:list):
@@ -56,4 +56,8 @@ if __name__ == "__main__":
     #            sim_x_cols=sim_x_cols, sim_y_cols=sim_y_cols, sim_labels=sim_labels,
     #            ex_x_cols=ex_x_cols, ex_y_cols=ex_y_cols, ex_labels=ex_labels)
 
-    create_batch_job_script(sample_files='sample_files', sim_root='/home/rwth1393/single', job_name='test', job_index=1)
+    job_name = "CP_Tensile_5489"
+    with open(f'simulation_{job_name[-4:]}/{job_name}.sta','r') as f:
+        content = f.read()
+        if "THE ANALYSIS HAS COMPLETED SUCCESSFULLY" in content:
+            os.system("echo yes")

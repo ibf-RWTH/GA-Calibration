@@ -247,8 +247,19 @@ class Simulation:
         extern_state = df.loc[df['JobName']=='extern','State'].values[-1]
         try:
             job_state = df.loc[df['JobName']== f'{job_name}','State'].values[-1]
-        except:
-            job_state = "PENDING"
+        except Exception as e:
+            if os.path.exists(f'{self.sim_root}/simulation_{job_name[-4:]}/{job_name.sta}'):
+                with open(f'{self.sim_root}/simulation_{job_name[-4:]}/{job_name.sta}','r') as f:
+                    content = f.read()
+                    if "THE ANALYSIS HAS COMPLETED SUCCESSFULLY" in content:
+                        job_state = 'COMPLETED'
+                    else:
+                        job_state = "PENDING"
+            elif os.path.exists(f'{self.sim_root}/simulation_{job_name[-4:]}/00_Data'):
+                job_state = "PENDING"
+            else:
+                os.system(f"echo {e}")
+                sys.exit()
             
         # check for successful completion of simulation
         if job_state == 'COMPLETED':
