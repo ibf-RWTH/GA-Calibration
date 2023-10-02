@@ -4,7 +4,7 @@
 #SBATCH --job-name=CP_Cal_Cyclic
  
 ### File/Path where STDOUT will be written to, %J is the job id
-#SBATCH --output /home/rwth1393/GA-Calibration/logs/MainProcess-log.%J
+#SBATCH --output /home/rwth1393/GA-Calibration-Tensile/logs/MainProcess-log.%J
  
 ### Request the time you need for execution. The full format is D-HH:MM:SS
 ### You must at least specify minutes or days and hours and may add or
@@ -36,7 +36,7 @@ export SIM_JOB_BASE_NAME=CP_Cyclic
 export PYTHONCODE=$PWD/python/calibration_genetic.py
 export TEST_FLAG=False
 export RESTART_FLAG=False
-export SIM_TYP=cyclic
-export EX_DATA=ex_data_cyclic.csv
+export SIM_TYP=tensile
+export EX_DATA=ex_data_tensile.csv
 
 python $PYTHONCODE -t $TEST_FLAG -r $RESTART_FLAG -s $SIM_TYP -n $SLURM_NTASKS -j $SIM_JOB_BASE_NAME -d $PWD --ex_data=$EX_DATA
