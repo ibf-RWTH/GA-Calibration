@@ -1,9 +1,0 @@
-simulation type: tensile
-Compute Error Using: compare_exp2sim_tensile
-time_Stamp: 1696251748
-Error_Time: 99999.0
-Error_Stress: 99999
-Error: 199998.0
-global: 
-phase3: pw_fl: 88.30415301486192, hdrt_0: 6268.348323595483, crss_0: 1690.7320546257436, crss_s: 1341.399685699532, pw_hd: 2.8695912296085515, 
-############################################################
