@@ -202,7 +202,7 @@ class Simulation:
         prop_index = 0
         phase_index = 0
         for mat_props in mat_params.MatID2MatPropsBound.values():
-            if self.mat_params.material_ids[phase_index] == 0: #global parameters
+            if self.mat_params.material_ids[phase_index] == '0': #global parameters
                 f.write(f'global: ')
             else:
                 f.write(f'phase{self.mat_params.material_ids[phase_index]}: ')
@@ -453,9 +453,9 @@ class Simulation:
                            comp_df['sim_time'], comp_df['Stress_Phase2_t'], 'Experimental Data phase 2',
                            comp_df['time_y'], comp_df['Stress_Phase2_y'], 'Simulation Data phase 2')
 
-        self.plot_data(f'hysteresis_{now}', 'Strain ( - )', 'Stress (MPa)',
-                       comp_df['strain'], comp_df['stress_t'], 'Experimental Data',
-                       comp_df['Strain'], comp_df['Stress'], 'Simulation Data')
+        # self.plot_data(f'hysteresis_{now}', 'Strain ( - )', 'Stress (MPa)',
+        #                comp_df['strain'], comp_df['stress_t'], 'Experimental Data',
+        #                comp_df['Strain'], comp_df['Stress'], 'Simulation Data')
 
 
         return mad_time, mad_stress, now
