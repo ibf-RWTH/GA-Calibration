@@ -202,7 +202,7 @@ class Simulation:
         prop_index = 0
         phase_index = 0
         for mat_props in mat_params.MatID2MatPropsBound.values():
-            if self.mat_params.material_ids[phase_index] == '0': #global parameters
+            if self.mat_params.material_ids[phase_index] == 0: #global parameters
                 f.write(f'global: ')
             else:
                 f.write(f'phase{self.mat_params.material_ids[phase_index]}: ')
