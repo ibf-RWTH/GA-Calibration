@@ -423,6 +423,21 @@ class Simulation:
         
         if self.n_phases == 1:
             mad_stress = np.mean(np.abs(comp_df['stress_t'] - comp_df['Stress'])**2)
+            sim_y_cols = ['Stress']
+            sim_x_cols = ['Strain'] * len(sim_y_cols)
+            sim_labels = ['Simulation']
+
+            ex_y_cols = ['stress_t']
+            ex_x_cols = ['strain_t'] * len(ex_y_cols)
+            ex_labels = ['Experiment']
+
+            fig_name = f'hysteresis_{now}'
+            x_label = "Strain"
+            y_label = "Stress(MPa)"
+            self.plot_data2(fig_name=fig_name, x_label=x_label,y_label=y_label,
+                            sim_data=simulation_df, ex_data=experimental_df,
+                            sim_x_cols=sim_x_cols, sim_y_cols=sim_y_cols, sim_labels=sim_labels,
+                            ex_x_cols=ex_x_cols, ex_y_cols=ex_y_cols, ex_labels=ex_labels)
 
         elif self.n_phases == 2:
             mad_stress_total = np.mean(np.abs(comp_df['stress_t'] - comp_df['Stress']))
