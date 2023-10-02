@@ -160,7 +160,7 @@ cython_debug/
 #.idea/
 # user defined
 simulation*/
-evaluation_images/*
+*.png
 logs/*
 !logs/results.txt
 !logs/*.npz
