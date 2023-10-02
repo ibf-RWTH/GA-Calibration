@@ -251,8 +251,8 @@ class Simulation:
         try:
             job_state = df.loc[df['JobName']== f'{job_name}','State'].values[-1]
         except Exception as e:
-            if os.path.exists(f'{self.sim_root}/simulation_{job_name[-4:]}/{job_name.sta}'):
-                with open(f'{self.sim_root}/simulation_{job_name[-4:]}/{job_name.sta}','r') as f:
+            if os.path.exists(f'{self.sim_root}/simulation_{job_name[-4:]}/{job_name}.sta'):
+                with open(f'{self.sim_root}/simulation_{job_name[-4:]}/{job_name}.sta','r') as f:
                     content = f.read()
                     if "THE ANALYSIS HAS COMPLETED SUCCESSFULLY" in content:
                         job_state = 'COMPLETED'

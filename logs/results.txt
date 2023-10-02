@@ -1,0 +1,72 @@
+simulation type: cyclic
+Compute Error Using: compare_exp2sim_cyclic
+time_Stamp: 1696247137
+Error_Time: 0.0
+Error_Stress: 436616.19499191956
+Error: 436616.19499191956
+global: 
+phase3: pw_fl: 26.98856584838759, hdrt_0: 11288.181655169694, crss_0: 1047.2650277464522, crss_s: 4197.562900024043, pw_hd: 2.746895452089791, 
+############################################################
+simulation type: cyclic
+Compute Error Using: compare_exp2sim_cyclic
+time_Stamp: 1696247198
+Error_Time: 0.0
+Error_Stress: 163341.01473234978
+Error: 163341.01473234978
+global: 
+phase3: pw_fl: 42.41469074645636, hdrt_0: 2853.6182191033413, crss_0: 200.01303869630863, crss_s: 1844.543899624286, pw_hd: 1.2001183631841208, 
+############################################################
+simulation type: cyclic
+Compute Error Using: compare_exp2sim_cyclic
+time_Stamp: 1696247231
+Error_Time: 0.0
+Error_Stress: 531838.39942257
+Error: 531838.39942257
+global: 
+phase3: pw_fl: 61.156785783824255, hdrt_0: 10218.295542427752, crss_0: 1318.0001928845143, crss_s: 3979.7133021625204, pw_hd: 1.9568885814807535, 
+############################################################
+simulation type: cyclic
+Compute Error Using: compare_exp2sim_cyclic
+time_Stamp: 1696247262
+Error_Time: 0.0
+Error_Stress: 254142.0486109803
+Error: 254142.0486109803
+global: 
+phase3: pw_fl: 20.253530521892618, hdrt_0: 10221.201829832164, crss_0: 598.8553612044311, crss_s: 3443.33955404915, pw_hd: 2.673570856903124, 
+############################################################
+simulation type: cyclic
+Compute Error Using: compare_exp2sim_cyclic
+time_Stamp: 1696247760
+Error_Time: 0.0
+Error_Stress: 552652.4216069978
+Error: 552652.4216069978
+global: 
+phase3: pw_fl: 9.416348029355694, hdrt_0: 2368.966440809367, crss_0: 1835.4288483423861, crss_s: 3288.9026027035698, pw_hd: 1.1329946383631644, 
+############################################################
+simulation type: cyclic
+Compute Error Using: compare_exp2sim_cyclic
+time_Stamp: 1696247884
+Error_Time: 0.0
+Error_Stress: 442944.32234495546
+Error: 442944.32234495546
+global: 
+phase3: pw_fl: 71.4869852261985, hdrt_0: 3954.241346734135, crss_0: 1061.3262959170158, crss_s: 1107.390087471837, pw_hd: 2.299423477514962, 
+############################################################
+simulation type: cyclic
+Compute Error Using: compare_exp2sim_cyclic
+time_Stamp: 1696248007
+Error_Time: 0.0
+Error_Stress: 537188.8756529386
+Error: 537188.8756529386
+global: 
+phase3: pw_fl: 50.25465224891167, hdrt_0: 5250.665006727362, crss_0: 1372.0125711363644, crss_s: 4017.004451607336, pw_hd: 2.728244689528323, 
+############################################################
+simulation type: cyclic
+Compute Error Using: compare_exp2sim_cyclic
+time_Stamp: 1696248101
+Error_Time: 0.0
+Error_Stress: 70333.05924388772
+Error: 70333.05924388772
+global: 
+phase3: pw_fl: 96.67002944349593, hdrt_0: 816.4605509992604, crss_0: 131.8412442413972, crss_s: 768.3178998844314, pw_hd: 2.1728548815238633, 
+############################################################
