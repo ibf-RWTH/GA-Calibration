@@ -3,15 +3,9 @@
 # index 0 is always for global parameters!!!
 
 <: Global: 0:> 
-pw_fl  : [1, 100]
-
-<: Material: 2 :> 
-hdrt_0 : [80, 12000]
-crss_0 : [1, 1900]
-crss_s : [10, 5000]
-pw_hd  : [1, 3]
 
 <: Material: 3 :> 
+pw_fl  : [1, 100]
 hdrt_0 : [80, 12000]
 crss_0 : [1, 1900]
 crss_s : [10, 5000]
