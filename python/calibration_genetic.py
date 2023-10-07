@@ -625,8 +625,9 @@ if __name__ == '__main__':
     # -s: sim_flag   (string) cyclic cyclic loading tensile tensile test
     # -n: n_jobs (int) number of simulations running cocurrently
     # --ex_data: 'filename.csv' (string) Must be located in sample_files
+    # --phases: 'phase1,pahse2...' String of desired phases to be optimized
     ###############################
-    myopts, args = getopt.getopt(sys.argv[1:], "t:r:s:n:j:d:", ['ex_data='])
+    myopts, args = getopt.getopt(sys.argv[1:], "t:r:s:n:j:d:", ['ex_data=', 'phases='])
     ###############################
     # o == option
     # a == argument passed to the o
@@ -649,6 +650,12 @@ if __name__ == '__main__':
                 n_jobs = int(a)
             elif o == '--ex_data':
                 ex_data = str(a)
+            elif o == '--phases':
+                # split phase names at comma
+                # if no comma only one phase
+                # phases is always a list
+                # with length of amount phases
+                phases = str(a).split(',')
             else:
                 print("Usage: %s -t test_flag -r restart_flag -j job_name -d sim_root --ex_data=filename.csv" % sys.argv[0])
                 sys.exit(1)
