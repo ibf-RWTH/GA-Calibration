@@ -165,3 +165,6 @@ logs/*
 !logs/results.txt
 !logs/*.npz
 python/test.py
+configs.ini
+jobConfig.sh
+
