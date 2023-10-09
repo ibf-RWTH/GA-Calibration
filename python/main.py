@@ -4,6 +4,7 @@ import sys
 import ast 
 import numpy as np
 from calibration_genetic import Simulation, Optimize
+import subprocess
 
 def parse_matparams(config:configparser.ConfigParser):
   global_params = config.options('GlobalParams')
@@ -63,9 +64,47 @@ def gen_cmd(config):
   return cmd
 
 if __name__ == "__main__":
-  config = configparser.ConfigParser()
-  config.read('./configs/configs.ini')
+  #get current path
+  sim_root = os.getcwd()
 
-  cmd = gen_cmd(config)
-  print(cmd)
+  #config simulation
+  config = configparser.ConfigParser()
+  config.read(f'{sim_root}/configs/configs.ini')
+  mat_params, varbound = parse_matparams(config)
+
+  #initialize Optimizer
+  algorithm_param = {'max_num_iteration': 100, \
+                       'population_size': 50, \
+                       'mutation_probability': 0.1, \
+                       'elit_ratio': 0.1, \
+                       'parents_portion': 0.3, \
+                       'max_iteration_without_improv': None}
+
+  opt = Optimize(flag=config.get('JobSettings','test_flag'), 
+                 ex_data=config.get('JobSettings','ex_data'), 
+                 root=sim_root, 
+                 name=config.get('JobSettings','sim_job_base_name'), 
+                 mat_params=mat_params,
+                 varbound=varbound, 
+                 algorithm_param=algorithm_param, 
+                 sim_flag=config.get('JobSettings','sim_type'), 
+                 n_jobs = config.get('BatchSettings','ntasks'))
+
+  model, func = opt.init_optimizer()
+  os.system('echo optimizer initialized starting simulations now')
+  if restart_flag == False:
+      model.run(no_plot=True,
+                progress_bar_stream = None,
+                save_last_generation_as = f'{sim_root}/logs/lastgeneration.npz',
+                set_function=ga.set_function_multiprocess(func, n_jobs=n_jobs))
+  else:
+      model.run(no_plot=True,
+              progress_bar_stream = None,
+              start_generation=f'{sim_root}/logs/lastgeneration.npz',
+              set_function=ga.set_function_multiprocess(func, n_jobs=n_jobs))
+              
+  f = open(sim_root + '/logs/results.txt', 'w+')
+  f.write(model.output_dict)
+  f.close()
+  
 
