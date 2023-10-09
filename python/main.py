@@ -5,6 +5,7 @@ import ast
 import numpy as np
 from calibration_genetic import Simulation, Optimize
 import subprocess
+import json
 
 def parse_matparams(config:configparser.ConfigParser):
   global_params = config.options('GlobalParams')
@@ -102,9 +103,8 @@ if __name__ == "__main__":
               progress_bar_stream = None,
               start_generation=f'{sim_root}/logs/lastgeneration.npz',
               set_function=ga.set_function_multiprocess(func, n_jobs=n_jobs))
-              
-  f = open(sim_root + '/logs/results.txt', 'w+')
-  f.write(model.output_dict)
-  f.close()
+
+  f = open(sim_root + '/logs/final_results.txt', 'w')
+  json.dump(model.output_dict, f, indent=4)
   
 
