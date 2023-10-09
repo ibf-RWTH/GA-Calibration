@@ -5,10 +5,10 @@ if __name__ == "__main__":
   config = configparser.ConfigParser()
   config.read('./configs/configs.ini')
 
-  # batch_options = config.options('BatchSettings')
-  # cmd = 'salloc'
-  # for opt in batch_options:
-  #   cmd += f" --{opt}={config.get('BatchSettings', opt)}"
+  batch_options = config.options('BatchSettings')
+  cmd = 'sbatch'
+  for opt in batch_options:
+    cmd += f" --{opt}={config.get('BatchSettings', opt)}"
 
   conda_options = config.options('CondaSettings')
   with open("./configs/jobConfig.sh",'w+') as jc:
@@ -24,7 +24,7 @@ if __name__ == "__main__":
     for opt in job_options:
       jc.write(f' {opt}={config.get("JobSettings", opt)}')
 
-  cmd = "sbatch runBatch.sh"
+  cmd += " runBatch.sh"
   print(cmd)
   os.system(cmd)
 

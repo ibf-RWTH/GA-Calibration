@@ -1,2 +1,0 @@
-/home/rwth1393/anaconda3
-python: can't open file 'python/calibration_genetic.pyexport': [Errno 2] No such file or directory

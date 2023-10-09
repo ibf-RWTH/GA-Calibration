@@ -2,7 +2,6 @@
 
 # Read user variables
 source configs/jobConfig.sh
-echo $conda_root
 . $conda_root/etc/profile.d/conda.sh
 export PATH="$conda_root/bin:$PATH"
 # Now you can activate your configured conda environments

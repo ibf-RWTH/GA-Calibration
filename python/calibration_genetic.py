@@ -21,7 +21,7 @@ class MatParams:
     MatID2MatProps = [
 
             ['pw_fl','brgvec','v0','rho_0','km1','km2','c3','hdrt_0','crss_0','crss_s','pw_hd','Adir','Adyn','gam_c','pw_irr','k'],
-            ['pw_fl','brgvec','v0','rho_0','km1','km2','c3'], 
+            ['pw_fl','brgvec','v0','rho_0','km1','km2','c3'],
             ['pw_fl','hdrt_0','crss_0','crss_s','pw_hd','Adir','Adyn','gam_c','pw_irr'],
             ['pw_fl','hdrt_0','shrt_0', 'crss_0','k','crss_s','pw_hd','Adir','Adyn','gam_c','pw_irr'],
             ['pw_fl','shrt_0', 'crss_0','k','crss_s','pw_hd','Adir','Adyn','gam_c','pw_irr']
@@ -41,18 +41,18 @@ class MatParams:
             for line in f:
                  # Remove leading and trailing whitespace
                 line = line.strip()
-                
+
                 # Check if the line starts with "<:" and ends with ":>"
                 if line.startswith("<:") and line.endswith(":>"):
                 # Extract the section name (e.g., "Global" or "Material: 2")
                     split_line = line.split(":", 2)
                     section_name = split_line[1].strip() + split_line[2].strip()[0]
-                    
+
                     #get material phase numbers
                     phase_number = int(section_name[-1])
                     self.material_ids.append(phase_number)
                     self.MatID2MatPropsBound[phase_number] = {}
-                
+
                 else:
                     # Split the line into property and value
                     if ":" in line:
@@ -60,7 +60,7 @@ class MatParams:
                         if phase_number == -1:
                             os.system("echo Input File error: get wrong phase index, please check your matvarbound.txt input file")
                             sys.exit(-1)
-                        
+
                         parts = line.split(":")
                         mat_prop_name = parts[0].strip()
                         mat_prop_value = ast.literal_eval(parts[1].strip())
@@ -82,7 +82,7 @@ class MatParams:
         varbound = np.array(varbound)
 
         return varbound
-    
+
 class Simulation:
     def __init__(self, sim_root, ex_data, job_name, sim_flag, n_jobs, mat_params: MatParams):
         self.sim_root = sim_root
@@ -105,7 +105,7 @@ class Simulation:
         self.n_phases = len(self.mat_params.material_ids) - 1 # 0 for global parameters
 
     def create_batch_job_script(self, job_index):
-        
+
         with open(f'{self.sample_files}/simulation_job.sh','r') as f:
             lines = f.readlines()
 
@@ -115,7 +115,7 @@ class Simulation:
         current_simulation_dir = f'{self.simulation_dir}_{job_index}'
         with open(f'{current_simulation_dir}/simulation_job_{job_index}.sh','w+') as f:
             f.writelines(new_lines)
- 
+
     def blackbox_multiphase(self, params):
         submitted = False
         while not submitted:
@@ -124,11 +124,11 @@ class Simulation:
             current_simulation_dir = f'{self.simulation_dir}_{job_index}'
             current_job_name = f'{self.base_job_name}_{job_index}'
             os.system(f'echo current directory: {current_simulation_dir}')
-            
+
             if not os.path.isdir(current_simulation_dir):
                 #create directory
                 self.create_job_dir(current_simulation_dir)
-                
+
                 for j, mat_id in enumerate(self.mat_params.material_ids):
                     if j == 0:
                         path = self.sample_files
@@ -142,7 +142,7 @@ class Simulation:
                 # submit simulation
                 self.submit_batch_job(f'{current_simulation_dir}/simulation_job_{job_index}.sh')
                 time.sleep(120)
-                
+
                 # check simulation status and wait until simulation finished
                 sim_running = True
                 while sim_running:
@@ -157,7 +157,7 @@ class Simulation:
                     self.remove_sim_files(f'{self.log_dir}/{current_job_name}-log*')
                     submitted = False
                     self.num_props = [0]
-                    continue    
+                    continue
                 # evaluate Simulation
                 sim_results = self.calcStressStrain(current_simulation_dir, current_job_name)
                 compare_func = self.sim_flag2compare_function[self.sim_flag]
@@ -181,15 +181,15 @@ class Simulation:
         len_sample_dir = len(os.listdir(source_dir))
         if not os.path.exists(dst_dir):
                 shutil.copytree(source_dir, dst_dir)
-        while len(os.listdir(dst_dir)) < len_sample_dir:    
+        while len(os.listdir(dst_dir)) < len_sample_dir:
             # gotta wait until all files are copied
             time.sleep(1)
         # some more waiting to make sure everything is complete
         time.sleep(10)
-    
+
     def remove_sim_files(self, path_to_remove) -> None:
         os.system(f'rm -rf {path_to_remove}')
-        time.sleep(10) 
+        time.sleep(10)
 
     def write_results_file(self, mad_time, mad_stress, mad, params, compare_func, time_stamp) -> None:
         f = open(self.log_dir + '/results.txt', 'a+')
@@ -232,7 +232,7 @@ class Simulation:
             except Exception as e:
                 print(f'whoops something went wrong: {e}')
                 stdout = None
-    
+
         # reshaping stdOutput to make it pandas readable
         try:
            lines = stdout.readlines()
@@ -263,7 +263,7 @@ class Simulation:
             else:
                 os.system(f"echo {e}")
                 sys.exit()
-            
+
         # check for successful completion of simulation
         if job_state == 'COMPLETED':
             # break while loop if completed
@@ -411,16 +411,16 @@ class Simulation:
             mad_time = 99999.
             mad_stress_strain = 99999
             return mad_time, mad_stress_strain, now
-        
-        
+
+
         experimental_df = pd.read_csv(f'{self.sample_files}/{self.ex_data}', sep='\t')
-        
+
         total_time = experimental_df['sim_time'].values[-1]
         max_sim_time = simulation_df['time'].values[-1]
         mad_time = (100 * (1 - max_sim_time / total_time))**2
         comp_df = experimental_df.merge(simulation_df, left_on='sim_time',
                                         right_on='time')  # merge dfs on time for comparison
-        
+
         if self.n_phases == 1:
             mad_stress = np.mean(np.abs(comp_df['stress_t'] - comp_df['Stress'])**2)
             sim_y_cols = ['Stress']
@@ -477,7 +477,7 @@ class Simulation:
             exp_total_stress_interp = np.interp(simulation_df['Strain'], experimental_df['strain_t'], experimental_df['stress_t'])
             exp_alpha_stress_interp = np.interp(simulation_df['Strain'], experimental_df['strain_t'], experimental_df['stress_alpha'])
             exp_beta_stress_interp = np.interp(simulation_df['Strain'], experimental_df['strain_t'], experimental_df['stress_beta'])
-        
+
             mad_stress_total = np.mean(np.abs(exp_total_stress_interp - simulation_df['Stress']))
             mad_stress_alpha = np.mean(np.abs(exp_alpha_stress_interp - simulation_df['Stress_Phase1']))
             mad_stress_beta = np.mean(np.abs(exp_beta_stress_interp - simulation_df['Stress_Phase2']))
@@ -550,7 +550,7 @@ class Simulation:
         plt.savefig(f'{self.images}/{fig_name}.png')
         plt.close()
 
-        
+
 
     @staticmethod
     def submit_batch_job(batch_file):
@@ -570,7 +570,7 @@ class Simulation:
                 mat_props = list(self.mat_params.MatID2MatPropsBound[0].keys()) + mat_props #global values
                 mat_props_values.extend(values[:self.num_props[1]]) # global values
             mat_props_values.extend(values[num_prev_props:num_prev_props+num_curr_props])
-        
+
 
         with open(f'{sample_path}/matdata.inp', 'r') as file:
                 lines = file.readlines()
@@ -647,7 +647,7 @@ class Optimize:
         self.algorithm_param = algorithm_param
         self.sim_flag = sim_flag
         self.n_jobs = n_jobs
-        
+
 
 
     def init_optimizer(self):
@@ -663,7 +663,7 @@ class Optimize:
                    algorithm_parameters=self.algorithm_param,
                    function_timeout=None)
         return model, blackbox_func
-    
+
 if __name__ == '__main__':
     # Get the arguments list
     ###############################
@@ -675,7 +675,7 @@ if __name__ == '__main__':
     # -n: n_jobs (int) number of simulations running cocurrently
     # --ex_data: 'filename.csv' (string) Must be located in sample_files
     ###############################
-    myopts, args = getopt.getopt(sys.argv[1:], "t:r:s:n:j:d:", ['ex_data='])
+    myopts, args = getopt.getopt(sys.argv[2:], "t:r:s:n:j:d:", ['ex_data='])
     ###############################
     # o == option
     # a == argument passed to the o
@@ -703,7 +703,7 @@ if __name__ == '__main__':
                 sys.exit(1)
     else:
         sys.exit()
-    
+
     #process mat params input file
     mat_params = MatParams(root=sim_root)
     varbound = mat_params.get_varbounds()
@@ -728,12 +728,12 @@ if __name__ == '__main__':
     os.system('echo optimizer initialized starting simulations now')
     if restart_flag == False:
         model.run(no_plot=True,
-                  progress_bar_stream = None, 
+                  progress_bar_stream = None,
                   save_last_generation_as = f'{sim_root}/logs/lastgeneration.npz',
                   set_function=ga.set_function_multiprocess(func, n_jobs=n_jobs))
     else:
         model.run(no_plot=True,
-                progress_bar_stream = None, 
+                progress_bar_stream = None,
                 start_generation=f'{sim_root}/logs/lastgeneration.npz',
                 set_function=ga.set_function_multiprocess(func, n_jobs=n_jobs))
     f = open(sim_root + '/logs/results.txt', 'w+')
