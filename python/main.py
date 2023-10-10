@@ -62,7 +62,9 @@ def write_jobconfig(sim_root, config):
 
 if __name__ == "__main__":
   #get current path
-  sim_root = '/home/rwth1393/GA-Calibration-Dev'
+  curr_path = os.getcwd()
+  sim_root = os.path.dirname(curr_path)
+  os.system(f"echo sim root: {sim_root}")
 
   #config simulation
   config = configparser.ConfigParser()
