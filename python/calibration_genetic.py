@@ -101,7 +101,7 @@ class Simulation:
             'tensile' : self.compare_exp2sim_tensile,
         }
         self.mat_params = mat_params
-        self.n_phases = len(mat_params)
+        self.n_phases = len(mat_params) - 1
 
     def create_batch_job_script(self, job_index):
 
@@ -128,17 +128,19 @@ class Simulation:
                 #create directory
                 self.create_job_dir(current_simulation_dir)
 
-                for j, mat_id in enumerate(self.mat_params.material_ids):
-                    if j == 0:
-                        path = self.sample_files
-                    else:
-                        path = current_simulation_dir
-                    # create matdata.inp file according to params
-                    self.manipulate_matdata(path, current_simulation_dir, mat_id, phase_index=j, values=params)
+                for j, mat_id in enumerate(self.mat_params.keys()):
+                    if j > 0:
+                        if j == 1:
+                            path = self.sample_files
+                        else:
+                            path = current_simulation_dir
+                        # create matdata.inp file according to params
+                        self.manipulate_matdata(path, current_simulation_dir, mat_id, phase_index=j, values=params)
 
                 # create batch script
                 self.create_batch_job_script(job_index=job_index)
                 # submit simulation
+                sys.exit()
                 self.submit_batch_job(f'{current_simulation_dir}/simulation_job_{job_index}.sh')
                 time.sleep(120)
 
@@ -558,81 +560,78 @@ class Simulation:
 
     def manipulate_matdata(self, sample_path:str, current_sim_dir:str, id:int, phase_index:int, values):
         # Manipulate matdata.inp file according to optimizer
-        num_prev_props = np.sum(self.num_props)
-        mat_props = list(self.mat_params.MatID2MatPropsBound[id].keys())
-        num_curr_props = len(mat_props)
-        if phase_index == 0:
+        # num_prev_props = np.sum(self.num_props)
+        mat_props = self.mat_params[0]
+        mat_props.extend(self.mat_params[id])
+        # num_curr_props = len(mat_props)
+        if phase_index == 1:
             mat_props_values = values[:len(mat_props)]
         else:
-            mat_props_values = []
-            if len(self.mat_params.MatID2MatPropsBound[0]) > 0:
-                mat_props = list(self.mat_params.MatID2MatPropsBound[0].keys()) + mat_props #global values
-                mat_props_values.extend(values[:self.num_props[1]]) # global values
-            mat_props_values.extend(values[num_prev_props:num_prev_props+num_curr_props])
-
+            mat_props_values = [values[0]]
+            mat_props_values.extend(values[-(len(mat_props) - 1):])
 
         with open(f'{sample_path}/matdata.inp', 'r') as file:
                 lines = file.readlines()
-        if id > 0:
-            temp_lines = [line.replace(" ", "") for line in lines]
-            first_line = temp_lines.index(f'<:Material:{int(id)}:>\n')
-            try:
-                last_line = temp_lines.index(f'<:Material:{int(id) + 1}:>\n')
-            except:
-                last_line = len(lines)
 
-            prop_index = 0
-            for i in range(first_line, last_line):
-                if 'pw_fl' in lines[i] and 'pw_fl' in mat_props:
-                    pw_fl = mat_props_values[prop_index]
-                    lines[i] = f'pw_fl : {np.round(pw_fl, 4)}\n'
-                    prop_index +=1
+        temp_lines = [line.replace(" ", "") for line in lines]
+        first_line = temp_lines.index(f'<:Material:{int(id)}:>\n')
+        try:
+            last_line = temp_lines.index(f'<:Material:{int(id) + 1}:>\n')
+        except:
+            last_line = len(lines)
 
-                elif 'shrt_0' in lines[i] and 'shrt_0' in mat_props:
-                    shrt_0 = mat_props_values[prop_index]
-                    lines[i] = f'shrt_0 : {np.round(shrt_0, 4)}\n'
-                    prop_index += 1
+        prop_index = 0
+        for i in range(first_line, last_line):
+            if 'pw_fl' in lines[i] and 'pw_fl' in mat_props:
+                pw_fl = mat_props_values[prop_index]
+                lines[i] = f'pw_fl : {np.round(pw_fl, 4)}\n'
+                prop_index +=1
 
-                elif 'hdrt_0' in lines[i] and 'hdrt_0' in mat_props:
-                    hdrt_0 = mat_props_values[prop_index]
-                    lines[i] = f'hdrt_0 : {np.round(hdrt_0, 4)}\n'
-                    prop_index += 1
+            elif 'shrt_0' in lines[i] and 'shrt_0' in mat_props:
+                shrt_0 = mat_props_values[prop_index]
+                lines[i] = f'shrt_0 : {np.round(shrt_0, 4)}\n'
+                prop_index += 1
 
-                elif 'crss_0' in lines[i] and 'crss_0' in mat_props:
-                    crss_0 = mat_props_values[prop_index]
-                    lines[i] = f'crss_0 : {np.round(crss_0, 4)}\n'
-                    prop_index += 1
+            elif 'hdrt_0' in lines[i] and 'hdrt_0' in mat_props:
+                hdrt_0 = mat_props_values[prop_index]
+                lines[i] = f'hdrt_0 : {np.round(hdrt_0, 4)}\n'
+                prop_index += 1
 
-                elif 'k' in lines[i] and 'k' in mat_props:
-                    k = mat_props_values[prop_index]
-                    lines[i] = f'k : {np.round(k, 4)}\n'
-                    prop_index += 1
+            elif 'crss_0' in lines[i] and 'crss_0' in mat_props:
+                crss_0 = mat_props_values[prop_index]
+                lines[i] = f'crss_0 : {np.round(crss_0, 4)}\n'
+                prop_index += 1
 
-                elif 'crss_s' in lines[i] and 'crss_s' in mat_props:
-                    crss_s = mat_props_values[prop_index]
-                    lines[i] = f'crss_s : {np.round(crss_s, 4)}\n'
-                    prop_index += 1
+            elif 'k' in lines[i] and 'k' in mat_props:
+                k = mat_props_values[prop_index]
+                lines[i] = f'k : {np.round(k, 4)}\n'
+                prop_index += 1
 
-                elif 'pw_hd' in lines[i] and 'pw_hd' in mat_props:
-                    pw_hd = mat_props_values[prop_index]
-                    lines[i] = f'pw_hd : {np.round(pw_hd, 4)}\n'
-                    prop_index += 1
+            elif 'crss_s' in lines[i] and 'crss_s' in mat_props:
+                crss_s = mat_props_values[prop_index]
+                lines[i] = f'crss_s : {np.round(crss_s, 4)}\n'
+                prop_index += 1
 
-                elif 'Adir' in lines[i] and 'Adir' in mat_props:
-                    Adir = mat_props_values[prop_index]
-                    lines[i] = f'Adir : {np.round(Adir, 4)}\n'
-                    prop_index += 1
+            elif 'pw_hd' in lines[i] and 'pw_hd' in mat_props:
+                pw_hd = mat_props_values[prop_index]
+                lines[i] = f'pw_hd : {np.round(pw_hd, 4)}\n'
+                prop_index += 1
 
-                elif 'Adyn' in lines[i] and 'Adyn' in mat_props:
-                    Adyn = mat_props_values[prop_index]
-                    lines[i] = f'Adyn : {np.round(Adyn, 4)}\n'
-                    prop_index += 1
+            elif 'Adir' in lines[i] and 'Adir' in mat_props:
+                Adir = mat_props_values[prop_index]
+                lines[i] = f'Adir : {np.round(Adir, 4)}\n'
+                prop_index += 1
+
+            elif 'Adyn' in lines[i] and 'Adyn' in mat_props:
+                Adyn = mat_props_values[prop_index]
+                lines[i] = f'Adyn : {np.round(Adyn, 4)}\n'
+                prop_index += 1
 
         f = open(f'{current_sim_dir}/matdata.inp', 'w+')
         for line in lines:
             f.write(line)
         f.close()
-        self.num_props.append(num_curr_props)
+        # self.num_props.append(num_curr_props)
 
 class Optimize:
 

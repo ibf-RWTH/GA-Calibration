@@ -15,21 +15,25 @@ def parse_matparams(config:configparser.ConfigParser):
   varbound = []
   matparams = {}
   params_names = []
+
+  # add global params to varbound
+  for global_param in global_params:
+    global_param_value = ast.literal_eval(config.get('GlobalParams',global_param))
+
+    if global_param != "abaqus_id":
+      # check params type
+      if not isinstance(global_param_value, list):
+        os.system("echo config error: global params to be calibrated must be list")
+        sys.exit()
+
+      params_names.append(global_param)
+      # add global params
+      varbound.append(global_param_value)
+  matparams[0] = params_names
+  params_names = []
+
   for phase in phases:
     options = config.options(phase)
-    # add global params to varbound
-    for global_param in global_params:
-      global_param_value = ast.literal_eval(config.get('GlobalParams',global_param))
-
-      if global_param != "abaqus_id":
-        # check params type
-        if not isinstance(global_param_value, list):
-          os.system("echo config error: global params to be calibrated must be list")
-          sys.exit()
-
-        params_names.append(global_param)
-        # add global params
-        varbound.append(global_param_value)
 
     #add phase params to varbound
     for option in options:
@@ -56,7 +60,6 @@ def write_jobconfig(sim_root, config):
 
     jc.write("\n")
 
-
 if __name__ == "__main__":
   #get current path
   sim_root = '/home/rwth1393/GA-Calibration-Dev'
@@ -65,6 +68,8 @@ if __name__ == "__main__":
   config = configparser.ConfigParser()
   config.read(f'{sim_root}/configs/configs.ini')
   mat_params, varbound = parse_matparams(config)
+  print(mat_params)
+
   write_jobconfig(sim_root=sim_root, config=config)
   #initialize Optimizer
   algorithm_param = {'max_num_iteration': 100, \
