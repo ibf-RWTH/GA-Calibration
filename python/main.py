@@ -1,11 +1,12 @@
 import os
 import configparser
 import sys
-import ast 
+import ast
 import numpy as np
 from calibration_genetic import Simulation, Optimize
 import subprocess
 import json
+from geneticalgorithm2 import geneticalgorithm2 as ga
 
 def parse_matparams(config:configparser.ConfigParser):
   global_params = config.options('GlobalParams')
@@ -18,13 +19,13 @@ def parse_matparams(config:configparser.ConfigParser):
     # add global params to varbound
     for global_param in global_params:
       global_param_value = ast.literal_eval(config.get('GlobalParams',global_param))
-      
+
       if global_param != "abaqus_id":
         # check params type
         if not isinstance(global_param_value, list):
           os.system("echo config error: global params to be calibrated must be list")
           sys.exit()
-        
+
         matparams.append(global_param)
         # add global params
         varbound.append(global_param_value)
@@ -43,10 +44,13 @@ def parse_matparams(config:configparser.ConfigParser):
 
 def gen_cmd(config):
 
+  batch_cmd = {}
   batch_options = config.options('BatchSettings')
   cmd = 'sbatch'
   for opt in batch_options:
     cmd += f" --{opt}={config.get('BatchSettings', opt)}"
+    batch_cmd[opt] = config.get('BatchSettings', opt)
+
 
   conda_options = config.options('CondaSettings')
   with open("./configs/jobConfig.sh",'w+') as jc:
@@ -61,8 +65,9 @@ def gen_cmd(config):
     jc.write("export")
     for opt in job_options:
       jc.write(f' {opt}={config.get("JobSettings", opt)}')
+      batch_cmd[opt] = config.get('BatchSettings', opt)
 
-  return cmd
+  return batch_cmd
 
 if __name__ == "__main__":
   #get current path
@@ -81,30 +86,34 @@ if __name__ == "__main__":
                        'parents_portion': 0.3, \
                        'max_iteration_without_improv': None}
 
-  opt = Optimize(flag=config.get('JobSettings','test_flag'), 
-                 ex_data=config.get('JobSettings','ex_data'), 
-                 root=sim_root, 
-                 name=config.get('JobSettings','sim_job_base_name'), 
+  opt = Optimize(flag=config.get('JobSettings','test_flag'),
+                 ex_data=config.get('JobSettings','ex_data'),
+                 root=sim_root,
+                 name=config.get('JobSettings','sim_job_base_name'),
                  mat_params=mat_params,
-                 varbound=varbound, 
-                 algorithm_param=algorithm_param, 
-                 sim_flag=config.get('JobSettings','sim_type'), 
+                 varbound=varbound,
+                 algorithm_param=algorithm_param,
+                 sim_flag=config.get('JobSettings','sim_type'),
                  n_jobs = config.get('BatchSettings','ntasks'))
 
   model, func = opt.init_optimizer()
   os.system('echo optimizer initialized starting simulations now')
-  if restart_flag == False:
+  if not ast.literal_eval(config.get('JobSettings','restart_flag')):
       model.run(no_plot=True,
                 progress_bar_stream = None,
                 save_last_generation_as = f'{sim_root}/logs/lastgeneration.npz',
-                set_function=ga.set_function_multiprocess(func, n_jobs=n_jobs))
+                set_function=ga.set_function_multiprocess(func, n_jobs=ast.literal_eval(config.get('BatchSettings','ntasks'))))
   else:
       model.run(no_plot=True,
               progress_bar_stream = None,
               start_generation=f'{sim_root}/logs/lastgeneration.npz',
-              set_function=ga.set_function_multiprocess(func, n_jobs=n_jobs))
+              set_function=ga.set_function_multiprocess(func, n_jobs=ast.literal_eval(config.get('BatchSettings','ntasks'))))
 
   f = open(sim_root + '/logs/final_results.txt', 'w')
   json.dump(model.output_dict, f, indent=4)
-  
+
+
+
+
+
 
