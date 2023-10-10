@@ -68,7 +68,6 @@ if __name__ == "__main__":
   config = configparser.ConfigParser()
   config.read(f'{sim_root}/configs/configs.ini')
   mat_params, varbound = parse_matparams(config)
-  print(mat_params)
 
   write_jobconfig(sim_root=sim_root, config=config)
   #initialize Optimizer

@@ -140,7 +140,6 @@ class Simulation:
                 # create batch script
                 self.create_batch_job_script(job_index=job_index)
                 # submit simulation
-                sys.exit()
                 self.submit_batch_job(f'{current_simulation_dir}/simulation_job_{job_index}.sh')
                 time.sleep(120)
 
@@ -202,11 +201,11 @@ class Simulation:
         f.write(f'Error: {mad}\n')
         prop_index = 0
         phase_index = 0
-        for mat_props in mat_params.MatID2MatPropsBound.values():
-            if self.mat_params.material_ids[phase_index] == 0: #global parameters
+        for phase_id, mat_props in self.mat_params.items():
+            if phase_id == 0: #global parameters
                 f.write(f'global: ')
             else:
-                f.write(f'phase{self.mat_params.material_ids[phase_index]}: ')
+                f.write(f'phase{phase_id}: ')
             for mat_props_name in mat_props:
                 f.write(f'{mat_props_name}: {params[prop_index]}, ')
                 prop_index += 1
