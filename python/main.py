@@ -13,7 +13,8 @@ def parse_matparams(config:configparser.ConfigParser):
   phases = config.get('JobSettings','PHASES').split(',')
 
   varbound = []
-  matparams = []
+  matparams = {}
+  params_names = []
   for phase in phases:
     options = config.options(phase)
     # add global params to varbound
@@ -26,7 +27,7 @@ def parse_matparams(config:configparser.ConfigParser):
           os.system("echo config error: global params to be calibrated must be list")
           sys.exit()
 
-        matparams.append(global_param)
+        params_names.append(global_param)
         # add global params
         varbound.append(global_param_value)
 
@@ -35,49 +36,36 @@ def parse_matparams(config:configparser.ConfigParser):
       value = config.get(phase, option)
       if value.startswith('['):
         value = ast.literal_eval(value)
-        matparams.append(option)
+        params_names.append(option)
         varbound.append(value)
 
-    varbound = np.array(varbound)
+    phase_id = config.get(phase, 'abaqus_id')
+    matparams[phase_id] = params_names
+    params_names = []
 
-    return matparams, varbound
+  varbound = np.array(varbound)
+  return matparams, varbound
 
-def gen_cmd(config):
-
-  batch_cmd = {}
-  batch_options = config.options('BatchSettings')
-  cmd = 'sbatch'
-  for opt in batch_options:
-    cmd += f" --{opt}={config.get('BatchSettings', opt)}"
-    batch_cmd[opt] = config.get('BatchSettings', opt)
-
+def write_jobconfig(sim_root, config):
 
   conda_options = config.options('CondaSettings')
-  with open("./configs/jobConfig.sh",'w+') as jc:
+  with open(f"{sim_root}/configs/jobConfig.sh",'w+') as jc:
     jc.write("export")
     for opt in conda_options:
       jc.write(f' {opt}={config.get("CondaSettings", opt)}')
 
     jc.write("\n")
 
-  job_options = config.options('JobSettings')
-  with open("./configs/jobConfig.sh",'a+') as jc:
-    jc.write("export")
-    for opt in job_options:
-      jc.write(f' {opt}={config.get("JobSettings", opt)}')
-      batch_cmd[opt] = config.get('BatchSettings', opt)
-
-  return batch_cmd
 
 if __name__ == "__main__":
   #get current path
-  sim_root = os.getcwd()
+  sim_root = '/home/rwth1393/GA-Calibration-Dev'
 
   #config simulation
   config = configparser.ConfigParser()
   config.read(f'{sim_root}/configs/configs.ini')
   mat_params, varbound = parse_matparams(config)
-
+  write_jobconfig(sim_root=sim_root, config=config)
   #initialize Optimizer
   algorithm_param = {'max_num_iteration': 100, \
                        'population_size': 50, \

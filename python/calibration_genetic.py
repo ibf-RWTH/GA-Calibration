@@ -100,9 +100,8 @@ class Simulation:
             'cyclic' : self.compare_exp2sim_cyclic,
             'tensile' : self.compare_exp2sim_tensile,
         }
-        self.num_props = [0] #state variable to record num of material props for each phase, so that manipulate_data func knows the range of props to read
         self.mat_params = mat_params
-        self.n_phases = len(self.mat_params.material_ids) - 1 # 0 for global parameters
+        self.n_phases = len(mat_params)
 
     def create_batch_job_script(self, job_index):
 
@@ -653,8 +652,11 @@ class Optimize:
     def init_optimizer(self):
         sim_object = Simulation(sim_root=self.sim_root, ex_data=self.ex_data, mat_params=self.mat_params,
                                 job_name=self.job_name, sim_flag=self.sim_flag, n_jobs=self.n_jobs)
-        if len(self.mat_params.material_ids) > 1:
+        if len(self.mat_params) >= 1:
             blackbox_func = sim_object.blackbox_multiphase
+        else:
+            os.system("echo error: empty mat_params")
+            sys.exit()
 
         model = ga(function=blackbox_func,
                    dimension=len(self.varbound),
