@@ -14,6 +14,7 @@ import math
 from geneticalgorithm2 import geneticalgorithm2 as ga
 from io import StringIO
 import warnings
+import configparser
 
 warnings.simplefilter(action='ignore', category=FutureWarning)
 
@@ -664,78 +665,90 @@ class Optimize:
                    function_timeout=None)
         return model, blackbox_func
 
-if __name__ == '__main__':
-    # Get the arguments list
-    ###############################
-    # -t: test_flag   (boolean)
-    # -r: restart_flag (boolean)
-    # -j: job_name     (string)
-    # -d: sim_root   (string)
-    # -s: sim_flag   (string) cyclic cyclic loading tensile tensile test
-    # -n: n_jobs (int) number of simulations running cocurrently
-    # --ex_data: 'filename.csv' (string) Must be located in sample_files
-    ###############################
-    myopts, args = getopt.getopt(sys.argv[2:], "t:r:s:n:j:d:", ['ex_data='])
-    ###############################
-    # o == option
-    # a == argument passed to the o
-    ###############################
-    if len(myopts) > 0:
-        for o, a in myopts:
-            if o == '-t':
-                test_flag = json.loads(a.lower())
-            elif o == '-r':
-                restart_flag = json.loads(a.lower())
-            elif o == '-j':
-                job_name = str(a)
-            elif o == '-d':
-                sim_root = str(a)
-            elif o == '-s':
-                sim_flag = str(a)
-                # if sim_flag == 'tensile':
-                #     print("run tensile test simulation")
-            elif o == '-n':
-                n_jobs = int(a)
-            elif o == '--ex_data':
-                ex_data = str(a)
-            else:
-                print("Usage: %s -t test_flag -r restart_flag -j job_name -d sim_root --ex_data=filename.csv" % sys.argv[0])
-                sys.exit(1)
-    else:
+def parse_matparams(config:configparser.ConfigParser):
+  global_params = config.options('GlobalParams')
+  phases = config.get('JobSettings','PHASES').split(',')
+
+  varbound = []
+  matparams = {}
+  params_names = []
+
+  # add global params to varbound
+  for global_param in global_params:
+    global_param_value = ast.literal_eval(config.get('GlobalParams',global_param))
+
+    if global_param != "abaqus_id":
+      # check params type
+      if not isinstance(global_param_value, list):
+        os.system("echo config error: global params to be calibrated must be list")
         sys.exit()
 
-    #process mat params input file
-    mat_params = MatParams(root=sim_root)
-    varbound = mat_params.get_varbounds()
+      params_names.append(global_param)
+      # add global params
+      varbound.append(global_param_value)
+  matparams[0] = params_names
+  params_names = []
 
-    os.system('echo python script initialized with follwing input:')
-    os.system(f'echo restart: {restart_flag}')
-    os.system(f'echo job_name: {job_name}')
-    os.system(f'echo sim_root: {sim_root}')
-    os.system(f'echo sim_type: {sim_flag}')
+  for phase in phases:
+    options = config.options(phase)
 
-    algorithm_param = {'max_num_iteration': 100, \
+    #add phase params to varbound
+    for option in options:
+      value = config.get(phase, option)
+      if value.startswith('['):
+        value = ast.literal_eval(value)
+        params_names.append(option)
+        varbound.append(value)
+
+    phase_id = config.get(phase, 'abaqus_id')
+    matparams[phase_id] = params_names
+    params_names = []
+
+  varbound = np.array(varbound)
+  return matparams, varbound
+
+
+if __name__ == '__main__':
+    #get current path
+  curr_path = os.getcwd()
+  sim_root = os.path.dirname(curr_path)
+  os.system(f"echo sim root: {sim_root}")
+
+  #config simulation
+  config = configparser.ConfigParser()
+  config.read(f'{sim_root}/configs/configs.ini')
+  mat_params, varbound = parse_matparams(config)
+  #initialize Optimizer
+  algorithm_param = {'max_num_iteration': 100, \
                        'population_size': 50, \
                        'mutation_probability': 0.1, \
                        'elit_ratio': 0.1, \
                        'parents_portion': 0.3, \
                        'max_iteration_without_improv': None}
 
-    opt = Optimize(flag=test_flag, ex_data=ex_data, root=sim_root, name=job_name, mat_params=mat_params,
-                   varbound=varbound, algorithm_param=algorithm_param, sim_flag=sim_flag, n_jobs = n_jobs)
+  opt = Optimize(flag=config.get('JobSettings','test_flag'),
+                 ex_data=config.get('JobSettings','ex_data'),
+                 root=sim_root,
+                 name=config.get('JobSettings','sim_job_base_name'),
+                 mat_params=mat_params,
+                 varbound=varbound,
+                 algorithm_param=algorithm_param,
+                 sim_flag=config.get('JobSettings','sim_type'),
+                 n_jobs = config.get('BatchSettings','ntasks'))
 
-    model, func = opt.init_optimizer()
-    os.system('echo optimizer initialized starting simulations now')
-    if restart_flag == False:
-        model.run(no_plot=True,
-                  progress_bar_stream = None,
-                  save_last_generation_as = f'{sim_root}/logs/lastgeneration.npz',
-                  set_function=ga.set_function_multiprocess(func, n_jobs=n_jobs))
-    else:
-        model.run(no_plot=True,
+  model, func = opt.init_optimizer()
+  os.system('echo optimizer initialized starting simulations now')
+  if not ast.literal_eval(config.get('JobSettings','restart_flag')):
+      model.run(no_plot=True,
                 progress_bar_stream = None,
-                start_generation=f'{sim_root}/logs/lastgeneration.npz',
-                set_function=ga.set_function_multiprocess(func, n_jobs=n_jobs))
-    f = open(sim_root + '/logs/results.txt', 'w+')
-    f.write(model.output_dict)
-    f.close()
+                save_last_generation_as = f'{sim_root}/logs/lastgeneration.npz',
+                set_function=ga.set_function_multiprocess(func, n_jobs=ast.literal_eval(config.get('BatchSettings','ntasks'))))
+  else:
+      model.run(no_plot=True,
+              progress_bar_stream = None,
+              start_generation=f'{sim_root}/logs/lastgeneration.npz',
+              set_function=ga.set_function_multiprocess(func, n_jobs=ast.literal_eval(config.get('BatchSettings','ntasks'))))
+
+  f = open(sim_root + '/logs/final_results.txt', 'w')
+  json.dump(model.output_dict, f, indent=4)
+

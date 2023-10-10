@@ -70,8 +70,6 @@ if __name__ == "__main__":
   config = configparser.ConfigParser()
   config.read(f'{sim_root}/configs/configs.ini')
   mat_params, varbound = parse_matparams(config)
-
-  write_jobconfig(sim_root=sim_root, config=config)
   #initialize Optimizer
   algorithm_param = {'max_num_iteration': 100, \
                        'population_size': 50, \
