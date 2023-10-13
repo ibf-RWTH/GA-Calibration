@@ -123,14 +123,11 @@ class Simulation:
             job_index = str(time.time_ns())[-4:]
             current_simulation_dir = f'{self.simulation_dir}_{job_index}'
             current_job_name = f'{self.base_job_name}_{job_index}'
-            os.system(f'echo current directory: {current_simulation_dir}')
-
             if not os.path.isdir(current_simulation_dir):
                 #create directory
                 self.create_job_dir(current_simulation_dir)
                 if 'CP' in self.sim_type:
                     for j, mat_id in enumerate(self.mat_params.keys()):
-                        os.system(f'echo hello im here {j}, {mat_id}')
                         if j > 0:
                             if j == 1:
                                 path = self.sample_files
@@ -141,8 +138,6 @@ class Simulation:
                 elif 'Chaboche' in self.sim_type:
                     for j, mat_id in enumerate(self.mat_params.keys()):
                         keys = self.mat_params.keys()
-                        os.system(f'echo {keys}')
-                        os.system(f'echo {mat_id}')
                         self.manipulate_matdata(self.sample_files, current_simulation_dir, mat_id, phase_index=j+1, optiParams=params)
 
                 # create batch script
@@ -272,9 +267,6 @@ class Simulation:
             elif os.path.exists(f'{self.sim_root}/simulation_{job_name[-4:]}/00_Data'):
                 job_state = "PENDING"
             else:
-                os.system(f'echo {job_name}')
-                os.system(f'echo {job_state}')
-                
                 os.system(f"echo something went wrong I had to enter the else in the except: {e}")
                 sys.exit()
 
