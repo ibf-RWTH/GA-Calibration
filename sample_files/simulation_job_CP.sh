@@ -3,8 +3,6 @@
 # Read user variables
 source configs/SimJobConfig.sh
 module load $ABAQUS
-### Change (!) to your desired work directory
-cd $ROOT/simulation
 ### Create ABAQUS environment file for current job, you can set/add your own options (Python syntax)
 env_file=abaqus_v6.env
 cat << EOF > ${env_file}

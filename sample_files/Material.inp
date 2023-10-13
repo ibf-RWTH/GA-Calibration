@@ -4,7 +4,7 @@
 *Elastic
 210000., 0.3
 *Plastic, hardening=COMBINED, datatype=PARAMETERS, number backstresses=1
-%Sig_yield%, %C1%, %_gamma%
+%sig_yield%, %c1%, %_gamma%
 *Cyclic Hardening, parameters
-%Sig_yield%, %Q_inf%, %B%
+%sig_yield%, %q_inf%, %b%
 ** 

@@ -18,6 +18,7 @@ import configparser
 
 warnings.simplefilter(action='ignore', category=FutureWarning)
 
+
 class MatParams:
     MatID2MatProps = [
 
@@ -84,6 +85,7 @@ class MatParams:
 
         return varbound
 
+
 class Simulation:
     def __init__(self, sim_root, ex_data, job_name, sim_type, n_jobs, mat_params: MatParams):
         self.sim_root = sim_root
@@ -126,20 +128,27 @@ class Simulation:
             if not os.path.isdir(current_simulation_dir):
                 #create directory
                 self.create_job_dir(current_simulation_dir)
-
-                for j, mat_id in enumerate(self.mat_params.keys()):
-                    if j > 0:
-                        if j == 1:
-                            path = self.sample_files
-                        else:
-                            path = current_simulation_dir
-                        # create matdata.inp file according to params
-                        self.manipulate_matdata(path, current_simulation_dir, mat_id, phase_index=j, values=params)
+                if 'CP' in self.sim_type:
+                    for j, mat_id in enumerate(self.mat_params.keys()):
+                        os.system(f'echo hello im here {j}, {mat_id}')
+                        if j > 0:
+                            if j == 1:
+                                path = self.sample_files
+                            else:
+                                path = current_simulation_dir
+                            # create matdata.inp file according to params
+                            self.manipulate_matdata(path, current_simulation_dir, mat_id, phase_index=j, optiParams=params)
+                elif 'Chaboche' in self.sim_type:
+                    for j, mat_id in enumerate(self.mat_params.keys()):
+                        keys = self.mat_params.keys()
+                        os.system(f'echo {keys}')
+                        os.system(f'echo {mat_id}')
+                        self.manipulate_matdata(self.sample_files, current_simulation_dir, mat_id, phase_index=j+1, optiParams=params)
 
                 # create batch script
                 self.create_batch_job_script(job_index=job_index)
                 # submit simulation
-                self.submit_batch_job(f'{current_simulation_dir}/simulation_job_{job_index}.sh')
+                self.submit_batch_job(current_simulation_dir, f'simulation_job_{job_index}.sh', current_job_name)
                 time.sleep(120)
 
                 # check simulation status and wait until simulation finished
@@ -158,7 +167,11 @@ class Simulation:
                     self.num_props = [0]
                     continue
                 # evaluate Simulation
-                sim_results = self.calcStressStrain(current_simulation_dir, current_job_name)
+                if 'CP' in self.sim_type:
+                    sim_results = self.calcStressStrain(current_simulation_dir, current_job_name)
+                elif 'Chaboche' in self.sim_type:
+                    colNames = ['sim_time', 'sim_displacement', 'sim_force']
+                    sim_results = pd.read_csv(current_simulation_dir+'/RF_data.txt', names=colNames)
                 compare_func = self.sim_type2compare_function[self.sim_type]
                 mad1, mad2, time_stamp = compare_func(sim_results)
                 mad = mad1 + mad2
@@ -176,7 +189,7 @@ class Simulation:
 
     def create_job_dir(self, dst_dir)  -> None:
         # create Folder for next simulation
-        source_dir = f'{self.sim_root}/sample_files_{self.sim_type}_simulation'
+        source_dir = f'{self.sim_root}/sample_files_{str(self.sim_type).lower()}_simulation'
         len_sample_dir = len(os.listdir(source_dir))
         if not os.path.exists(dst_dir):
                 shutil.copytree(source_dir, dst_dir)
@@ -259,7 +272,10 @@ class Simulation:
             elif os.path.exists(f'{self.sim_root}/simulation_{job_name[-4:]}/00_Data'):
                 job_state = "PENDING"
             else:
-                os.system(f"echo {e}")
+                os.system(f'echo {job_name}')
+                os.system(f'echo {job_state}')
+                
+                os.system(f"echo something went wrong I had to enter the else in the except: {e}")
                 sys.exit()
 
         # check for successful completion of simulation
@@ -516,10 +532,45 @@ class Simulation:
 
     def compare_exp2sim_chaboche(self, simulation_df):
         # TODO: This part needs to be fixed
-        pass
+        # in order for this to work correctly make sure the time intervals in experiment and simulation are equal!!!
+        now = int(time.time())
+        if simulation_df.shape[0] < 5:
+            mad_time = 99999.
+            mad_stress_strain = 99999
+            return mad_time, mad_stress_strain, now
+
+
+        experimental_df = pd.read_csv(f'{self.sample_files}/{self.ex_data}')
+
+        total_time = experimental_df['time'].values[-1]
+        max_sim_time = simulation_df['sim_time'].values[-1]
+        mad_time = (100 * (1 - max_sim_time / total_time))**2
+        comp_df = experimental_df.merge(simulation_df, left_on='time',
+                                        right_on='sim_time')  # merge dfs on time for comparison
+
+        mad_force = np.mean(np.abs(comp_df['force'] - comp_df['sim_force'])*1000)
+        sim_y_cols = ['sim_force']
+        sim_x_cols = ['sim_time'] * len(sim_y_cols)
+        sim_labels = ['Simulation']
+
+        ex_y_cols = ['force']
+        ex_x_cols = ['time'] * len(ex_y_cols)
+        ex_labels = ['Experiment']
+
+        fig_name = f'Force_{now}'
+        x_label = "time (s)"
+        y_label = "Force (kN)"
+        self.plot_data2(fig_name=fig_name, x_label=x_label,y_label=y_label,
+                        sim_data=simulation_df, ex_data=experimental_df,
+                        sim_x_cols=sim_x_cols, sim_y_cols=sim_y_cols, sim_labels=sim_labels,
+                        ex_x_cols=ex_x_cols, ex_y_cols=ex_y_cols, ex_labels=ex_labels)
+        
+        return mad_time, mad_force, now
 
     def plot_data(self, fig_name, x_label, y_label, x1, y1, data_label_1, x2=None, y2=None, data_label_2=None):
         plt.plot(x1, y1, label=data_label_1)
+        if not os.path.isdir(self.images):
+            os.mkdir(self.images)
         if x2 is not None:
             assert (y2 is not None)
             assert (data_label_2 is not None)
@@ -533,6 +584,8 @@ class Simulation:
     def plot_data2(self, fig_name:str, x_label:str, y_label:str, sim_data:pd.DataFrame, ex_data:pd.DataFrame,
                    sim_x_cols:list, sim_y_cols:list, sim_labels:list,
                    ex_x_cols:list, ex_y_cols:list, ex_labels:list):
+        if not os.path.isdir(self.images):
+            os.mkdir(self.images)
         assert len(sim_x_cols) == len(sim_y_cols) and len(ex_x_cols) == len(ex_y_cols)
 
         sim_label_index = 0
@@ -551,12 +604,12 @@ class Simulation:
         plt.savefig(f'{self.images}/{fig_name}.png')
         plt.close()
 
-    def submit_batch_job(self):
+    def submit_batch_job(self, currentDir, file, jobName):
         sim_type = self.sim_type
         config = configparser.ConfigParser()
         config.read(f'{sim_root}/configs/configs.ini')
         account = config.get('JobSettings','account')
-        output = config.get('BatchSettings','output')
+        output = config.get('MainProcessSettings','output')+jobName+'-log.%J'
         time = config.get('JobSettings','time')
         memPerCpu = config.get('JobSettings','mem-per-cpu')
         nodes = config.get('JobSettings','nodes')
@@ -564,9 +617,9 @@ class Simulation:
 
         cmd = f'sbatch --job-name={jobName}'
         if account != 'None':
-            cmd += f'--account={account}'
+            cmd += f' --account={account}'
         cmd += f' --output={output} --time={time}' 
-        cmd += f'--mem-per-cpu={memPerCpu} --nodes={nodes} --ntasks={nTasks}  runBatch.sh'
+        cmd += f' --mem-per-cpu={memPerCpu} --nodes={nodes} --ntasks={nTasks}  {file}'
 
         abaqus = config.get('JobSettings','abaqus_version')
         memory = config.get('JobSettings','ABAQUS_MEM_ARG')
@@ -575,90 +628,65 @@ class Simulation:
         if 'CP' in sim_type:
             pythonPath = config.get('JobSettings','PYTHON_PATH')+'/readOdb_CP.py'
         elif 'Chaboche' in sim_type:
-            pythonPath = config.get('JobSettings','PYTHON_PATH')+'/readOdb_Chaboch.py'
+            pythonPath = config.get('JobSettings','PYTHON_PATH')+'/readOdb_Chaboche.py'
         subroutine = config.get('JobSettings','SUBROUTINE_PATH')
         input = config.get('JobSettings', 'INPUTFILE')
-        f = open('./configs/SimJobConfig.sh', 'w+')
+        f = open(f'{currentDir}/SimJobConfig.sh', 'w+')
         f.write(f'ABAQUS={abaqus}\n')
         f.write(f'ABAQUS_MEM_ARG={memory}\n')
         f.write(f'THREADS_PER_MPI={threads}\n')
         f.write(f'ROOT={root}\n')
+        f.write(f'SIM_DIR={currentDir}\n')
         f.write(f'PYTHON_PATH={pythonPath}\n')
         f.write(f'SUBROUTINE_PATH={subroutine}\n')
+        f.write(f'JOBNAME={jobName}\n')
         f.write(f'INPUTFILE={input}\n')
-        f.close()      
+        f.close()
+        main_cwd = os.getcwd()      
+        os.chdir(currentDir)
         os.system(cmd)
+        os.chdir(main_cwd)
 
+    def manipulate_matdata(self, sample_path:str, current_sim_dir:str, id:int, phase_index:int, optiParams):
 
-    def manipulate_matdata(self, sample_path:str, current_sim_dir:str, id:int, phase_index:int, values):
+        """
+        sample_path: path to simulation sample files
+        current_sim_dir: directory path to current simulation
+        id: abaqus material id
+        phase_index: internal id starting with 1 going number of phases e.g. 2
+        optiParams: material parameters coming from optimizer
+        """
+
         # Manipulate matdata.inp file according to optimizer
         # num_prev_props = np.sum(self.num_props)
-        mat_props = self.mat_params[0]
-        mat_props.extend(self.mat_params[id])
+        constant_params = Utils.CONSTANTPARAMS
+        mat_params = Utils.EVALUATINGPARAMS
+        
         if 'CP' in self.sim_type:
+            mat_props_keys = mat_params[0] # Global Parameters keys/names
+            mat_props_keys.extend(mat_params[id]) # adding Parameter keys/names for current phase
             # num_curr_props = len(mat_props)
             if phase_index == 1:
-                mat_props_values = values[:len(mat_props)]
+                mat_props_values = optiParams[:len(mat_props_keys)]
             else:
-                mat_props_values = [values[0]]
-                mat_props_values.extend(values[-(len(mat_props) - 1):])
+                mat_props_values = [optiParams[0]]
+                mat_props_values.extend(optiParams[-(len(mat_props_keys) - 1):])
 
             with open(f'{sample_path}/matdata.inp', 'r') as file:
                     lines = file.readlines()
 
-            temp_lines = [line.replace(" ", "") for line in lines]
-            first_line = temp_lines.index(f'<:Material:{int(id)}:>\n')
-            try:
-                last_line = temp_lines.index(f'<:Material:{int(id) + 1}:>\n')
-            except:
-                last_line = len(lines)
-
-            prop_index = 0
-            for i in range(first_line, last_line):
-                if 'pw_fl' in lines[i] and 'pw_fl' in mat_props:
-                    pw_fl = mat_props_values[prop_index]
-                    lines[i] = f'pw_fl : {np.round(pw_fl, 4)}\n'
-                    prop_index +=1
-
-                elif 'shrt_0' in lines[i] and 'shrt_0' in mat_props:
-                    shrt_0 = mat_props_values[prop_index]
-                    lines[i] = f'shrt_0 : {np.round(shrt_0, 4)}\n'
-                    prop_index += 1
-
-                elif 'hdrt_0' in lines[i] and 'hdrt_0' in mat_props:
-                    hdrt_0 = mat_props_values[prop_index]
-                    lines[i] = f'hdrt_0 : {np.round(hdrt_0, 4)}\n'
-                    prop_index += 1
-
-                elif 'crss_0' in lines[i] and 'crss_0' in mat_props:
-                    crss_0 = mat_props_values[prop_index]
-                    lines[i] = f'crss_0 : {np.round(crss_0, 4)}\n'
-                    prop_index += 1
-
-                elif 'k' in lines[i] and 'k' in mat_props:
-                    k = mat_props_values[prop_index]
-                    lines[i] = f'k : {np.round(k, 4)}\n'
-                    prop_index += 1
-
-                elif 'crss_s' in lines[i] and 'crss_s' in mat_props:
-                    crss_s = mat_props_values[prop_index]
-                    lines[i] = f'crss_s : {np.round(crss_s, 4)}\n'
-                    prop_index += 1
-
-                elif 'pw_hd' in lines[i] and 'pw_hd' in mat_props:
-                    pw_hd = mat_props_values[prop_index]
-                    lines[i] = f'pw_hd : {np.round(pw_hd, 4)}\n'
-                    prop_index += 1
-
-                elif 'Adir' in lines[i] and 'Adir' in mat_props:
-                    Adir = mat_props_values[prop_index]
-                    lines[i] = f'Adir : {np.round(Adir, 4)}\n'
-                    prop_index += 1
-
-                elif 'Adyn' in lines[i] and 'Adyn' in mat_props:
-                    Adyn = mat_props_values[prop_index]
-                    lines[i] = f'Adyn : {np.round(Adyn, 4)}\n'
-                    prop_index += 1
+            prop_index_var = 0
+            prop_index_const = 0
+            for option in Utils.CONFIG.options(self.sim_type):
+                if option == 'abaqus_id':
+                    continue
+                if option in mat_props_keys:
+                    value = mat_props_values[prop_index_var]
+                    prop_index_var +=1
+                elif option in constant_params:
+                    value = constant_params[id][prop_index_const]
+                    prop_index_const +=1
+                lines = [line.replace(f'%{option}%{id}%', f'{np.round(value,4)}') for line in lines]
 
             f = open(f'{current_sim_dir}/matdata.inp', 'w+')
             for line in lines:
@@ -666,27 +694,30 @@ class Simulation:
             f.close()
             # self.num_props.append(num_curr_props)
         elif 'Chaboche' in self.sim_type:
-            # TODO: This part needs to be fixed
-            if phase_index == 1:
-                mat_props_values = values[:len(mat_props)]
-            else:
-                mat_props_values = [values[0]]
-                mat_props_values.extend(values[-(len(mat_props) - 1):])
+            # TODO: There are errors occuring in here.....
+            mat_props_values = optiParams
+            mat_props_keys = mat_params
+
             with open(f'{sample_path}/Material.inp', 'r') as file:
                 lines = file.readlines()
-            sig_yield = mat_props_values[prop_index]
-            C1 = 0
-            gamma = 0
-            Q_inf = 0
-            B = 0
-            new_lines = [line.replace('%Sig_yield%', f'{sig_yield}') for line in lines]
-            new_lines = [line.replace('%C1%', f'{C1}') for line in new_lines]
-            new_lines = [line.replace('%_gamma%', f'{gamma}') for line in new_lines]
-            new_lines = [line.replace('%Q_inf%', f'{Q_inf}') for line in new_lines]
-            new_lines = [line.replace('%B%', f'{B}') for line in new_lines]
-            with open(f'{current_sim_dir}/Material.inp','w+') as f:
-                f.writelines(new_lines)
+            prop_index_var = 0
+            prop_index_const = 0
+            for option in Utils.CONFIG.options(self.sim_type):
+                if option == 'abaqus_id':
+                    continue
+                if option in mat_props_keys[id]:
+                    value = mat_props_values[prop_index_var]
+                    prop_index_var +=1
+                elif option in constant_params[id]:
+                    value = constant_params[id][option]
+                    prop_index_const +=1
+                lines = [line.replace(f'%{option}%', f'{np.round(value,4)}') for line in lines]
 
+            f = open(f'{current_sim_dir}/Material.inp','w+')
+            f.writelines(lines)
+            f.close()
+
+                
 
 class Optimize:
 
@@ -695,7 +726,7 @@ class Optimize:
         self.ex_data = ex_data
         self.sim_root = root
         self.job_name = name
-        self.mat_params = mat_params
+        self.mat_params = Utils.EVALUATINGPARAMS
         self.varbound = varbound
         self.algorithm_param = algorithm_param
         self.sim_type = sim_type
@@ -704,6 +735,7 @@ class Optimize:
     def init_optimizer(self):
         sim_object = Simulation(sim_root=self.sim_root, ex_data=self.ex_data, mat_params=self.mat_params,
                                 job_name=self.job_name, sim_type=self.sim_type, n_jobs=self.n_jobs)
+        
         if len(self.mat_params) >= 1:
             blackbox_func = sim_object.blackbox
         else:
@@ -723,15 +755,16 @@ class Parser:
     def __init__(self, sim_type) -> None:
         self.sim_type = sim_type
 
-    def parse_matparams(self, config:configparser.ConfigParser):
+    def parse_matparams(self):
+        config = Utils.CONFIG
+        varbound = []
+        constantParams = {}
+        matparams = {}
+        params_names = []
         phases = config.get('JobSettings','PHASES').split(',')
         if 'CP' in self.sim_type:
             global_params = config.options('GlobalParams')
             
-            varbound = []
-            matparams = {}
-            params_names = []
-
             # add global params to varbound
             for global_param in global_params:
                 global_param_value = ast.literal_eval(config.get('GlobalParams',global_param))
@@ -749,8 +782,9 @@ class Parser:
             params_names = []
 
             for phase in phases:
+                phase_id = config.get(phase, 'abaqus_id')
                 options = config.options(phase)
-
+                constantParams[phase_id] = {}
                 #add phase params to varbound
                 for option in options:
                     value = config.get(phase, option)
@@ -758,75 +792,89 @@ class Parser:
                         value = ast.literal_eval(value)
                         params_names.append(option)
                         varbound.append(value)
+                    else:
+                        value = ast.literal_eval(value)
+                        constantParams[phase_id][option] = value
 
-                phase_id = config.get(phase, 'abaqus_id')
                 matparams[phase_id] = params_names
                 params_names = []
 
             varbound = np.array(varbound)
 
-        elif 'Chaoboche' in self.sim_type:
-            options = config.options(phase)
-            varbound = []
-            matparams = {}
-            params_names = []
+        elif 'Chaboche' in self.sim_type:
+            phase_id = config.get(phases[0], 'abaqus_id')
+            constantParams[phase_id] = {}
+            options = config.options(phases[0])
             #add phase params to varbound
             for option in options:
-                value = config.get(phase, option)
+                value = config.get(phases[0], option)
                 if value.startswith('['):
                     value = ast.literal_eval(value)
                     params_names.append(option)
                     varbound.append(value)
-            phase_id = config.get(phase, 'abaqus_id')
+                else:
+                    value = ast.literal_eval(value)
+                    constantParams[phase_id][option] = value
+
+            
             matparams[phase_id] = params_names
             varbound = np.array(varbound)
 
-        return matparams, varbound
-           
+        return constantParams, matparams, varbound
 
-
+class Utils:
+    CONFIG = None
+    CONSTANTPARAMS = None
+    EVALUATINGPARAMS = None       
 
 if __name__ == '__main__':
     #get current path
-  curr_path = os.getcwd()
-  sim_root = os.path.dirname(curr_path)
-  os.system(f"echo sim root: {sim_root}")
+    sim_root = os.getcwd()
+    os.system(f"echo sim root: {sim_root}")
 
-  #config simulation
-  config = configparser.ConfigParser()
-  config.read(f'{sim_root}/configs/configs.ini')
-  mat_params, varbound = Parser.parse_matparams(config)
-  #initialize Optimizer
-  algorithm_param = {'max_num_iteration': 100, \
-                       'population_size': 50, \
-                       'mutation_probability': 0.1, \
-                       'elit_ratio': 0.1, \
-                       'parents_portion': 0.3, \
-                       'max_iteration_without_improv': None}
+    #config simulation
+    config = configparser.ConfigParser()
+    config.read(f'{sim_root}/configs/configs.ini')
+    Utils.CONFIG = config
+    sim_Type = config.get('JobSettings','sim_type')
+    
+    constant_params, mat_params, varbound = Parser(sim_Type).parse_matparams()
+    
+    Utils.CONSTANTPARAMS = constant_params
+    Utils.EVALUATINGPARAMS = mat_params
 
-  opt = Optimize(flag=config.get('JobSettings','test_flag'),
-                 ex_data=config.get('JobSettings','ex_data'),
-                 root=sim_root,
-                 name=config.get('JobSettings','sim_job_base_name'),
-                 mat_params=mat_params,
-                 varbound=varbound,
-                 algorithm_param=algorithm_param,
-                 sim_type=config.get('JobSettings','sim_type'),
-                 n_jobs = config.get('BatchSettings','ntasks'))
+    #initialize Optimizer
+    algorithm_param = {'max_num_iteration': 100, \
+                        'population_size': 50, \
+                        'mutation_probability': 0.1, \
+                        'elit_ratio': 0.1, \
+                        'parents_portion': 0.3, \
+                        'max_iteration_without_improv': None}
 
-  model, func = opt.init_optimizer()
-  os.system('echo optimizer initialized starting simulations now')
-  if not ast.literal_eval(config.get('JobSettings','restart_flag')):
-      model.run(no_plot=True,
+    opt = Optimize(flag=config.get('JobSettings','test_flag'),
+                    ex_data=config.get('JobSettings','ex_data'),
+                    root=sim_root,
+                    name=config.get('JobSettings','sim_job_base_name'),
+                    mat_params=mat_params,
+                    varbound=varbound,
+                    algorithm_param=algorithm_param,
+                    sim_type=config.get('JobSettings','sim_type'),
+                    n_jobs = config.get('MainProcessSettings','ntasks'))
+
+    model, func = opt.init_optimizer()
+    os.system('echo optimizer initialized starting simulations now')
+    if not ast.literal_eval(config.get('JobSettings','restart_flag')):
+        model.run(no_plot=True,
+                    progress_bar_stream = None,
+                    save_last_generation_as = f'{sim_root}/logs/lastgeneration.npz',
+                    set_function=ga.set_function_multiprocess(func, n_jobs=ast.literal_eval(config.get('MainProcessSettings','ntasks'))))
+    else:
+        model.run(no_plot=True,
                 progress_bar_stream = None,
-                save_last_generation_as = f'{sim_root}/logs/lastgeneration.npz',
-                set_function=ga.set_function_multiprocess(func, n_jobs=ast.literal_eval(config.get('BatchSettings','ntasks'))))
-  else:
-      model.run(no_plot=True,
-              progress_bar_stream = None,
-              start_generation=f'{sim_root}/logs/lastgeneration.npz',
-              set_function=ga.set_function_multiprocess(func, n_jobs=ast.literal_eval(config.get('BatchSettings','ntasks'))))
+                start_generation=f'{sim_root}/logs/lastgeneration.npz',
+                set_function=ga.set_function_multiprocess(func, n_jobs=ast.literal_eval(config.get('MainProcessSettings','ntasks'))))
 
-  f = open(sim_root + '/logs/final_results.txt', 'w')
-  json.dump(model.output_dict, f, indent=4)
+    f = open(sim_root + '/logs/final_results.txt', 'w')
+    json.dump(model.output_dict, f, indent=4)
+
 

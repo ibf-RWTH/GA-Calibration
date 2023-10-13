@@ -5070,30 +5070,8 @@ LINK, Werkzeug_Unten.RP, Werkzeug_Oben.RP
 ** Constraint: Werkzeug_Unten
 *Rigid Body, ref node=Werkzeug_Unten.RP, analytical surface=Werkzeug_Unten.Surface, position=CENTER OF MASS
 *End Assembly
-*Amplitude, name=Amplitude, smooth=0.
-             0.,              0.,              1.,              1.,              2.,              0.,              3.,             -1.
-             4.,              0.,              5.,              1.,              6.,              0.,              7.,             -1.
-             8.,              0.,              9.,              1.,             10.,              0.,             11.,             -1.
-            12.,              0.,             13.,              1.,             14.,              0.,             15.,             -1.
-            16.,              0.,             17.,              1.,             18.,              0.,             19.,             -1.
-            20.,              0.,             21.,              1.,             22.,              0.,             23.,             -1.
-            24.,              0.,             25.,              1.,             26.,              0.,             27.,             -1.
-            28.,              0.,             29.,              1.,             30.,              0.,             31.,             -1.
-            32.,              0.,             33.,              1.,             34.,              0.,             35.,             -1.
-            36.,              0.,             37.,              1.,             38.,              0.,             39.,             -1.
-            40.,              0.,             41.,              1.,             42.,              0.,             43.,             -1.
-            44.,              0.,             45.,              1.,             46.,              0.,             47.,             -1.
-            48.,              0.,             49.,              1.,             50.,              0.,             51.,             -1.
-            52.,              0.,             53.,              1.,             54.,              0.,             55.,             -1.
-            56.,              0.,             57.,              1.,             58.,              0.,             59.,             -1.
-            60.,              0.,             61.,              1.,             62.,              0.,             63.,             -1.
-            64.,              0.,             65.,              1.,             66.,              0.,             67.,             -1.
-            68.,              0.,             69.,              1.,             70.,              0.,             71.,             -1.
-            72.,              0.,             73.,              1.,             74.,              0.,             75.,             -1.
-            76.,              0.,             77.,              1.,             78.,              0.,             79.,             -1.
-            80.,              0.
-*Amplitude, name=Amplitude_2, smooth=0.
-             0.,              0.,           0.001,              1.
+** Amplitude Definition
+*Include, Input=amp.inp
 ** 
 ** MATERIALS
 ** 
@@ -5150,19 +5128,19 @@ Blech_1.Blech, Werkzeug_Unten.Surface
 ** 
 *Step, name=Bewegung, nlgeom=YES, inc=1000000
 *Dynamic
-0.02,80.,1e-15,0.5
+0.02,35.,1e-15,1.
 ** 
 ** BOUNDARY CONDITIONS
 ** 
 ** Name: Werkzeug_Oben Type: Displacement/Rotation
 *Boundary, amplitude=Amplitude
 Werkzeug_Oben.RP, 1, 1
-Werkzeug_Oben.RP, 2, 2, -15.
+Werkzeug_Oben.RP, 2, 2, 1.
 Werkzeug_Oben.RP, 6, 6
 ** Name: Werkzeug_Unten Type: Displacement/Rotation
 *Boundary, amplitude=Amplitude
 Werkzeug_Unten.RP, 1, 1
-Werkzeug_Unten.RP, 2, 2, -15.
+Werkzeug_Unten.RP, 2, 2, 1.
 Werkzeug_Unten.RP, 6, 6
 ** 
 ** CONTROLS
@@ -5177,13 +5155,13 @@ Werkzeug_Unten.RP, 6, 6
 ** 
 ** FIELD OUTPUT: F-Output-1
 ** 
-*Output, field, time interval=0.1
+*Output, field, time interval=0.5
 *Node Output
 RT, UT
 ** 
 ** HISTORY OUTPUT: H-Output-1
 ** 
-*Output, history, time interval=0.025
+*Output, history, time interval=0.5
 *Energy Output
 ALLIE, ALLKE, ETOTAL
 *End Step

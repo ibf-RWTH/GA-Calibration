@@ -1,11 +1,8 @@
 #!/usr/local_rwth/bin/zsh
-
 # Read user variables
-source configs/SimJobConfig.sh
+source SimJobConfig.sh
 module load $ABAQUS
-### Change (!) to your desired work directory
-cd $ROOT/simulation
-### Create ABAQUS environment file for current job, you can set/add your own options (Python syntax)
+### Create ABAQUS environment file
 env_file=abaqus_v6.env
 cat << EOF > ${env_file}
 #verbose = 3
@@ -21,7 +18,6 @@ rm -f *$JOBNAME*.* 2>/dev/null
 rm -f abaqus.r* 2>/dev/null
 sleep 5
 setopt -o NOMATCH
-### Execute your application
-### Please remember, to adjust the memory, it must be less than requested above
-abaqus interactive job=$JOBNAME input=$INPUTFILE cpus=$SLURM_NTASKS  memory="$ABAQUS_MEM_ARG"
-abaqus cae noGUI=$PYTHON_PATH -- $PWD $JOBNAME
+#
+abaqus interactive job=$JOBNAME input=$INPUTFILE cpus=$SLURM_NTASKS double=both
+abaqus cae noGUI=$ROOT/$PYTHON_PATH -- $SIM_DIR $JOBNAME
