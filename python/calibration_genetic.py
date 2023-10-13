@@ -822,8 +822,7 @@ if __name__ == '__main__':
     os.system(f"echo sim root: {sim_root}")
     if not os.path.isdir(f'{sim_root}/evaluation_images'):
         os.mkdir(f'{sim_root}/evaluation_images')
-    if not os.path.isdir(f'{sim_root}/logs'):
-        os.mkdir(f'{sim_root}/logs')
+    
     #config simulation
     config = configparser.ConfigParser()
     config.read(f'{sim_root}/configs/configs.ini')

@@ -24,6 +24,7 @@ f.write(f'CONDA_ENV={condaEnv}\n')
 f.write(f'PYTHONCODE={pythoncode}\n')
 f.write(f'ROOT={os.getcwd()}')
 f.close()
-
+if not os.path.isdir(f'{os.getcwd()}/logs'):
+        os.mkdir(f'{os.getcwd()}/logs')
 # run batch file
 os.system(f"sbatch --job-name={jobName} --output={output} --time={time} --mem-per-cpu={memPerCpu} --nodes={nodes} --ntasks={ntasks} runBatch.sh")
