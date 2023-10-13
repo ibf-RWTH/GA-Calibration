@@ -561,8 +561,7 @@ class Simulation:
 
     def plot_data(self, fig_name, x_label, y_label, x1, y1, data_label_1, x2=None, y2=None, data_label_2=None):
         plt.plot(x1, y1, label=data_label_1)
-        if not os.path.isdir(self.images):
-            os.mkdir(self.images)
+
         if x2 is not None:
             assert (y2 is not None)
             assert (data_label_2 is not None)
@@ -576,8 +575,6 @@ class Simulation:
     def plot_data2(self, fig_name:str, x_label:str, y_label:str, sim_data:pd.DataFrame, ex_data:pd.DataFrame,
                    sim_x_cols:list, sim_y_cols:list, sim_labels:list,
                    ex_x_cols:list, ex_y_cols:list, ex_labels:list):
-        if not os.path.isdir(self.images):
-            os.mkdir(self.images)
         assert len(sim_x_cols) == len(sim_y_cols) and len(ex_x_cols) == len(ex_y_cols)
 
         sim_label_index = 0
@@ -823,7 +820,10 @@ if __name__ == '__main__':
     #get current path
     sim_root = os.getcwd()
     os.system(f"echo sim root: {sim_root}")
-
+    if not os.path.isdir(f'{sim_root}/evaluation_images'):
+        os.mkdir(f'{sim_root}/evaluation_images')
+    if not os.path.isdir(f'{sim_root}/logs'):
+        os.mkdir(f'{sim_root}/logs')
     #config simulation
     config = configparser.ConfigParser()
     config.read(f'{sim_root}/configs/configs.ini')
