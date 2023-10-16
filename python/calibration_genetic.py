@@ -838,13 +838,21 @@ if __name__ == '__main__':
     Utils.CONSTANTPARAMS = constant_params
     Utils.EVALUATINGPARAMS = mat_params
 
+    # read algortithm Parameters from config
+    max_iters = config.get('AlgorithmParameters','max_iters')
+    population_size = config.get('AlgorithmParameters','max_iters')
+    mutation_probability = config.get('AlgorithmParameters','max_iters')
+    elit_ratio = config.get('AlgorithmParameters','max_iters')
+    parents_portion = config.get('AlgorithmParameters','max_iters')
+    max_iteration_without_improv = config.get('AlgorithmParameters','max_iters')
+
     #initialize Optimizer
-    algorithm_param = {'max_num_iteration': 100, \
-                        'population_size': 50, \
-                        'mutation_probability': 0.1, \
-                        'elit_ratio': 0.1, \
-                        'parents_portion': 0.3, \
-                        'max_iteration_without_improv': None}
+    algorithm_param = {'max_num_iteration': max_iters, \
+                        'population_size': population_size, \
+                        'mutation_probability': mutation_probability, \
+                        'elit_ratio': elit_ratio, \
+                        'parents_portion': parents_portion, \
+                        'max_iteration_without_improv': max_iteration_without_improv}
 
     opt = Optimize(flag=config.get('JobSettings','test_flag'),
                     ex_data=config.get('JobSettings','ex_data'),
