@@ -35,6 +35,7 @@ if not os.path.isdir(logs_path):
         os.mkdir(f'{os.getcwd()}/logs')
 elif os.path.isdir(logs_path) and len(os.listdir(logs_path)) > 0:
         os.system(f'rm -r {os.getcwd()}/logs/*log*')
+elif os.path.isdir(logs_path) and len(os.listdir(logs_path)) > 0:
         os.system(f'rm -r {os.getcwd()}/logs/*txt')
 # run batch file
 os.system(f"sbatch --job-name={jobName} --output={output} --time={time} --mem-per-cpu={memPerCpu} --nodes={nodes} --ntasks={ntasks} runBatch.sh")
