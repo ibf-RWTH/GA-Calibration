@@ -5128,7 +5128,7 @@ Blech_1.Blech, Werkzeug_Unten.Surface
 ** 
 *Step, name=Bewegung, nlgeom=YES, inc=1000000
 *Dynamic
-0.02,350.,1e-15,1.
+0.02,175.,1e-15,1.
 ** 
 ** BOUNDARY CONDITIONS
 ** 
