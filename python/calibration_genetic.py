@@ -3,11 +3,7 @@ import sys, getopt
 import time
 import numpy as np
 import pandas as pd
-<<<<<<< HEAD
-
-=======
 import ast
->>>>>>> development
 pd.options.mode.chained_assignment = None  # default='warn'
 import shutil
 import matplotlib.pyplot as plt
@@ -17,19 +13,6 @@ import json
 import math
 from geneticalgorithm2 import geneticalgorithm2 as ga
 from io import StringIO
-<<<<<<< HEAD
-import portalocker
-import warnings
-
-warnings.simplefilter(action='ignore', category=FutureWarning)
-
-class Simulation:
-    def __init__(self, sim_root, ex_data, material_id, job_name, sim_flag, n_jobs):
-        self.sim_root = sim_root
-        self.ex_data = ex_data
-        self.material_id = material_id
-        self.subroutine_dir = f'{self.sim_root}/subroutine'
-=======
 import warnings
 import configparser
 
@@ -107,7 +90,6 @@ class Simulation:
     def __init__(self, sim_root, ex_data, job_name, sim_type, n_jobs, mat_params: MatParams):
         self.sim_root = sim_root
         self.ex_data = ex_data
->>>>>>> development
         self.subroutine_dir = f'{self.sim_root}/subroutine'
         self.simulation_dir = f'{self.sim_root}/simulation'
         self.sample_files = f'{self.sim_root}/sample_files'
@@ -116,29 +98,6 @@ class Simulation:
         self.base_job_name = job_name
         self.job_name = job_name
         self.n_jobs = n_jobs
-<<<<<<< HEAD
-        self.n_phases = len(material_id)
-        self.sim_flag = sim_flag
-        self.sim_flag2compare_function = {
-            'cyclic' : self.compare_exp2sim_cyclic,
-            'tensile' : self.compare_exp2sim_tensile_dual_phase,
-        }
-
-
-    def create_batch_job_script(self, job_index):
-        
-        with open(f'{self.sample_files}/simulation_job.sh','r') as f:
-            lines = f.readlines()
-
-        new_lines = [line.replace(f'{job_name}', f'{job_name}_{job_index}') for line in lines]
-        new_lines = [line.replace('simulation', f'simulation_{job_index}') for line in new_lines]
-        
-        current_simulation_dir = f'{self.simulation_dir}_{job_index}'
-        with open(f'{current_simulation_dir}/simulation_job_{job_index}.sh','w+') as f:
-            f.writelines(new_lines)
- 
-    def blackbox_multiphase2(self, params):
-=======
         self.sim_type = sim_type
         self.sim_type2compare_function = {
             'CP_cyclic' : self.compare_exp2sim_cyclic,
@@ -158,34 +117,12 @@ class Simulation:
         shutil.copy(source, destination)
 
     def blackbox(self, params):
->>>>>>> development
         submitted = False
         while not submitted:
             # define path variables
             job_index = str(time.time_ns())[-4:]
             current_simulation_dir = f'{self.simulation_dir}_{job_index}'
             current_job_name = f'{self.base_job_name}_{job_index}'
-<<<<<<< HEAD
-            os.system(f'echo current directory: {current_simulation_dir}')
-            
-            if not os.path.isdir(current_simulation_dir):
-                #create directory
-                self.create_job_dir(current_simulation_dir)
-                
-                for j, mat_id in enumerate(self.material_id):
-                    if j == 0:
-                        path = self.sample_files
-                    else:
-                        path = current_simulation_dir
-                    # create matdata.inp file according to params
-                    self.manipulate_matdata2(path, current_simulation_dir, mat_id, phase_index=j, values=params)
-                # create batch script
-                self.create_batch_job_script(job_index=job_index)
-                # submit simulation
-                self.submit_batch_job(f'{current_simulation_dir}/simulation_job_{job_index}.sh')
-                time.sleep(120)
-                
-=======
             if not os.path.isdir(current_simulation_dir):
                 #create directory
                 self.create_job_dir(current_simulation_dir)
@@ -209,7 +146,6 @@ class Simulation:
                 self.submit_batch_job(current_simulation_dir, f'simulation_job_{job_index}.sh', current_job_name)
                 time.sleep(120)
 
->>>>>>> development
                 # check simulation status and wait until simulation finished
                 sim_running = True
                 while sim_running:
@@ -223,13 +159,6 @@ class Simulation:
                     #if complete_status:
                     self.remove_sim_files(f'{self.log_dir}/{current_job_name}-log*')
                     submitted = False
-<<<<<<< HEAD
-                    continue    
-                # evaluate Simulation
-                sim_results = self.calcStressStrain(current_simulation_dir, current_job_name)
-                #sim_results.to_csv('sim_results.csv')
-                compare_func = self.sim_flag2compare_function[self.sim_flag]
-=======
                     self.num_props = [0]
                     continue
                 # evaluate Simulation
@@ -239,7 +168,6 @@ class Simulation:
                     colNames = ['sim_time', 'sim_displacement', 'sim_force']
                     sim_results = pd.read_csv(current_simulation_dir+'/RF_data.txt', names=colNames)
                 compare_func = self.sim_type2compare_function[self.sim_type]
->>>>>>> development
                 mad1, mad2, time_stamp = compare_func(sim_results)
                 mad = mad1 + mad2
                 # write results to files and delete simulation files
@@ -256,33 +184,15 @@ class Simulation:
 
     def create_job_dir(self, dst_dir)  -> None:
         # create Folder for next simulation
-<<<<<<< HEAD
-        source_dir = f'{self.sim_root}/sample_files_{self.sim_flag}_simulation'
-        len_sample_dir = len(os.listdir(source_dir))
-        if not os.path.exists(dst_dir):
-                shutil.copytree(source_dir, dst_dir)
-        while len(os.listdir(dst_dir)) < len_sample_dir:    
-=======
         source_dir = f'{self.sim_root}/sample_files_{str(self.sim_type).lower()}_simulation'
         len_sample_dir = len(os.listdir(source_dir))
         if not os.path.exists(dst_dir):
                 shutil.copytree(source_dir, dst_dir)
         while len(os.listdir(dst_dir)) < len_sample_dir:
->>>>>>> development
             # gotta wait until all files are copied
             time.sleep(1)
         # some more waiting to make sure everything is complete
         time.sleep(10)
-<<<<<<< HEAD
-    
-    def remove_sim_files(self, path_to_remove) -> None:
-        os.system(f'rm -rf {path_to_remove}')
-        time.sleep(10) 
-
-    def write_results_file(self, mad_time, mad_stress, mad, params, compare_func, time_stamp) -> None:
-        f = open(self.log_dir + '/results.txt', 'a+')
-        f.write(f'simulation type: {self.sim_flag}\n')
-=======
 
     def remove_sim_files(self, path_to_remove) -> None:
         os.system(f'rm -rf {path_to_remove}')
@@ -291,7 +201,6 @@ class Simulation:
     def write_results_file(self, mad_time, mad_stress, mad, params, compare_func, time_stamp) -> None:
         f = open(self.log_dir + '/results.txt', 'a+')
         f.write(f'simulation type: {self.sim_type}\n')
->>>>>>> development
         f.write(f'Compute Error Using: {compare_func}\n')
         f.write(f'time_Stamp: {time_stamp}\n')
         f.write(f'Error_Time: {mad_time}\n')
@@ -299,16 +208,11 @@ class Simulation:
         f.write(f'Error: {mad}\n')
         prop_index = 0
         phase_index = 0
-<<<<<<< HEAD
-        for mat_props in MatID2MatPropsBound.values():
-            f.write(f'phase{self.material_id[phase_index]}: ')
-=======
         for phase_id, mat_props in self.mat_params.items():
             if phase_id == 0: #global parameters
                 f.write(f'global: ')
             else:
                 f.write(f'phase{phase_id}: ')
->>>>>>> development
             for mat_props_name in mat_props:
                 f.write(f'{mat_props_name}: {params[prop_index]}, ')
                 prop_index += 1
@@ -318,10 +222,6 @@ class Simulation:
         f.write('############################################################\n')
         f.close()
 
-<<<<<<< HEAD
-
-=======
->>>>>>> development
     def check_sim_status(self, job_name):
         # This will call a shell output in linux to ask for the job status
         stdout = None
@@ -338,11 +238,6 @@ class Simulation:
             except Exception as e:
                 print(f'whoops something went wrong: {e}')
                 stdout = None
-<<<<<<< HEAD
-    
-=======
-
->>>>>>> development
         # reshaping stdOutput to make it pandas readable
         try:
            lines = stdout.readlines()
@@ -360,11 +255,6 @@ class Simulation:
         extern_state = df.loc[df['JobName']=='extern','State'].values[-1]
         try:
             job_state = df.loc[df['JobName']== f'{job_name}','State'].values[-1]
-<<<<<<< HEAD
-        except:
-            job_state == "PENDING"
-            
-=======
         except Exception as e:
             if os.path.exists(f'{self.sim_root}/simulation_{job_name[-4:]}/{job_name}.sta'):
                 with open(f'{self.sim_root}/simulation_{job_name[-4:]}/{job_name}.sta','r') as f:
@@ -379,7 +269,6 @@ class Simulation:
                 os.system(f"echo something went wrong I had to enter the else in the except: {e}")
                 sys.exit()
 
->>>>>>> development
         # check for successful completion of simulation
         if job_state == 'COMPLETED':
             # break while loop if completed
@@ -527,27 +416,15 @@ class Simulation:
             mad_time = 99999.
             mad_stress_strain = 99999
             return mad_time, mad_stress_strain, now
-<<<<<<< HEAD
-        
-        
-        experimental_df = pd.read_csv(f'{self.sample_files}/{self.ex_data}', sep='\t')
-        
-=======
 
 
         experimental_df = pd.read_csv(f'{self.sample_files}/{self.ex_data}', sep='\t')
 
->>>>>>> development
         total_time = experimental_df['sim_time'].values[-1]
         max_sim_time = simulation_df['time'].values[-1]
         mad_time = (100 * (1 - max_sim_time / total_time))**2
         comp_df = experimental_df.merge(simulation_df, left_on='sim_time',
                                         right_on='time')  # merge dfs on time for comparison
-<<<<<<< HEAD
-        
-        if self.n_phases == 1:
-            mad_stress = np.mean(np.abs(comp_df['stress_t'] - comp_df['Stress'])**2)
-=======
 
         if self.n_phases == 1:
             mad_stress = np.mean(np.abs(comp_df['stress_t'] - comp_df['Stress'])**2)
@@ -566,17 +443,12 @@ class Simulation:
                             sim_data=simulation_df, ex_data=experimental_df,
                             sim_x_cols=sim_x_cols, sim_y_cols=sim_y_cols, sim_labels=sim_labels,
                             ex_x_cols=ex_x_cols, ex_y_cols=ex_y_cols, ex_labels=ex_labels)
->>>>>>> development
 
         elif self.n_phases == 2:
             mad_stress_total = np.mean(np.abs(comp_df['stress_t'] - comp_df['Stress']))
             mad_stress_phase1 = np.mean(np.abs(comp_df['Stress_Phase1_t'] - comp_df['Stress_Phase1_y']))
             mad_stress_phase2 = np.mean(np.abs(comp_df['Stress_Phase2_t'] - comp_df['Stress_Phase2_y']))
-<<<<<<< HEAD
-            mad_stress = (mad_stress_phase1 + mad_stress_phase2 + mad_stress_total) / 3
-=======
             mad_stress = (0.8 * mad_stress_phase1 + 0.2 * mad_stress_phase2 + mad_stress_total) / 3
->>>>>>> development
 
             self.plot_data(f'stress_vs_time_phase_1_{now}', 'time ( s )', 'Stress ( MPa )',
                            comp_df['sim_time'], comp_df['Stress_Phase1_t'], 'Experimental Data phase 1',
@@ -586,47 +458,21 @@ class Simulation:
                            comp_df['sim_time'], comp_df['Stress_Phase2_t'], 'Experimental Data phase 2',
                            comp_df['time_y'], comp_df['Stress_Phase2_y'], 'Simulation Data phase 2')
 
-<<<<<<< HEAD
-        self.plot_data(f'hysteresis_{now}', 'Strain ( - )', 'Stress (MPa)',
-                       comp_df['strain'], comp_df['stress_t'], 'Experimental Data',
-                       comp_df['Strain'], comp_df['Stress'], 'Simulation Data')
-=======
         # self.plot_data(f'hysteresis_{now}', 'Strain ( - )', 'Stress (MPa)',
         #                comp_df['strain'], comp_df['stress_t'], 'Experimental Data',
         #                comp_df['Strain'], comp_df['Stress'], 'Simulation Data')
->>>>>>> development
 
 
         return mad_time, mad_stress, now
 
-<<<<<<< HEAD
-    def compare_exp2sim_tensile_dual_phase(self, simulation_df):
-        assert self.n_phases == 2
-=======
     def compare_exp2sim_tensile(self, simulation_df):
         assert self.n_phases == 2 or self.n_phases == 1
->>>>>>> development
         now = int(time.time())
         if simulation_df.shape[0] < 5:
             mad_time = 99999.
             mad_stress_strain = 99999
             return mad_time, mad_stress_strain, now
 
-<<<<<<< HEAD
-        experimental_df = pd.read_csv(f'{self.sample_files}/ex_data_tensile.csv', sep=',') #needs change later
-        max_exp_strain = experimental_df['strain_t'].max()
-        max_sim_strain = simulation_df['Strain'].max()
-
-        exp_total_stress_interp = np.interp(simulation_df['Strain'], experimental_df['strain_t'], experimental_df['stress_t'])
-        exp_alpha_stress_interp = np.interp(simulation_df['Strain'], experimental_df['strain_t'], experimental_df['stress_alpha'])
-        exp_beta_stress_interp = np.interp(simulation_df['Strain'], experimental_df['strain_t'], experimental_df['stress_beta'])
-    
-        mad_stress_total = np.mean(np.abs(exp_total_stress_interp - simulation_df['Stress'])**2 / exp_total_stress_interp) * 100
-        mad_stress_alpha = np.mean(np.abs(exp_alpha_stress_interp - simulation_df['Stress'])**2 / exp_alpha_stress_interp) * 100
-        mad_stress_beta = np.mean(np.abs(exp_beta_stress_interp - simulation_df['Stress'])**2 / exp_beta_stress_interp) * 100
-        mad_strain_total = (abs(1 - max_sim_strain / max_exp_strain) * 100) **2
-        mad_stress = (mad_stress_total + mad_stress_alpha + mad_stress_beta)/3
-=======
         experimental_df = pd.read_csv(f'{self.sample_files}/{self.ex_data}', sep=',')
         max_exp_strain = experimental_df['strain_t'].max()
         max_sim_strain = simulation_df['Strain'].max()
@@ -664,29 +510,10 @@ class Simulation:
             ex_y_cols = ['stress_t']
             ex_x_cols = ['strain_t'] * len(ex_y_cols)
             ex_labels = ['Experiment']
->>>>>>> development
 
         fig_name = f'stress_strain_{now}'
         x_label = "Strain"
         y_label = "Stress(MPa)"
-<<<<<<< HEAD
-        plt.plot(experimental_df['strain_t'].values, experimental_df['stress_t'].values, label='Experiment_Total')
-        plt.plot(experimental_df['strain_t'].values, experimental_df['stress_alpha'].values, label='Experiment_Alpha')
-        plt.plot(experimental_df['strain_t'].values, experimental_df['stress_beta'].values, label='Experiment_Beta')
-        plt.plot(simulation_df['Strain'].values, simulation_df['Stress'].values, label='Simulation_Total')
-        plt.plot(simulation_df['Strain_Phase1'].values, simulation_df['Stress_Phase1'].values, label='Simulation_Alpha')
-        plt.plot(simulation_df['Strain_Phase2'].values, simulation_df['Stress_Phase2'].values, label='Simulation_Beta')
-        plt.xlabel(xlabel=x_label)
-        plt.ylabel(ylabel=y_label)
-        plt.legend()
-        plt.savefig(f'{self.images}/{fig_name}.png')
-        plt.close()
-
-        return mad_strain_total, mad_stress, now
-
-    def plot_data(self, fig_name, x_label, y_label, x1, y1, data_label_1, x2=None, y2=None, data_label_2=None):
-        plt.plot(x1, y1, label=data_label_1)
-=======
         self.plot_data2(fig_name=fig_name, x_label=x_label,y_label=y_label,
                         sim_data=simulation_df, ex_data=experimental_df,
                         sim_x_cols=sim_x_cols, sim_y_cols=sim_y_cols, sim_labels=sim_labels,
@@ -734,7 +561,6 @@ class Simulation:
     def plot_data(self, fig_name, x_label, y_label, x1, y1, data_label_1, x2=None, y2=None, data_label_2=None):
         plt.plot(x1, y1, label=data_label_1)
 
->>>>>>> development
         if x2 is not None:
             assert (y2 is not None)
             assert (data_label_2 is not None)
@@ -745,89 +571,6 @@ class Simulation:
         plt.savefig(f'{self.images}/{fig_name}.png')
         plt.close()
 
-<<<<<<< HEAD
-    @staticmethod
-    def submit_batch_job(batch_file):
-        os.system(f'sbatch {batch_file}')
-
-
-    def manipulate_matdata2(self, sample_path, current_sim_dir, id, phase_index, values):
-        # Manipulate matdata.inp file according to optimizer
-        mat_props = MatID2MatProps[id]
-        if phase_index == 0:
-            mat_props_values = values[:len(mat_props)]
-        else:
-            mat_props_values = values[len(values) - len(mat_props):]
-        # os.system(f'echo phase_index: {id}')
-        # os.system(f'echo values len: {len(values)}')
-        # os.system(f'echo num props: {len(mat_props_values)}')
-        # os.system(f'echo mat_props len : {len(mat_props)}')
-        with open(f'{sample_path}/matdata.inp', 'r') as file:
-            lines = file.readlines()
-
-        temp_lines = [line.replace(" ", "") for line in lines]
-        first_line = temp_lines.index(f'<:Material:{int(id)}:>\n')
-        try:
-            last_line = temp_lines.index(f'<:Material:{int(id) + 1}:>\n')
-        except:
-            last_line = len(lines)
-
-        prop_index = 0
-        for i in range(first_line, last_line):
-            if 'pw_fl' in lines[i] and 'pw_fl' in mat_props:
-                pw_fl = mat_props_values[prop_index]
-                lines[i] = f'pw_fl : {np.round(pw_fl, 4)}\n'
-                prop_index +=1
-
-            elif 'shrt_0' in lines[i] and 'shrt_0' in mat_props:
-                shrt_0 = mat_props_values[prop_index]
-                lines[i] = f'shrt_0 : {np.round(shrt_0, 4)}\n'
-                prop_index += 1
-
-            elif 'hdrt_0' in lines[i] and 'hdrt_0' in mat_props:
-                hdrt_0 = mat_props_values[prop_index]
-                lines[i] = f'hdrt_0 : {np.round(hdrt_0, 4)}\n'
-                prop_index += 1
-
-            elif 'crss_0' in lines[i] and 'crss_0' in mat_props:
-                crss_0 = mat_props_values[prop_index]
-                lines[i] = f'crss_0 : {np.round(crss_0, 4)}\n'
-                prop_index += 1
-
-            elif 'k' in lines[i] and 'k' in mat_props:
-                k = mat_props_values[prop_index]
-                lines[i] = f'k : {np.round(k, 4)}\n'
-                prop_index += 1
-
-            elif 'crss_s' in lines[i] and 'crss_s' in mat_props:
-                crss_s = mat_props_values[prop_index]
-                lines[i] = f'crss_s : {np.round(crss_s, 4)}\n'
-                prop_index += 1
-
-            elif 'pw_hd' in lines[i] and 'pw_hd' in mat_props:
-                pw_hd = mat_props_values[prop_index]
-                lines[i] = f'pw_hd : {np.round(pw_hd, 4)}\n'
-                prop_index += 1
-
-            elif 'Adir' in lines[i] and 'Adir' in mat_props:
-                Adir = mat_props_values[prop_index]
-                lines[i] = f'Adir : {np.round(Adir, 4)}\n'
-                prop_index += 1
-
-            elif 'Adyn' in lines[i] and 'Adyn' in mat_props:
-                Adyn = mat_props_values[prop_index]
-                lines[i] = f'Adyn : {np.round(Adyn, 4)}\n'
-                prop_index += 1
-
-        f = open(f'{current_sim_dir}/matdata.inp', 'w+')
-        for line in lines:
-            f.write(line)
-        f.close()
-
-class Optimize:
-
-    def __init__(self, flag, ex_data, root, name, mat_id, varbound, algorithm_param, sim_flag, n_jobs):
-=======
     def plot_data2(self, fig_name:str, x_label:str, y_label:str, sim_data:pd.DataFrame, ex_data:pd.DataFrame,
                    sim_x_cols:list, sim_y_cols:list, sim_labels:list,
                    ex_x_cols:list, ex_y_cols:list, ex_labels:list):
@@ -967,26 +710,10 @@ class Optimize:
 class Optimize:
 
     def __init__(self, flag, ex_data, root, name, mat_params, varbound, algorithm_param, sim_type, n_jobs):
->>>>>>> development
         self.test_flag = flag
         self.ex_data = ex_data
         self.sim_root = root
         self.job_name = name
-<<<<<<< HEAD
-        self.material_id = mat_id
-        self.varbound = varbound
-        self.algorithm_param = algorithm_param
-        self.sim_flag = sim_flag
-        self.n_jobs = n_jobs
-        
-
-
-    def init_optimizer(self):
-        sim_object = Simulation(sim_root=self.sim_root, ex_data=self.ex_data, material_id=self.material_id,
-                                job_name=self.job_name, sim_flag=self.sim_flag, n_jobs=self.n_jobs)
-        if len(self.material_id) > 1:
-            blackbox_func = sim_object.blackbox_multiphase2
-=======
         self.mat_params = Utils.EVALUATINGPARAMS
         self.varbound = varbound
         self.algorithm_param = algorithm_param
@@ -1002,7 +729,6 @@ class Optimize:
         else:
             os.system("echo error: empty mat_params")
             sys.exit()
->>>>>>> development
 
         model = ga(function=blackbox_func,
                    dimension=len(self.varbound),
@@ -1011,153 +737,6 @@ class Optimize:
                    algorithm_parameters=self.algorithm_param,
                    function_timeout=None)
         return model, blackbox_func
-<<<<<<< HEAD
-    
-    def delete_old_job_dirs(self) -> None:
-        for i in range(self.n_jobs):
-            if os.path.exists(f'{self.sim_root}/simulation_{i}'):
-                print (f'deleting old job dir: {self.sim_root}/simulation_{i}')
-                shutil.rmtree(f'{self.sim_root}/simulation_{i}')
-                while os.path.exists(f'{self.sim_root}/simulation_{i}'):
-                    time.sleep(0.1)
-            time.sleep(2)
-    
-    def create_job_dirs(self)  -> None:
-        # create Folder for next simulation
-        source_dir = f'{self.sim_root}/sample_files_{self.sim_flag}_simulation'
-        len_sample_dir = len(os.listdir(source_dir))
-        for i in range (self.n_jobs):
-            dst_dir = f'{self.sim_root}/simulation_{i}'
-            # gotta catch parallelism errors by checking again if other core has created dir before
-            if not os.path.exists(dst_dir):
-                shutil.copytree(source_dir, dst_dir)
-            time.sleep(5)
-
-
-def get_material_varbound(material_ids: list) -> np.ndarray:
-    """
-    return varbound for calibration based on material ids
-    """
-    varbound = []
-    for mat_id in material_ids:
-        if mat_id in MatID2MatProps:
-            mat_props_bounds = MatID2MatPropsBound[mat_id]
-            for value in mat_props_bounds.values():
-                varbound.append(value)
-    varbound = np.array(varbound)
-    return varbound
-
-if __name__ == '__main__':
-    # Get the arguments list
-    ###############################
-    # -t: test_flag   (boolean)
-    # -r: restart_flag (boolean)
-    # -j: job_name     (string)
-    # -d: sim_root   (string)
-    # -s: sim_flag   (string) cyclic cyclic loading tensile tensile test
-    # -n: n_jobs (int) number of simulations running cocurrently
-    # --ex_data: 'filename.csv' (string) Must be located in sample_files
-    ###############################
-    myopts, args = getopt.getopt(sys.argv[1:], "t:r:s:n:j:d:", ['ex_data='])
-    ###############################
-    # o == option
-    # a == argument passed to the o
-    ###############################
-    if len(myopts) > 0:
-        for o, a in myopts:
-            if o == '-t':
-                test_flag = json.loads(a.lower())
-            elif o == '-r':
-                restart_flag = json.loads(a.lower())
-            elif o == '-j':
-                job_name = str(a)
-            elif o == '-d':
-                sim_root = str(a)
-            elif o == '-s':
-                sim_flag = str(a)
-                # if sim_flag == 'tensile':
-                #     print("run tensile test simulation")
-            elif o == '-n':
-                n_jobs = int(a)
-            elif o == '--ex_data':
-                ex_data = str(a)
-            else:
-                print("Usage: %s -t test_flag -r restart_flag -j job_name -d sim_root --ex_data=filename.csv" % sys.argv[0])
-                sys.exit(1)
-    else:
-        sys.exit()
-    
-    # sample for all possible parameters
-    MatID2MatProps = {
-            1: ['pw_fl','brgvec','v0','rho_0','km1','km2','c3'], 
-            2: ['pw_fl','hdrt_0','crss_0','crss_s','pw_hd','Adir','Adyn','gam_c','pw_irr'],
-            3: ['pw_fl','shrt_0', 'crss_0','k','crss_s','pw_hd','Adir','Adyn','gam_c','pw_irr'],
-            4: ['pw_fl','shrt_0', 'crss_0','k','crss_s','pw_hd','Adir','Adyn','gam_c','pw_irr']
-        }
-    # these are default bound    
-    MatProp2Bound = {
-            'shrt_0': [0.001, 1000],
-            'pw_fl': [1, 100],
-            'hdrt_0': [80, 12000],
-            'crss_0': [1, 1900],
-            'crss_s': [10, 5000],
-            'pw_hd' : [1, 3],
-            'Adir': [0, 700],
-            'Adyn': [0, 300]
-    }
-    # choose phases and the varrying parameters for each phase here
-    material_id = [2, 3]
-    MatID2MatProps[2] = ['pw_fl','hdrt_0','crss_0','crss_s','pw_hd']
-    MatID2MatProps[3] = ['pw_fl','hdrt_0','crss_0','crss_s','pw_hd' ]
-
-    MatID2MatPropsBound = {}
-    for mat_id in material_id:
-        MatID2MatPropsBound[mat_id] = {}
-
-    for mat_id in material_id:
-        if mat_id in MatID2MatProps:
-            mat_props = MatID2MatProps[mat_id]
-            for mat_prop in mat_props:
-                MatID2MatPropsBound[mat_id][mat_prop] = MatProp2Bound[mat_prop]
-
-    #set material properties bound for each phase MatID2MatPropsBound[phase_id][prop_name]
-    # MatID2MatPropsBound[2]['hdrt_0'] = [800, 1199]
-    
-    varbound = get_material_varbound(material_id)
-    # #print(varbound.shape)
-    
-    os.system('echo python script initialized with follwing input:')
-    os.system(f'echo restart: {restart_flag}')
-    os.system(f'echo job_name: {job_name}')
-    os.system(f'echo sim_root: {sim_root}')
-    os.system(f'echo sim_type: {sim_flag}')
-
-    algorithm_param = {'max_num_iteration': 100, \
-                       'population_size': 50, \
-                       'mutation_probability': 0.1, \
-                       'elit_ratio': 0.1, \
-                       'parents_portion': 0.3, \
-                       'max_iteration_without_improv': None}
-
-    opt = Optimize(flag=test_flag, ex_data=ex_data, root=sim_root, name=job_name, mat_id=material_id,
-                   varbound=varbound, algorithm_param=algorithm_param, sim_flag=sim_flag, n_jobs = n_jobs)
-
-    model, func = opt.init_optimizer()
-    os.system('echo optimizer initialized starting simulations now')
-    if restart_flag == False:
-        model.run(no_plot=True,
-                  progress_bar_stream = None, 
-                  save_last_generation_as = f'{sim_root}/logs/lastgeneration.npz',
-                  set_function=ga.set_function_multiprocess(func, n_jobs=n_jobs))
-    else:
-        model.run(no_plot=True,
-                progress_bar_stream = None, 
-                start_generation=f'{sim_root}/logs/lastgeneration.npz',
-                set_function=ga.set_function_multiprocess(func, n_jobs=n_jobs))
-    f = open(sim_root + '/logs/results.txt', 'w+')
-    f.write(model.output_dict)
-    f.close()
-=======
 
 
 class Parser:
@@ -1289,4 +868,3 @@ if __name__ == '__main__':
     json.dump(model.output_dict, f, indent=4)
 
 
->>>>>>> development
