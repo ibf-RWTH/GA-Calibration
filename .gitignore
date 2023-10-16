@@ -165,9 +165,6 @@ logs/*
 !logs/results.txt
 !logs/*.npz
 python/test.py
-<<<<<<< HEAD
-=======
 configs.ini
 jobConfig.sh
 
->>>>>>> development
