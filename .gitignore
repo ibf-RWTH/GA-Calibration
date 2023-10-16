@@ -162,8 +162,8 @@ cython_debug/
 simulation*/
 evaluation_images/*
 logs/*
-!logs/results.txt
-!logs/*.npz
+logs/results.txt
+logs/*.npz
 python/test.py
 configs.ini
 jobConfig.sh
