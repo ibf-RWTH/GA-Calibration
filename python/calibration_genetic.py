@@ -585,7 +585,12 @@ class Simulation:
         for x, y in zip(ex_x_cols, ex_y_cols):
             plt.plot(ex_data[x].values, ex_data[y].values, label = ex_labels[ex_label_index])
             ex_label_index += 1
-
+        x_min = 0
+        x_max = max(ex_data[x].values)
+        y_min = min(ex_data[y].values)*1.2
+        y_max = max(ex_data[y].values)*1.2
+        plt.xlim(x_min,x_max)
+        plt.ylim(y_min,y_max)
         plt.xlabel(x_label)
         plt.ylabel(y_label)
         plt.legend()
