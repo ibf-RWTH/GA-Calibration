@@ -540,6 +540,8 @@ class Simulation:
                                         right_on='sim_time')  # merge dfs on time for comparison
 
         mad_force = np.mean(np.abs(comp_df['force'] - comp_df['sim_force'])*1000)
+        
+        # Plot time sequence
         sim_y_cols = ['sim_force']
         sim_x_cols = ['sim_time'] * len(sim_y_cols)
         sim_labels = ['Simulation']
@@ -549,13 +551,23 @@ class Simulation:
         ex_labels = ['Experiment']
 
         fig_name = f'Force_{now}'
-        x_label = "time (s)"
+        x_label = "Time (s)"
         y_label = "Force (kN)"
         self.plot_data2(fig_name=fig_name, x_label=x_label,y_label=y_label,
                         sim_data=simulation_df, ex_data=experimental_df,
                         sim_x_cols=sim_x_cols, sim_y_cols=sim_y_cols, sim_labels=sim_labels,
                         ex_x_cols=ex_x_cols, ex_y_cols=ex_y_cols, ex_labels=ex_labels)
         
+        # Plot Hysteresis
+        sim_x_cols = ['sim_displacement'] * len(sim_y_cols)
+        ex_x_cols = ['displacement'] * len(ex_y_cols)
+        fig_name = f'Hysteresis_{now}'
+        x_label = 'Displacement (mm)'
+
+        self.plot_data2(fig_name=fig_name, x_label=x_label,y_label=y_label,
+                        sim_data=simulation_df, ex_data=experimental_df,
+                        sim_x_cols=sim_x_cols, sim_y_cols=sim_y_cols, sim_labels=sim_labels,
+                        ex_x_cols=ex_x_cols, ex_y_cols=ex_y_cols, ex_labels=ex_labels)
         return mad_time, mad_force, now
 
     def plot_data(self, fig_name, x_label, y_label, x1, y1, data_label_1, x2=None, y2=None, data_label_2=None):
@@ -839,12 +851,12 @@ if __name__ == '__main__':
     Utils.EVALUATINGPARAMS = mat_params
 
     # read algortithm Parameters from config
-    max_iters = config.get('AlgorithmParameters','max_iters')
-    population_size = config.get('AlgorithmParameters','max_iters')
-    mutation_probability = config.get('AlgorithmParameters','max_iters')
-    elit_ratio = config.get('AlgorithmParameters','max_iters')
-    parents_portion = config.get('AlgorithmParameters','max_iters')
-    max_iteration_without_improv = config.get('AlgorithmParameters','max_iters')
+    max_iters = ast.literal_eval(config.get('AlgorithmParameters','max_iters'))
+    population_size = ast.literal_eval(config.get('AlgorithmParameters','population_size'))
+    mutation_probability = ast.literal_eval(config.get('AlgorithmParameters','mutation_probability'))
+    elit_ratio = ast.literal_eval(config.get('AlgorithmParameters','elit_ratio'))
+    parents_portion = ast.literal_eval(config.get('AlgorithmParameters','parents_portion'))
+    max_iteration_without_improv = ast.literal_eval(config.get('AlgorithmParameters','max_iteration_without_improv'))
 
     #initialize Optimizer
     algorithm_param = {'max_num_iteration': max_iters, \
