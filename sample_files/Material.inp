@@ -1,0 +1,10 @@
+*Material, name=Stahl
+*Density
+ 7.8e-09,
+*Elastic
+210000., 0.3
+*Plastic, hardening=COMBINED, datatype=PARAMETERS, number backstresses=1
+%sig_yield%, %c1%, %_gamma%
+*Cyclic Hardening, parameters
+%sig_yield%, %q_inf%, %b%
+** 
