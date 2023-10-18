@@ -411,7 +411,7 @@ class Simulation:
     def compare_exp2sim_cyclic(self, simulation_df):
         assert self.n_phases == 1 or self.n_phases == 2, 'more than two phases are not yet supported'
         # in order for this to work correctly make sure the time intervals in experiment and simulation are equal!!!
-        now = int(time.time())
+        now = int(time.time_ns())
         if simulation_df.shape[0] < 5:
             mad_time = 99999.
             mad_stress_strain = 99999
@@ -467,7 +467,7 @@ class Simulation:
 
     def compare_exp2sim_tensile(self, simulation_df):
         assert self.n_phases == 2 or self.n_phases == 1
-        now = int(time.time())
+        now = int(time.time_ns())
         if simulation_df.shape[0] < 5:
             mad_time = 99999.
             mad_stress_strain = 99999
@@ -524,7 +524,7 @@ class Simulation:
     def compare_exp2sim_chaboche(self, simulation_df):
         # TODO: This part needs to be fixed
         # in order for this to work correctly make sure the time intervals in experiment and simulation are equal!!!
-        now = int(time.time())
+        now = int(time.time_ns())
         if simulation_df.shape[0] < 5:
             mad_time = 99999.
             mad_stress_strain = 99999
