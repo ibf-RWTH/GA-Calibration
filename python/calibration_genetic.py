@@ -540,7 +540,7 @@ class Simulation:
                                         right_on='sim_time')  # merge dfs on time for comparison
 
         mad_force = np.mean(np.abs(comp_df['force'] - comp_df['sim_force'])*1000)
-        
+
         # Plot time sequence
         sim_y_cols = ['sim_force']
         sim_x_cols = ['sim_time'] * len(sim_y_cols)
@@ -557,7 +557,7 @@ class Simulation:
                         sim_data=simulation_df, ex_data=experimental_df,
                         sim_x_cols=sim_x_cols, sim_y_cols=sim_y_cols, sim_labels=sim_labels,
                         ex_x_cols=ex_x_cols, ex_y_cols=ex_y_cols, ex_labels=ex_labels)
-        
+
         # Plot Hysteresis
         sim_x_cols = ['sim_displacement'] * len(sim_y_cols)
         ex_x_cols = ['displacement'] * len(ex_y_cols)
@@ -623,7 +623,7 @@ class Simulation:
         cmd = f'sbatch --job-name={jobName}'
         if account != 'None':
             cmd += f' --account={account}'
-        cmd += f' --output={output} --time={time}' 
+        cmd += f' --output={output} --time={time}'
         cmd += f' --mem-per-cpu={memPerCpu} --nodes={nodes} --ntasks={nTasks}  {file}'
 
         abaqus = config.get('JobSettings','abaqus_version')
@@ -647,7 +647,7 @@ class Simulation:
         f.write(f'JOBNAME={jobName}\n')
         f.write(f'INPUTFILE={input}\n')
         f.close()
-        main_cwd = os.getcwd()      
+        main_cwd = os.getcwd()
         os.chdir(currentDir)
         os.system(cmd)
         os.chdir(main_cwd)
@@ -666,7 +666,7 @@ class Simulation:
         # num_prev_props = np.sum(self.num_props)
         constant_params = Utils.CONSTANTPARAMS
         mat_params = Utils.EVALUATINGPARAMS
-        
+
         if 'CP' in self.sim_type:
             mat_props_keys = mat_params[0] # Global Parameters keys/names
             mat_props_keys.extend(mat_params[id]) # adding Parameter keys/names for current phase
@@ -722,7 +722,7 @@ class Simulation:
             f.writelines(lines)
             f.close()
 
-                
+
 
 class Optimize:
 
@@ -740,7 +740,7 @@ class Optimize:
     def init_optimizer(self):
         sim_object = Simulation(sim_root=self.sim_root, ex_data=self.ex_data, mat_params=self.mat_params,
                                 job_name=self.job_name, sim_type=self.sim_type, n_jobs=self.n_jobs)
-        
+
         if len(self.mat_params) >= 1:
             blackbox_func = sim_object.blackbox
         else:
@@ -767,9 +767,10 @@ class Parser:
         matparams = {}
         params_names = []
         phases = config.get('JobSettings','PHASES').split(',')
+        os.system(f"echo {phases}")
         if 'CP' in self.sim_type:
             global_params = config.options('GlobalParams')
-            
+
             # add global params to varbound
             for global_param in global_params:
                 global_param_value = ast.literal_eval(config.get('GlobalParams',global_param))
@@ -821,7 +822,7 @@ class Parser:
                     value = ast.literal_eval(value)
                     constantParams[phase_id][option] = value
 
-            
+
             matparams[phase_id] = params_names
             varbound = np.array(varbound)
 
@@ -830,7 +831,7 @@ class Parser:
 class Utils:
     CONFIG = None
     CONSTANTPARAMS = None
-    EVALUATINGPARAMS = None       
+    EVALUATINGPARAMS = None
 
 if __name__ == '__main__':
     #get current path
@@ -838,15 +839,15 @@ if __name__ == '__main__':
     os.system(f"echo sim root: {sim_root}")
     if not os.path.isdir(f'{sim_root}/evaluation_images'):
         os.mkdir(f'{sim_root}/evaluation_images')
-    
+
     #config simulation
     config = configparser.ConfigParser()
     config.read(f'{sim_root}/configs/configs.ini')
     Utils.CONFIG = config
     sim_Type = config.get('JobSettings','sim_type')
-    
+
     constant_params, mat_params, varbound = Parser(sim_Type).parse_matparams()
-    
+
     Utils.CONSTANTPARAMS = constant_params
     Utils.EVALUATINGPARAMS = mat_params
 
