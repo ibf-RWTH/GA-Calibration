@@ -1,7 +1,7 @@
 #!/usr/local_rwth/bin/zsh
 
 # Read user variables
-source configs/SimJobConfig.sh
+source SimJobConfig.sh
 module load $ABAQUS
 ### Create ABAQUS environment file for current job, you can set/add your own options (Python syntax)
 env_file=abaqus_v6.env

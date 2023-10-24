@@ -18,76 +18,8 @@ import configparser
 
 warnings.simplefilter(action='ignore', category=FutureWarning)
 
-
-class MatParams:
-    MatID2MatProps = [
-
-            ['pw_fl','brgvec','v0','rho_0','km1','km2','c3','hdrt_0','crss_0','crss_s','pw_hd','Adir','Adyn','gam_c','pw_irr','k'],
-            ['pw_fl','brgvec','v0','rho_0','km1','km2','c3'],
-            ['pw_fl','hdrt_0','crss_0','crss_s','pw_hd','Adir','Adyn','gam_c','pw_irr'],
-            ['pw_fl','hdrt_0','shrt_0', 'crss_0','k','crss_s','pw_hd','Adir','Adyn','gam_c','pw_irr'],
-            ['pw_fl','shrt_0', 'crss_0','k','crss_s','pw_hd','Adir','Adyn','gam_c','pw_irr']
-
-    ]
-
-    def __init__(self, root:str) -> None:
-        self.root = root
-        self.MatID2MatPropsBound = {}
-        self.material_ids = []
-
-    def read_varbounds(self):
-        # Open and read the file
-        with open(f"{self.root}/sample_files/matvarbound.txt",'r') as f:
-
-            phase_number = -1
-            for line in f:
-                 # Remove leading and trailing whitespace
-                line = line.strip()
-
-                # Check if the line starts with "<:" and ends with ":>"
-                if line.startswith("<:") and line.endswith(":>"):
-                # Extract the section name (e.g., "Global" or "Material: 2")
-                    split_line = line.split(":", 2)
-                    section_name = split_line[1].strip() + split_line[2].strip()[0]
-
-                    #get material phase numbers
-                    phase_number = int(section_name[-1])
-                    self.material_ids.append(phase_number)
-                    self.MatID2MatPropsBound[phase_number] = {}
-
-                else:
-                    # Split the line into property and value
-                    if ":" in line:
-                        # check if phase number correct
-                        if phase_number == -1:
-                            os.system("echo Input File error: get wrong phase index, please check your matvarbound.txt input file")
-                            sys.exit(-1)
-
-                        parts = line.split(":")
-                        mat_prop_name = parts[0].strip()
-                        mat_prop_value = ast.literal_eval(parts[1].strip())
-                        # set mat params dict value and check matvarbound.txt
-                        if mat_prop_name in self.MatID2MatProps[phase_number]:
-                            self.MatID2MatPropsBound[phase_number][mat_prop_name] = mat_prop_value
-                        else:
-                            os.system(f"echo Input File error: invalid material parameters {mat_prop_name} for material {phase_number}, please check your matvarbound.txt input file")
-                            sys.exit(1)
-
-    def get_varbounds(self)-> np.ndarray:
-
-        varbound = []
-        self.read_varbounds()
-        for mat_id in self.MatID2MatPropsBound:
-            mat_props_bounds = self.MatID2MatPropsBound[mat_id]
-            for value in mat_props_bounds.values():
-                varbound.append(value)
-        varbound = np.array(varbound)
-
-        return varbound
-
-
 class Simulation:
-    def __init__(self, sim_root, ex_data, job_name, sim_type, n_jobs, mat_params: MatParams):
+    def __init__(self, sim_root, ex_data, job_name, sim_type, n_jobs, mat_params):
         self.sim_root = sim_root
         self.ex_data = ex_data
         self.subroutine_dir = f'{self.sim_root}/subroutine'
@@ -207,7 +139,7 @@ class Simulation:
         f.write(f'Error_Stress: {mad_stress}\n')
         f.write(f'Error: {mad}\n')
         prop_index = 0
-        phase_index = 0
+        # os.system(f"echo {self.mat_params}")
         for phase_id, mat_props in self.mat_params.items():
             if phase_id == 0: #global parameters
                 f.write(f'global: ')
@@ -218,7 +150,7 @@ class Simulation:
                 prop_index += 1
 
             f.write('\n')
-            phase_index += 1
+
         f.write('############################################################\n')
         f.close()
 
@@ -614,7 +546,7 @@ class Simulation:
         config = configparser.ConfigParser()
         config.read(f'{sim_root}/configs/configs.ini')
         account = config.get('JobSettings','account')
-        output = config.get('MainProcessSettings','output')+jobName+'-log.%J'
+        output = config.get('MainProcessSettings','output')+'/'+jobName+'-log.%J'
         time = config.get('JobSettings','time')
         memPerCpu = config.get('JobSettings','mem-per-cpu')
         nodes = config.get('JobSettings','nodes')
@@ -635,6 +567,8 @@ class Simulation:
         elif 'Chaboche' in sim_type:
             pythonPath = config.get('JobSettings','PYTHON_PATH')+'/readOdb_Chaboche.py'
         subroutine = config.get('JobSettings','SUBROUTINE_PATH')
+        pythonPath = root + '/' + pythonPath
+        subroutine = root + '/' + subroutine
         input = config.get('JobSettings', 'INPUTFILE')
         f = open(f'{currentDir}/SimJobConfig.sh', 'w+')
         f.write(f'ABAQUS={abaqus}\n')
@@ -668,7 +602,8 @@ class Simulation:
         mat_params = Utils.EVALUATINGPARAMS
 
         if 'CP' in self.sim_type:
-            mat_props_keys = mat_params[0] # Global Parameters keys/names
+            phase = config.get('JobSettings','PHASES').split(',')[phase_index - 1]
+            mat_props_keys = mat_params[0].copy() # Global Parameters keys/names !!! result in mutual change here mat_props_keys = mat_params[0] then extend also results in change of mat_params[0]
             mat_props_keys.extend(mat_params[id]) # adding Parameter keys/names for current phase
             # num_curr_props = len(mat_props)
             if phase_index == 1:
@@ -681,17 +616,20 @@ class Simulation:
                     lines = file.readlines()
 
             prop_index_var = 0
-            prop_index_const = 0
-            for option in Utils.CONFIG.options(self.sim_type):
+            for gc in constant_params[0]:
+                value = constant_params[0][gc]
+                lines = [line.replace(f'%{gc}%{id}%', f'{np.round(value,4)}') for line in lines]
+
+            for option in Utils.CONFIG.options(phase):
                 if option == 'abaqus_id':
                     continue
                 if option in mat_props_keys:
                     value = mat_props_values[prop_index_var]
                     prop_index_var +=1
-                elif option in constant_params:
-                    value = constant_params[id][prop_index_const]
-                    prop_index_const +=1
-                lines = [line.replace(f'%{option}%{id}%', f'{np.round(value,4)}') for line in lines]
+                    lines = [line.replace(f'%{option}%{id}%', f'{np.round(value,4)}') for line in lines]
+                elif option in constant_params[id]:
+                    value = constant_params[id][option]
+                    lines = [line.replace(f'%{option}%{id}%', f'{np.round(value,4)}') for line in lines]
 
             f = open(f'{current_sim_dir}/matdata.inp', 'w+')
             for line in lines:
@@ -713,10 +651,11 @@ class Simulation:
                 if option in mat_props_keys[id]:
                     value = mat_props_values[prop_index_var]
                     prop_index_var +=1
+                    lines = [line.replace(f'%{option}%', f'{np.round(value,4)}') for line in lines]
                 elif option in constant_params[id]:
                     value = constant_params[id][option]
                     prop_index_const +=1
-                lines = [line.replace(f'%{option}%', f'{np.round(value,4)}') for line in lines]
+                    lines = [line.replace(f'%{option}%', f'{np.round(value,4)}') for line in lines]
 
             f = open(f'{current_sim_dir}/Material.inp','w+')
             f.writelines(lines)
@@ -767,23 +706,20 @@ class Parser:
         matparams = {}
         params_names = []
         phases = config.get('JobSettings','PHASES').split(',')
-        os.system(f"echo {phases}")
         if 'CP' in self.sim_type:
             global_params = config.options('GlobalParams')
 
             # add global params to varbound
+            constantParams[0] = {}
             for global_param in global_params:
                 global_param_value = ast.literal_eval(config.get('GlobalParams',global_param))
-
                 if global_param != "abaqus_id":
-                    # check params type
-                    if not isinstance(global_param_value, list):
-                        os.system("echo config error: global params to be calibrated must be list")
-                        sys.exit()
-
-                    params_names.append(global_param)
                     # add global params
-                    varbound.append(global_param_value)
+                    if isinstance(global_param_value, list):
+                        varbound.append(global_param_value)
+                        params_names.append(global_param)
+                    else:
+                        constantParams[0][global_param] = global_param_value
             matparams[0] = params_names
             params_names = []
 
@@ -799,6 +735,8 @@ class Parser:
                         params_names.append(option)
                         varbound.append(value)
                     else:
+                        if 'd' in value:
+                            value = value.replace('d','e') # subroutine input file sytax
                         value = ast.literal_eval(value)
                         constantParams[phase_id][option] = value
 
@@ -819,6 +757,8 @@ class Parser:
                     params_names.append(option)
                     varbound.append(value)
                 else:
+                    if 'd' in value:
+                        value = value.replace('d','e') # subroutine input file sytax
                     value = ast.literal_eval(value)
                     constantParams[phase_id][option] = value
 
@@ -847,7 +787,6 @@ if __name__ == '__main__':
     sim_Type = config.get('JobSettings','sim_type')
 
     constant_params, mat_params, varbound = Parser(sim_Type).parse_matparams()
-
     Utils.CONSTANTPARAMS = constant_params
     Utils.EVALUATINGPARAMS = mat_params
 

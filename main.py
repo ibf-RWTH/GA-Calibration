@@ -19,7 +19,7 @@ condaRoot = condaSettings['CONDA_ROOT']
 condaEnv = condaSettings['CONDA_ENV']
 pythoncode = config.get('JobSettings','PYTHONCODE')
 
-f = open('./configs/jobConfig.sh', 'w+')
+f = open('./configs/SimJobConfig.sh', 'w+')
 f.write(f'CONDA_ROOT={condaRoot}\n')
 f.write(f'CONDA_ENV={condaEnv}\n')
 f.write(f'PYTHONCODE={pythoncode}\n')
@@ -36,7 +36,7 @@ if not os.path.isdir(logs_path):
         os.mkdir(f'{os.getcwd()}/logs')
 elif os.path.isdir(logs_path) and len(os.listdir(logs_path)) > 0:
         os.system(f'rm -r {os.getcwd()}/logs/*log*')
-        files = glob.glob("*.txt")
+        files = glob.glob(f"{os.getcwd()}/logs/*.txt")
         if files:
                 os.system(f'rm -r {os.getcwd()}/logs/*txt')
 # run batch file
