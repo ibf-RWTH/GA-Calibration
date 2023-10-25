@@ -19,7 +19,7 @@ condaRoot = condaSettings['CONDA_ROOT']
 condaEnv = condaSettings['CONDA_ENV']
 pythoncode = config.get('JobSettings','PYTHONCODE')
 
-f = open('./configs/SimJobConfig.sh', 'w+')
+f = open('./configs/JobConfig.sh', 'w+')
 f.write(f'CONDA_ROOT={condaRoot}\n')
 f.write(f'CONDA_ENV={condaEnv}\n')
 f.write(f'PYTHONCODE={pythoncode}\n')

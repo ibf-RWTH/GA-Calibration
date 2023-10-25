@@ -1,7 +1,7 @@
 #!/usr/local_rwth/bin/zsh
 
 # Read user variables
-source configs/SimJobConfig.sh
+source configs/JobConfig.sh
 source $CONDA_ROOT/etc/profile.d/conda.sh
 export PATH="$CONDA_ROOT/bin:$PATH"
 # Now you can activate your configured conda environments

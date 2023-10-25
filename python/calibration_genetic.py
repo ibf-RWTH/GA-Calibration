@@ -96,6 +96,7 @@ class Simulation:
                 # evaluate Simulation
                 if 'CP' in self.sim_type:
                     sim_results = self.calcStressStrain(current_simulation_dir, current_job_name)
+                    sim_results.to_csv(f"sim_results_{current_job_name}.csv")
                 elif 'Chaboche' in self.sim_type:
                     colNames = ['sim_time', 'sim_displacement', 'sim_force']
                     sim_results = pd.read_csv(current_simulation_dir+'/RF_data.txt', names=colNames)
