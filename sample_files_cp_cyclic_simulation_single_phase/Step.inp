@@ -1,0 +1,68 @@
+**
+** Step time needs to be in agreement with amplitude
+*Amplitude, name=Amp-1, definition=TABULAR, smooth=0.1
+*INCLUDE, input=amp.inp
+**
+*Time Points, name=TimePoints-1, GENERATE
+0., 5., 0.1
+45., 55, 0.1
+**
+**BOUNDARY CONDITIONS
+**
+** Name: H1 Type: Displacement/Rotation
+*Boundary
+H1, 1
+H1, 2
+** Name: V1 Type: Displacement/Rotation
+*Boundary
+V1, 1
+V1, 2
+V1, 3
+** Name: V2 Type: Displacement/Rotation
+*Boundary
+V2, 2
+V2, 3
+**Name: V4 Type: Displacement/Rotatio
+**
+*Boundary
+**V4, 1
+**V4, 2
+**V4, 3
+** ----------------------------------------------------------------
+**
+** STEP: Step-1
+**
+*Step, name=Step-1, nlgeom=YES, inc=10000000, solver=ITERATIVE
+*static
+0.1, 55, 5e-15 0.5
+**
+** CONTROLS
+**
+*Controls, reset
+*CONTROLS, PARAMETER=TIME INCREMENTATION
+35, 15, 9, 15, 28, 5, 12, 45
+**
+*CONTROLS, PARAMETERS=LINE SEARCH
+10
+*SOLVER CONTROL
+1e-5,200,
+**
+** BOUNDARY CONDITIONS
+**
+** Name: Load Type: Displacement/Rotation
+*Boundary, amplitude=AMP-1
+V4, 2, 2, 4.5e-4
+**
+** OUTPUT REQUESTS
+**
+*Restart, write, frequency=0
+**
+** FIELD OUTPUT: F-Output-1
+**
+*Output, field, time points=TimePoints-1
+*Node Output
+RF, U
+*Element Output, directions=YES
+EVOL, LE, S
+**
+*End Step

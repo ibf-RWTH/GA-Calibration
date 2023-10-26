@@ -115,8 +115,11 @@ class Simulation:
         time.sleep(120) # if all folders are locked find again afer 120s
 
     def create_job_dir(self, dst_dir)  -> None:
-        # create Folder for next simulation
-        source_dir = f'{self.sim_root}/sample_files_{str(self.sim_type).lower()}_simulation'
+        # create Folder for next simulation 
+        if 'CP' in self.sim_type and self.n_phases == 1:
+            source_dir = f'{self.sim_root}/sample_files_{str(self.sim_type).lower()}_simulation_single_phase'
+        else:
+            source_dir = f'{self.sim_root}/sample_files_{str(self.sim_type).lower()}_simulation'
         len_sample_dir = len(os.listdir(source_dir))
         if not os.path.exists(dst_dir):
                 shutil.copytree(source_dir, dst_dir)

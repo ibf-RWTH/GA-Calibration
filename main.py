@@ -35,7 +35,7 @@ if os.path.isdir(image_path) and len(os.listdir(image_path)) > 0:
         os.system(f'rm -r {image_path}/*.png')
 
 if not os.path.isdir(logs_path):
-        os.mkdir(f'{os.getcwd()}/logs')
+        os.mkdir(f'{logs_path}')
 elif os.path.isdir(logs_path) and len(os.listdir(logs_path)) > 0:
         os.system(f'rm -r {logs_path}/*log*')
         files = glob.glob(f"{logs_path}/*.txt")
