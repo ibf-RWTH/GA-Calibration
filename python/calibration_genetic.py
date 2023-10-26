@@ -26,7 +26,7 @@ class Simulation:
         self.simulation_dir = f'{self.sim_root}/simulation'
         self.sample_files = f'{self.sim_root}/sample_files'
         self.images = f'{self.sim_root}/evaluation_images'
-        self.log_dir = f'{self.sim_root}/logs'
+        self.log_dir = f'{self.sim_root}/logs_{job_name}'
         self.base_job_name = job_name
         self.job_name = job_name
         self.n_jobs = n_jobs
@@ -368,7 +368,7 @@ class Simulation:
             ex_x_cols = ['strain_t'] * len(ex_y_cols)
             ex_labels = ['Experiment']
 
-            fig_name = f'hysteresis_{now}'
+            fig_name = f'hysteresis_{self.base_job_name}_{now}'
             x_label = "Strain"
             y_label = "Stress(MPa)"
             self.plot_data2(fig_name=fig_name, x_label=x_label,y_label=y_label,
@@ -443,7 +443,7 @@ class Simulation:
             ex_x_cols = ['strain_t'] * len(ex_y_cols)
             ex_labels = ['Experiment']
 
-        fig_name = f'stress_strain_{now}'
+        fig_name = f'stress_strain_{self.base_job_name}_{now}'
         x_label = "Strain"
         y_label = "Stress(MPa)"
         self.plot_data2(fig_name=fig_name, x_label=x_label,y_label=y_label,
@@ -482,7 +482,7 @@ class Simulation:
         ex_x_cols = ['time'] * len(ex_y_cols)
         ex_labels = ['Experiment']
 
-        fig_name = f'Force_{now}'
+        fig_name = f'Force_{self.base_job_name}_{now}'
         x_label = "Time (s)"
         y_label = "Force (kN)"
         self.plot_data2(fig_name=fig_name, x_label=x_label,y_label=y_label,
@@ -493,7 +493,7 @@ class Simulation:
         # Plot Hysteresis
         sim_x_cols = ['sim_displacement'] * len(sim_y_cols)
         ex_x_cols = ['displacement'] * len(ex_y_cols)
-        fig_name = f'Hysteresis_{now}'
+        fig_name = f'Hysteresis_{self.base_job_name}_{now}'
         x_label = 'Displacement (mm)'
 
         self.plot_data2(fig_name=fig_name, x_label=x_label,y_label=y_label,
