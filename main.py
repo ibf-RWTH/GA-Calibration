@@ -31,7 +31,10 @@ f.close()
 image_path = f'{os.getcwd()}/evaluation_images_{sim_job_base_name}'
 logs_path = f'{os.getcwd()}/logs_{sim_job_base_name}'
 
-if os.path.isdir(image_path) and len(os.listdir(image_path)) > 0:
+# prepare data_tree for upcoming simulations
+if not os.path.isdir(image_path):
+        os.mkdir(f'{image_path}')
+elif os.path.isdir(image_path) and len(os.listdir(image_path)) > 0:
         os.system(f'rm -r {image_path}/*.png')
 
 if not os.path.isdir(logs_path):

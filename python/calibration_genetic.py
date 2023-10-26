@@ -328,17 +328,17 @@ class Simulation:
 
         if flowcurve_df.shape[0] > 0:
             results_df = time_df
-            results_df['Strain'] = flowcurve_df['Strain'].values
-            results_df['Stress'] = flowcurve_df['Stress'].values
+            results_df['Sim_Strain'] = flowcurve_df['Strain'].values
+            results_df['Sim_Stress'] = flowcurve_df['Stress'].values
             if self.n_phases > 1:
-                results_df['Strain_Phase1'] = flowcurve_df['Strain_Phase1'].values
-                results_df['Stress_Phase1'] = flowcurve_df['Stress_Phase1'].values
-                results_df['Strain_Phase2'] = flowcurve_df['Strain_Phase2'].values
-                results_df['Stress_Phase2'] = flowcurve_df['Stress_Phase2'].values
+                results_df['Sim_Strain_Phase1'] = flowcurve_df['Strain_Phase1'].values
+                results_df['Sim_Stress_Phase1'] = flowcurve_df['Stress_Phase1'].values
+                results_df['Sim_Strain_Phase2'] = flowcurve_df['Strain_Phase2'].values
+                results_df['Sim_Stress_Phase2'] = flowcurve_df['Stress_Phase2'].values
         else:
             results_df = time_df
-            results_df['Strain'] = 0
-            results_df['Stress'] = 0
+            results_df['Sim_Strain'] = 0
+            results_df['Sim_Stress'] = 0
             results_df.to_csv(self.sim_root+'results_df.csv')
 
         return results_df
@@ -355,19 +355,23 @@ class Simulation:
 
         experimental_df = pd.read_csv(f'{self.sample_files}/{self.ex_data}', sep='\t')
 
-        total_time = experimental_df['sim_time'].values[-1]
-        max_sim_time = simulation_df['time'].values[-1]
-        mad_time = (100 * (1 - max_sim_time / total_time))**2
-        comp_df = experimental_df.merge(simulation_df, left_on='sim_time',
-                                        right_on='time')  # merge dfs on time for comparison
+        total_time = experimental_df['time'].values[-1]
+        max_sim_time = simulation_df['sim_time'].values[-1]
+        mad_time = (100 * (1 - max_sim_time / total_time))**2      
 
         if self.n_phases == 1:
-            mad_stress = np.mean(np.abs(comp_df['stress_t'] - comp_df['Stress'])**2)
-            sim_y_cols = ['Stress']
-            sim_x_cols = ['Strain'] * len(sim_y_cols)
+            phase_name = config.get('JobSettings', 'PHASES')
+            phase_id = config.get(phase_name, 'abaqus_id')
+            phase_dict = {'3':'Phase1', '4':'Phase2'}
+            phase = phase_dict[phase_id]
+            sim_stress_interp = np.interp(simulation_df['Sim_Stress'], experimental_df['time'], experimental_df[f'Stress_{phase}'])
+            exp_stress_interp = experimental_df[f'Stress_{phase}'].values[:len(sim_stress_interp)]
+            mad_stress = np.mean(np.abs(sim_stress_interp - exp_stress_interp)**2)
+            sim_y_cols = ['Sim_Stress']
+            sim_x_cols = ['Sim_Strain'] * len(sim_y_cols)
             sim_labels = ['Simulation']
 
-            ex_y_cols = ['stress_t']
+            ex_y_cols = [f'Stress_{phase}']
             ex_x_cols = ['strain_t'] * len(ex_y_cols)
             ex_labels = ['Experiment']
 
@@ -378,25 +382,97 @@ class Simulation:
                             sim_data=simulation_df, ex_data=experimental_df,
                             sim_x_cols=sim_x_cols, sim_y_cols=sim_y_cols, sim_labels=sim_labels,
                             ex_x_cols=ex_x_cols, ex_y_cols=ex_y_cols, ex_labels=ex_labels)
+            # Plot time sequence
+            sim_y_cols = ['Sim_Stress']
+            sim_x_cols = ['sim_time'] * len(sim_y_cols)
+            sim_labels = ['Simulation']
+
+            ex_y_cols = [f'Stress_{phase}']
+            ex_x_cols = ['time'] * len(ex_y_cols)
+            ex_labels = ['Experiment']
+
+            fig_name = f'Force_{now}'
+            x_label = "Time (s)"
+            y_label = "Stress (MPa)"
+            self.plot_data2(fig_name=fig_name, x_label=x_label,y_label=y_label,
+                            sim_data=simulation_df, ex_data=experimental_df,
+                            sim_x_cols=sim_x_cols, sim_y_cols=sim_y_cols, sim_labels=sim_labels,
+                            ex_x_cols=ex_x_cols, ex_y_cols=ex_y_cols, ex_labels=ex_labels)
 
         elif self.n_phases == 2:
-            mad_stress_total = np.mean(np.abs(comp_df['stress_t'] - comp_df['Stress']))
-            mad_stress_phase1 = np.mean(np.abs(comp_df['Stress_Phase1_t'] - comp_df['Stress_Phase1_y']))
-            mad_stress_phase2 = np.mean(np.abs(comp_df['Stress_Phase2_t'] - comp_df['Stress_Phase2_y']))
-            mad_stress = (0.8 * mad_stress_phase1 + 0.2 * mad_stress_phase2 + mad_stress_total) / 3
+            exp_total_stress_interp = np.interp(simulation_df['sim_time'], experimental_df['time'], experimental_df['stress_t'])
+            exp_phase1_stress_interp = np.interp(simulation_df['sim_time'], experimental_df['time'], experimental_df['Stress_Phase1'])
+            exp_phase2_stress_interp = np.interp(simulation_df['sim_time'], experimental_df['time'], experimental_df['Stress_Phase2'])
 
-            self.plot_data(f'stress_vs_time_phase_1_{now}', 'time ( s )', 'Stress ( MPa )',
-                           comp_df['sim_time'], comp_df['Stress_Phase1_t'], 'Experimental Data phase 1',
-                           comp_df['time_y'], comp_df['Stress_Phase1_y'], 'Simulation Data phase 1')
+            mad_stress_total = np.mean(np.abs(exp_total_stress_interp - simulation_df['Sim_Stress']))
+            mad_stress_phase1 = np.mean(np.abs(exp_phase1_stress_interp - simulation_df['Sim_Stress_Phase1']))
+            mad_stress_phase2 = np.mean(np.abs(exp_phase2_stress_interp - simulation_df['Sim_Stress_Phase2']))
 
-            self.plot_data(f'stress_vs_time_phase_2_{now}', 'time ( s )', 'Stress ( MPa )',
-                           comp_df['sim_time'], comp_df['Stress_Phase2_t'], 'Experimental Data phase 2',
-                           comp_df['time_y'], comp_df['Stress_Phase2_y'], 'Simulation Data phase 2')
+            mad_stress = (mad_stress_total + 0.8*mad_stress_phase1 + 0.2 * mad_stress_phase2)/3
+            # Plot Hysteresis
+            sim_y_cols = ['Sim_Stress_Phase1']
+            sim_x_cols = ['Sim_Strain'] * len(sim_y_cols)
+            sim_labels = ['Simulation']
 
-        # self.plot_data(f'hysteresis_{now}', 'Strain ( - )', 'Stress (MPa)',
-        #                comp_df['strain'], comp_df['stress_t'], 'Experimental Data',
-        #                comp_df['Strain'], comp_df['Stress'], 'Simulation Data')
+            ex_y_cols = [f'Stress_Phase1']
+            ex_x_cols = ['strain_t'] * len(ex_y_cols)
+            ex_labels = ['Experiment']
 
+            fig_name = f'hysteresis_Phase1_{now}'
+            x_label = "Strain"
+            y_label = "Stress(MPa)"
+            self.plot_data2(fig_name=fig_name, x_label=x_label,y_label=y_label,
+                            sim_data=simulation_df, ex_data=experimental_df,
+                            sim_x_cols=sim_x_cols, sim_y_cols=sim_y_cols, sim_labels=sim_labels,
+                            ex_x_cols=ex_x_cols, ex_y_cols=ex_y_cols, ex_labels=ex_labels)
+            # Plot Hysteresis
+            sim_y_cols = ['Sim_Stress_Phase2']
+            sim_x_cols = ['Sim_Strain'] * len(sim_y_cols)
+            sim_labels = ['Simulation']
+
+            ex_y_cols = [f'Stress_Phase2']
+            ex_x_cols = ['strain_t'] * len(ex_y_cols)
+            ex_labels = ['Experiment']
+
+            fig_name = f'hysteresis_Phase2_{now}'
+            x_label = "Strain"
+            y_label = "Stress(MPa)"
+            self.plot_data2(fig_name=fig_name, x_label=x_label,y_label=y_label,
+                            sim_data=simulation_df, ex_data=experimental_df,
+                            sim_x_cols=sim_x_cols, sim_y_cols=sim_y_cols, sim_labels=sim_labels,
+                            ex_x_cols=ex_x_cols, ex_y_cols=ex_y_cols, ex_labels=ex_labels)
+            # Plot time sequence
+            sim_y_cols = ['Stress_Phase1']
+            sim_x_cols = ['sim_time'] * len(sim_y_cols)
+            sim_labels = ['Simulation']
+
+            ex_y_cols = [f'Stress_Phase1']
+            ex_x_cols = ['time'] * len(ex_y_cols)
+            ex_labels = ['Experiment']
+
+            fig_name = f'Stress_Phase1_{now}'
+            x_label = "Time (s)"
+            y_label = "Stress (MPa)"
+            self.plot_data2(fig_name=fig_name, x_label=x_label,y_label=y_label,
+                            sim_data=simulation_df, ex_data=experimental_df,
+                            sim_x_cols=sim_x_cols, sim_y_cols=sim_y_cols, sim_labels=sim_labels,
+                            ex_x_cols=ex_x_cols, ex_y_cols=ex_y_cols, ex_labels=ex_labels)
+            # Plot time sequence
+            sim_y_cols = ['Stress_Phase2']
+            sim_x_cols = ['sim_time'] * len(sim_y_cols)
+            sim_labels = ['Simulation']
+
+            ex_y_cols = [f'Stress_Phase2']
+            ex_x_cols = ['time'] * len(ex_y_cols)
+            ex_labels = ['Experiment']
+
+            fig_name = f'Stress_Phase2_{now}'
+            x_label = "Time (s)"
+            y_label = "Stress (MPa)"
+            self.plot_data2(fig_name=fig_name, x_label=x_label,y_label=y_label,
+                            sim_data=simulation_df, ex_data=experimental_df,
+                            sim_x_cols=sim_x_cols, sim_y_cols=sim_y_cols, sim_labels=sim_labels,
+                            ex_x_cols=ex_x_cols, ex_y_cols=ex_y_cols, ex_labels=ex_labels)
 
         return mad_time, mad_stress, now
 
@@ -414,13 +490,13 @@ class Simulation:
 
         if self.n_phases == 2:
 
-            exp_total_stress_interp = np.interp(simulation_df['Strain'], experimental_df['strain_t'], experimental_df['stress_t'])
-            exp_alpha_stress_interp = np.interp(simulation_df['Strain'], experimental_df['strain_t'], experimental_df['stress_alpha'])
-            exp_beta_stress_interp = np.interp(simulation_df['Strain'], experimental_df['strain_t'], experimental_df['stress_beta'])
+            exp_total_stress_interp = np.interp(simulation_df['Sim_Strain'], experimental_df['strain_t'], experimental_df['stress_t'])
+            exp_alpha_stress_interp = np.interp(simulation_df['Sim_Strain'], experimental_df['strain_t'], experimental_df['stress_alpha'])
+            exp_beta_stress_interp = np.interp(simulation_df['Sim_Strain'], experimental_df['strain_t'], experimental_df['stress_beta'])
 
-            mad_stress_total = np.mean(np.abs(exp_total_stress_interp - simulation_df['Stress']))
-            mad_stress_alpha = np.mean(np.abs(exp_alpha_stress_interp - simulation_df['Stress_Phase1']))
-            mad_stress_beta = np.mean(np.abs(exp_beta_stress_interp - simulation_df['Stress_Phase2']))
+            mad_stress_total = np.mean(np.abs(exp_total_stress_interp - simulation_df['Sim_Stress']))
+            mad_stress_alpha = np.mean(np.abs(exp_alpha_stress_interp - simulation_df['Sim_Stress_Phase1']))
+            mad_stress_beta = np.mean(np.abs(exp_beta_stress_interp - simulation_df['Sim_Stress_Phase2']))
             mad_strain_total = (abs(1 - max_sim_strain / max_exp_strain) * 100) **2
             mad_stress = (mad_stress_total + 0.8*mad_stress_alpha + 0.2 * mad_stress_beta)/3
 
@@ -434,7 +510,7 @@ class Simulation:
 
         if self.n_phases == 1:
 
-            exp_stress_interp = np.interp(simulation_df['Strain'], experimental_df['strain_t'], experimental_df['stress_t'])
+            exp_stress_interp = np.interp(simulation_df['Sim_Strain'], experimental_df['strain_t'], experimental_df['stress_t'])
             mad_stress = np.mean(np.abs(exp_stress_interp - simulation_df['Stress']) / exp_stress_interp) * 100
             mad_strain_total = (abs(1 - max_sim_strain / max_exp_strain) * 100) **2
 
@@ -780,8 +856,6 @@ if __name__ == '__main__':
     #get current path
     sim_root = os.getcwd()
     os.system(f"echo sim root: {sim_root}")
-    if not os.path.isdir(f'{sim_root}/evaluation_images'):
-        os.mkdir(f'{sim_root}/evaluation_images')
 
     #config simulation
     config = configparser.ConfigParser()

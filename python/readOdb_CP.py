@@ -22,7 +22,7 @@ def readOdb(odbpath, odbname, key_Stress, key_Strain, key_EVOL, key_Part, storen
     for frame in mystep.frames:
         time.append(frame.frameValue)
     with open(dataDir + 'data_time_{}.csv'.format(storename), 'wb+') as f:
-        f.write('frame_id,time\n')
+        f.write('frame_id,sim_time\n')
         for i, timestep in enumerate(time):
             f.write(str(i)+','+str(timestep).strip())
             f.write('\n')
