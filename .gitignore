@@ -160,10 +160,8 @@ cython_debug/
 #.idea/
 # user defined
 simulation*/
-evaluation_images/*
-logs/*
-logs/results.txt
-logs/*.npz
+evaluation_images*/*
+logs*/*
 python/test.py
 configs.ini
 JobConfig.sh
