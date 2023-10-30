@@ -1,4 +1,4 @@
-cycleNo	time	sim_time	sim_strain_normal	sim_strain	strain	strain_t	force	stress	Stress_Phase1	Stress_Phase2	stress_t	Stress_Phase1_t	Stress_Phase2_t	Strain_Phase1_t	Strain_Phase2_t
+cycleNo	real_time	time	sim_strain_normal	sim_strain	strain	strain_t	force	stress	Stress_Phase1	Stress_Phase2	stress_t	Stress_Phase1_t	Stress_Phase2_t	Strain_Phase1_t	Strain_Phase2_t
 0	2.4	0.0001	0.000001	0.00001	0.000001	0.00001	0.002037183	2.263536968	1.77E+00	4.13E+00	2.26	1.77	4.13	0.00E+00	0.00E+00
 0	2.5	0.1	0.00667	0.0001	0.0001	9.9995E-05	0.004488169	4.986854884	3.90E+00	9.09E+00	4.99	3.90	9.09	7.81E-05	1.82E-04
 0	2.6	0.2	0.00667	0.0001	0.0001	9.9995E-05	0.007957747	8.841941283	6.91E+00	1.61E+01	8.84	6.91	16.12	7.81E-05	1.82E-04
