@@ -798,10 +798,11 @@ class Parser:
             # add global params to varbound
             constantParams[0] = {}
             for global_param in global_params:
-                global_param_value = ast.literal_eval(config.get('GlobalParams',global_param))
+                global_param_value = config.get('GlobalParams',global_param)
                 if global_param != "abaqus_id":
                     # add global params
-                    if isinstance(global_param_value, list):
+                    if global_param_value.startswith('('):
+                        global_param_value = ast.literal_eval(global_param_value)
                         varbound.append(global_param_value)
                         params_names.append(global_param)
                     else:
@@ -810,20 +811,22 @@ class Parser:
             params_names = []
 
             for phase in phases:
-                phase_id = config.get(phase, 'abaqus_id')
+                phase_id = config.get(phase, 'phase_id')
                 options = config.options(phase)
                 constantParams[phase_id] = {}
                 #add phase params to varbound
                 for option in options:
                     value = config.get(phase, option)
-                    if value.startswith('['):
-                        value = ast.literal_eval(value)
+                    if value.startswith('('):
+                        value = list(ast.literal_eval(value))
                         params_names.append(option)
                         varbound.append(value)
                     else:
                         if 'd' in value:
                             value = value.replace('d','e') # subroutine input file sytax
-                        value = ast.literal_eval(value)
+
+                        if option != "lattice" and option != "plastic":
+                            value = ast.literal_eval(value)
                         constantParams[phase_id][option] = value
 
                 matparams[phase_id] = params_names
@@ -832,14 +835,14 @@ class Parser:
             varbound = np.array(varbound)
 
         elif 'Chaboche' in self.sim_type:
-            phase_id = config.get(phases[0], 'abaqus_id')
+            phase_id = config.get(phases[0], 'phase_id')
             constantParams[phase_id] = {}
             options = config.options(phases[0])
             #add phase params to varbound
             for option in options:
                 value = config.get(phases[0], option)
-                if value.startswith('['):
-                    value = ast.literal_eval(value)
+                if value.startswith('('):
+                    value = list(ast.literal_eval(value))
                     params_names.append(option)
                     varbound.append(value)
                 else:
@@ -875,7 +878,10 @@ if __name__ == '__main__':
     constant_params, mat_params, varbound = Parser(sim_Type, JobSettings).parse_matparams()
     Utils.CONSTANTPARAMS = constant_params
     Utils.EVALUATINGPARAMS = mat_params
-
+    os.system(f"echo {constant_params}")
+    os.system(f"echo {mat_params}")
+    os.system(f"echo {varbound.shape}")
+    sys.exit()
     # read algortithm Parameters from config
     max_iters = ast.literal_eval(config.get('AlgorithmParameters','max_iters'))
     population_size = ast.literal_eval(config.get('AlgorithmParameters','population_size'))
