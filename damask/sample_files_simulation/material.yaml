@@ -597,34 +597,34 @@ homogenization:
 
 phase:
   Alpha:
-    lattice: cF
+    lattice: None
     mechanical:
       output: [F, P]
-      elastic: {type: Hooke, C_11: 231400000000.0, C_12: 134700000000.0, C_44: 116400000000.0}
+      elastic: {type: Hooke, C_11: 0, C_12: 0, C_44: 0}
       plastic:
-        type: phenopowerlaw
+        type: None
         N_sl: [12]
         a_sl: 0.6
         atol_xi: 1
         dot_gamma_0_sl: 0.001
         h_0_sl-sl: 82008400.0
         h_sl-sl: [1, 1, 5.123, 0.574, 1.123, 1.123, 1]
-        n_sl: 20.0
+        n_sl: [12]
         xi_0_sl: [95887000.0]
         xi_inf_sl: [896193300.0]
   Beta:
-    lattice: cI
+    lattice: None
     mechanical:
       output: [F, P]
-      elastic: {type: Hooke, C_11: 112200000000.0, C_12: 42000000000.0, C_44: 131000000000.0}
+      elastic: {type: Hooke, C_11: 0, C_12: 0, C_44: 0}
       plastic:
-        type: phenopowerlaw
+        type: None
         N_sl: [12, 12]
         a_sl: 4.5
         atol_xi: 1
         dot_gamma_0_sl: 0.001
         h_0_sl-sl: 2480105700.0
         h_sl-sl: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
-        n_sl: 5
+        n_sl: [12, 12]
         xi_0_sl: [140460300.0, 140460300.0]
         xi_inf_sl: [729800100.0, 729800100.0]

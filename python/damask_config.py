@@ -114,6 +114,7 @@ class Parser:
       for phase in phases:
         phase_id = config.get(phase, 'phase_id')
         params_names.extend(config.get(self.JobSettings, f'{phase}.variables').split(','))
+        matparams[phase_id] = params_names
         constantParams[phase_id] = {}
         options = config.options(phase)
         for option in options:
@@ -122,7 +123,7 @@ class Parser:
                 value = ast.literal_eval(value)
                 varbound.append(value)
             else:
-                if option != "lattice" and option != "plastic":
+                if option != "lattice" and option != "type":
                     value = ast.literal_eval(value)
                 constantParams[phase_id][option] = value
 
@@ -137,24 +138,45 @@ class Utils:
     CONSTANTPARAMS = None
     EVALUATINGPARAMS = None
 if __name__ == "__main__":
-  # m = damask.ConfigMaterial()
-  # m = m.load('/home/p0021070/damask/GA-Calibration-Damask/sample_files_damask_simulation/material.yaml')
-  config = configparser.ConfigParser()
-  sim_root = '/home/p0021070/damask/GA-Calibration-Damask'
-  config.read(f'{sim_root}/configs/configs.ini')
-  Utils.CONFIG = config
-  software = config.get('MainProcessSettings','software')
-  JobSettings = 'AbaqusJobSettings' if software == 'abaqus' else 'DamaskJobSettings'
-  parser = Parser(JobSettings)
-  constantParams, matparams, varbound = parser.parse_matparams()
+  m = damask.ConfigMaterial()
+  m = m.load('/home/p0021070/damask/GA-Calibration-Damask/damask/sample_files_simulation/material.yaml')
+  phase = m.get('phase')
+  alpha = phase['Alpha']
+  alpha['mechanical']['plastic']['a_sl'] = float(np.float64(2.0112197953175355))
+  m.save('test.yaml')
+  # config = configparser.ConfigParser(allow_no_value=True)
+  # config.optionxform = lambda option : option # Preserve case of the keys
+  # sim_root = '/home/p0021070/damask/GA-Calibration-Damask'
+  # config.read(f'{sim_root}/configs/configs.ini')
+  # Utils.CONFIG = config
 
-  print(constantParams)
-  print(matparams)
-  print(varbound)
+  # software = config.get('MainProcessSettings','software')
+  # JobSettings = 'AbaqusJobSettings' if software == 'abaqus' else 'DamaskJobSettings'
+  # parser = Parser(JobSettings)
+  # constantParams, matparams, varbound = parser.parse_matparams()
 
-# print(m)
-# alpha = m.get('phase')['Alpha']
-# alpha['mechanical']['plastic']['a_sl'] = 1.0
-# print(m)
+  # print(constantParams)
+  # print(matparams)
+  # print(varbound)
+
+  # phases = config.get('DamaskJobSettings','PHASES').split(',')
+  # for phase in phases:
+  #   phase_data = m.get('phase')[phase]
+  #   phase_id = config.get(phase, 'phase_id')
+  #   # config global constant params
+  #   for key, item in constantParams[0].items():
+  #     if key in phase_data['mechanical']['plastic'].keys():
+  #       phase_data['mechanical']['plastic'][key] = item
+  #     elif key in phase_data['mechanical']['elastic'].keys():
+  #       phase_data['mechanical']['elastic'][key] = item
+  #   #config phase constant params
+  #   for key, item in constantParams[phase_id].items():
+  #     if key in phase_data['mechanical']['plastic'].keys():
+  #       phase_data['mechanical']['plastic'][key] = item
+  #     elif key in phase_data['mechanical']['elastic'].keys():
+  #       phase_data['mechanical']['elastic'][key] = item
+  #     elif key == 'lattice':
+  #       phase_data[key] = item
+
 
 

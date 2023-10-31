@@ -15,6 +15,7 @@ from geneticalgorithm2 import geneticalgorithm2 as ga
 from io import StringIO
 import warnings
 import configparser
+import damask
 
 warnings.simplefilter(action='ignore', category=FutureWarning)
 
@@ -63,20 +64,20 @@ class Simulation:
             if not os.path.isdir(current_simulation_dir):
                 #create directory
                 self.create_job_dir(current_simulation_dir)
+                self.create_sim_matdata(current_simulation_dir, params)
                 sys.exit()
-                if 'CP' in self.sim_type:
-                    for j, mat_id in enumerate(self.mat_params.keys()):
-                        if j > 0:
-                            if j == 1:
-                                path = self.sample_files
-                            else:
-                                path = current_simulation_dir
-                            # create matdata.inp file according to params
-                            self.manipulate_matdata(path, current_simulation_dir, mat_id, phase_index=j, optiParams=params)
-                elif 'Chaboche' in self.sim_type:
-                    for j, mat_id in enumerate(self.mat_params.keys()):
-                        keys = self.mat_params.keys()
-                        self.manipulate_matdata(self.sample_files, current_simulation_dir, mat_id, phase_index=j+1, optiParams=params)
+                # if 'CP' in self.sim_type:
+                #     for j, mat_id in enumerate(self.mat_params.keys()):
+                #         if j > 0:
+                #             if j == 1:
+                #                 path = self.sample_files
+                #             else:
+                #                 path = current_simulation_dir
+                #             # create matdata.inp file according to params
+                #             self.manipulate_matdata(path, current_simulation_dir, mat_id, phase_index=j, optiParams=params)
+                # elif 'Chaboche' in self.sim_type:
+                #     for j, mat_id in enumerate(self.mat_params.keys()):
+                #         self.manipulate_matdata(self.sample_files, current_simulation_dir, mat_id, phase_index=j+1, optiParams=params)
 
                 # create batch script
                 self.create_batch_job_script(job_index=job_index)
@@ -691,15 +692,15 @@ class Simulation:
         mat_params = Utils.EVALUATINGPARAMS
 
         if 'CP' in self.sim_type:
-            phase = config.get('JobSettings','PHASES').split(',')[phase_index - 1]
+            phase = config.get('AbaqusJobSettings','PHASES').split(',')[phase_index - 1]
             mat_props_keys = mat_params[0].copy() # Global Parameters keys/names !!! result in mutual change here mat_props_keys = mat_params[0] then extend also results in change of mat_params[0]
             mat_props_keys.extend(mat_params[id]) # adding Parameter keys/names for current phase
             # num_curr_props = len(mat_props)
             if phase_index == 1:
                 mat_props_values = optiParams[:len(mat_props_keys)]
             else:
-                mat_props_values = [optiParams[0]]
-                mat_props_values.extend(optiParams[-(len(mat_props_keys) - 1):])
+                mat_props_values = [optiParams[:len(mat_params[0])]]
+                mat_props_values.extend(optiParams[-(len(mat_props_keys) - len(mat_params[0])):])
 
             with open(f'{sample_path}/matdata.inp', 'r') as file:
                     lines = file.readlines()
@@ -750,6 +751,76 @@ class Simulation:
             f.writelines(lines)
             f.close()
 
+    def create_sim_matdata(self, current_simulation_dir, params):
+
+        if Utils.SOFTWARE == "abaqus":
+            if 'CP' in self.sim_type:
+                for j, mat_id in enumerate(self.mat_params.keys()):
+                    if j > 0:
+                        if j == 1:
+                            path = self.sample_files
+                        else:
+                            path = current_simulation_dir
+                        # create matdata.inp file according to params
+                        self.manipulate_matdata(path, current_simulation_dir, mat_id, phase_index=j, optiParams=params)
+            elif 'Chaboche' in self.sim_type:
+                for j, mat_id in enumerate(self.mat_params.keys()):
+                    self.manipulate_matdata(self.sample_files, current_simulation_dir, mat_id, phase_index=j+1, optiParams=params)
+
+        elif Utils.SOFTWARE == "damask":
+            m = damask.ConfigMaterial()
+            m = m.load(f'{self.sim_root}/damask/sample_files_simulation/material.yaml')
+            phases = config.get('DamaskJobSettings','PHASES').split(',')
+            constantParams = Utils.CONSTANTPARAMS
+            mat_params = Utils.EVALUATINGPARAMS
+
+            phase_index = 1
+            for phase in phases:
+                prop_index = 0
+                mat_props_keys = mat_params[0].copy() # Global Parameters keys/names !!! result in mutual change here mat_props_keys = mat_params[0] then extend also results in change of mat_params[0]
+                mat_props_keys.extend(mat_params[phase_index])
+                phase_data = m.get('phase')[phase]
+                phase_id = ast.literal_eval(config.get(phase, 'phase_id'))
+
+                # config global constant params
+                for key, item in constantParams[0].items():
+                    if key in phase_data['mechanical']['plastic'].keys():
+                        phase_data['mechanical']['plastic'][key] = item
+                    elif key in phase_data['mechanical']['elastic'].keys():
+                        phase_data['mechanical']['elastic'][key] = item
+                #config phase constant params
+                for key, item in constantParams[phase_id].items():
+                    if key in phase_data['mechanical']['plastic'].keys():
+                        phase_data['mechanical']['plastic'][key] = item
+                    elif key in phase_data['mechanical']['elastic'].keys():
+                        phase_data['mechanical']['elastic'][key] = item
+                    elif key == 'lattice':
+                        phase_data[key] = item
+
+                #config evaluation params
+
+                if phase_index == 1:
+                    mat_props_values = params[:len(mat_props_keys)]
+                else:
+                    mat_props_values = [params[:len(mat_params[0])]] if len(mat_params[0]) > 0 else []
+                    mat_props_values.extend(params[-(len(mat_props_keys) - len(mat_params[0])):])
+
+                if phase_data['lattice'] == 'cF':
+                    duplicate = 1
+                elif phase_data['lattice'] == 'cI':
+                    duplicate = 2
+
+
+                for key in mat_props_keys:
+                    if  key == 'xi_0_sl'  or key == 'xi_inf_sl':
+                        phase_data['mechanical']['plastic'][key] = [float(mat_props_values[prop_index])] * duplicate
+                    else:
+                        phase_data['mechanical']['plastic'][key] = float(mat_props_values[prop_index])
+                    prop_index += 1
+
+                phase_index += 1
+
+            m.save(f'{current_simulation_dir}/material.yaml')
 
 
 class Optimize:
@@ -816,12 +887,13 @@ class Parser:
                         varbound.append(global_param_value)
                         params_names.append(global_param)
                     else:
+                        global_param_value = ast.literal_eval(global_param_value)
                         constantParams[0][global_param] = global_param_value
             matparams[0] = params_names
             params_names = []
 
             for phase in phases:
-                phase_id = config.get(phase, 'phase_id')
+                phase_id = ast.literal_eval(config.get(phase, 'phase_id'))
                 options = config.options(phase)
                 constantParams[phase_id] = {}
                 #add phase params to varbound
@@ -835,7 +907,7 @@ class Parser:
                         if 'd' in value:
                             value = value.replace('d','e') # subroutine input file sytax
 
-                        if option != "lattice" and option != "plastic":
+                        if option != "lattice" and option != "type":
                             value = ast.literal_eval(value)
                         constantParams[phase_id][option] = value
 
@@ -887,14 +959,16 @@ class Parser:
                   varbound.append(global_param_value)
                   params_names.append(global_param)
               else:
+                  global_param_value = ast.literal_eval(global_param_value)
                   constantParams[0][global_param] = global_param_value
       matparams[0] = params_names
       params_names = []
 
       # add phase settings
       for phase in phases:
-        phase_id = config.get(phase, 'phase_id')
+        phase_id =  ast.literal_eval(config.get(phase, 'phase_id'))
         params_names.extend(config.get(self.JobSettings, f'{phase}.variables').split(','))
+        matparams[phase_id] = params_names
         constantParams[phase_id] = {}
         options = config.options(phase)
         for option in options:
@@ -903,7 +977,7 @@ class Parser:
                 value = ast.literal_eval(value)
                 varbound.append(value)
             else:
-                if option != "lattice" and option != "plastic":
+                if option != "lattice" and option != "type":
                     value = ast.literal_eval(value)
                 constantParams[phase_id][option] = value
 
@@ -925,7 +999,8 @@ if __name__ == '__main__':
     os.system(f"echo sim root: {sim_root}")
 
     #config simulation
-    config = configparser.ConfigParser()
+    config = configparser.ConfigParser(allow_no_value=True)
+    config.optionxform = lambda option : option # Preserve case of the keys
     config.read(f'{sim_root}/configs/configs.ini')
     Utils.CONFIG = config
     software = config.get('MainProcessSettings','software')
