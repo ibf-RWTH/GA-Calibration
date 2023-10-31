@@ -19,7 +19,7 @@ import configparser
 warnings.simplefilter(action='ignore', category=FutureWarning)
 
 class Simulation:
-    def __init__(self, sim_root, ex_data, job_name, sim_type, n_jobs, mat_params):
+    def __init__(self, sim_root, ex_data, job_name, n_jobs, mat_params):
         self.sim_root = sim_root
         self.ex_data = ex_data
         self.subroutine_dir = f'{self.sim_root}/subroutine'
@@ -30,7 +30,12 @@ class Simulation:
         self.base_job_name = job_name
         self.job_name = job_name
         self.n_jobs = n_jobs
-        self.sim_type = sim_type
+        self.sim_type = None
+        if Utils.SOFTWARE == "abaqus":
+            config = Utils.CONFIG
+            sim_type = config.get('AbaqusJobSettings','sim_type')
+            self.sim_type = sim_type
+
         self.sim_type2compare_function = {
             'CP_cyclic' : self.compare_exp2sim_cyclic,
             'CP_tensile' : self.compare_exp2sim_tensile,
@@ -58,6 +63,7 @@ class Simulation:
             if not os.path.isdir(current_simulation_dir):
                 #create directory
                 self.create_job_dir(current_simulation_dir)
+                sys.exit()
                 if 'CP' in self.sim_type:
                     for j, mat_id in enumerate(self.mat_params.keys()):
                         if j > 0:
@@ -116,10 +122,11 @@ class Simulation:
 
     def create_job_dir(self, dst_dir)  -> None:
         # create Folder for next simulation
+        software = Utils.CONFIG.get('MainProcessSettings','software')
         if 'CP' in self.sim_type and self.n_phases == 1:
-            source_dir = f'{self.sim_root}/sample_files_{str(self.sim_type).lower()}_simulation_single_phase'
+            source_dir = f'{self.sim_root}/{software}/sample_files_{str(self.sim_type).lower()}_simulation_single_phase'
         else:
-            source_dir = f'{self.sim_root}/sample_files_{str(self.sim_type).lower()}_simulation'
+            source_dir = f'{self.sim_root}/{software}/sample_files_{str(self.sim_type).lower()}_simulation'
         len_sample_dir = len(os.listdir(source_dir))
         if not os.path.exists(dst_dir):
                 shutil.copytree(source_dir, dst_dir)
@@ -740,13 +747,11 @@ class Simulation:
             f.writelines(lines)
             f.close()
 
-    def blackbox_damask(self, params):
-        pass
 
 
 class Optimize:
 
-    def __init__(self, flag, ex_data, root, name, mat_params, varbound, algorithm_param, sim_type, n_jobs, software):
+    def __init__(self, flag, ex_data, root, name, mat_params, varbound, algorithm_param, n_jobs, software):
         self.test_flag = flag
         self.ex_data = ex_data
         self.sim_root = root
@@ -754,19 +759,15 @@ class Optimize:
         self.mat_params = Utils.EVALUATINGPARAMS
         self.varbound = varbound
         self.algorithm_param = algorithm_param
-        self.sim_type = sim_type
         self.n_jobs = n_jobs
         self.software = software
 
     def init_optimizer(self):
         sim_object = Simulation(sim_root=self.sim_root, ex_data=self.ex_data, mat_params=self.mat_params,
-                                job_name=self.job_name, sim_type=self.sim_type, n_jobs=self.n_jobs)
+                                job_name=self.job_name, n_jobs=self.n_jobs)
 
         if len(self.mat_params) >= 1:
-            if self.software == 'abaqus':
-                blackbox_func = sim_object.blackbox
-            elif self.software == 'damask':
-                blackbox_func = sim_object.blackbox_damask
+            blackbox_func = sim_object.blackbox
         else:
             os.system("echo error: empty mat_params")
             sys.exit()
@@ -781,27 +782,33 @@ class Optimize:
 
 
 class Parser:
-    def __init__(self, sim_type, JobSettings) -> None:
-        self.sim_type = sim_type
+    def __init__(self, JobSettings) -> None:
         self.JobSettings = JobSettings
 
     def parse_matparams(self):
+        if self.JobSettings == 'AbaqusJobSettings':
+          return self.parse_matparams_abaqus()
+        elif self.JobSettings == 'DamaskJobSettings':
+          return self.parse_matparams_damask()
+
+    def parse_matparams_abaqus(self):
         config = Utils.CONFIG
         varbound = []
         constantParams = {}
         matparams = {}
         params_names = []
         phases = config.get(self.JobSettings,'PHASES').split(',')
-        if 'CP' in self.sim_type:
+        sim_type = config.get(JobSettings,'sim_type')
+        if 'CP' in sim_type:
             global_params = config.options('GlobalParams')
 
             # add global params to varbound
             constantParams[0] = {}
             for global_param in global_params:
                 global_param_value = config.get('GlobalParams',global_param)
-                if global_param != "abaqus_id":
+                if global_param != "phase_id":
                     # add global params
-                    if global_param_value.startswith('('):
+                    if global_param_value.startswith('['):
                         global_param_value = ast.literal_eval(global_param_value)
                         varbound.append(global_param_value)
                         params_names.append(global_param)
@@ -817,8 +824,8 @@ class Parser:
                 #add phase params to varbound
                 for option in options:
                     value = config.get(phase, option)
-                    if value.startswith('('):
-                        value = list(ast.literal_eval(value))
+                    if value.startswith('['):
+                        value = ast.literal_eval(value)
                         params_names.append(option)
                         varbound.append(value)
                     else:
@@ -841,8 +848,8 @@ class Parser:
             #add phase params to varbound
             for option in options:
                 value = config.get(phases[0], option)
-                if value.startswith('('):
-                    value = list(ast.literal_eval(value))
+                if value.startswith('['):
+                    value = ast.literal_eval(value)
                     params_names.append(option)
                     varbound.append(value)
                 else:
@@ -857,10 +864,57 @@ class Parser:
 
         return constantParams, matparams, varbound
 
+    def parse_matparams_damask(self):
+      config = Utils.CONFIG
+      varbound = []
+      constantParams = {}
+      matparams = {}
+      params_names = []
+      phases = config.get(self.JobSettings,'PHASES').split(',')
+
+      global_params = config.options('GlobalParams')
+      # add global params to varbound
+      constantParams[0] = {}
+      for global_param in global_params:
+          global_param_value = config.get('GlobalParams',global_param)
+          if global_param != "phase_id":
+              # add global params
+              if global_param_value.startswith('['):
+                  global_param_value = ast.literal_eval(global_param_value)
+                  varbound.append(global_param_value)
+                  params_names.append(global_param)
+              else:
+                  constantParams[0][global_param] = global_param_value
+      matparams[0] = params_names
+      params_names = []
+
+      # add phase settings
+      for phase in phases:
+        phase_id = config.get(phase, 'phase_id')
+        params_names.extend(config.get(self.JobSettings, f'{phase}.variables').split(','))
+        constantParams[phase_id] = {}
+        options = config.options(phase)
+        for option in options:
+            value = config.get(phase, option)
+            if option in params_names:
+                value = ast.literal_eval(value)
+                varbound.append(value)
+            else:
+                if option != "lattice" and option != "plastic":
+                    value = ast.literal_eval(value)
+                constantParams[phase_id][option] = value
+
+        params_names = []
+
+      varbound = np.array(varbound)
+
+      return constantParams, matparams, varbound
+
 class Utils:
     CONFIG = None
     CONSTANTPARAMS = None
     EVALUATINGPARAMS = None
+    SOFTWARE = None
 
 if __name__ == '__main__':
     #get current path
@@ -872,16 +926,13 @@ if __name__ == '__main__':
     config.read(f'{sim_root}/configs/configs.ini')
     Utils.CONFIG = config
     software = config.get('MainProcessSettings','software')
+    Utils.SOFTWARE = software
     JobSettings = 'AbaqusJobSettings' if software == 'abaqus' else 'DamaskJobSettings'
-    sim_Type = config.get(JobSettings,'sim_type')
 
-    constant_params, mat_params, varbound = Parser(sim_Type, JobSettings).parse_matparams()
+    constant_params, mat_params, varbound = Parser(JobSettings).parse_matparams()
     Utils.CONSTANTPARAMS = constant_params
     Utils.EVALUATINGPARAMS = mat_params
-    os.system(f"echo {constant_params}")
-    os.system(f"echo {mat_params}")
-    os.system(f"echo {varbound.shape}")
-    sys.exit()
+
     # read algortithm Parameters from config
     max_iters = ast.literal_eval(config.get('AlgorithmParameters','max_iters'))
     population_size = ast.literal_eval(config.get('AlgorithmParameters','population_size'))
@@ -905,14 +956,12 @@ if __name__ == '__main__':
                     mat_params=mat_params,
                     varbound=varbound,
                     algorithm_param=algorithm_param,
-                    sim_type=sim_Type,
                     n_jobs = config.get('MainProcessSettings','ntasks'),
                     software = software)
 
+    sys.exit()
     model, func = opt.init_optimizer()
     os.system('echo optimizer initialized starting simulations now')
-    os.system(f'echo using func: {func.__name__}')
-    sys.exit()
     if not ast.literal_eval(config.get('JobSettings','restart_flag')):
         model.run(no_plot=True,
                     progress_bar_stream = None,
