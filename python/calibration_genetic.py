@@ -123,10 +123,13 @@ class Simulation:
     def create_job_dir(self, dst_dir)  -> None:
         # create Folder for next simulation
         software = Utils.CONFIG.get('MainProcessSettings','software')
-        if 'CP' in self.sim_type and self.n_phases == 1:
-            source_dir = f'{self.sim_root}/{software}/sample_files_{str(self.sim_type).lower()}_simulation_single_phase'
-        else:
-            source_dir = f'{self.sim_root}/{software}/sample_files_{str(self.sim_type).lower()}_simulation'
+        if software == 'abaqus':
+            if 'CP' in self.sim_type and self.n_phases == 1:
+                source_dir = f'{self.sim_root}/{software}/sample_files_{str(self.sim_type).lower()}_simulation_single_phase'
+            else:
+                source_dir = f'{self.sim_root}/{software}/sample_files_{str(self.sim_type).lower()}_simulation'
+        elif software == 'damask':
+            source_dir = f'{self.sim_root}/{software}/sample_files_simulation'
         len_sample_dir = len(os.listdir(source_dir))
         if not os.path.exists(dst_dir):
                 shutil.copytree(source_dir, dst_dir)
@@ -959,10 +962,9 @@ if __name__ == '__main__':
                     n_jobs = config.get('MainProcessSettings','ntasks'),
                     software = software)
 
-    sys.exit()
     model, func = opt.init_optimizer()
     os.system('echo optimizer initialized starting simulations now')
-    if not ast.literal_eval(config.get('JobSettings','restart_flag')):
+    if not ast.literal_eval(config.get(JobSettings,'restart_flag')):
         model.run(no_plot=True,
                     progress_bar_stream = None,
                     save_last_generation_as = f'{sim_root}/logs/lastgeneration.npz',
