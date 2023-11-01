@@ -816,8 +816,24 @@ class Simulation:
         if software == "abaqus":
             self.create_batch_job_script(job_index=job_index)
             self.submit_batch_job(current_simulation_dir, f'simulation_job_{job_index}.sh', current_job_name)
+        
         elif software == 'damask':
-            pass
+            config = Utils.CONFIG
+            account = config.get('DamaskJobSettings','account')
+            sim_job_base_name = config.get('DamaskJobSettings','sim_job_base_name')
+            logs_path = f'{self.sim_root}/logs_{sim_job_base_name}'
+            output = logs_path +f'/{current_job_name}-log.%J'
+            run_time = config.get('DamaskJobSettings','time')
+            memPerCpu = config.get('DamaskJobSettings','mem-per-cpu')
+            nodes = config.get('DamaskJobSettings','nodes')
+            cpus_per_task = config.get('DamaskJobSettings','cpus-per-task')
+            os.system(f'echo "sbatch --job-name={current_job_name} --output={output} --time={run_time} --nodes={nodes} --account={account} --mem-per-cpu={memPerCpu} --cpus-per-task={cpus_per_task} batch.sh"')
+            main_cwd = os.getcwd()
+            os.chdir(current_simulation_dir)
+            os.system(f'sbatch --job-name={current_job_name} --output={output} --time={run_time} --nodes={nodes} --account={account} --mem-per-cpu={memPerCpu} --cpus-per-task={cpus_per_task} batch.sh')
+            os.chdir(main_cwd)
+            
+
 
 class Optimize:
 
