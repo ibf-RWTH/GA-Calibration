@@ -65,24 +65,12 @@ class Simulation:
                 #create directory
                 self.create_job_dir(current_simulation_dir)
                 self.create_sim_matdata(current_simulation_dir, params)
+                self.run_batch_job(current_simulation_dir, job_index, current_job_name)
                 sys.exit()
-                # if 'CP' in self.sim_type:
-                #     for j, mat_id in enumerate(self.mat_params.keys()):
-                #         if j > 0:
-                #             if j == 1:
-                #                 path = self.sample_files
-                #             else:
-                #                 path = current_simulation_dir
-                #             # create matdata.inp file according to params
-                #             self.manipulate_matdata(path, current_simulation_dir, mat_id, phase_index=j, optiParams=params)
-                # elif 'Chaboche' in self.sim_type:
-                #     for j, mat_id in enumerate(self.mat_params.keys()):
-                #         self.manipulate_matdata(self.sample_files, current_simulation_dir, mat_id, phase_index=j+1, optiParams=params)
-
                 # create batch script
-                self.create_batch_job_script(job_index=job_index)
-                # submit simulation
-                self.submit_batch_job(current_simulation_dir, f'simulation_job_{job_index}.sh', current_job_name)
+                # self.create_batch_job_script(job_index=job_index)
+                # # submit simulation
+                # self.submit_batch_job(current_simulation_dir, f'simulation_job_{job_index}.sh', current_job_name)
                 time.sleep(120)
 
                 # check simulation status and wait until simulation finished
@@ -371,7 +359,7 @@ class Simulation:
         mad_time = (100 * (1 - max_sim_time / total_time))**2
 
         if self.n_phases == 1:
-            phase_name = config.get('JobSettings', 'PHASES')
+            phase_name = config.get('JobSettings', 'phases')
             phase_id = config.get(phase_name, 'abaqus_id')
             phase_dict = {'3':'Phase1', '4':'Phase2'}
             phase = phase_dict[phase_id]
@@ -633,14 +621,15 @@ class Simulation:
 
     def submit_batch_job(self, currentDir, file, jobName):
         sim_type = self.sim_type
-        config = configparser.ConfigParser()
-        config.read(f'{sim_root}/configs/configs.ini')
-        account = config.get('JobSettings','account')
-        output = config.get('MainProcessSettings','output')+'/'+jobName+'-log.%J'
-        time = config.get('JobSettings','time')
-        memPerCpu = config.get('JobSettings','mem-per-cpu')
-        nodes = config.get('JobSettings','nodes')
-        nTasks = config.get('JobSettings','ntasks')
+        config = Utils.CONFIG
+        account = config.get('AbaqusJobSettings','account')
+        sim_job_base_name = config.get('AbaqusJobSettings','sim_job_base_name')
+        logs_path = f'{self.sim_root}/logs_{sim_job_base_name}'
+        output = logs_path +f'/{jobName}-log.%J'
+        time = config.get('AbaqusJobSettings','time')
+        memPerCpu = config.get('AbaqusJobSettings','mem-per-cpu')
+        nodes = config.get('AbaqusJobSettings','nodes')
+        nTasks = config.get('AbaqusJobSettings','ntasks')
 
         cmd = f'sbatch --job-name={jobName}'
         if account != 'None':
@@ -648,18 +637,18 @@ class Simulation:
         cmd += f' --output={output} --time={time}'
         cmd += f' --mem-per-cpu={memPerCpu} --nodes={nodes} --ntasks={nTasks}  {file}'
 
-        abaqus = config.get('JobSettings','abaqus_version')
-        memory = config.get('JobSettings','ABAQUS_MEM_ARG')
-        threads = config.get('JobSettings','THREADS_PER_MPI')
-        root = config.get('JobSettings','ROOT')
+        abaqus = config.get('AbaqusJobSettings','abaqus_version')
+        memory = config.get('AbaqusJobSettings','ABAQUS_MEM_ARG')
+        threads = config.get('AbaqusJobSettings','THREADS_PER_MPI')
+        root = config.get('AbaqusJobSettings','ROOT')
         if 'CP' in sim_type:
-            pythonPath = config.get('JobSettings','PYTHON_PATH')+'/readOdb_CP.py'
+            pythonPath = config.get('AbaqusJobSettings','PYTHON_PATH')+'/readOdb_CP.py'
         elif 'Chaboche' in sim_type:
-            pythonPath = config.get('JobSettings','PYTHON_PATH')+'/readOdb_Chaboche.py'
-        subroutine = config.get('JobSettings','SUBROUTINE_PATH')
+            pythonPath = config.get('AbaqusJobSettings','PYTHON_PATH')+'/readOdb_Chaboche.py'
+        subroutine = config.get('AbaqusJobSettings','SUBROUTINE_PATH')
         pythonPath = root + '/' + pythonPath
         subroutine = root + '/' + subroutine
-        input = config.get('JobSettings', 'INPUTFILE')
+        input = config.get('AbaqusJobSettings', 'INPUTFILE')
         f = open(f'{currentDir}/SimJobConfig.sh', 'w+')
         f.write(f'ABAQUS={abaqus}\n')
         f.write(f'ABAQUS_MEM_ARG={memory}\n')
@@ -692,14 +681,14 @@ class Simulation:
         mat_params = Utils.EVALUATINGPARAMS
 
         if 'CP' in self.sim_type:
-            phase = config.get('AbaqusJobSettings','PHASES').split(',')[phase_index - 1]
+            phase = config.get('AbaqusJobSettings','phases').split(',')[phase_index - 1]
             mat_props_keys = mat_params[0].copy() # Global Parameters keys/names !!! result in mutual change here mat_props_keys = mat_params[0] then extend also results in change of mat_params[0]
             mat_props_keys.extend(mat_params[id]) # adding Parameter keys/names for current phase
             # num_curr_props = len(mat_props)
             if phase_index == 1:
                 mat_props_values = optiParams[:len(mat_props_keys)]
             else:
-                mat_props_values = [optiParams[:len(mat_params[0])]]
+                mat_props_values = [optiParams[:len(mat_params[0])]] if len(mat_params[0]) > 0 else []
                 mat_props_values.extend(optiParams[-(len(mat_props_keys) - len(mat_params[0])):])
 
             with open(f'{sample_path}/matdata.inp', 'r') as file:
@@ -770,7 +759,7 @@ class Simulation:
         elif Utils.SOFTWARE == "damask":
             m = damask.ConfigMaterial()
             m = m.load(f'{self.sim_root}/damask/sample_files_simulation/material.yaml')
-            phases = config.get('DamaskJobSettings','PHASES').split(',')
+            phases = config.get('DamaskJobSettings','phases').split(',')
             constantParams = Utils.CONSTANTPARAMS
             mat_params = Utils.EVALUATINGPARAMS
 
@@ -821,7 +810,14 @@ class Simulation:
                 phase_index += 1
 
             m.save(f'{current_simulation_dir}/material.yaml')
-
+    
+    def run_batch_job(self, current_simulation_dir, job_index, current_job_name):
+        software = Utils.SOFTWARE
+        if software == "abaqus":
+            self.create_batch_job_script(job_index=job_index)
+            self.submit_batch_job(current_simulation_dir, f'simulation_job_{job_index}.sh', current_job_name)
+        elif software == 'damask':
+            pass
 
 class Optimize:
 
@@ -871,7 +867,7 @@ class Parser:
         constantParams = {}
         matparams = {}
         params_names = []
-        phases = config.get(self.JobSettings,'PHASES').split(',')
+        phases = config.get(self.JobSettings,'phases').split(',')
         sim_type = config.get(JobSettings,'sim_type')
         if 'CP' in sim_type:
             global_params = config.options('GlobalParams')
@@ -945,7 +941,7 @@ class Parser:
       constantParams = {}
       matparams = {}
       params_names = []
-      phases = config.get(self.JobSettings,'PHASES').split(',')
+      phases = config.get(self.JobSettings,'phases').split(',')
 
       global_params = config.options('GlobalParams')
       # add global params to varbound

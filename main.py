@@ -3,7 +3,8 @@ import configparser
 import glob
 import sys
 
-config = configparser.ConfigParser()
+config = configparser.ConfigParser(allow_no_value=True)
+config.optionxform = lambda option : option # Preserve case of the keys
 config.read('./configs/configs.ini')
 #call batch settings
 batchSettings = config['MainProcessSettings']
@@ -20,10 +21,10 @@ condaRoot = condaSettings['CONDA_ROOT']
 condaEnv = condaSettings['CONDA_ENV']
 if software == "abaqus":
         pythoncode = config.get('AbaqusJobSettings','PYTHONCODE')
-        sim_job_base_name = config.get('AbaqusJobSettings','SIM_JOB_BASE_NAME')
+        sim_job_base_name = config.get('AbaqusJobSettings','sim_job_base_name')
 elif software == "damask":
         pythoncode = config.get('DamaskJobSettings','PYTHONCODE')
-        sim_job_base_name = config.get('DamaskJobSettings','SIM_JOB_BASE_NAME')
+        sim_job_base_name = config.get('DamaskJobSettings','sim_job_base_name')
 else:
         os.system("echo error: wrong software name!")
         sys.exit()

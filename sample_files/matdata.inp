@@ -5,9 +5,9 @@
 <: Material: 1 :>
 
 !! Fcc Dislocation density
-c11   : %c11%1%
-c12   : %c12%1%
-c44   : %c44%1%
+C11   : %C11%1%
+C12   : %C12%1%
+C44   : %C44%1%
 nslip : %nslip%1%
 pw_fl : %pw_fl%1%
 brgvec: %brgvec%1%
@@ -19,9 +19,9 @@ c3    : %c3%1%
 
 <: Material: 2 :>
 ! Fcc Phenomenological
-c11   : %c11%2%
-c12   : %c12%2%
-c44   : %c44%2%
+C11   : %C11%2%
+C12   : %C12%2%
+C44   : %C44%2%
 nslip : %nslip%2%
 pw_fl : %pw_fl%2%
 shrt_0 : %shrt_0%2%
@@ -29,16 +29,16 @@ hdrt_0 : %hdrt_0%2%
 crss_0 : %crss_0%2%
 crss_s : %crss_s%2%
 pw_hd : %pw_hd%2%
-adir : %adir%2%
-adyn : %adyn%2%
+Adir : %Adir%2%
+Adyn : %Adyn%2%
 gam_c : %gam_c%2%
 pw_irr : %pw_irr%2%
 
 <: Material: 3 :>
 ! Bcc Phenomenological with non-Schmidt effect
-c11   : %c11%3%
-c12   : %c12%3%
-c44   : %c44%3%
+C11   : %C11%3%
+C12   : %C12%3%
+C44   : %C44%3%
 nslip : %nslip%3%
 pw_fl : %pw_fl%3%
 shrt_0 : %shrt_0%3%
@@ -47,8 +47,8 @@ crss_0 : %crss_0%3%
 k      : %k%3%
 crss_s : %crss_s%3%
 pw_hd : %pw_hd%3%
-adir : %adir%3%
-adyn : %adyn%3%
+Adir : %Adir%3%
+Adyn : %Adyn%3%
 gam_c : %gam_c%3%
 pw_irr : %pw_irr%3%
 ! non-Schmidt variables
@@ -61,9 +61,9 @@ a6 : %a6%3%
 
 <: Material: 4 :>
 ! 2nd Bcc Phase Phenomenological with non-Schmidt effect
-c11   : %c11%4%
-c12   : %c12%4%
-c44   : %c44%4%
+C11   : %C11%4%
+C12   : %C12%4%
+C44   : %C44%4%
 nslip : %nslip%4%
 pw_fl : %pw_fl%4%
 shrt_0 : %shrt_0%4%
@@ -72,8 +72,8 @@ crss_0 : %crss_0%4%
 k : %k%4%
 crss_s : %crss_s%4%
 pw_hd : %pw_hd%4%
-adir : %adir%4%
-adyn : %adyn%4%
+Adir : %Adir%4%
+Adyn : %Adyn%4%
 gam_c : %gam_c%4%
 pw_irr : %pw_irr%4%
 ! non-Schmidt variables
@@ -86,9 +86,9 @@ a6 : %a6%4%
 
 <: Material: 5 :>
 ! Bcc Phase Phenomenological with non-Schmidt effect, Temperature and PS_rate
-c11   : %c11%5%
-c12   : %c12%5%
-c44   : %c44%5%
+C11   : %C11%5%
+C12   : %C12%5%
+C44   : %C44%5%
 nslip : %nslip%5%
 pw_fl : %pw_fl%5%
 shrt_0 : %shrt_0%5%
@@ -97,8 +97,8 @@ crss_0 : %crss_0%5%
 k : %k%5%
 crss_s : %crss_s%5%
 pw_hd : %pw_hd%5%
-adir  : %adir%5%
-adyn  : %adyn%5%
+Adir  : %Adir%5%
+Adyn  : %Adyn%5%
 gam_c : %gam_c%5%
 pw_irr : %pw_irr%5%
 ! non-Schmidt variables
