@@ -724,7 +724,9 @@ class Simulation:
             if phase_index == 1:
                 mat_props_values = optiParams[:len(mat_props_keys)]
             else:
-                mat_props_values = optiParams[:len(mat_params[0])] if len(mat_params[0]) > 0 else []
+                mat_props_values = []
+                if len(mat_params[0]) > 0:
+                    mat_props_values.extend(optiParams[:len(mat_params[0])])
                 mat_props_values.extend(optiParams[-(len(mat_props_keys) - len(mat_params[0])):])
 
             with open(f'{sample_path}/matdata.inp', 'r') as file:
@@ -827,8 +829,10 @@ class Simulation:
                 if phase_index == 1:
                     mat_props_values = params[:len(mat_props_keys)]
                 else:
-                    mat_props_values = [params[:len(mat_params[0])]] if len(mat_params[0]) > 0 else []
-                    mat_props_values.extend(params[-(len(mat_props_keys) - len(mat_params[0])):])
+                    mat_props_values = []
+                    if len(mat_params[0]) > 0:
+                        mat_props_values.extend(optiParams[:len(mat_params[0])])
+                    mat_props_values.extend(optiParams[-(len(mat_props_keys) - len(mat_params[0])):])
 
                 if phase_data['lattice'] == 'cF':
                     duplicate = 1
