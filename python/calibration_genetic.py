@@ -31,16 +31,22 @@ class Simulation:
         self.base_job_name = job_name
         self.job_name = job_name
         self.n_jobs = n_jobs
-        self.sim_type = None
+        self.sim_type = 'tensile'
         if Utils.SOFTWARE == "abaqus":
             config = Utils.CONFIG
             sim_type = config.get('AbaqusJobSettings','sim_type')
             self.sim_type = sim_type
 
         self.sim_type2compare_function = {
-            'CP_cyclic' : self.compare_exp2sim_cyclic,
+            'abaqus':
+            {'CP_cyclic' : self.compare_exp2sim_cyclic,
             'CP_tensile' : self.compare_exp2sim_tensile,
             'Chaboche': self.compare_exp2sim_chaboche
+            },
+            'damask':
+            {
+                'tensile' : self.compare_exp2sim_damask,
+            }
         }
         self.mat_params = mat_params
         self.n_phases = len(mat_params) - 1
@@ -66,11 +72,6 @@ class Simulation:
                 self.create_job_dir(current_simulation_dir)
                 self.create_sim_matdata(current_simulation_dir, params)
                 self.run_batch_job(current_simulation_dir, job_index, current_job_name)
-                sys.exit()
-                # create batch script
-                # self.create_batch_job_script(job_index=job_index)
-                # # submit simulation
-                # self.submit_batch_job(current_simulation_dir, f'simulation_job_{job_index}.sh', current_job_name)
                 time.sleep(120)
 
                 # check simulation status and wait until simulation finished
@@ -89,12 +90,15 @@ class Simulation:
                     self.num_props = [0]
                     continue
                 # evaluate Simulation
-                if 'CP' in self.sim_type:
-                    sim_results = self.calcStressStrain(current_simulation_dir, current_job_name)
-                elif 'Chaboche' in self.sim_type:
-                    colNames = ['sim_time', 'sim_displacement', 'sim_force']
-                    sim_results = pd.read_csv(current_simulation_dir+'/RF_data.txt', names=colNames)
-                compare_func = self.sim_type2compare_function[self.sim_type]
+                sim_results = self.get_sim_results(current_simulation_dir, current_job_name)
+                # if 'CP' in self.sim_type:
+                #     sim_results = self.calcStressStrain(current_simulation_dir, current_job_name)
+                # elif 'Chaboche' in self.sim_type:
+                #     colNames = ['sim_time', 'sim_displacement', 'sim_force']
+                #     sim_results = pd.read_csv(current_simulation_dir+'/RF_data.txt', names=colNames)
+                compare_func = self.sim_type2compare_function[Utils.SOFTWARE][self.sim_type]
+                os.system(f'echo {compare_func.__name__}')
+                sys.exit()
                 mad1, mad2, time_stamp = compare_func(sim_results)
                 mad = mad1 + mad2
                 # write results to files and delete simulation files
@@ -580,6 +584,9 @@ class Simulation:
                         ex_x_cols=ex_x_cols, ex_y_cols=ex_y_cols, ex_labels=ex_labels)
         return mad_time, mad_force, now
 
+    def compare_exp2sim_damask(self, simulation_df):
+        pass
+
     def plot_data(self, fig_name, x_label, y_label, x1, y1, data_label_1, x2=None, y2=None, data_label_2=None):
         plt.plot(x1, y1, label=data_label_1)
 
@@ -810,13 +817,13 @@ class Simulation:
                 phase_index += 1
 
             m.save(f'{current_simulation_dir}/material.yaml')
-    
+
     def run_batch_job(self, current_simulation_dir, job_index, current_job_name):
         software = Utils.SOFTWARE
         if software == "abaqus":
             self.create_batch_job_script(job_index=job_index)
             self.submit_batch_job(current_simulation_dir, f'simulation_job_{job_index}.sh', current_job_name)
-        
+
         elif software == 'damask':
             config = Utils.CONFIG
             account = config.get('DamaskJobSettings','account')
@@ -832,7 +839,19 @@ class Simulation:
             os.chdir(current_simulation_dir)
             os.system(f'sbatch --job-name={current_job_name} --output={output} --time={run_time} --nodes={nodes} --account={account} --mem-per-cpu={memPerCpu} --cpus-per-task={cpus_per_task} batch.sh')
             os.chdir(main_cwd)
-            
+
+    def get_sim_results(self,current_simulation_dir, current_job_name):
+        if Utils.SOFTWARE == 'abaqus':
+            if 'CP' in self.sim_type:
+                    sim_results = self.calcStressStrain(current_simulation_dir, current_job_name)
+            elif 'Chaboche' in self.sim_type:
+                colNames = ['sim_time', 'sim_displacement', 'sim_force']
+                sim_results = pd.read_csv(current_simulation_dir+'/RF_data.txt', names=colNames)
+
+        elif Utils.SOFTWARE == 'damask':
+            return 0
+
+        return sim_results
 
 
 class Optimize:
