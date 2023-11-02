@@ -91,10 +91,7 @@ class Simulation:
                     continue
                 # evaluate Simulation
                 sim_results = self.get_sim_results(current_simulation_dir, current_job_name)
-                sim_results.to_csv("sim_results.csv")
-                sys.exit()
                 compare_func = self.sim_type2compare_function[Utils.SOFTWARE][self.sim_type]
-                os.system(f'echo {compare_func.__name__}')
                 mad1, mad2, time_stamp = compare_func(sim_results)
                 mad = mad1 + mad2
                 # write results to files and delete simulation files
@@ -581,7 +578,43 @@ class Simulation:
         return mad_time, mad_force, now
 
     def compare_exp2sim_damask(self, simulation_df):
-        pass
+        assert self.n_phases == 2 or self.n_phases == 1
+        now = int(time.time_ns())
+        if simulation_df.shape[0] < 5:
+            mad_time = 99999.
+            mad_stress_strain = 99999
+            return mad_time, mad_stress_strain, now
+
+        experimental_df = pd.read_csv(f'{self.sample_files}/{self.ex_data}', sep=',')
+        max_exp_strain = experimental_df['strain_t'].max()
+        max_total_strain = simulation_df['total_strain'].max()
+
+        exp_total_stress_interp = np.interp(simulation_df['total_strain'], experimental_df['strain_t'], experimental_df['stress_t'])
+        exp_alpha_stress_interp = np.interp(simulation_df['Alpha_strain'], experimental_df['strain_t'], experimental_df['stress_alpha'])
+        exp_beta_stress_interp = np.interp(simulation_df['Beta_strain'], experimental_df['strain_t'], experimental_df['stress_beta'])
+
+        mad_stress_total = np.mean(np.abs(exp_total_stress_interp - simulation_df['total_stress']))
+        mad_stress_alpha = np.mean(np.abs(exp_alpha_stress_interp - simulation_df['Alpha_stress']))
+        mad_stress_beta = np.mean(np.abs(exp_beta_stress_interp - simulation_df['Beta_stress']))
+        mad_strain_total = (abs(1 - max_total_strain / max_exp_strain) * 100) **2
+        mad_stress = (mad_stress_total + 0.8*mad_stress_alpha + 0.2 * mad_stress_beta)/3
+
+        sim_y_cols = ['total_stress', 'Alpha_stress', 'Beta_stress']
+        sim_x_cols = ['total_strain','Alpha_strain','Beta_strain']
+        sim_labels = ['Simulation_Total', 'Simulation_Alpha', 'Simulation_Beta']
+
+        ex_y_cols = ['stress_t', 'stress_alpha', 'stress_beta']
+        ex_x_cols = ['strain_t'] * len(ex_y_cols)
+        ex_labels = ['Experiment_Total', 'Experiment_Alpha','Experiment_Beta']
+
+        fig_name = f'stress_strain_{now}'
+        x_label = "Strain"
+        y_label = "Stress(MPa)"
+        self.plot_data2(fig_name=fig_name, x_label=x_label,y_label=y_label,
+                        sim_data=simulation_df, ex_data=experimental_df,
+                        sim_x_cols=sim_x_cols, sim_y_cols=sim_y_cols, sim_labels=sim_labels,
+                        ex_x_cols=ex_x_cols, ex_y_cols=ex_y_cols, ex_labels=ex_labels)
+        return mad_strain_total, mad_stress, now
 
     def plot_data(self, fig_name, x_label, y_label, x1, y1, data_label_1, x2=None, y2=None, data_label_2=None):
         plt.plot(x1, y1, label=data_label_1)
