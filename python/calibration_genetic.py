@@ -91,14 +91,10 @@ class Simulation:
                     continue
                 # evaluate Simulation
                 sim_results = self.get_sim_results(current_simulation_dir, current_job_name)
-                # if 'CP' in self.sim_type:
-                #     sim_results = self.calcStressStrain(current_simulation_dir, current_job_name)
-                # elif 'Chaboche' in self.sim_type:
-                #     colNames = ['sim_time', 'sim_displacement', 'sim_force']
-                #     sim_results = pd.read_csv(current_simulation_dir+'/RF_data.txt', names=colNames)
+                sim_results.to_csv("sim_results.csv")
+                sys.exit()
                 compare_func = self.sim_type2compare_function[Utils.SOFTWARE][self.sim_type]
                 os.system(f'echo {compare_func.__name__}')
-                sys.exit()
                 mad1, mad2, time_stamp = compare_func(sim_results)
                 mad = mad1 + mad2
                 # write results to files and delete simulation files
@@ -834,11 +830,65 @@ class Simulation:
             memPerCpu = config.get('DamaskJobSettings','mem-per-cpu')
             nodes = config.get('DamaskJobSettings','nodes')
             cpus_per_task = config.get('DamaskJobSettings','cpus-per-task')
-            os.system(f'echo "sbatch --job-name={current_job_name} --output={output} --time={run_time} --nodes={nodes} --account={account} --mem-per-cpu={memPerCpu} --cpus-per-task={cpus_per_task} batch.sh"')
             main_cwd = os.getcwd()
             os.chdir(current_simulation_dir)
             os.system(f'sbatch --job-name={current_job_name} --output={output} --time={run_time} --nodes={nodes} --account={account} --mem-per-cpu={memPerCpu} --cpus-per-task={cpus_per_task} batch.sh')
             os.chdir(main_cwd)
+
+    def damask_postproc(self, current_simulation_dir):
+        result_file = f'{current_simulation_dir}/grid_load.hdf5'
+        phases = Utils.CONFIG.get('DamaskJobSettings','phases').split(',')
+
+        result = damask.Result(result_file)
+        result.add_strain(F='F')
+        result.add_stress_Cauchy(F='F')
+        result.add_equivalent_Mises('sigma')
+        result.add_equivalent_Mises('epsilon_V^0.0(F)')
+
+
+        # Averaged Quantities
+        strain_eq = result.place('epsilon_V^0.0(F)')
+        stress_eq = result.place('sigma')
+
+        strain_vector = list()
+        stress_vector = list()
+
+        for _, strain in strain_eq.items():
+            strain_mean = np.abs(strain[:, 2, 2].mean())
+            strain_vector.append(strain_mean)
+
+        for _, stress in stress_eq.items():
+            stress_mean = np.abs(stress[:, 2, 2].mean()) #Pa
+            stress_vector.append(stress_mean)
+
+        # Partitioned Flowcurves
+        phase2stress = {}
+        phase2strain = {}
+        for phase in phases:
+            phase2stress[phase] = []
+            phase2strain[phase] = []
+
+        for key, val in result.get('sigma').items():
+            for subkey, subvalue in val.items():
+                for phase in phases:
+                    if phase in subkey:
+                        phase2stress[phase].append(np.mean(subvalue[:,2,2])) #Pa
+
+        for key, val in result.get('epsilon_V^0.0(F)').items():
+            for subkey, subvalue in val.items():
+                for phase in phases:
+                    if phase in subkey:
+                        phase2strain[phase].append(np.mean(subvalue[:,2,2]))
+
+        data = {}
+        data['total_strain'] = strain_vector
+        data['total_stress'] = stress_vector
+        for phase in phases:
+            data[f'{phase}_strain'] = phase2strain[phase]
+            data[f'{phase}_stress'] = phase2stress[phase]
+
+        sim_results = pd.DataFrame(data)
+        return sim_results
 
     def get_sim_results(self,current_simulation_dir, current_job_name):
         if Utils.SOFTWARE == 'abaqus':
@@ -849,7 +899,7 @@ class Simulation:
                 sim_results = pd.read_csv(current_simulation_dir+'/RF_data.txt', names=colNames)
 
         elif Utils.SOFTWARE == 'damask':
-            return 0
+            sim_results = self.damask_postproc(current_simulation_dir)
 
         return sim_results
 
