@@ -831,8 +831,8 @@ class Simulation:
                 else:
                     mat_props_values = []
                     if len(mat_params[0]) > 0:
-                        mat_props_values.extend(optiParams[:len(mat_params[0])])
-                    mat_props_values.extend(optiParams[-(len(mat_props_keys) - len(mat_params[0])):])
+                        mat_props_values.extend(params[:len(mat_params[0])])
+                    mat_props_values.extend(params[-(len(mat_props_keys) - len(mat_params[0])):])
 
                 if phase_data['lattice'] == 'cF':
                     duplicate = 1
@@ -1158,17 +1158,29 @@ if __name__ == '__main__':
     model, func = opt.init_optimizer()
     os.system('echo optimizer initialized starting simulations now')
     if not ast.literal_eval(config.get(JobSettings,'restart_flag')):
-        model.run(no_plot=True,
+        result = model.run(no_plot=True,
                     progress_bar_stream = None,
                     save_last_generation_as = f'{sim_root}/logs/lastgeneration.npz',
                     set_function=ga.set_function_multiprocess(func, n_jobs=ast.literal_eval(config.get('MainProcessSettings','ntasks'))))
     else:
-        model.run(no_plot=True,
+        result = model.run(no_plot=True,
                 progress_bar_stream = None,
                 start_generation=f'{sim_root}/logs/lastgeneration.npz',
                 set_function=ga.set_function_multiprocess(func, n_jobs=ast.literal_eval(config.get('MainProcessSettings','ntasks'))))
 
     f = open(sim_root + '/logs/final_results.txt', 'w')
-    json.dump(model.output_dict, f, indent=4)
+    f.write('best found solution: \n')
+    prop_index = 0
+    for phase_id, mat_props in mat_params.items():
+        if phase_id == 0: #global parameters
+            f.write(f'global: ')
+        else:
+            f.write(f'phase{phase_id}: ')
+        for mat_props_name in mat_props:
+            f.write(f'{mat_props_name}: {result.variable[prop_index]}, ')
+            prop_index += 1
+
+        f.write('\n')
+    f.close()
 
 
