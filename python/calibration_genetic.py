@@ -482,7 +482,7 @@ class Simulation:
 
         experimental_df = pd.read_csv(f'{self.sample_files}/{self.ex_data}', sep=',')
         max_exp_strain = experimental_df['strain_t'].max()
-        max_sim_strain = simulation_df['Strain'].max()
+        max_sim_strain = simulation_df['Sim_Strain'].max()
 
         if self.n_phases == 2:
 
@@ -496,8 +496,8 @@ class Simulation:
             mad_strain_total = (abs(1 - max_sim_strain / max_exp_strain) * 100) **2
             mad_stress = (mad_stress_total + 0.8*mad_stress_alpha + 0.2 * mad_stress_beta)/3
 
-            sim_y_cols = ['Stress', 'Stress_Phase1', 'Stress_Phase2']
-            sim_x_cols = ['Strain'] * len(sim_y_cols)
+            sim_y_cols = ['Sim_Stress', 'Sim_Stress_Phase1', 'Sim_Stress_Phase2']
+            sim_x_cols = ['Sim_Strain'] * len(sim_y_cols)
             sim_labels = ['Simulation_Total', 'Simulation_Alpha', 'Simulation_Beta']
 
             ex_y_cols = ['stress_t', 'stress_alpha', 'stress_beta']
@@ -510,8 +510,8 @@ class Simulation:
             mad_stress = np.mean(np.abs(exp_stress_interp - simulation_df['Stress']) / exp_stress_interp) * 100
             mad_strain_total = (abs(1 - max_sim_strain / max_exp_strain) * 100) **2
 
-            sim_y_cols = ['Stress']
-            sim_x_cols = ['Strain'] * len(sim_y_cols)
+            sim_y_cols = ['Sim_Stress']
+            sim_x_cols = ['Sim_Strain'] * len(sim_y_cols)
             sim_labels = ['Simulation']
 
             ex_y_cols = ['stress_t']
@@ -918,11 +918,11 @@ class Simulation:
                         phase2strain[phase].append(np.mean(subvalue[:,2,2]))
 
         data = {}
-        data['total_strain'] = strain_vector
-        data['total_stress'] = stress_vector
+        data['total_strain'] = np.array(strain_vector)
+        data['total_stress'] = np.array(stress_vector) /1e6 #MPa
         for phase in phases:
-            data[f'{phase}_strain'] = phase2strain[phase]
-            data[f'{phase}_stress'] = phase2stress[phase]
+            data[f'{phase}_strain'] = np.array(phase2strain[phase])
+            data[f'{phase}_stress'] = np.array(phase2stress[phase])/ 1e6 #MPa
 
         sim_results = pd.DataFrame(data)
         return sim_results
