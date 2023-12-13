@@ -1157,18 +1157,19 @@ if __name__ == '__main__':
 
     model, func = opt.init_optimizer()
     os.system('echo optimizer initialized starting simulations now')
+    name=config.get(JobSettings,'sim_job_base_name')
     if not ast.literal_eval(config.get(JobSettings,'restart_flag')):
         result = model.run(no_plot=True,
                     progress_bar_stream = None,
-                    save_last_generation_as = f'{sim_root}/logs/lastgeneration.npz',
+                    save_last_generation_as = f'{sim_root}/logs_{name}/lastgeneration.npz',
                     set_function=ga.set_function_multiprocess(func, n_jobs=ast.literal_eval(config.get('MainProcessSettings','ntasks'))))
     else:
         result = model.run(no_plot=True,
                 progress_bar_stream = None,
-                start_generation=f'{sim_root}/logs/lastgeneration.npz',
+                start_generation=f'{sim_root}/logs_{name}/lastgeneration.npz',
                 set_function=ga.set_function_multiprocess(func, n_jobs=ast.literal_eval(config.get('MainProcessSettings','ntasks'))))
 
-    f = open(sim_root + '/logs/final_results.txt', 'w')
+    f = open(sim_root + '/logs_{name}/results.txt', 'w')
     f.write('best found solution: \n')
     prop_index = 0
     for phase_id, mat_props in mat_params.items():
