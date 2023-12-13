@@ -1169,7 +1169,7 @@ if __name__ == '__main__':
                 start_generation=f'{sim_root}/logs_{name}/lastgeneration.npz',
                 set_function=ga.set_function_multiprocess(func, n_jobs=ast.literal_eval(config.get('MainProcessSettings','ntasks'))))
 
-    f = open(sim_root + '/logs_{name}/results.txt', 'w')
+    f = open(sim_root + f'/logs_{name}/results.txt', 'w')
     f.write('best found solution: \n')
     prop_index = 0
     for phase_id, mat_props in mat_params.items():
