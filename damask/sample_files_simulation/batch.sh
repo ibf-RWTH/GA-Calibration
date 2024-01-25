@@ -1,3 +1,3 @@
 #!/bin/bash
-apptainer exec /rwthfs/rz/SW/UTIL.common/singularity/damask-grid-alpha7 ./damask.sh
+apptainer exec docker://eisenforschung/damask-grid:3.0.0-alpha7 ./damask.sh
 
