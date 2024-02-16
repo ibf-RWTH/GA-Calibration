@@ -78,6 +78,7 @@ class Simulation:
                 sim_running = True
                 while sim_running:
                     sim_running, complete_status = self.check_sim_status(job_name=current_job_name)
+
                 if not complete_status:
                     os.system(f'echo {complete_status}')
                     os.system('echo in if loop')
@@ -88,9 +89,17 @@ class Simulation:
                     self.remove_sim_files(f'{self.log_dir}/{current_job_name}-log*')
                     submitted = False
                     self.num_props = [0]
-                    continue
+                    if Utils.SOFTWARE == "abaqus":
+                        continue
+                    # damask simulation doesn't converge
+                    elif Utils.SOFTWARE == "damask":
+                        time_stamp = int(time.time_ns())
+                        self.write_results_file(mad_time=99999, mad_stress=99999, mad=199998, params=params, compare_func="irrelevant", time_stamp=time_stamp)
+                        return 199998
+
                 # evaluate Simulation
                 sim_results = self.get_sim_results(current_simulation_dir, current_job_name)
+                # sim_results.to_csv(f'{current_simulation_dir}/results.csv')
                 compare_func = self.sim_type2compare_function[Utils.SOFTWARE][self.sim_type]
                 mad1, mad2, time_stamp = compare_func(sim_results)
                 mad = mad1 + mad2
@@ -1089,20 +1098,25 @@ class Parser:
         matparams[phase_id] = params_names
         constantParams[phase_id] = {}
         options = config.options(phase)
+        phase_varbound = ['nan'] * len(params_names)
         for option in options:
             value = config.get(phase, option)
             if option in params_names:
+                # get index of option in params_names
+                opt_index = params_names.index(option)
                 value = ast.literal_eval(value)
-                varbound.append(value)
+                # set value on the opt_index
+                phase_varbound[opt_index] = value
             else:
                 if option != "lattice" and option != "type":
                     value = ast.literal_eval(value)
                 constantParams[phase_id][option] = value
 
+        varbound.extend(phase_varbound)
         params_names = []
-
+      
+      os.system(f'echo varbound is: {varbound}')
       varbound = np.array(varbound)
-
       return constantParams, matparams, varbound
 
 class Utils:
