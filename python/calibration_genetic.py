@@ -120,11 +120,11 @@ class Simulation:
         software = Utils.CONFIG.get('MainProcessSettings','software')
         if software == 'abaqus':
             if 'CP' in self.sim_type and self.n_phases == 1:
-                source_dir = f'{self.sim_root}/{software}/sample_files_{str(self.sim_type).lower()}_simulation_single_phase'
+                source_dir = f'{self.sim_root}/{software}/input_files_{str(self.sim_type).lower()}_simulation_single_phase'
             else:
-                source_dir = f'{self.sim_root}/{software}/sample_files_{str(self.sim_type).lower()}_simulation'
+                source_dir = f'{self.sim_root}/{software}/input_files_{str(self.sim_type).lower()}_simulation'
         elif software == 'damask':
-            source_dir = f'{self.sim_root}/{software}/sample_files_simulation'
+            source_dir = f'{self.sim_root}/{software}/input_files_simulation'
         len_sample_dir = len(os.listdir(source_dir))
         if not os.path.exists(dst_dir):
                 shutil.copytree(source_dir, dst_dir)
@@ -516,7 +516,7 @@ class Simulation:
         if self.n_phases == 1:
 
             exp_stress_interp = np.interp(simulation_df['Sim_Strain'], experimental_df['strain_t'], experimental_df['stress_t'])
-            mad_stress = np.mean(np.abs(exp_stress_interp - simulation_df['Stress']) / exp_stress_interp) * 100
+            mad_stress = np.mean(np.abs(exp_stress_interp - simulation_df['Sim_Stress']) / exp_stress_interp) * 100
             mad_strain_total = (abs(1 - max_sim_strain / max_exp_strain) * 100) **2
 
             sim_y_cols = ['Sim_Stress']
@@ -1114,7 +1114,7 @@ class Parser:
 
         varbound.extend(phase_varbound)
         params_names = []
-      
+
       os.system(f'echo varbound is: {varbound}')
       varbound = np.array(varbound)
       return constantParams, matparams, varbound

@@ -2,6 +2,7 @@ import os
 import configparser
 import glob
 import sys
+import shutil
 
 config = configparser.ConfigParser(allow_no_value=True)
 config.optionxform = lambda option : option # Preserve case of the keys
@@ -55,5 +56,16 @@ elif os.path.isdir(logs_path) and len(os.listdir(logs_path)) > 0:
         files = glob.glob(f"{logs_path}/*.txt")
         if files:
                 os.system(f'rm -r {logs_path}/*txt')
+
+# remove previous simulation files
+# Directory to search in, assuming current directory for this example
+search_dir = "."
+
+# Find and delete folders starting with 'simulation_' followed by a date
+for root, dirs, files in os.walk(search_dir):
+    for dir_name in dirs:
+        if dir_name.startswith("simulation_") and len(dir_name) == 15:  # e.g., simulation_0203
+            shutil.rmtree(os.path.join(root, dir_name))
+
 # run batch file
 os.system(f"sbatch --job-name={jobName} --output={output} --time={time} --mem-per-cpu={memPerCpu} --nodes={nodes} --ntasks={ntasks} runBatch.sh")

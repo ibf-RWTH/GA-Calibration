@@ -1,0 +1,687 @@
+** MATERIALS
+**
+*Material, name=Ferrite_1
+*Depvar
+    176,
+*User Material, constants=2
+1.,3.
+*Material, name=Pearlite_1
+*Depvar
+    176,
+*User Material, constants=2
+2.,3.
+*Material, name=Ferrite_2
+*Depvar
+    176,
+*User Material, constants=2
+2.,3.
+*Material, name=Ferrite_3
+*Depvar
+    176,
+*User Material, constants=2
+3.,3.
+*Material, name=Ferrite_4
+*Depvar
+    176,
+*User Material, constants=2
+4.,3.
+*Material, name=Ferrite_5
+*Depvar
+    176,
+*User Material, constants=2
+5.,3.
+*Material, name=Ferrite_6
+*Depvar
+    176,
+*User Material, constants=2
+6.,3.
+*Material, name=Ferrite_7
+*Depvar
+    176,
+*User Material, constants=2
+7.,3.
+*Material, name=Ferrite_8
+*Depvar
+    176,
+*User Material, constants=2
+8.,3.
+*Material, name=Pearlite_2
+*Depvar
+    176,
+*User Material, constants=2
+10.,3.
+*Material, name=Pearlite_3
+*Depvar
+    176,
+*User Material, constants=2
+11.,3.
+*Material, name=Ferrite_9
+*Depvar
+    176,
+*User Material, constants=2
+9.,3.
+*Material, name=Pearlite_4
+*Depvar
+    176,
+*User Material, constants=2
+13.,3.
+*Material, name=Ferrite_10
+*Depvar
+    176,
+*User Material, constants=2
+10.,3.
+*Material, name=Ferrite_11
+*Depvar
+    176,
+*User Material, constants=2
+11.,3.
+*Material, name=Pearlite_5
+*Depvar
+    176,
+*User Material, constants=2
+16.,3.
+*Material, name=Ferrite_12
+*Depvar
+    176,
+*User Material, constants=2
+12.,3.
+*Material, name=Pearlite_6
+*Depvar
+    176,
+*User Material, constants=2
+18.,3.
+*Material, name=Ferrite_13
+*Depvar
+    176,
+*User Material, constants=2
+13.,3.
+*Material, name=Pearlite_7
+*Depvar
+    176,
+*User Material, constants=2
+20.,3.
+*Material, name=Pearlite_8
+*Depvar
+    176,
+*User Material, constants=2
+21.,3.
+*Material, name=Ferrite_14
+*Depvar
+    176,
+*User Material, constants=2
+14.,3.
+*Material, name=Ferrite_15
+*Depvar
+    176,
+*User Material, constants=2
+15.,3.
+*Material, name=Ferrite_16
+*Depvar
+    176,
+*User Material, constants=2
+16.,3.
+*Material, name=Ferrite_17
+*Depvar
+    176,
+*User Material, constants=2
+17.,3.
+*Material, name=Ferrite_18
+*Depvar
+    176,
+*User Material, constants=2
+18.,3.
+*Material, name=Ferrite_19
+*Depvar
+    176,
+*User Material, constants=2
+19.,3.
+*Material, name=Ferrite_20
+*Depvar
+    176,
+*User Material, constants=2
+20.,3.
+*Material, name=Pearlite_9
+*Depvar
+    176,
+*User Material, constants=2
+29.,3.
+*Material, name=Ferrite_21
+*Depvar
+    176,
+*User Material, constants=2
+21.,3.
+*Material, name=Ferrite_22
+*Depvar
+    176,
+*User Material, constants=2
+22.,3.
+*Material, name=Ferrite_23
+*Depvar
+    176,
+*User Material, constants=2
+23.,3.
+*Material, name=Pearlite_10
+*Depvar
+    176,
+*User Material, constants=2
+33.,3.
+*Material, name=Pearlite_11
+*Depvar
+    176,
+*User Material, constants=2
+34.,3.
+*Material, name=Ferrite_24
+*Depvar
+    176,
+*User Material, constants=2
+24.,3.
+*Material, name=Pearlite_12
+*Depvar
+    176,
+*User Material, constants=2
+36.,3.
+*Material, name=Ferrite_25
+*Depvar
+    176,
+*User Material, constants=2
+25.,3.
+*Material, name=Ferrite_26
+*Depvar
+    176,
+*User Material, constants=2
+26.,3.
+*Material, name=Ferrite_27
+*Depvar
+    176,
+*User Material, constants=2
+27.,3.
+*Material, name=Pearlite_13
+*Depvar
+    176,
+*User Material, constants=2
+40.,3.
+*Material, name=Ferrite_28
+*Depvar
+    176,
+*User Material, constants=2
+28.,3.
+*Material, name=Ferrite_29
+*Depvar
+    176,
+*User Material, constants=2
+29.,3.
+*Material, name=Ferrite_30
+*Depvar
+    176,
+*User Material, constants=2
+30.,3.
+*Material, name=Pearlite_14
+*Depvar
+    176,
+*User Material, constants=2
+44.,3.
+*Material, name=Ferrite_31
+*Depvar
+    176,
+*User Material, constants=2
+31.,3.
+*Material, name=Pearlite_15
+*Depvar
+    176,
+*User Material, constants=2
+46.,3.
+*Material, name=Ferrite_32
+*Depvar
+    176,
+*User Material, constants=2
+32.,3.
+*Material, name=Pearlite_16
+*Depvar
+    176,
+*User Material, constants=2
+48.,3.
+*Material, name=Pearlite_17
+*Depvar
+    176,
+*User Material, constants=2
+49.,3.
+*Material, name=Pearlite_18
+*Depvar
+    176,
+*User Material, constants=2
+50.,3.
+*Material, name=Pearlite_19
+*Depvar
+    176,
+*User Material, constants=2
+51.,3.
+*Material, name=Pearlite_20
+*Depvar
+    176,
+*User Material, constants=2
+52.,3.
+*Material, name=Ferrite_33
+*Depvar
+    176,
+*User Material, constants=2
+33.,3.
+*Material, name=Ferrite_34
+*Depvar
+    176,
+*User Material, constants=2
+34.,3.
+*Material, name=Pearlite_21
+*Depvar
+    176,
+*User Material, constants=2
+55.,3.
+*Material, name=Ferrite_35
+*Depvar
+    176,
+*User Material, constants=2
+35.,3.
+*Material, name=Pearlite_22
+*Depvar
+    176,
+*User Material, constants=2
+57.,3.
+*Material, name=Ferrite_36
+*Depvar
+    176,
+*User Material, constants=2
+36.,3.
+*Material, name=Ferrite_37
+*Depvar
+    176,
+*User Material, constants=2
+37.,3.
+*Material, name=Ferrite_38
+*Depvar
+    176,
+*User Material, constants=2
+38.,3.
+*Material, name=Ferrite_39
+*Depvar
+    176,
+*User Material, constants=2
+39.,3.
+*Material, name=Ferrite_40
+*Depvar
+    176,
+*User Material, constants=2
+40.,3.
+*Material, name=Ferrite_41
+*Depvar
+    176,
+*User Material, constants=2
+41.,3.
+*Material, name=Ferrite_42
+*Depvar
+    176,
+*User Material, constants=2
+42.,3.
+*Material, name=Ferrite_43
+*Depvar
+    176,
+*User Material, constants=2
+43.,3.
+*Material, name=Ferrite_44
+*Depvar
+    176,
+*User Material, constants=2
+44.,3.
+*Material, name=Pearlite_23
+*Depvar
+    176,
+*User Material, constants=2
+67.,3.
+*Material, name=Ferrite_45
+*Depvar
+    176,
+*User Material, constants=2
+45.,3.
+*Material, name=Ferrite_46
+*Depvar
+    176,
+*User Material, constants=2
+46.,3.
+*Material, name=Ferrite_47
+*Depvar
+    176,
+*User Material, constants=2
+47.,3.
+*Material, name=Ferrite_48
+*Depvar
+    176,
+*User Material, constants=2
+48.,3.
+*Material, name=Pearlite_24
+*Depvar
+    176,
+*User Material, constants=2
+72.,3.
+*Material, name=Ferrite_49
+*Depvar
+    176,
+*User Material, constants=2
+49.,3.
+*Material, name=Ferrite_50
+*Depvar
+    176,
+*User Material, constants=2
+50.,3.
+*Material, name=Ferrite_51
+*Depvar
+    176,
+*User Material, constants=2
+51.,3.
+*Material, name=Ferrite_52
+*Depvar
+    176,
+*User Material, constants=2
+52.,3.
+*Material, name=Ferrite_53
+*Depvar
+    176,
+*User Material, constants=2
+53.,3.
+*Material, name=Pearlite_25
+*Depvar
+    176,
+*User Material, constants=2
+78.,3.
+*Material, name=Ferrite_54
+*Depvar
+    176,
+*User Material, constants=2
+54.,3.
+*Material, name=Pearlite_26
+*Depvar
+    176,
+*User Material, constants=2
+80.,3.
+*Material, name=Pearlite_27
+*Depvar
+    176,
+*User Material, constants=2
+81.,3.
+*Material, name=Pearlite_28
+*Depvar
+    176,
+*User Material, constants=2
+82.,3.
+*Material, name=Pearlite_29
+*Depvar
+    176,
+*User Material, constants=2
+83.,3.
+*Material, name=Ferrite_55
+*Depvar
+    176,
+*User Material, constants=2
+55.,3.
+*Material, name=Pearlite_30
+*Depvar
+    176,
+*User Material, constants=2
+85.,3.
+*Material, name=Ferrite_56
+*Depvar
+    176,
+*User Material, constants=2
+56.,3.
+*Material, name=Ferrite_57
+*Depvar
+    176,
+*User Material, constants=2
+57.,3.
+*Material, name=Ferrite_58
+*Depvar
+    176,
+*User Material, constants=2
+58.,3.
+*Material, name=Ferrite_59
+*Depvar
+    176,
+*User Material, constants=2
+59.,3.
+*Material, name=Ferrite_60
+*Depvar
+    176,
+*User Material, constants=2
+60.,3.
+*Material, name=Ferrite_61
+*Depvar
+    176,
+*User Material, constants=2
+61.,3.
+*Material, name=Pearlite_31
+*Depvar
+    176,
+*User Material, constants=2
+92.,3.
+*Material, name=Ferrite_62
+*Depvar
+    176,
+*User Material, constants=2
+62.,3.
+*Material, name=Pearlite_32
+*Depvar
+    176,
+*User Material, constants=2
+94.,3.
+*Material, name=Pearlite_33
+*Depvar
+    176,
+*User Material, constants=2
+95.,3.
+*Material, name=Pearlite_34
+*Depvar
+    176,
+*User Material, constants=2
+96.,3.
+*Material, name=Pearlite_35
+*Depvar
+    176,
+*User Material, constants=2
+97.,3.
+*Material, name=Ferrite_63
+*Depvar
+    176,
+*User Material, constants=2
+63.,3.
+*Material, name=Pearlite_36
+*Depvar
+    176,
+*User Material, constants=2
+99.,3.
+*Material, name=Pearlite_37
+*Depvar
+    176,
+*User Material, constants=2
+100.,3.
+*Material, name=Pearlite_38
+*Depvar
+    176,
+*User Material, constants=2
+101.,3.
+*Material, name=Pearlite_39
+*Depvar
+    176,
+*User Material, constants=2
+102.,3.
+*Material, name=Pearlite_40
+*Depvar
+    176,
+*User Material, constants=2
+103.,3.
+*Material, name=Ferrite_64
+*Depvar
+    176,
+*User Material, constants=2
+64.,3.
+*Material, name=Ferrite_65
+*Depvar
+    176,
+*User Material, constants=2
+65.,3.
+*Material, name=Pearlite_41
+*Depvar
+    176,
+*User Material, constants=2
+106.,3.
+*Material, name=Ferrite_66
+*Depvar
+    176,
+*User Material, constants=2
+66.,3.
+*Material, name=Ferrite_67
+*Depvar
+    176,
+*User Material, constants=2
+67.,3.
+*Material, name=Ferrite_68
+*Depvar
+    176,
+*User Material, constants=2
+68.,3.
+*Material, name=Ferrite_69
+*Depvar
+    176,
+*User Material, constants=2
+69.,3.
+*Material, name=Pearlite_42
+*Depvar
+    176,
+*User Material, constants=2
+111.,3.
+*Material, name=Ferrite_70
+*Depvar
+    176,
+*User Material, constants=2
+70.,3.
+*Material, name=Pearlite_43
+*Depvar
+    176,
+*User Material, constants=2
+113.,3.
+*Material, name=Pearlite_44
+*Depvar
+    176,
+*User Material, constants=2
+114.,3.
+*Material, name=Pearlite_45
+*Depvar
+    176,
+*User Material, constants=2
+115.,3.
+*Material, name=Pearlite_46
+*Depvar
+    176,
+*User Material, constants=2
+116.,3.
+*Material, name=Pearlite_47
+*Depvar
+    176,
+*User Material, constants=2
+117.,3.
+*Material, name=Ferrite_71
+*Depvar
+    176,
+*User Material, constants=2
+71.,3.
+*Material, name=Pearlite_48
+*Depvar
+    176,
+*User Material, constants=2
+119.,3.
+*Material, name=Pearlite_49
+*Depvar
+    176,
+*User Material, constants=2
+120.,3.
+*Material, name=Ferrite_72
+*Depvar
+    176,
+*User Material, constants=2
+72.,3.
+*Material, name=Pearlite_50
+*Depvar
+    176,
+*User Material, constants=2
+122.,3.
+*Material, name=Ferrite_73
+*Depvar
+    176,
+*User Material, constants=2
+73.,3.
+*Material, name=Ferrite_74
+*Depvar
+    176,
+*User Material, constants=2
+74.,3.
+*Material, name=Pearlite_51
+*Depvar
+    176,
+*User Material, constants=2
+125.,3.
+*Material, name=Ferrite_75
+*Depvar
+    176,
+*User Material, constants=2
+75.,3.
+*Material, name=Pearlite_52
+*Depvar
+    176,
+*User Material, constants=2
+127.,3.
+*Material, name=Pearlite_53
+*Depvar
+    176,
+*User Material, constants=2
+128.,3.
+*Material, name=Ferrite_76
+*Depvar
+    176,
+*User Material, constants=2
+76.,3.
+*Material, name=Ferrite_77
+*Depvar
+    176,
+*User Material, constants=2
+77.,3.
+*Material, name=Ferrite_78
+*Depvar
+    176,
+*User Material, constants=2
+78.,3.
+*Material, name=Pearlite_54
+*Depvar
+    176,
+*User Material, constants=2
+132.,3.
+*Material, name=Pearlite_55
+*Depvar
+    176,
+*User Material, constants=2
+133.,3.
+*Material, name=Pearlite_56
+*Depvar
+    176,
+*User Material, constants=2
+134.,3.
+*Material, name=Ferrite_79
+*Depvar
+    176,
+*User Material, constants=2
+79.,3.
+*Material, name=Ferrite_80
+*Depvar
+    176,
+*User Material, constants=2
+80.,3.
+*Material, name=Ferrite_81
+*Depvar
+    176,
+*User Material, constants=2
+81.,3.
