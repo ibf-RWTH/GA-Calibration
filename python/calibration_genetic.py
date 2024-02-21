@@ -25,7 +25,9 @@ class Simulation:
         self.ex_data = ex_data
         self.subroutine_dir = f'{self.sim_root}/subroutine'
         self.simulation_dir = f'{self.sim_root}/simulation'
-        self.sample_files = f'{self.sim_root}/sample_files'
+        # self.sample_files = f'{self.sim_root}/sample_files'
+        self.exp_files = f'{self.sim_root}/exp_files'
+        self.temp_files = f'{self.sim_root}/template_files'
         self.images = f'{self.sim_root}/evaluation_images_{job_name}'
         self.log_dir = f'{self.sim_root}/logs_{job_name}'
         self.base_job_name = job_name
@@ -55,9 +57,9 @@ class Simulation:
         current_simulation_dir = f'{self.simulation_dir}_{job_index}'
         destination = f'{current_simulation_dir}/simulation_job_{job_index}.sh'
         if 'CP' in self.sim_type:
-            source = f'{self.sample_files}/simulation_job_CP.sh'
+            source = f'{self.temp_files}/simulation_job_CP.sh'
         elif 'Chaboche' in self.sim_type:
-            source = f'{self.sample_files}/simulation_job_Chaboche.sh'
+            source = f'{self.temp_files}/simulation_job_Chaboche.sh'
         shutil.copy(source, destination)
 
     def blackbox(self, params):
@@ -358,7 +360,7 @@ class Simulation:
             return mad_time, mad_stress_strain, now
 
 
-        experimental_df = pd.read_csv(f'{self.sample_files}/{self.ex_data}', sep='\t')
+        experimental_df = pd.read_csv(f'{self.exp_files}/{self.ex_data}', sep='\t')
 
         total_time = experimental_df['time'].values[-1]
         max_sim_time = simulation_df['sim_time'].values[-1]
@@ -489,7 +491,7 @@ class Simulation:
             mad_stress_strain = 99999
             return mad_time, mad_stress_strain, now
 
-        experimental_df = pd.read_csv(f'{self.sample_files}/{self.ex_data}', sep=',')
+        experimental_df = pd.read_csv(f'{self.exp_files}/{self.ex_data}', sep=',')
         max_exp_strain = experimental_df['strain_t'].max()
         max_sim_strain = simulation_df['Sim_Strain'].max()
 
@@ -547,7 +549,7 @@ class Simulation:
             return mad_time, mad_stress_strain, now
 
 
-        experimental_df = pd.read_csv(f'{self.sample_files}/{self.ex_data}')
+        experimental_df = pd.read_csv(f'{self.exp_files}/{self.ex_data}')
 
         total_time = experimental_df['time'].values[-1]
         max_sim_time = simulation_df['sim_time'].values[-1]
@@ -594,7 +596,7 @@ class Simulation:
             mad_stress_strain = 99999
             return mad_time, mad_stress_strain, now
 
-        experimental_df = pd.read_csv(f'{self.sample_files}/{self.ex_data}', sep=',')
+        experimental_df = pd.read_csv(f'{self.exp_files}/{self.ex_data}', sep=',')
         max_exp_strain = experimental_df['strain_t'].max()
         max_total_strain = simulation_df['total_strain'].max()
 
@@ -794,18 +796,18 @@ class Simulation:
                 for j, mat_id in enumerate(self.mat_params.keys()):
                     if j > 0:
                         if j == 1:
-                            path = self.sample_files
+                            path = self.temp_files
                         else:
                             path = current_simulation_dir
                         # create matdata.inp file according to params
                         self.manipulate_matdata(path, current_simulation_dir, mat_id, phase_index=j, optiParams=params)
             elif 'Chaboche' in self.sim_type:
                 for j, mat_id in enumerate(self.mat_params.keys()):
-                    self.manipulate_matdata(self.sample_files, current_simulation_dir, mat_id, phase_index=j+1, optiParams=params)
+                    self.manipulate_matdata(self.temp_files, current_simulation_dir, mat_id, phase_index=j+1, optiParams=params)
 
         elif Utils.SOFTWARE == "damask":
             m = damask.ConfigMaterial()
-            m = m.load(f'{self.sim_root}/damask/sample_files_simulation/material.yaml')
+            m = m.load(f'{self.sim_root}/damask/input_files_simulation/material.yaml')
             phases = config.get('DamaskJobSettings','phases').split(',')
             constantParams = Utils.CONSTANTPARAMS
             mat_params = Utils.EVALUATINGPARAMS
