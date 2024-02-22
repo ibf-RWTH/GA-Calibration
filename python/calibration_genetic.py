@@ -16,8 +16,14 @@ from io import StringIO
 import warnings
 import configparser
 import damask
+import csv
 
 warnings.simplefilter(action='ignore', category=FutureWarning)
+
+def detect_delimiter(csv_path):
+    with open(csv_path, 'r') as file:
+        dialect = csv.Sniffer().sniff(file.readline())
+        return dialect.delimiter
 
 class Simulation:
     def __init__(self, sim_root, ex_data, job_name, n_jobs, mat_params):
@@ -491,12 +497,12 @@ class Simulation:
             mad_stress_strain = 99999
             return mad_time, mad_stress_strain, now
 
-        experimental_df = pd.read_csv(f'{self.exp_files}/{self.ex_data}', sep=',')
-        max_exp_strain = experimental_df['strain_t'].max()
+        # experimental_df = pd.read_csv(f'{self.exp_files}/{self.ex_data}', sep=',')
+        # max_exp_strain = experimental_df['strain_t'].max()
         max_sim_strain = simulation_df['Sim_Strain'].max()
 
         if self.n_phases == 2:
-
+            experimental_df = simulation_df
             exp_total_stress_interp = np.interp(simulation_df['Sim_Strain'], experimental_df['strain_t'], experimental_df['stress_t'])
             exp_alpha_stress_interp = np.interp(simulation_df['Sim_Strain'], experimental_df['strain_t'], experimental_df['stress_alpha'])
             exp_beta_stress_interp = np.interp(simulation_df['Sim_Strain'], experimental_df['strain_t'], experimental_df['stress_beta'])
@@ -516,8 +522,11 @@ class Simulation:
             ex_labels = ['Experiment_Total', 'Experiment_Alpha','Experiment_Beta']
 
         if self.n_phases == 1:
-
-            exp_stress_interp = np.interp(simulation_df['Sim_Strain'], experimental_df['strain_t'], experimental_df['stress_t'])
+            ex_data = self.ex_data[0].replace(" ", "") #remove spaces
+            sep = detect_delimiter(f'{self.exp_files}/{ex_data}')
+            experimental_df = pd.read_csv(f'{self.exp_files}/{ex_data}', sep=sep)
+            max_exp_strain = experimental_df['x'].max()
+            exp_stress_interp = np.interp(simulation_df['Sim_Strain'], experimental_df['x'], experimental_df['y'])
             mad_stress = np.mean(np.abs(exp_stress_interp - simulation_df['Sim_Stress']) / exp_stress_interp) * 100
             mad_strain_total = (abs(1 - max_sim_strain / max_exp_strain) * 100) **2
 
@@ -525,8 +534,8 @@ class Simulation:
             sim_x_cols = ['Sim_Strain'] * len(sim_y_cols)
             sim_labels = ['Simulation']
 
-            ex_y_cols = ['stress_t']
-            ex_x_cols = ['strain_t'] * len(ex_y_cols)
+            ex_y_cols = ['y']
+            ex_x_cols = ['x'] * len(ex_y_cols)
             ex_labels = ['Experiment']
 
         fig_name = f'stress_strain_{now}'
@@ -1141,6 +1150,10 @@ if __name__ == '__main__':
     Utils.SOFTWARE = software
     JobSettings = 'AbaqusJobSettings' if software == 'abaqus' else 'DamaskJobSettings'
 
+    ex_data=config.get(JobSettings,'ex_data').split(',')
+    os.system(f'echo ex_data are: {ex_data}')
+    assert len(ex_data) == 1 or len(ex_data) == 3, "wrong number of input files!"
+
     constant_params, mat_params, varbound = Parser(JobSettings).parse_matparams()
     Utils.CONSTANTPARAMS = constant_params
     Utils.EVALUATINGPARAMS = mat_params
@@ -1162,7 +1175,7 @@ if __name__ == '__main__':
                         'max_iteration_without_improv': max_iteration_without_improv}
 
     opt = Optimize(flag=config.get(JobSettings,'test_flag'),
-                    ex_data=config.get(JobSettings,'ex_data'),
+                    ex_data=ex_data,
                     root=sim_root,
                     name=config.get(JobSettings,'sim_job_base_name'),
                     mat_params=mat_params,
