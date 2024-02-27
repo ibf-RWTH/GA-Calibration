@@ -1,4 +1,4 @@
-time,x,y
+sim_time,sim_displacement,sim_force
 0,0,0
 0.02,0.102244058,0.00279332
 0.04,0.138849943,0.003772898

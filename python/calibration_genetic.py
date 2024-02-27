@@ -17,6 +17,7 @@ import warnings
 import configparser
 import damask
 import csv
+from scipy.interpolate import interp1d
 
 warnings.simplefilter(action='ignore', category=FutureWarning)
 
@@ -45,19 +46,11 @@ class Simulation:
             sim_type = config.get('AbaqusJobSettings','sim_type')
             self.sim_type = sim_type
 
-        self.sim_type2compare_function = {
-            'abaqus':
-            {'CP_cyclic' : self.compare_exp2sim_cyclic,
-            'CP_tensile' : self.compare_exp2sim_tensile,
-            'Chaboche': self.compare_exp2sim_chaboche
-            },
-            'damask':
-            {
-                'tensile' : self.compare_exp2sim_damask,
-            }
-        }
         self.mat_params = mat_params
-        self.n_phases = len(mat_params) - 1
+        if self.sim_type == 'Chaboche':
+            self.n_phases = len(mat_params)
+        else:
+            self.n_phases = len(mat_params) - 1
 
     def create_batch_job_script(self, job_index):
         current_simulation_dir = f'{self.simulation_dir}_{job_index}'
@@ -79,40 +72,45 @@ class Simulation:
                 #create directory
                 self.create_job_dir(current_simulation_dir)
                 self.create_sim_matdata(current_simulation_dir, params)
-                self.run_batch_job(current_simulation_dir, job_index, current_job_name)
-                time.sleep(120)
+                if Utils.DEBUG:
+                    if self.sim_type == 'Chaboche':
+                        sim_results =pd.read_csv(f'{self.temp_files}/debug_chaboche.csv')
+                    else:
+                        sim_results =pd.read_csv(f'{self.temp_files}/debug_strain_stress.csv')
+                else:
+                    self.run_batch_job(current_simulation_dir, job_index, current_job_name)
+                    time.sleep(120)
 
-                # check simulation status and wait until simulation finished
-                sim_running = True
-                while sim_running:
-                    sim_running, complete_status = self.check_sim_status(job_name=current_job_name)
+                    # check simulation status and wait until simulation finished
+                    sim_running = True
+                    while sim_running:
+                        sim_running, complete_status = self.check_sim_status(job_name=current_job_name)
 
-                if not complete_status:
-                    os.system(f'echo {complete_status}')
-                    os.system('echo in if loop')
-                    # simulation crashed due to external error remove all simfiles prepare for resubmit
-                    self.remove_sim_files(current_simulation_dir)
-                    # delete log file only if simulations was successful
-                    #if complete_status:
-                    self.remove_sim_files(f'{self.log_dir}/{current_job_name}-log*')
-                    submitted = False
-                    self.num_props = [0]
-                    if Utils.SOFTWARE == "abaqus":
-                        continue
-                    # damask simulation doesn't converge
-                    elif Utils.SOFTWARE == "damask":
-                        time_stamp = int(time.time_ns())
-                        self.write_results_file(mad_time=99999, mad_stress=99999, mad=199998, params=params, compare_func="irrelevant", time_stamp=time_stamp)
-                        return 199998
+                    if not complete_status:
+                        os.system(f'echo {complete_status}')
+                        os.system('echo in if loop')
+                        # simulation crashed due to external error remove all simfiles prepare for resubmit
+                        self.remove_sim_files(current_simulation_dir)
+                        # delete log file only if simulations was successful
+                        #if complete_status:
+                        self.remove_sim_files(f'{self.log_dir}/{current_job_name}-log*')
+                        submitted = False
+                        self.num_props = [0]
+                        if Utils.SOFTWARE == "abaqus":
+                            continue
+                        # damask simulation doesn't converge
+                        elif Utils.SOFTWARE == "damask":
+                            time_stamp = int(time.time_ns())
+                            self.write_results_file(mad_time=99999, mad_stress=99999, mad=199998, params=params, compare_func="irrelevant", time_stamp=time_stamp)
+                            return 199998
 
-                # evaluate Simulation
-                sim_results = self.get_sim_results(current_simulation_dir, current_job_name)
-                # sim_results.to_csv(f'{current_simulation_dir}/results.csv')
-                compare_func = self.sim_type2compare_function[Utils.SOFTWARE][self.sim_type]
-                mad1, mad2, time_stamp = compare_func(sim_results)
+                    # evaluate Simulation
+                    sim_results = self.get_sim_results(current_simulation_dir, current_job_name)
+
+                mad1, mad2, time_stamp = self.compare_exp2sim(sim_results)
                 mad = mad1 + mad2
                 # write results to files and delete simulation files
-                self.write_results_file(mad_time=mad1, mad_stress=mad2, mad=mad, params=params, compare_func=compare_func.__name__, time_stamp=time_stamp)
+                self.write_results_file(mad_time=mad1, mad_stress=mad2, mad=mad, params=params, compare_func=self.compare_exp2sim.__name__, time_stamp=time_stamp)
                 self.remove_sim_files(current_simulation_dir)
                 # delete log file only if simulations was successful
                 #if complete_status:
@@ -356,6 +354,11 @@ class Simulation:
 
         return results_df
 
+    def load_csv(self, csv_path):
+        sep = detect_delimiter(f'{self.exp_files}/{csv_path}')
+        experimental_df = pd.read_csv(f'{self.exp_files}/{csv_path}', sep=sep)
+        return experimental_df
+
     def compare_exp2sim_cyclic(self, simulation_df):
         assert self.n_phases == 1 or self.n_phases == 2, 'more than two phases are not yet supported'
         # in order for this to work correctly make sure the time intervals in experiment and simulation are equal!!!
@@ -377,8 +380,8 @@ class Simulation:
             phase_id = config.get(phase_name, 'abaqus_id')
             phase_dict = {'3':'Phase1', '4':'Phase2'}
             phase = phase_dict[phase_id]
-            sim_stress_interp = np.interp(simulation_df['Sim_Stress'], experimental_df['time'], experimental_df[f'Stress_{phase}'])
-            exp_stress_interp = experimental_df[f'Stress_{phase}'].values[:len(sim_stress_interp)]
+            sim_stress_interp = np.interp(simulation_df['Sim_Stress'], experimental_df['time'], experimental_df['y'])
+            exp_stress_interp = experimental_df['y'].values[:len(sim_stress_interp)]
             mad_stress = np.mean(np.abs(sim_stress_interp - exp_stress_interp)**2)
             sim_y_cols = ['Sim_Stress']
             sim_x_cols = ['Sim_Strain'] * len(sim_y_cols)
@@ -497,15 +500,28 @@ class Simulation:
             mad_stress_strain = 99999
             return mad_time, mad_stress_strain, now
 
-        # experimental_df = pd.read_csv(f'{self.exp_files}/{self.ex_data}', sep=',')
-        # max_exp_strain = experimental_df['strain_t'].max()
         max_sim_strain = simulation_df['Sim_Strain'].max()
 
         if self.n_phases == 2:
-            experimental_df = simulation_df
-            exp_total_stress_interp = np.interp(simulation_df['Sim_Strain'], experimental_df['strain_t'], experimental_df['stress_t'])
-            exp_alpha_stress_interp = np.interp(simulation_df['Sim_Strain'], experimental_df['strain_t'], experimental_df['stress_alpha'])
-            exp_beta_stress_interp = np.interp(simulation_df['Sim_Strain'], experimental_df['strain_t'], experimental_df['stress_beta'])
+
+            #load csv files
+            ex_data_total = self.ex_data[0].replace(" ", "")
+            experimental_total_df = self.load_csv(ex_data_total)
+            ex_data_alpha = self.ex_data[1].replace(" ", "")
+            experimental_alpha_df = self.load_csv(ex_data_alpha)
+            ex_data_beta = self.ex_data[2].replace(" ", "")
+            experimental_beta_df = self.load_csv(ex_data_beta)
+
+            max_exp_strain = experimental_total_df['x'].max()
+
+            #interp values
+            exp_total_stress_interp = np.interp(simulation_df['Sim_Strain'], experimental_total_df['x'], experimental_total_df['y'])
+            if Utils.SOFTWARE == 'abaqus':
+                exp_alpha_stress_interp = np.interp(simulation_df['Sim_Strain'], experimental_alpha_df['x'], experimental_alpha_df['y'])
+                exp_beta_stress_interp = np.interp(simulation_df['Sim_Strain'], experimental_beta_df['x'], experimental_beta_df['y'])
+            elif Utils.SOFTWARE == 'damask':
+                exp_alpha_stress_interp = np.interp(simulation_df['Sim_Strain_Phase1'], experimental_alpha_df['x'], experimental_alpha_df['y'])
+                exp_beta_stress_interp = np.interp(simulation_df['Sim_Strain_Phase2'], experimental_beta_df['x'], experimental_beta_df['y'])
 
             mad_stress_total = np.mean(np.abs(exp_total_stress_interp - simulation_df['Sim_Stress']))
             mad_stress_alpha = np.mean(np.abs(exp_alpha_stress_interp - simulation_df['Sim_Stress_Phase1']))
@@ -513,18 +529,28 @@ class Simulation:
             mad_strain_total = (abs(1 - max_sim_strain / max_exp_strain) * 100) **2
             mad_stress = (mad_stress_total + 0.8*mad_stress_alpha + 0.2 * mad_stress_beta)/3
 
-            sim_y_cols = ['Sim_Stress', 'Sim_Stress_Phase1', 'Sim_Stress_Phase2']
-            sim_x_cols = ['Sim_Strain'] * len(sim_y_cols)
-            sim_labels = ['Simulation_Total', 'Simulation_Alpha', 'Simulation_Beta']
+            fig_name = f'stress_strain_total_{now}'
+            x_label = "Strain"
+            y_label = "Stress(MPa)"
 
-            ex_y_cols = ['stress_t', 'stress_alpha', 'stress_beta']
-            ex_x_cols = ['strain_t'] * len(ex_y_cols)
-            ex_labels = ['Experiment_Total', 'Experiment_Alpha','Experiment_Beta']
+            #plot total stress strain
+            self.plot_data(fig_name=fig_name, x_label=x_label,y_label=y_label,
+                                             x1=simulation_df['Sim_Strain'].values, y1=simulation_df['Sim_Stress'].values, data_label_1='Sim_Total',
+                                             x2=experimental_total_df['x'].values, y2=experimental_total_df['y'].values, data_label_2='Exp_Total')
+            #plot alpha stress strain
+            fig_name = f'stress_strain_alpha_{now}'
+            self.plot_data(fig_name=fig_name, x_label=x_label,y_label=y_label,
+                                             x1=simulation_df['Sim_Strain'].values, y1=simulation_df['Sim_Stress_Phase1'].values, data_label_1='Sim_Phase1',
+                                             x2=experimental_alpha_df['x'].values, y2=experimental_alpha_df['y'].values, data_label_2='Exp_Phase1')
+            #plot beta stress strain
+            fig_name = f'stress_strain_beta_{now}'
+            self.plot_data(fig_name=fig_name, x_label=x_label,y_label=y_label,
+                                             x1=simulation_df['Sim_Strain'].values, y1=simulation_df['Sim_Stress_Phase2'].values, data_label_1='Sim_Phase2',
+                                             x2=experimental_beta_df['x'].values, y2=experimental_beta_df['y'].values, data_label_2='Exp_Phase2')
 
         if self.n_phases == 1:
             ex_data = self.ex_data[0].replace(" ", "") #remove spaces
-            sep = detect_delimiter(f'{self.exp_files}/{ex_data}')
-            experimental_df = pd.read_csv(f'{self.exp_files}/{ex_data}', sep=sep)
+            experimental_df = self.load_csv(ex_data)
             max_exp_strain = experimental_df['x'].max()
             exp_stress_interp = np.interp(simulation_df['Sim_Strain'], experimental_df['x'], experimental_df['y'])
             mad_stress = np.mean(np.abs(exp_stress_interp - simulation_df['Sim_Stress']) / exp_stress_interp) * 100
@@ -538,13 +564,13 @@ class Simulation:
             ex_x_cols = ['x'] * len(ex_y_cols)
             ex_labels = ['Experiment']
 
-        fig_name = f'stress_strain_{now}'
-        x_label = "Strain"
-        y_label = "Stress(MPa)"
-        self.plot_data2(fig_name=fig_name, x_label=x_label,y_label=y_label,
-                        sim_data=simulation_df, ex_data=experimental_df,
-                        sim_x_cols=sim_x_cols, sim_y_cols=sim_y_cols, sim_labels=sim_labels,
-                        ex_x_cols=ex_x_cols, ex_y_cols=ex_y_cols, ex_labels=ex_labels)
+            fig_name = f'stress_strain_{now}'
+            x_label = "Strain"
+            y_label = "Stress(MPa)"
+            self.plot_data2(fig_name=fig_name, x_label=x_label,y_label=y_label,
+                            sim_data=simulation_df, ex_data=experimental_df,
+                            sim_x_cols=sim_x_cols, sim_y_cols=sim_y_cols, sim_labels=sim_labels,
+                            ex_x_cols=ex_x_cols, ex_y_cols=ex_y_cols, ex_labels=ex_labels)
 
         return mad_strain_total, mad_stress, now
 
@@ -636,13 +662,110 @@ class Simulation:
                         ex_x_cols=ex_x_cols, ex_y_cols=ex_y_cols, ex_labels=ex_labels)
         return mad_strain_total, mad_stress, now
 
+    def interp(self, x1, y1, x2, y2):
+        # define interp function
+        interp_func1 = interp1d(x1, y1, kind='linear', fill_value='extrapolate')
+        interp_func2 = interp1d(x2, y2, kind='linear', fill_value='extrapolate')
+
+        # define common x range
+        common_x = np.linspace(min(np.min(x1), np.min(x2)), max(np.max(x1), np.max(x2)), num=max(len(x1), len(x2)))
+
+        # interpolate
+        interp_y1 = interp_func1(common_x)
+        interp_y2 = interp_func2(common_x)
+
+        return interp_y1, interp_y2
+
+    def plot_results(self):
+        #update later
+        x = np.arange(1,100)
+        y = x
+        plt.plot(x, y)
+        plt.savefig(f'{self.images}/debug.png')
+        plt.close()
+
+    def compare_exp2sim(self, simulation_df):
+        assert self.n_phases == 1 or self.n_phases == 2, 'more than two phases are not yet supported'
+        # in order for this to work correctly make sure the time intervals in experiment and simulation are equal!!!
+        now = int(time.time_ns())
+        if simulation_df.shape[0] < 5:
+            mad_time = 99999.
+            mad_stress_strain = 99999
+            return mad_time, mad_stress_strain, now
+
+        # define independent variables
+        if 'tensile' in self.sim_type:
+            exp_xs = 'x'
+            sim_xs = 'Sim_Strain'
+        else:
+            exp_xs = 'time'
+            sim_xs = 'sim_time'
+
+        if self.sim_type == 'Chaboche':
+            sim_ys = 'sim_force'
+        else:
+            sim_ys = 'Sim_Stress'
+
+        max_sim_xs = simulation_df[sim_xs].max()
+
+        if self.n_phases == 1 or self.sim_type == 'Chaboche':
+            ex_data = self.ex_data[0].replace(" ", "") #remove spaces
+            experimental_df = self.load_csv(ex_data)
+            max_exp_xs = experimental_df[exp_xs].max()
+            mad_xs = (100 * (1 - max_sim_xs / max_exp_xs))**2
+
+            exp_interp_y, sim_interp_y = self.interp(experimental_df[exp_xs].values, experimental_df['y'].values,
+                                                     simulation_df[sim_xs].values,simulation_df[sim_ys].values)
+
+            mad_ys = np.mean(np.abs((exp_interp_y - sim_interp_y) / exp_interp_y))* 100
+
+            self.plot_results()
+
+        elif self.n_phases == 2:
+             #load csv files
+            ex_data_total = self.ex_data[0].replace(" ", "")
+            experimental_total_df = self.load_csv(ex_data_total)
+            ex_data_alpha = self.ex_data[1].replace(" ", "")
+            experimental_alpha_df = self.load_csv(ex_data_alpha)
+            ex_data_beta = self.ex_data[2].replace(" ", "")
+            experimental_beta_df = self.load_csv(ex_data_beta)
+
+            max_exp_xs = experimental_total_df[exp_xs].max()
+            mad_xs = (100 * (1 - max_sim_xs / max_exp_xs))**2
+
+            #interp values
+            exp_interp_total_y, sim_interp_total_y = self.interp(experimental_total_df[exp_xs].values, experimental_total_df['y'].values,
+                                                                  simulation_df[sim_xs].values,simulation_df[sim_ys].values)
+
+            if Utils.SOFTWARE == 'damask' and 'tensile' in self.sim_type:
+                exp_interp_alpha_y, sim_interp_alpha_y = self.interp(experimental_alpha_df[exp_xs].values, experimental_alpha_df['y'].values,
+                                                                  simulation_df[f'{sim_xs}_Phase1'].values,simulation_df[f'{sim_ys}_Phase1'].values)
+
+                exp_interp_beta_y, sim_interp_beta_y = self.interp(experimental_beta_df[exp_xs].values, experimental_beta_df['y'].values,
+                                                                  simulation_df[f'{sim_xs}_Phase2'].values,simulation_df[f'{sim_ys}_Phase2'].values)
+            else:
+                exp_interp_alpha_y, sim_interp_alpha_y = self.interp(experimental_alpha_df[exp_xs].values, experimental_alpha_df['y'].values,
+                                                                  simulation_df[sim_xs].values,simulation_df[f'{sim_ys}_Phase1'].values)
+
+                exp_interp_beta_y, sim_interp_beta_y = self.interp(experimental_beta_df[exp_xs].values, experimental_beta_df['y'].values,
+                                                                  simulation_df[sim_xs].values,simulation_df[f'{sim_ys}_Phase2'].values)
+
+            mad_ys_total = np.mean(np.abs((exp_interp_total_y - sim_interp_total_y) / exp_interp_total_y))* 100
+            mad_ys_alpha = np.mean(np.abs((exp_interp_alpha_y - sim_interp_alpha_y) / exp_interp_alpha_y))* 100
+            mad_ys_beta = np.mean(np.abs((exp_interp_total_y - sim_interp_alpha_y) / exp_interp_beta_y))* 100
+            mad_ys = (mad_ys_total + 0.8*mad_ys_alpha + 0.2 * mad_ys_beta) / 3
+            self.plot_results()
+
+        return mad_xs, mad_ys, now
+
+
     def plot_data(self, fig_name, x_label, y_label, x1, y1, data_label_1, x2=None, y2=None, data_label_2=None):
         plt.plot(x1, y1, label=data_label_1)
 
         if x2 is not None:
             assert (y2 is not None)
             assert (data_label_2 is not None)
-            plt.plot(x2, y2, label='Simulation Data')
+            plt.plot(x2, y2, label=data_label_2)
         plt.xlabel(x_label)
         plt.ylabel(y_label)
         plt.legend()
@@ -938,11 +1061,13 @@ class Simulation:
                         phase2strain[phase].append(np.mean(subvalue[:,2,2]))
 
         data = {}
-        data['total_strain'] = np.array(strain_vector)
-        data['total_stress'] = np.array(stress_vector) /1e6 #MPa
+        data['Sim_Strain'] = np.array(strain_vector)
+        data['Sim_Stress'] = np.array(stress_vector) /1e6 #MPa
+        phase_index = 1
         for phase in phases:
-            data[f'{phase}_strain'] = np.array(phase2strain[phase])
-            data[f'{phase}_stress'] = np.array(phase2stress[phase])/ 1e6 #MPa
+            data[f'Sim_Strain_Phase{phase_index}'] = np.array(phase2strain[phase])
+            data[f'Sim_Stress_Phase{phase_index}'] = np.array(phase2stress[phase])/ 1e6 #MPa
+            phase_index += 1
 
         sim_results = pd.DataFrame(data)
         return sim_results
@@ -1054,7 +1179,7 @@ class Parser:
 
             varbound = np.array(varbound)
 
-        elif 'Chaboche' in self.sim_type:
+        elif 'Chaboche' in sim_type:
             phase_id = config.get(phases[0], 'phase_id')
             constantParams[phase_id] = {}
             options = config.options(phases[0])
@@ -1135,6 +1260,7 @@ class Utils:
     CONSTANTPARAMS = None
     EVALUATINGPARAMS = None
     SOFTWARE = None
+    DEBUG = False
 
 if __name__ == '__main__':
     #get current path
@@ -1157,7 +1283,8 @@ if __name__ == '__main__':
     constant_params, mat_params, varbound = Parser(JobSettings).parse_matparams()
     Utils.CONSTANTPARAMS = constant_params
     Utils.EVALUATINGPARAMS = mat_params
-
+    Utils.DEBUG = config.get('MainProcessSettings','debug')
+    os.system(f'echo debug mode: {Utils.DEBUG}')
     # read algortithm Parameters from config
     max_iters = ast.literal_eval(config.get('AlgorithmParameters','max_iters'))
     population_size = ast.literal_eval(config.get('AlgorithmParameters','population_size'))
