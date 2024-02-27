@@ -529,7 +529,7 @@ class Simulation:
             mad_strain_total = (abs(1 - max_sim_strain / max_exp_strain) * 100) **2
             mad_stress = (mad_stress_total + 0.8*mad_stress_alpha + 0.2 * mad_stress_beta)/3
 
-            fig_name = f'stress_strain_total_{now}'
+            fig_name = f'stress_strain_{now}'
             x_label = "Strain"
             y_label = "Stress(MPa)"
 
@@ -676,13 +676,44 @@ class Simulation:
 
         return interp_y1, interp_y2
 
-    def plot_results(self):
-        #update later
-        x = np.arange(1,100)
-        y = x
-        plt.plot(x, y)
-        plt.savefig(f'{self.images}/debug.png')
-        plt.close()
+    def plot_results(self, now, simulation_df, experiment_dfs):
+
+        if self.sim_type == "Chaboche":
+            fig_name = f'Force_{now}'
+            x_label = "Time (s)"
+            y_label = "Force (kN)"
+            self.plot_data(fig_name=fig_name, x_label=x_label,y_label=y_label,
+                            x1=simulation_df['sim_time'].values, y1=simulation_df['sim_force'].values, data_label_1='Simulation',
+                            x2=experiment_dfs[0]['time'].values, y2=experiment_dfs[0]['y'].values, data_label_2='Experiment')
+
+            fig_name = f'Hysteresis_{now}'
+            x_label = 'Displacement (mm)'
+            self.plot_data(fig_name=fig_name, x_label=x_label,y_label=y_label,
+                            x1=simulation_df['sim_displacement'].values, y1=simulation_df['sim_force'].values, data_label_1='Simulation',
+                            x2=experiment_dfs[0]['x'].values, y2=experiment_dfs[0]['y'].values, data_label_2='Experiment')
+        else:
+            fig_names = [f'stress_strain_{now}', f'stress_strain_phase1_{now}', f'stress_strain_phase2_{now}']
+            labels = ['Total', 'Phase1', 'Phase2']
+            sim_xs = ['Sim_Strain', 'Sim_Strain_Phase1', 'Sim_Strain_Phase2']
+            sim_ys = ['Sim_Stress', 'Sim_Stress_Phase1', 'Sim_Stress_Phase2']
+            x_label = "Strain"
+            y_label = "Stress(MPa)"
+
+            n = 1 if self.n_phases == 1 else 3
+            for i in range(n):
+                self.plot_data(fig_name=fig_names[i], x_label=x_label,y_label=y_label,
+                            x1=simulation_df[sim_xs[i]].values, y1=simulation_df[sim_ys[i]].values, data_label_1=f'Sim_{labels[i]}',
+                            x2=experiment_dfs[i]['x'].values, y2=experiment_dfs[i]['y'].values, data_label_2=f'Exp_{labels[i]}')
+
+                if self.sim_type == 'CP_Cyclic':
+                    fig_names = [f'stress_{now}', f'stress_phase1_{now}', f'stress_phase2_{now}']
+                    labels = ['Total', 'Phase1', 'Phase2']
+                    sim_ys = ['Sim_Stress', 'Sim_Stress_Phase1', 'Sim_Stress_Phase2']
+                    x_label = "Time (s)"
+                    y_label = "Stress (MPa)"
+                    self.plot_data(fig_name=fig_names[i], x_label=x_label,y_label=y_label,
+                                x1=simulation_df[sim_xs[i]].values, y1=simulation_df[sim_ys[i]].values, data_label_1=f'Sim_{labels[i]}',
+                                x2=experiment_dfs[i]['x'].values, y2=experiment_dfs[i]['y'].values, data_label_2=f'Exp_{labels[i]}')
 
     def compare_exp2sim(self, simulation_df):
         assert self.n_phases == 1 or self.n_phases == 2, 'more than two phases are not yet supported'
@@ -719,7 +750,7 @@ class Simulation:
 
             mad_ys = np.mean(np.abs((exp_interp_y - sim_interp_y) / exp_interp_y))* 100
 
-            self.plot_results()
+            self.plot_results(now, simulation_df, [experimental_df])
 
         elif self.n_phases == 2:
              #load csv files
@@ -754,10 +785,10 @@ class Simulation:
             mad_ys_alpha = np.mean(np.abs((exp_interp_alpha_y - sim_interp_alpha_y) / exp_interp_alpha_y))* 100
             mad_ys_beta = np.mean(np.abs((exp_interp_total_y - sim_interp_alpha_y) / exp_interp_beta_y))* 100
             mad_ys = (mad_ys_total + 0.8*mad_ys_alpha + 0.2 * mad_ys_beta) / 3
-            self.plot_results()
+
+            self.plot_results(now, simulation_df, [experimental_total_df, experimental_alpha_df, experimental_beta_df])
 
         return mad_xs, mad_ys, now
-
 
     def plot_data(self, fig_name, x_label, y_label, x1, y1, data_label_1, x2=None, y2=None, data_label_2=None):
         plt.plot(x1, y1, label=data_label_1)
@@ -1283,7 +1314,7 @@ if __name__ == '__main__':
     constant_params, mat_params, varbound = Parser(JobSettings).parse_matparams()
     Utils.CONSTANTPARAMS = constant_params
     Utils.EVALUATINGPARAMS = mat_params
-    Utils.DEBUG = config.get('MainProcessSettings','debug')
+    Utils.DEBUG = config.getboolean('MainProcessSettings','debug')
     os.system(f'echo debug mode: {Utils.DEBUG}')
     # read algortithm Parameters from config
     max_iters = ast.literal_eval(config.get('AlgorithmParameters','max_iters'))
