@@ -1356,6 +1356,7 @@ if __name__ == '__main__':
                 start_generation=f'{sim_root}/logs_{name}/lastgeneration.npz',
                 set_function=ga.set_function_multiprocess(func, n_jobs=ast.literal_eval(config.get('MainProcessSettings','ntasks'))))
 
+    model.plot_results(save_as=f'{sim_root}/logs_{name}/plot_scores_process.png')
     f = open(sim_root + f'/logs_{name}/results.txt', 'w')
     f.write('best found solution: \n')
     prop_index = 0
