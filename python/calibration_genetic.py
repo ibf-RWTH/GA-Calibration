@@ -782,9 +782,9 @@ class Simulation:
                                                                   simulation_df[sim_xs].values,simulation_df[f'{sim_ys}_Phase2'].values)
 
             if 'tensile' in self.sim_type:
-                mad_ys_total = np.mean(np.abs(exp_interp_total_y - sim_interp_total_y))* 100
-                mad_ys_alpha = np.mean(np.abs(exp_interp_alpha_y - sim_interp_alpha_y))* 100
-                mad_ys_beta = np.mean(np.abs(exp_interp_total_y - sim_interp_alpha_y))* 100
+                mad_ys_total = np.mean(np.abs(exp_interp_total_y - sim_interp_total_y))
+                mad_ys_alpha = np.mean(np.abs(exp_interp_alpha_y - sim_interp_alpha_y))
+                mad_ys_beta = np.mean(np.abs(exp_interp_total_y - sim_interp_alpha_y))
                 mad_ys = (mad_ys_total + 0.8*mad_ys_alpha + 0.2 * mad_ys_beta) / 3
             else:
                 mad_ys_total = np.mean(np.abs((exp_interp_total_y - sim_interp_total_y) / exp_interp_total_y))* 100
