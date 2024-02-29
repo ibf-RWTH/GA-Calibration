@@ -781,10 +781,16 @@ class Simulation:
                 exp_interp_beta_y, sim_interp_beta_y = self.interp(experimental_beta_df[exp_xs].values, experimental_beta_df['y'].values,
                                                                   simulation_df[sim_xs].values,simulation_df[f'{sim_ys}_Phase2'].values)
 
-            mad_ys_total = np.mean(np.abs((exp_interp_total_y - sim_interp_total_y) / exp_interp_total_y))* 100
-            mad_ys_alpha = np.mean(np.abs((exp_interp_alpha_y - sim_interp_alpha_y) / exp_interp_alpha_y))* 100
-            mad_ys_beta = np.mean(np.abs((exp_interp_total_y - sim_interp_alpha_y) / exp_interp_beta_y))* 100
-            mad_ys = (mad_ys_total + 0.8*mad_ys_alpha + 0.2 * mad_ys_beta) / 3
+            if 'tensile' in self.sim_type:
+                mad_ys_total = np.mean(np.abs(exp_interp_total_y - sim_interp_total_y))* 100
+                mad_ys_alpha = np.mean(np.abs(exp_interp_alpha_y - sim_interp_alpha_y))* 100
+                mad_ys_beta = np.mean(np.abs(exp_interp_total_y - sim_interp_alpha_y))* 100
+                mad_ys = (mad_ys_total + 0.8*mad_ys_alpha + 0.2 * mad_ys_beta) / 3
+            else:
+                mad_ys_total = np.mean(np.abs((exp_interp_total_y - sim_interp_total_y) / exp_interp_total_y))* 100
+                mad_ys_alpha = np.mean(np.abs((exp_interp_alpha_y - sim_interp_alpha_y) / exp_interp_alpha_y))* 100
+                mad_ys_beta = np.mean(np.abs((exp_interp_total_y - sim_interp_alpha_y) / exp_interp_beta_y))* 100
+                mad_ys = (mad_ys_total + 0.8*mad_ys_alpha + 0.2 * mad_ys_beta) / 3
 
             self.plot_results(now, simulation_df, [experimental_total_df, experimental_alpha_df, experimental_beta_df])
 
@@ -1351,10 +1357,19 @@ if __name__ == '__main__':
                     save_last_generation_as = f'{sim_root}/logs_{name}/lastgeneration.npz',
                     set_function=ga.set_function_multiprocess(func, n_jobs=ast.literal_eval(config.get('MainProcessSettings','ntasks'))))
     else:
-        result = model.run(no_plot=True,
-                progress_bar_stream = None,
-                start_generation=f'{sim_root}/logs_{name}/lastgeneration.npz',
-                set_function=ga.set_function_multiprocess(func, n_jobs=ast.literal_eval(config.get('MainProcessSettings','ntasks'))))
+        if os.path.exists(f'{sim_root}/logs_{name}/lastgeneration.npz'):
+            result = model.run(no_plot=True,
+                    progress_bar_stream = None,
+                    start_generation=f'{sim_root}/logs_{name}/lastgeneration.npz',
+                    set_function=ga.set_function_multiprocess(func, n_jobs=ast.literal_eval(config.get('MainProcessSettings','ntasks'))))
+        elif os.path.exists(f'{sim_root}/logs_{name}/lastgeneration.npy'):
+            result = model.run(no_plot=True,
+                    progress_bar_stream = None,
+                    start_generation=np.load(f'{sim_root}/logs_{name}/lastgeneration.npy'),
+                    set_function=ga.set_function_multiprocess(func, n_jobs=ast.literal_eval(config.get('MainProcessSettings','ntasks'))))
+        else:
+            os.system('echo no start generation!')
+            sys.exit()
 
     model.plot_results(save_as=f'{sim_root}/logs_{name}/plot_scores_process.png')
     f = open(sim_root + f'/logs_{name}/results.txt', 'w')
