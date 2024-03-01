@@ -18,6 +18,7 @@ import configparser
 import damask
 import csv
 from scipy.interpolate import interp1d
+from geneticalgorithm2 import Generation
 
 warnings.simplefilter(action='ignore', category=FutureWarning)
 
@@ -674,7 +675,7 @@ class Simulation:
         interp_y1 = interp_func1(common_x)
         interp_y2 = interp_func2(common_x)
 
-        return interp_y1, interp_y2
+        return common_x, interp_y1, interp_y2
 
     def plot_results(self, now, simulation_df, experiment_dfs):
 
@@ -745,10 +746,20 @@ class Simulation:
             max_exp_xs = experimental_df[exp_xs].max()
             mad_xs = (100 * (1 - max_sim_xs / max_exp_xs))**2
 
-            exp_interp_y, sim_interp_y = self.interp(experimental_df[exp_xs].values, experimental_df['y'].values,
+            common_x, exp_interp_y, sim_interp_y = self.interp(experimental_df[exp_xs].values, experimental_df['y'].values,
                                                      simulation_df[sim_xs].values,simulation_df[sim_ys].values)
 
-            mad_ys = np.mean(np.abs((exp_interp_y - sim_interp_y) / exp_interp_y))* 100
+            #compute the 1st derivative
+            exp_dy_dx = np.gradient(exp_interp_y, common_x)
+            sim_dy_dx = np.gradient(sim_interp_y, common_x)
+            mad_dy_dx = np.mean(np.abs(exp_dy_dx - sim_dy_dx))
+
+            #compute the 2nd derivative
+            exp_dy2_d2x = np.gradient(exp_dy_dx, common_x)
+            sim_dy2_d2x = np.gradient(sim_dy_dx, common_x)
+            mad_d2y_dx2 = np.mean(np.abs(exp_dy2_d2x - sim_dy2_d2x))
+
+            mad_ys = np.mean(np.abs(exp_interp_y - sim_interp_y)) + 1e-3*mad_dy_dx + 1e-3*mad_d2y_dx2
 
             self.plot_results(now, simulation_df, [experimental_df])
 
@@ -765,27 +776,52 @@ class Simulation:
             mad_xs = (100 * (1 - max_sim_xs / max_exp_xs))**2
 
             #interp values
-            exp_interp_total_y, sim_interp_total_y = self.interp(experimental_total_df[exp_xs].values, experimental_total_df['y'].values,
+            common_x, exp_interp_total_y, sim_interp_total_y = self.interp(experimental_total_df[exp_xs].values, experimental_total_df['y'].values,
                                                                   simulation_df[sim_xs].values,simulation_df[sim_ys].values)
 
             if Utils.SOFTWARE == 'damask' and 'tensile' in self.sim_type:
-                exp_interp_alpha_y, sim_interp_alpha_y = self.interp(experimental_alpha_df[exp_xs].values, experimental_alpha_df['y'].values,
+                common_alpha_x, exp_interp_alpha_y, sim_interp_alpha_y = self.interp(experimental_alpha_df[exp_xs].values, experimental_alpha_df['y'].values,
                                                                   simulation_df[f'{sim_xs}_Phase1'].values,simulation_df[f'{sim_ys}_Phase1'].values)
 
-                exp_interp_beta_y, sim_interp_beta_y = self.interp(experimental_beta_df[exp_xs].values, experimental_beta_df['y'].values,
+                common_beta_x, exp_interp_beta_y, sim_interp_beta_y = self.interp(experimental_beta_df[exp_xs].values, experimental_beta_df['y'].values,
                                                                   simulation_df[f'{sim_xs}_Phase2'].values,simulation_df[f'{sim_ys}_Phase2'].values)
             else:
-                exp_interp_alpha_y, sim_interp_alpha_y = self.interp(experimental_alpha_df[exp_xs].values, experimental_alpha_df['y'].values,
+                common_alpha_x, exp_interp_alpha_y, sim_interp_alpha_y = self.interp(experimental_alpha_df[exp_xs].values, experimental_alpha_df['y'].values,
                                                                   simulation_df[sim_xs].values,simulation_df[f'{sim_ys}_Phase1'].values)
 
-                exp_interp_beta_y, sim_interp_beta_y = self.interp(experimental_beta_df[exp_xs].values, experimental_beta_df['y'].values,
+                common_beta_x, exp_interp_beta_y, sim_interp_beta_y = self.interp(experimental_beta_df[exp_xs].values, experimental_beta_df['y'].values,
                                                                   simulation_df[sim_xs].values,simulation_df[f'{sim_ys}_Phase2'].values)
 
             if 'tensile' in self.sim_type:
                 mad_ys_total = np.mean(np.abs(exp_interp_total_y - sim_interp_total_y))
                 mad_ys_alpha = np.mean(np.abs(exp_interp_alpha_y - sim_interp_alpha_y))
                 mad_ys_beta = np.mean(np.abs(exp_interp_total_y - sim_interp_alpha_y))
-                mad_ys = (mad_ys_total + 0.8*mad_ys_alpha + 0.2 * mad_ys_beta) / 3
+
+                #compute the 1st derivative
+                exp_dy_dx = np.gradient(exp_interp_total_y, common_x)
+                sim_dy_dx = np.gradient(sim_interp_total_y, common_x)
+
+                exp_alpha_dy_dx = np.gradient(exp_interp_alpha_y, common_alpha_x)
+                sim_alpha_dy_dx = np.gradient(sim_interp_alpha_y, common_alpha_x)
+
+                exp_beta_dy_dx = np.gradient(exp_interp_beta_y, common_beta_x)
+                sim_beta_dy_dx = np.gradient(sim_interp_beta_y, common_beta_x)
+
+                mad_dy_dx = np.mean(np.abs(exp_dy_dx - sim_dy_dx)) + np.mean(np.abs(exp_alpha_dy_dx - sim_alpha_dy_dx)) + np.mean(np.abs(exp_beta_dy_dx - sim_beta_dy_dx))
+
+                #compute the 2nd derivative
+                exp_d2y_dx2 = np.gradient(exp_dy_dx, common_x)
+                sim_d2y_dx2 = np.gradient(sim_dy_dx, common_x)
+
+                exp_alpha_d2y_dx2 = np.gradient(exp_alpha_dy_dx, common_alpha_x)
+                sim_alpha_d2y_dx2 = np.gradient(sim_alpha_dy_dx, common_alpha_x)
+
+                exp_beta_d2y_dx2 = np.gradient(exp_beta_dy_dx, common_beta_x)
+                sim_beta_d2y_dx2 = np.gradient(sim_beta_dy_dx, common_beta_x)
+
+                mad_d2y_dx2 = np.mean(np.abs(exp_d2y_dx2 - sim_d2y_dx2)) + np.mean(np.abs(exp_alpha_d2y_dx2 - sim_alpha_d2y_dx2)) + np.mean(np.abs(exp_beta_d2y_dx2 - sim_beta_d2y_dx2))
+
+                mad_ys = (mad_ys_total + 0.8*mad_ys_alpha + 0.2 * mad_ys_beta) / 3 + 1e-3*mad_dy_dx + 1e-3*mad_d2y_dx2
             else:
                 mad_ys_total = np.mean(np.abs((exp_interp_total_y - sim_interp_total_y) / exp_interp_total_y))* 100
                 mad_ys_alpha = np.mean(np.abs((exp_interp_alpha_y - sim_interp_alpha_y) / exp_interp_alpha_y))* 100
@@ -1365,7 +1401,7 @@ if __name__ == '__main__':
         elif os.path.exists(f'{sim_root}/logs_{name}/lastgeneration.npy'):
             result = model.run(no_plot=True,
                     progress_bar_stream = None,
-                    start_generation=np.load(f'{sim_root}/logs_{name}/lastgeneration.npy'),
+                    start_generation=Generation(np.load(f'{sim_root}/logs_{name}/lastgeneration.npy'), None),
                     set_function=ga.set_function_multiprocess(func, n_jobs=ast.literal_eval(config.get('MainProcessSettings','ntasks'))))
         else:
             os.system('echo no start generation!')
