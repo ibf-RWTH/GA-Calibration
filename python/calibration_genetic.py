@@ -107,7 +107,6 @@ class Simulation:
 
                     # evaluate Simulation
                     sim_results = self.get_sim_results(current_simulation_dir, current_job_name)
-
                 mad1, mad2, time_stamp = self.compare_exp2sim(sim_results)
                 mad = mad1 + mad2
                 # write results to files and delete simulation files
@@ -720,6 +719,7 @@ class Simulation:
         assert self.n_phases == 1 or self.n_phases == 2, 'more than two phases are not yet supported'
         # in order for this to work correctly make sure the time intervals in experiment and simulation are equal!!!
         now = int(time.time_ns())
+        simulation_df.to_csv(f'/home/rwth1393/XGBoost/data/stress_strain_{now}.csv', index=False)
         if simulation_df.shape[0] < 5:
             mad_time = 99999.
             mad_stress_strain = 99999
@@ -749,17 +749,7 @@ class Simulation:
             common_x, exp_interp_y, sim_interp_y = self.interp(experimental_df[exp_xs].values, experimental_df['y'].values,
                                                      simulation_df[sim_xs].values,simulation_df[sim_ys].values)
 
-            #compute the 1st derivative
-            exp_dy_dx = np.gradient(exp_interp_y, common_x)
-            sim_dy_dx = np.gradient(sim_interp_y, common_x)
-            mad_dy_dx = np.mean(np.abs(exp_dy_dx - sim_dy_dx))
-
-            #compute the 2nd derivative
-            exp_dy2_d2x = np.gradient(exp_dy_dx, common_x)
-            sim_dy2_d2x = np.gradient(sim_dy_dx, common_x)
-            mad_d2y_dx2 = np.mean(np.abs(exp_dy2_d2x - sim_dy2_d2x))
-
-            mad_ys = np.mean(np.abs(exp_interp_y - sim_interp_y)) + 1e-3*mad_dy_dx + 1e-3*mad_d2y_dx2
+            mad_ys = np.mean(np.abs(exp_interp_y - sim_interp_y))
 
             self.plot_results(now, simulation_df, [experimental_df])
 
@@ -797,31 +787,7 @@ class Simulation:
                 mad_ys_alpha = np.mean(np.abs(exp_interp_alpha_y - sim_interp_alpha_y))
                 mad_ys_beta = np.mean(np.abs(exp_interp_total_y - sim_interp_alpha_y))
 
-                #compute the 1st derivative
-                exp_dy_dx = np.gradient(exp_interp_total_y, common_x)
-                sim_dy_dx = np.gradient(sim_interp_total_y, common_x)
-
-                exp_alpha_dy_dx = np.gradient(exp_interp_alpha_y, common_alpha_x)
-                sim_alpha_dy_dx = np.gradient(sim_interp_alpha_y, common_alpha_x)
-
-                exp_beta_dy_dx = np.gradient(exp_interp_beta_y, common_beta_x)
-                sim_beta_dy_dx = np.gradient(sim_interp_beta_y, common_beta_x)
-
-                mad_dy_dx = np.mean(np.abs(exp_dy_dx - sim_dy_dx)) + np.mean(np.abs(exp_alpha_dy_dx - sim_alpha_dy_dx)) + np.mean(np.abs(exp_beta_dy_dx - sim_beta_dy_dx))
-
-                #compute the 2nd derivative
-                exp_d2y_dx2 = np.gradient(exp_dy_dx, common_x)
-                sim_d2y_dx2 = np.gradient(sim_dy_dx, common_x)
-
-                exp_alpha_d2y_dx2 = np.gradient(exp_alpha_dy_dx, common_alpha_x)
-                sim_alpha_d2y_dx2 = np.gradient(sim_alpha_dy_dx, common_alpha_x)
-
-                exp_beta_d2y_dx2 = np.gradient(exp_beta_dy_dx, common_beta_x)
-                sim_beta_d2y_dx2 = np.gradient(sim_beta_dy_dx, common_beta_x)
-
-                mad_d2y_dx2 = np.mean(np.abs(exp_d2y_dx2 - sim_d2y_dx2)) + np.mean(np.abs(exp_alpha_d2y_dx2 - sim_alpha_d2y_dx2)) + np.mean(np.abs(exp_beta_d2y_dx2 - sim_beta_d2y_dx2))
-
-                mad_ys = (mad_ys_total + 0.8*mad_ys_alpha + 0.2 * mad_ys_beta) / 3 + 1e-3*mad_dy_dx + 1e-3*mad_d2y_dx2
+                mad_ys = (mad_ys_total + 0.8*mad_ys_alpha + 0.2 * mad_ys_beta) / 3 
             else:
                 mad_ys_total = np.mean(np.abs((exp_interp_total_y - sim_interp_total_y) / exp_interp_total_y))* 100
                 mad_ys_alpha = np.mean(np.abs((exp_interp_alpha_y - sim_interp_alpha_y) / exp_interp_alpha_y))* 100
