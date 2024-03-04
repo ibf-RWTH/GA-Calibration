@@ -18,7 +18,7 @@ import configparser
 import damask
 import csv
 from scipy.interpolate import interp1d
-from geneticalgorithm2 import Generation
+from geneticalgorithm2 import Generation,MiddleCallbacks, ActionConditions, Actions
 
 warnings.simplefilter(action='ignore', category=FutureWarning)
 
@@ -1357,7 +1357,17 @@ if __name__ == '__main__':
         result = model.run(no_plot=True,
                     progress_bar_stream = None,
                     save_last_generation_as = f'{sim_root}/logs_{name}/lastgeneration.npz',
-                    set_function=ga.set_function_multiprocess(func, n_jobs=ast.literal_eval(config.get('MainProcessSettings','ntasks'))))
+                    set_function=ga.set_function_multiprocess(func, n_jobs=ast.literal_eval(config.get('MainProcessSettings','ntasks'))),
+                    middle_callbacks=
+                        [
+                        MiddleCallbacks.UniversalCallback
+                            (
+                            Actions.PlotPopulationScores(title_pattern = lambda data: f"Generation {data['current_generation']}", 
+                                                         save_as_name_pattern = lambda data: f"{sim_root}/evaluation_images_{name}/Generation {data['current_generation']}"),
+                            ActionConditions.EachGen(generation_step=1)
+                            )
+                        ]
+                    )
     else:
         if os.path.exists(f'{sim_root}/logs_{name}/lastgeneration.npz'):
             result = model.run(no_plot=True,
