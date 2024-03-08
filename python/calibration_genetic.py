@@ -719,7 +719,7 @@ class Simulation:
         assert self.n_phases == 1 or self.n_phases == 2, 'more than two phases are not yet supported'
         # in order for this to work correctly make sure the time intervals in experiment and simulation are equal!!!
         now = int(time.time_ns())
-        simulation_df.to_csv(f'/home/rwth1393/XGBoost/data/stress_strain_{now}.csv', index=False)
+        # simulation_df.to_csv(f'/home/rwth1393/XGBoost/data/stress_strain_{now}.csv', index=False)
         if simulation_df.shape[0] < 5:
             mad_time = 99999.
             mad_stress_strain = 99999
@@ -787,7 +787,7 @@ class Simulation:
                 mad_ys_alpha = np.mean(np.abs(exp_interp_alpha_y - sim_interp_alpha_y))
                 mad_ys_beta = np.mean(np.abs(exp_interp_total_y - sim_interp_alpha_y))
 
-                mad_ys = (mad_ys_total + 0.8*mad_ys_alpha + 0.2 * mad_ys_beta) / 3 
+                mad_ys = (mad_ys_total + 0.8*mad_ys_alpha + 0.2 * mad_ys_beta) / 3
             else:
                 mad_ys_total = np.mean(np.abs((exp_interp_total_y - sim_interp_total_y) / exp_interp_total_y))* 100
                 mad_ys_alpha = np.mean(np.abs((exp_interp_alpha_y - sim_interp_alpha_y) / exp_interp_alpha_y))* 100
@@ -1362,7 +1362,7 @@ if __name__ == '__main__':
                         [
                         MiddleCallbacks.UniversalCallback
                             (
-                            Actions.PlotPopulationScores(title_pattern = lambda data: f"Generation {data['current_generation']}", 
+                            Actions.PlotPopulationScores(title_pattern = lambda data: f"Generation {data['current_generation']}",
                                                          save_as_name_pattern = lambda data: f"{sim_root}/evaluation_images_{name}/Generation {data['current_generation']}"),
                             ActionConditions.EachGen(generation_step=1)
                             )
@@ -1375,16 +1375,20 @@ if __name__ == '__main__':
                     start_generation=f'{sim_root}/logs_{name}/lastgeneration.npz',
                     set_function=ga.set_function_multiprocess(func, n_jobs=ast.literal_eval(config.get('MainProcessSettings','ntasks'))))
         elif os.path.exists(f'{sim_root}/logs_{name}/lastgeneration.npy'):
+            data = np.load(f'{sim_root}/logs_{name}/lastgeneration.npy')
+            start_pop = [[np.random.uniform(low=bound[0], high=bound[1]) for bound in varbound] for _ in range(population_size-1)]
+            start_pop = np.array(start_pop)
+            start_pop = np.concatenate([data, start_pop])
             result = model.run(no_plot=True,
                     progress_bar_stream = None,
-                    start_generation=Generation(np.load(f'{sim_root}/logs_{name}/lastgeneration.npy'), None),
+                    start_generation=start_pop,
                     set_function=ga.set_function_multiprocess(func, n_jobs=ast.literal_eval(config.get('MainProcessSettings','ntasks'))))
         else:
             os.system('echo no start generation!')
             sys.exit()
 
     model.plot_results(save_as=f'{sim_root}/logs_{name}/plot_scores_process.png')
-    f = open(sim_root + f'/logs_{name}/results.txt', 'w')
+    f = open(sim_root + f'/logs_{name}/final_result.txt', 'w')
     f.write('best found solution: \n')
     prop_index = 0
     for phase_id, mat_props in mat_params.items():
