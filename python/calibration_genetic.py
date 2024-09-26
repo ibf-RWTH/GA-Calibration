@@ -60,6 +60,8 @@ class Simulation:
             source = f'{self.temp_files}/simulation_job_CP.sh'
         elif 'Chaboche' in self.sim_type:
             source = f'{self.temp_files}/simulation_job_Chaboche.sh'
+        elif 'Submodel' in self.sim_type:
+            source = f'{self.temp_files}/simulation_job_CPSUB.sh'
         shutil.copy(source, destination)
 
     def blackbox(self, params):
@@ -863,6 +865,9 @@ class Simulation:
             pythonPath = config.get('AbaqusJobSettings','PYTHON_PATH')+'/readOdb_CP.py'
         elif 'Chaboche' in sim_type:
             pythonPath = config.get('AbaqusJobSettings','PYTHON_PATH')+'/readOdb_Chaboche.py'
+        elif 'Submodel' in sim_type:
+            pythonPath = config.get('AbaqusJobSettings','PYTHON_PATH')+'/readOdb_CPPF.py'
+
         subroutine = config.get('AbaqusJobSettings','SUBROUTINE_PATH')
         pythonPath = root + '/' + pythonPath
         subroutine = root + '/' + subroutine
@@ -877,7 +882,11 @@ class Simulation:
         f.write(f'SUBROUTINE_PATH={subroutine}\n')
         f.write(f'JOBNAME={jobName}\n')
         f.write(f'INPUTFILE={input}\n')
+        if 'Submodel' in self.sim_type:
+            globmod = config.get('AbaqusJobSettings','globmod')
+            f.write(f'GLOBMOD={globmod}')
         f.close()
+        sys.exit()
         main_cwd = os.getcwd()
         os.chdir(currentDir)
         os.system(cmd)
@@ -963,7 +972,7 @@ class Simulation:
     def create_sim_matdata(self, current_simulation_dir, params):
 
         if Utils.SOFTWARE == "abaqus":
-            if 'CP' in self.sim_type:
+            if 'CP' or 'Submodel' in self.sim_type:
                 for j, mat_id in enumerate(self.mat_params.keys()):
                     if j > 0:
                         if j == 1:
@@ -1114,7 +1123,9 @@ class Simulation:
     def get_sim_results(self,current_simulation_dir, current_job_name):
         if Utils.SOFTWARE == 'abaqus':
             if 'CP' in self.sim_type:
-                    sim_results = self.calcStressStrain(current_simulation_dir, current_job_name)
+                sim_results = self.calcStressStrain(current_simulation_dir, current_job_name)
+            elif 'Submodel' in self.sim_type:
+                sim_results = pd.read_csv(current_simulation_dir+'/results.csv')
             elif 'Chaboche' in self.sim_type:
                 colNames = ['sim_time', 'sim_displacement', 'sim_force']
                 sim_results = pd.read_csv(current_simulation_dir+'/RF_data.txt', names=colNames)
@@ -1175,7 +1186,7 @@ class Parser:
         params_names = []
         phases = config.get(self.JobSettings,'phases').split(',')
         sim_type = config.get(JobSettings,'sim_type')
-        if 'CP' in sim_type:
+        if 'CP' or 'Submodel' in sim_type:
             global_params = config.options('GlobalParams')
 
             # add global params to varbound
