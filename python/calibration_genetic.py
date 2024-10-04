@@ -109,6 +109,7 @@ class Simulation:
 
                     # evaluate Simulation
                     sim_results = self.get_sim_results(current_simulation_dir, current_job_name)
+
                 mad1, mad2, time_stamp = self.compare_exp2sim(sim_results)
                 mad = mad1 + mad2
                 # write results to files and delete simulation files
@@ -352,8 +353,8 @@ class Simulation:
             results_df = time_df
             results_df['Sim_Strain'] = 0
             results_df['Sim_Stress'] = 0
-            results_df.to_csv(self.sim_root+'results_df.csv')
-
+        
+        results_df.to_csv(self.sim_root+'/results_df.csv')
         return results_df
 
     def load_csv(self, csv_path):
@@ -666,6 +667,13 @@ class Simulation:
 
     def interp(self, x1, y1, x2, y2):
         # define interp function
+        # delelte repeated values in x1, x2
+        _, idx = np.unique(x1, return_index=True)
+        x1 = x1[np.sort(idx)]
+        y1 = y1[np.sort(idx)]
+        _, idx = np.unique(x2, return_index=True)
+        x2 = x2[np.sort(idx)]
+        y2 = y2[np.sort(idx)]
         interp_func1 = interp1d(x1, y1, kind='linear', fill_value='extrapolate')
         interp_func2 = interp1d(x2, y2, kind='linear', fill_value='extrapolate')
 
@@ -728,7 +736,7 @@ class Simulation:
             return mad_time, mad_stress_strain, now
 
         # define independent variables
-        if 'tensile' in self.sim_type:
+        if 'tensile' or 'Submodel' in self.sim_type:
             exp_xs = 'x'
             sim_xs = 'Sim_Strain'
         else:
@@ -855,6 +863,9 @@ class Simulation:
         if account != 'None':
             cmd += f' --account={account}'
         cmd += f' --output={output} --time={time}'
+        if 'Submodel' in sim_type:
+            partition = config.get('AbaqusJobSettings','partition')
+            cmd += f' --partition={partition}'
         cmd += f' --mem-per-cpu={memPerCpu} --nodes={nodes} --ntasks={nTasks}  {file}'
 
         abaqus = config.get('AbaqusJobSettings','abaqus_version')
@@ -867,6 +878,7 @@ class Simulation:
             pythonPath = config.get('AbaqusJobSettings','PYTHON_PATH')+'/readOdb_Chaboche.py'
         elif 'Submodel' in sim_type:
             pythonPath = config.get('AbaqusJobSettings','PYTHON_PATH')+'/readOdb_CPPF.py'
+
 
         subroutine = config.get('AbaqusJobSettings','SUBROUTINE_PATH')
         pythonPath = root + '/' + pythonPath
@@ -886,7 +898,6 @@ class Simulation:
             globmod = config.get('AbaqusJobSettings','globmod')
             f.write(f'GLOBMOD={globmod}')
         f.close()
-        sys.exit()
         main_cwd = os.getcwd()
         os.chdir(currentDir)
         os.system(cmd)
@@ -907,7 +918,7 @@ class Simulation:
         constant_params = Utils.CONSTANTPARAMS
         mat_params = Utils.EVALUATINGPARAMS
 
-        if 'CP' in self.sim_type:
+        if 'CP' or 'Submodel' in self.sim_type:
             phase = config.get('AbaqusJobSettings','phases').split(',')[phase_index - 1]
             mat_props_keys = mat_params[0].copy() # Global Parameters keys/names !!! result in mutual change here mat_props_keys = mat_params[0] then extend also results in change of mat_params[0]
             mat_props_keys.extend(mat_params[id]) # adding Parameter keys/names for current phase
@@ -1125,7 +1136,7 @@ class Simulation:
             if 'CP' in self.sim_type:
                 sim_results = self.calcStressStrain(current_simulation_dir, current_job_name)
             elif 'Submodel' in self.sim_type:
-                sim_results = pd.read_csv(current_simulation_dir+'/results.csv')
+                sim_results = self.calcStressStrain(current_simulation_dir, current_job_name)
             elif 'Chaboche' in self.sim_type:
                 colNames = ['sim_time', 'sim_displacement', 'sim_force']
                 sim_results = pd.read_csv(current_simulation_dir+'/RF_data.txt', names=colNames)

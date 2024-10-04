@@ -69,4 +69,4 @@ for root, dirs, files in os.walk(search_dir):
             shutil.rmtree(os.path.join(root, dir_name))
 
 # run batch file
-os.system(f"sbatch --job-name={jobName} --partition={partition} --output={output} --time={time} --mem-per-cpu={memPerCpu} --nodes={nodes} --ntasks={ntasks} runBatch.sh")
+os.system(f"sbatch --account=rwth1694 --job-name={jobName} --partition={partition} --output={output} --time={time} --mem-per-cpu={memPerCpu} --nodes={nodes} --ntasks={ntasks} runBatch.sh")
