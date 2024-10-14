@@ -5,7 +5,6 @@
 
  [**Installation**](#Installation)
 | [**Related Projects**](#Related-Projects)
-| [**Tutorial**](Tutorial)
 
 
 **Genetic Algorithm Calibration Tool** is a Python-based software developed to streamline the calibration of material constitutive models using genetic algorithms. This tool supports calibration with experimental data such as **uniaxial tensile test** and **cyclic loading test** results, offering a powerful solution for researchers and engineers in material science.
@@ -61,7 +60,7 @@ $ dir
 ```
 Create a virtual environment as follows:<br>
 ```
-$ conda create --name calibration python=3.10
+$ conda create --name calibration python=3.8
 $ conda activate calibration
 ```
 (if an error occurs check your conda installation)<br>
