@@ -48,12 +48,12 @@ Should be like this:
 ```
 To clone this repository into the desired destination, use:<br>
 ```
-$ git clone https://github.com/ibf-RWTH/DRAGen.git
+$ git clone https://github.com/ibf-RWTH/GA-Calibration.git
 ```
-To be able to use DRAGen, the working directory must be set to the location where the repo was downloaded to in the previous step file which is downloaded at the previous step.
+To be able to use the tool, the working directory must be set to the location where the repo was downloaded to in the previous step file which is downloaded at the previous step.
 Use the commands to go to the exact file by following the path.
 ```
-$ cd DRAGen
+$ cd GA-Calibration
 ```
 To see the folders on the current point:
 ```
@@ -61,8 +61,8 @@ $ dir
 ```
 Create a virtual environment as follows:<br>
 ```
-$ conda create --name DRAGen python=3.10
-$ conda activate DRAGen
+$ conda create --name calibration python=3.10
+$ conda activate calibration
 ```
 (if an error occurs check your conda installation)<br>
 To see the list of the environments on conda:
@@ -73,23 +73,16 @@ Be sure the DRAGen environment is activated it should look somewhat like this:<b
 ```
 (DRAGen)....$
 ```
-Install one of two required module packages depending on cuda availability on the device:
+Install required module packages:
 
-To install requirements without cuda:<br>
+To install requirements
 ```
 (DRAGen)....$ pip install -r requirements.txt
 ```
-To install requirements if cuda is available:<br>
+
+Start Calibration:<br>
 ```
-(DRAGen)....$ pip install -r requirements_cuda.txt
-```
-Check if every step is utilized correctly by running first generation with:<br>
-```
-(DRAGen)....$ python DRAGen_nogui.py
-```
-Run DRAGen:<br>
-```
-(DRAGen)....$ python DRAGen.py
+(DRAGen)....$ python main.py
 ```
 
 ## Related Projects
