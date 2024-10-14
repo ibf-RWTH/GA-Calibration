@@ -20,7 +20,7 @@
 
 This tool is tailored for users looking to match their experimental results with material models in order to predict material behavior more accurately, providing an efficient and flexible solution for **crystal plasticity** and **constitutive modeling**.
 Do not change the directory names because the tool relies on the structure!
-<p align="left"><img src="docs/DRAGen_readme_paper.jpg" height="400" alt=""> </img></p>
+<p align="left"><img src="docs/GA_logo.png" height="400" alt=""> </img></p>
 
 _Note: For developing it is highly recommended to use Python versions Python 3.8._<br>
 **If further questions appear please check the lower section or get in touch with us.**
@@ -88,9 +88,9 @@ Start Calibration:<br>
 ## Related Projects
 
 ### DRAGen
-<p align="center"><img src="docsdocs/DRAGen_logo.png" height="200" alt="DRAGen logo"> </img></p>
+<p align="center"><img src="docs/DRAGen_logo.png" height="200" alt="DRAGen logo"> </img></p>
 
-[DRAGen](https://github.com/ibf-RWTH/DRAGen) (an enhanced version of the Discrete Representative Volume Element (RVE) Automation and Generation Framework, known as DRAGen. Originally devised as an approach for generating Representative Volume Elements based on a Random Sequential Addition (RSA)-Algorithm and discrete tessellation, DRAGen has undergone significant improvements to broaden its capabilities.
+[DRAGen](https://github.com/ibf-RWTH/DRAGen) an enhanced version of the Discrete Representative Volume Element (RVE) Automation and Generation Framework, known as DRAGen. Originally devised as an approach for generating Representative Volume Elements based on a Random Sequential Addition (RSA)-Algorithm and discrete tessellation, DRAGen has undergone significant improvements to broaden its capabilities.
 
 
 
