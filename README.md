@@ -88,7 +88,7 @@ Start Calibration:<br>
 ## Related Projects
 
 ### DRAGen
-<p align="center"><img src="docsdocs/GUI.PNG" height="200" alt="DRAGen logo"> </img></p>
+<p align="center"><img src="docsdocs/DRAGen_logo.png" height="200" alt="DRAGen logo"> </img></p>
 
 [DRAGen](https://github.com/ibf-RWTH/DRAGen) (an enhanced version of the Discrete Representative Volume Element (RVE) Automation and Generation Framework, known as DRAGen. Originally devised as an approach for generating Representative Volume Elements based on a Random Sequential Addition (RSA)-Algorithm and discrete tessellation, DRAGen has undergone significant improvements to broaden its capabilities.
 
