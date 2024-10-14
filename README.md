@@ -80,7 +80,7 @@ To install requirements
 (calibration)....$ pip install -r requirements.txt
 ```
 
-Start Calibration:<br>
+Copy, paste, and then rename the **exampleConfigs.ini** to **configs.ini**. Modify the necessary parameters in **configs. in**. Finally, start Calibration by:<br>
 ```
 (calibration)....$ python main.py
 ```
