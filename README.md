@@ -18,7 +18,7 @@
 - **Concurrent Job Submission**: Supports **concurrent job submission** to efficiently utilize **High-Performance Computing (HPC) clusters**, significantly accelerating the calibration process.
 - **Genetic Algorithm Optimization**: Uses genetic algorithms to perform parameter optimization, ensuring a robust search of the parameter space for improved accuracy and performance.
 
-This tool is tailored for users looking to match their experimental results with material models in order to predict material behavior more accurately, providing an efficient and flexible solution for **crystal plasticity** and **constitutive modeling**.
+This tool is tailored for users looking to match their experimental results with material models in order to predict material behavior more accurately, providing an efficient and flexible solution for **crystal plasticity** and other **constitutive modeling**.
 Do not change the directory names because the tool relies on the structure!
 <p align="left"><img src="docs/GA_logo.png" height="400" alt=""> </img></p>
 
