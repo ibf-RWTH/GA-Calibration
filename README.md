@@ -22,7 +22,7 @@ This tool is tailored for users looking to match their experimental results with
 Do not change the directory names because the tool relies on the structure!
 <p align="left"><img src="docs/DRAGen_readme_paper.jpg" height="400" alt=""> </img></p>
 
-_Note: For developing it is highly recommended to use Python versions Python 3.10._<br>
+_Note: For developing it is highly recommended to use Python versions Python 3.8._<br>
 **If further questions appear please check the lower section or get in touch with us.**
 
 
@@ -71,26 +71,26 @@ $ conda info --envs
 ```
 Be sure the DRAGen environment is activated it should look somewhat like this:<br>
 ```
-(DRAGen)....$
+(calibration)....$
 ```
 Install required module packages:
 
 To install requirements
 ```
-(DRAGen)....$ pip install -r requirements.txt
+(calibration)....$ pip install -r requirements.txt
 ```
 
 Start Calibration:<br>
 ```
-(DRAGen)....$ python main.py
+(calibration)....$ python main.py
 ```
 
 ## Related Projects
 
-### MCRpy
+### DRAGen
 <p align="center"><img src="docs/MCRpy-logo_png.png" height="200" alt="MCRpy logo"> </img></p>
 
-[MCRpy](https://github.com/NEFM-TUDresden/MCRpy) (Microstructure Characterization and Reconstruction in Python) facilitates the process by employing a range of descriptors and enables the reconstruction of new microstructures. One key advantage of MCRpy is its extensibility, allowing the combination of various descriptors without the need for loss functions. Additionally, it provides flexibility in choosing optimizers to address emerging optimization problems.
+[DRAGen]((https://github.com/ibf-RWTH/DRAGen) (an enhanced version of the Discrete Representative Volume Element (RVE) Automation and Generation Framework, known as DRAGen. Originally devised as an approach for generating Representative Volume Elements based on a Random Sequential Addition (RSA)-Algorithm and discrete tessellation, DRAGen has undergone significant improvements to broaden its capabilities.
 
 
 
@@ -100,18 +100,10 @@ Start Calibration:<br>
 [DAMASK](https://damask.mpie.de/index.html) (Düsseldorf Advanced Materials Simulation Kit) excels in its ability to handle a variety of simulation programs under different conditions, particularly for advanced high-strength materials. Its capability to address the interconnected nature of deformation, phase transformations, heating effects, and potential damage makes DAMASK an invaluable choice for researchers and practitioners seeking a comprehensive understanding of materials behavior in diverse scenarios.
 
 
-### Moose
-
-<p align="center"><img src="docs/moose_logo.png" height="80" alt="Moose banner"> </img></p>
-
-[MOOSE](https://mooseframework.inl.gov/) (Multiphysics Object-Oriented Simulation Environment) framework is an open-source software framework designed for solving complex physics-based engineering simulations. Moose supports adaptive mesh refinement which improves the accuracy and efficiency. It is possible to develop a simulation application tailored to specific needs.
 
 
-### MTEX
 
-<p align="center"><img src="docs/MTEX_100x67px.png" height="130" alt="MTEX banner"> </img></p>
 
-[MTEX](https://mtex-toolbox.github.io/index) (Materials Texture and Microstructure Analysis Toolbox) is an open-source Matlab tool that allows data processing using techniques such as EDSB, and analysis on microstructure and crystallographic textures. It has powerful visualization tools for displaying crystallographic data, including pole figures, stereographic projections, and other graphical representations of orientation information.
 
 
 
