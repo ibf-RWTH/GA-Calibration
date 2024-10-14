@@ -27,7 +27,7 @@ _Note: For developing it is highly recommended to use Python versions Python 3.8
 
 
 ## Installation
-
+The software must be executed on a high-performance computing (HPC) cluster, utilizing [Slurm](https://slurm.schedmd.com/quickstart.html) commands to optimize resource management and improve execution efficiency.
 As the first step, conda needs to be installed.
 To be sure conda is installed correctly on your system [look up here](https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html)<br>
 
@@ -90,7 +90,7 @@ Start Calibration:<br>
 ### DRAGen
 <p align="center"><img src="docs/MCRpy-logo_png.png" height="200" alt="MCRpy logo"> </img></p>
 
-[DRAGen]((https://github.com/ibf-RWTH/DRAGen) (an enhanced version of the Discrete Representative Volume Element (RVE) Automation and Generation Framework, known as DRAGen. Originally devised as an approach for generating Representative Volume Elements based on a Random Sequential Addition (RSA)-Algorithm and discrete tessellation, DRAGen has undergone significant improvements to broaden its capabilities.
+[DRAGen](https://github.com/ibf-RWTH/DRAGen) (an enhanced version of the Discrete Representative Volume Element (RVE) Automation and Generation Framework, known as DRAGen. Originally devised as an approach for generating Representative Volume Elements based on a Random Sequential Addition (RSA)-Algorithm and discrete tessellation, DRAGen has undergone significant improvements to broaden its capabilities.
 
 
 
